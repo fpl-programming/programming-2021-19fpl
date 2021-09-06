@@ -12,7 +12,7 @@ class Shape(ABC):
     An abstract class of a shape
     """
     def __init__(self, uid: int):
-        pass
+        self.uid = uid
 
     def get_uid(self):
         """
