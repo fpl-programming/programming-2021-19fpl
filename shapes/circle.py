@@ -10,7 +10,7 @@ class Circle:
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
-        pass
+        self.uid = uid
 
     def get_area(self):
         """
