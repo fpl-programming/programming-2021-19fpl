@@ -3,14 +3,15 @@ Programming for linguists
 
 Implementation of the class Square
 """
+from rectangle import Rectangle
 
 
-class Square:
+class Square(Rectangle):
     """
     A class for squares
     """
     def __init__(self, uid: int, length: int):
-        pass
+        super().__init__(uid, length, length)
 
     def get_area(self):
         """
