@@ -4,31 +4,36 @@ Programming for linguists
 Implementation of the class Circle
 """
 
+from shape import Shape
 
-class Circle:
+from math import pi
+
+
+class Circle(Shape):
     """
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
-        pass
+        self.radius = radius
+        super().__init__(uid)
 
     def get_area(self):
         """
         Returns the area of a circle
         :return int: the area of a circle
         """
-        pass
+        return self.radius * self.radius * pi
 
     def get_perimeter(self):
         """
         Returns the perimeter of a circle
         :return int: the perimeter of a circle
         """
-        pass
+        return pi * 2 * self.radius
 
     def get_diameter(self):
         """
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
-        pass
+        return 2 * self.radius
