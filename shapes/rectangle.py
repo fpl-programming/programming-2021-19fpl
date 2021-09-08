@@ -12,8 +12,9 @@ class Rectangle(Shape):
     """
     def __init__(self, uid: int, width: int, length: int):
         super().__init__(uid)
-        self.width = width
         self.length = length
+        self.width = width
+
 
     def get_area(self):
         """
