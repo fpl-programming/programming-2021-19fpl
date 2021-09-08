@@ -35,4 +35,3 @@ class Circle(Shape):
         :return int: the diameter of a circle
         """
         return 2 * self.radius
-

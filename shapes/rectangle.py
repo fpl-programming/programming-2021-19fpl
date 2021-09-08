@@ -36,4 +36,3 @@ class Rectangle(Shape):
         :return int: the diagonal length of a rectangle
         """
         return math.sqrt(self.width ** 2 + self.length ** 2)
-
