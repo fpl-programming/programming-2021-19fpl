@@ -20,8 +20,7 @@ class Circle(Shape):
         Returns the area of a circle
         :return int: the area of a circle
         """
-        area = math.pi * self.radius ** 2
-        return area
+        return  self.radius ** 2 * math.pi
 
     def get_perimeter(self):
         """
@@ -35,4 +34,4 @@ class Circle(Shape):
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
-        return self.radius*2
+        return self.radius * 2
