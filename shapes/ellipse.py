@@ -4,7 +4,7 @@ Programming for linguists
 Implementation of the class Ellipse
 """
 import math
-from shape import Shape
+from shapes.shape import Shape
 
 
 class Ellipse(Shape):
