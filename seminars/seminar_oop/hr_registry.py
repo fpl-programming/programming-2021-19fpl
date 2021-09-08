@@ -1,3 +1,4 @@
+# pylint: skip-file
 from seminars.seminar_oop.employee import Employee
 
 
