@@ -5,6 +5,7 @@ Implementation of the class Rectangle
 """
 import math
 from shapes.shape import Shape
+
 class Rectangle (Shape):
     """
     A class for rectangles
@@ -14,6 +15,7 @@ class Rectangle (Shape):
         self.width = width
         self.length = length
 
+
     def get_area(self):
         """
         Returns the area of a rectangle
@@ -21,6 +23,7 @@ class Rectangle (Shape):
         """
         rectangle_area = self.length * self.width
         return rectangle_area
+
 
     def get_perimeter(self):
         """
@@ -30,6 +33,7 @@ class Rectangle (Shape):
         rectangle_perimeter = (self.length + self.width)*2
         return rectangle_perimeter
 
+
     def get_diagonal(self):
         """
         Returns the diagonal length  of a rectangle
@@ -37,3 +41,4 @@ class Rectangle (Shape):
         """
         rectangle_diagonal = math.sqrt (self.length**2 + self.width**2)
         return rectangle_diagonal
+
