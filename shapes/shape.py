@@ -33,4 +33,3 @@ class Shape(ABC):
         Returns the perimeter of a shape
         """
         return self.get_perimeter()
-
