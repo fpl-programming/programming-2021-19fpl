@@ -17,8 +17,8 @@ class EllipseTestCase(unittest.TestCase):
         Creates a ellipse.
         Tests that the correct uid is returned.
         """
-        ellipse = Ellipse(5, 4, 6)
-        self.assertEqual(ellipse.get_uid(), 5)
+        ellipse = Ellipse(0, 4, 6)
+        self.assertEqual(ellipse.get_uid(), 0)
 
     def test_ellipse_get_area(self):
         """
