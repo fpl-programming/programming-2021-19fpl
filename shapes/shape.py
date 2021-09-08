@@ -18,7 +18,7 @@ class Shape(ABC):
         """
         Returns the uid of a shape
         """
-        pass
+        return self.uid
 
     @abstractmethod
     def get_area(self):

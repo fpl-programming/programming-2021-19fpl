@@ -3,32 +3,14 @@ Programming for linguists
 
 Implementation of the class Rectangle
 """
+from shapes.parallelogram import Parallelogram
 
 
-class Rectangle:
+class Rectangle(Parallelogram):
     """
     A class for rectangles
     """
+    angle = 90
+
     def __init__(self, uid: int, width: int, length: int):
-        pass
-
-    def get_area(self):
-        """
-        Returns the area of a rectangle
-        :return int: the area of a rectangle
-        """
-        pass
-
-    def get_perimeter(self):
-        """
-        Returns the perimeter of a rectangle
-        :return int: the perimeter of a rectangle
-        """
-        pass
-
-    def get_diagonal(self):
-        """
-        Returns the diagonal length  of a rectangle
-        :return int: the diagonal length of a rectangle
-        """
-        pass
+        super().__init__(uid, width, length, angle=Rectangle.angle)
