@@ -11,6 +11,7 @@ class Square(Shape):
     """
     A class for squares
     """
+
     def __init__(self, uid: int, length: int):
         super().__init__(uid)
         self.length = length
@@ -20,7 +21,7 @@ class Square(Shape):
         Returns the area of a square
         :return int: the area of a square
         """
-        return self.length**2
+        return self.length ** 2
 
     def get_perimeter(self):
         """
@@ -35,5 +36,3 @@ class Square(Shape):
         :return int: the diagonal length of a square
         """
         return self.length * math.sqrt(2)
-
-
