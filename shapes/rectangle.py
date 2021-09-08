@@ -37,5 +37,5 @@ class Rectangle (Shape):
         Returns the diagonal length  of a rectangle
         :return int: the diagonal length of a rectangle
         """
-        rectangle_diagonal = math.sqrt(self.length ** 2 + self.width ** 2)
+        rectangle_diagonal = math.sqrt(self.length**2 + self.width**2)
         return rectangle_diagonal

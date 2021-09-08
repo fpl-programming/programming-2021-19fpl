@@ -5,7 +5,6 @@ Implementation of the class Parallelogram
 """
 from shapes.shape import Shape
 
-
 class Parallelogram (Shape):
     """
     A class for parallelogram
@@ -16,7 +15,6 @@ class Parallelogram (Shape):
         self.big_side = big_side
         self.height = height
 
-
     def get_area(self):
         """
         Returns the area of a parallelogram
@@ -24,7 +22,6 @@ class Parallelogram (Shape):
         """
         parallelogram_area = self.height * self.big_side
         return parallelogram_area
-
 
     def get_perimeter(self):
         """

@@ -7,7 +7,6 @@ import math
 from shapes.shape import Shape
 
 class Square(Shape):
-
     """
     A class for squares
     """
@@ -20,7 +19,7 @@ class Square(Shape):
         Returns the area of a square
         :return int: the area of a square
         """
-        square_area = self.length ** 2
+        square_area = self.length**2
         return square_area
 
     def get_perimeter(self):
@@ -36,5 +35,5 @@ class Square(Shape):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        square_diagonal = math.sqrt(self.length ** 2 * 2)
+        square_diagonal = math.sqrt(self.length**2 * 2)
         return square_diagonal
