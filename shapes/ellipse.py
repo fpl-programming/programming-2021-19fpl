@@ -29,5 +29,6 @@ class Ellipse(Shape):
         Returns the perimeter of an ellipse
         :return int: the perimeter of an ellipse
         """
-        perimeter = 2 * math.pi * math.sqrt(((self.semi_minor_axis**2) + (self.semi_major_axis**2)) / 2)
+        perimeter = 2 * math.pi * \
+                    math.sqrt(((self.semi_minor_axis**2) + (self.semi_major_axis**2)) / 2)
         return perimeter
