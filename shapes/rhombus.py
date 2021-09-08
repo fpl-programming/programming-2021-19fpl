@@ -6,6 +6,7 @@ Implementation of the class Rhombus
 
 from square import Square
 
+
 class Rhombus(Square):
     """
     A class for rhombi
