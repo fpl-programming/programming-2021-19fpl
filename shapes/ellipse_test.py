@@ -25,7 +25,7 @@ class EllipseTestCase(unittest.TestCase):
         Creates a ellipse.
         Tests that the area is calculated correctly.
         """
-        ellipse = Ellipse(0, 4, 6)
+        ellipse = Ellipse(1, 4, 6)
         self.assertEqual(ellipse.get_area(), 18.84955592153876)
 
     def test_ellipse_get_perimeter(self):
