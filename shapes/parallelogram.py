@@ -30,4 +30,3 @@ class Parallelogram(Shape):
         """
         parallelogram_perimeter = 2*(self.big_side+self.small_side)
         return parallelogram_perimeter
-

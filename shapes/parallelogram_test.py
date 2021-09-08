@@ -35,4 +35,3 @@ class ParallelogramTestCase(unittest.TestCase):
         """
         parallelogram = Parallelogram(0, 2, 8, 4)
         self.assertEqual(parallelogram.get_perimeter(), 20)
-

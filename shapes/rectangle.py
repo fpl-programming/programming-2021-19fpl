@@ -31,7 +31,6 @@ class Rectangle(Shape):
         rectangle_perimeter = (self.length+self.width)*2
         return rectangle_perimeter
 
-
     def get_diagonal(self):
         """
         Returns the diagonal length  of a rectangle
