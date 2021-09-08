@@ -5,7 +5,7 @@ Implementation of the class Parallelogram
 """
 from shapes.shape import Shape
 
-class Parallelogram (Shape):
+class Parallelogram(Shape):
     """
     A class for parallelogram
     """
