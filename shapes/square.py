@@ -6,7 +6,6 @@ Implementation of the class Square
 import math
 from shapes.shape import Shape
 
-
 class Square(Shape):
 
     """
@@ -16,7 +15,6 @@ class Square(Shape):
         super().__init__(uid)
         self.length = length
 
-
     def get_area(self):
         """
         Returns the area of a square
@@ -24,7 +22,6 @@ class Square(Shape):
         """
         square_area = self.length ** 2
         return square_area
-
 
     def get_perimeter(self):
         """
@@ -34,7 +31,6 @@ class Square(Shape):
         square_perimeter = self.length * 4
         return square_perimeter
 
-
     def get_diagonal(self):
         """
         Returns the diagonal length of a square
@@ -42,4 +38,3 @@ class Square(Shape):
         """
         square_diagonal = math.sqrt(self.length ** 2 * 2)
         return square_diagonal
-
