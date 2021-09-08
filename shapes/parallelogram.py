@@ -5,6 +5,7 @@ Implementation of the class Parallelogram
 """
 from shapes.shape import Shape
 
+
 class Parallelogram (Shape):
     """
     A class for parallelogram
@@ -32,7 +33,4 @@ class Parallelogram (Shape):
         """
         parallelogram_perimeter = 2 * (self.big_side + self.small_side)
         return parallelogram_perimeter
-
-
-
 

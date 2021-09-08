@@ -6,6 +6,7 @@ Implementation of the class Circle
 import math
 from shapes.shape import Shape
 
+
 class Circle (Shape):
     """
     A class for circles
