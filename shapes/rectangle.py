@@ -14,7 +14,7 @@ class Rectangle(Shape):
         super().__init__(uid)
         self.width = width
         self.length = length
-        
+
     def get_area(self):
         """
         Returns the area of a rectangle
