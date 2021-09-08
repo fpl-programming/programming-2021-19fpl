@@ -20,7 +20,7 @@ class Parallelogram(Shape):
         Returns the area of a parallelogram
         :return int: the area of a parallelogram
         """
-        parallelogram_area = self.height * self.big_side
+        parallelogram_area = self.height*self.big_side
         return parallelogram_area
 
     def get_perimeter(self):
@@ -28,6 +28,6 @@ class Parallelogram(Shape):
         Returns the perimeter of a parallelogram
         :return int: the perimeter of a parallelogram
         """
-        parallelogram_perimeter = 2 * (self.big_side + self.small_side)
+        parallelogram_perimeter = 2*(self.big_side+self.small_side)
         return parallelogram_perimeter
 

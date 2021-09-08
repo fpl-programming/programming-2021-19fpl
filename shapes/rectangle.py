@@ -20,7 +20,7 @@ class Rectangle(Shape):
         Returns the area of a rectangle
         :return int: the area of a rectangle
         """
-        rectangle_area = self.length * self.width
+        rectangle_area = self.length*self.width
         return rectangle_area
 
     def get_perimeter(self):
@@ -28,7 +28,7 @@ class Rectangle(Shape):
         Returns the perimeter of a rectangle
         :return int: the perimeter of a rectangle
         """
-        rectangle_perimeter = (self.length + self.width) * 2
+        rectangle_perimeter = (self.length+self.width)*2
         return rectangle_perimeter
 
 

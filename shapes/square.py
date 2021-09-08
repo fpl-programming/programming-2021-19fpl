@@ -27,7 +27,7 @@ class Square(Shape):
         Returns the perimeter of a square
         :return int: the perimeter of a square
         """
-        square_perimeter = self.length * 4
+        square_perimeter = self.length*4
         return square_perimeter
 
     def get_diagonal(self):
