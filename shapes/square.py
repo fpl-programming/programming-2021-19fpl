@@ -22,7 +22,7 @@ class Square(Shape):
         Returns the area of a square
         :return int: the area of a square
         """
-        square_area = self.length**2
+        square_area = self.length ** 2
         return square_area
 
 
@@ -31,7 +31,7 @@ class Square(Shape):
         Returns the perimeter of a square
         :return int: the perimeter of a square
         """
-        square_perimeter = self.length*4
+        square_perimeter = self.length * 4
         return square_perimeter
 
 
@@ -40,6 +40,6 @@ class Square(Shape):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        square_diagonal = math.sqrt(self.length**2 * 2)
+        square_diagonal = math.sqrt(self.length ** 2 * 2)
         return square_diagonal
 
