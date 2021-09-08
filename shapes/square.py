@@ -34,4 +34,3 @@ class Square(Rectangle):
         :return int: the diagonal length of a square
         """
         return self.length * math.sqrt(2)
-
