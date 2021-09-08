@@ -4,7 +4,7 @@ Programming for linguists
 Implementation of the class Rhombus
 """
 
-from square import Square
+from shapes.square import Square
 
 
 class Rhombus(Square):

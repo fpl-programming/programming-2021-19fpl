@@ -4,7 +4,8 @@ Programming for linguists
 Implementation of the class Square
 """
 
-from shape import Shape
+from math import sqrt
+from shapes.shape import Shape
 
 
 class Square(Shape):
