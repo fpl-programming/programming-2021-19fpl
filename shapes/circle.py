@@ -4,13 +4,14 @@ Programming for linguists
 Implementation of the class Circle
 """
 
+from shapes.shape import Shape
 
-class Circle:
+class Circle(Shape):
     """
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
-        pass
+        super().__init__(uid)
 
     def get_area(self):
         """
