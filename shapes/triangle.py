@@ -1,26 +1,28 @@
-from shapes.shape import Shape
+"""
+Programming for linguists
+
+Implementation of the class RightTriangle
+"""
+
+
 import math
+from shapes.shape import Shape
 
 class RightTriangle(Shape):
     """
     A class for right-angled triangle
     """
-    def __init__(self, uid: int, a: int, b: int, c: int):
+    def __init__(self, uid: int, a_side: int, b_side: int, c_side: int):
         super().__init__(uid)
-        self.a = a
-        self.b = b
-        self.c = c
+        self.a_side = a_side
+        self.b_side = b_side
+        self.c_side = c_side
 
     def get_area(self):
-        return (self.a * self.b) // 2
+        return (self.a_side * self.b_side) // 2
 
     def get_perimeter(self):
-        return self.a + self.b + self.c
+        return self.a_side + self.b_side + self.c_side
 
     def get_diagonal(self):
-        return int(math.sqrt(self.a**2 + self.b**2))
-
-t = RightTriangle(4, 3, 4, 5)
-print(t.get_area())
-print(t.get_perimeter())
-print(t.get_diagonal())
+        return int(math.sqrt(self.a_side**2 + self.b_side**2))

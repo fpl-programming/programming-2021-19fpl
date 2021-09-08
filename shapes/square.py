@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Square
 """
-from shapes.shape import Shape
 import math
+from shapes.shape import Shape
 
 
 class Square(Shape):

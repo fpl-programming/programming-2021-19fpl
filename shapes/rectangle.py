@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Rectangle
 """
-from shapes.shape import Shape
 import math
+from shapes.shape import Shape
 
 class Rectangle(Shape):
     """
@@ -35,4 +35,3 @@ class Rectangle(Shape):
         :return int: the diagonal length of a rectangle
         """
         return math.sqrt(self.width**2 + self.length**2)
-

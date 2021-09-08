@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Circle
 """
-from shapes.shape import Shape
 import math
+from shapes.shape import Shape
 
 
 class Circle(Shape):
@@ -38,4 +38,3 @@ class Circle(Shape):
         :return int: the diameter of a circle
         """
         return 2 * self.radius
-
