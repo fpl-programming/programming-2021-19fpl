@@ -22,8 +22,7 @@ class RightTrapeze(Shape):
         Returns the area of a triangle
         :return int: the area of a triangle
         """
-        return ((self.a_side + self.b_side) // 2) / math.sqrt(self.c_side ** 2 -
-                                                              ((self.a_side - self.b_side) ** 2) // 4)
+        return ((self.a_side + self.b_side) / 2) * math.sqrt(self.c_side ** 2 - ((self.a_side - self.b_side) ** 2) / 4)
 
     def get_perimeter(self):
         """
