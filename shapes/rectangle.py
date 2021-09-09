@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Rectangle
 """
-from shapes.parallelogram import Parallelogram
 from math import sqrt
+from shapes.parallelogram import Parallelogram
 
 
 class Rectangle(Parallelogram):
