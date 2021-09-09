@@ -22,7 +22,8 @@ class Triangle(Shape):
         Returns the area of a triangle
         :return int: the area of a triangle
         """
-        return sqrt(self.get_half_the_perimeter() * (self.get_half_the_perimeter() - self.first_side)
+        return sqrt(self.get_half_the_perimeter()
+                    * (self.get_half_the_perimeter() - self.first_side)
                     * (self.get_half_the_perimeter() - self.second_side)
                     * (self.get_half_the_perimeter() - self.third_side))
 
