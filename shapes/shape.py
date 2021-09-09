@@ -7,6 +7,7 @@ Implementation of the abstract class Shape
 from abc import ABC, abstractmethod
 
 
+
 class Shape(ABC):
     """
     An abstract class of a shape
