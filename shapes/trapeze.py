@@ -12,12 +12,10 @@ class Trapeze(Shape):
     A class for trapezes
     """
 
-    def __init__(self, uid: int, left: int, right: int, upper: int, lower: int):
+    def __init__(self, uid: int, sides: tuple, bases: tuple):
         super().__init__(uid)
-        self.left = left
-        self.right = right
-        self.upper = upper
-        self.lower = lower
+        self.left, self.right = sides[0], sides[1]
+        self.upper, self.lower = bases[0], bases[1]
 
     @property
     def _get_height(self):
