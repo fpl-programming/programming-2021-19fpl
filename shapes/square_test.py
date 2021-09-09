@@ -44,3 +44,19 @@ class SquareTestCase(unittest.TestCase):
         """
         square = Square(0, 5)
         self.assertEqual(square.get_diagonal(), 7.0710678118654755)
+
+    def test_square_get_inradius(self):
+        """
+        Creates a square.
+        Tests that the inradius is calculated correctly.
+        """
+        square = Square(0, 5)
+        self.assertEqual(square.get_inradius(), 2.5)
+
+    def test_square_get_circumradius(self):
+        """
+        Creates a square.
+        Tests that the circumradius is calculated correctly.
+        """
+        square = Square(0, 5)
+        self.assertEqual(square.get_circumradius(), 3.5355339059327378)
