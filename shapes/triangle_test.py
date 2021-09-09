@@ -1,5 +1,5 @@
 import unittest
-from triangle import Triangle
+from shapes.triangle import Triangle
 
 
 class CircleTestCase(unittest.TestCase):

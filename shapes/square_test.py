@@ -6,7 +6,7 @@ Tests for Square class.
 
 import unittest
 
-from square import Square
+from shapes.square import Square
 
 
 class SquareTestCase(unittest.TestCase):
