@@ -3,7 +3,7 @@ Programming for linguists
 
 Implementation of the class Rectangle
 """
-
+import math
 from shapes.shape import Shape
 
 class Rectangle (Shape):
