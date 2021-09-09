@@ -25,11 +25,10 @@ class Shape(ABC):
         """
         Returns the area of a shape
         """
-        return self.get_area()
+
 
     @abstractmethod
     def get_perimeter(self):
         """
         Returns the perimeter of a shape
         """
-        return self.get_perimeter()
