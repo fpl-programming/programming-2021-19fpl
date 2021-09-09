@@ -7,6 +7,9 @@ import math
 from shapes.rectangle import Rectangle
 
 class Rhomb(Rectangle):
+    """
+    A class for rhomb
+    """
     def __init__(self, uid: int, length: int, alpha: int):
         super().__init__(uid, length, length)
         self.alpha = alpha
@@ -34,4 +37,3 @@ class Rhomb(Rectangle):
         small_diagonal = self.length * math.sqrt(2 + 2 * math.cos(180 - self.alpha))
 
         return big_diagonal, small_diagonal
-
