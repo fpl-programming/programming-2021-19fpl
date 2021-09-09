@@ -5,7 +5,7 @@ Tests for Rectangle class.
 """
 
 import unittest
-from shapes.rectangle import Rectangle
+from rectangle import Rectangle
 
 
 class RectangleTestCase(unittest.TestCase):

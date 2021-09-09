@@ -6,12 +6,15 @@ Implementation of the class Circle
 
 from math import pi
 
+from shape import Shape
 
-class Circle:
+
+class Circle(Shape):
     """
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
+        super().__init__(uid)
         self.radius = radius
 
     def get_area(self):
@@ -26,11 +29,11 @@ class Circle:
         Returns the perimeter of a circle
         :return int: the perimeter of a circle
         """
-        pass
+        return 2 * self.radius * pi
 
     def get_diameter(self):
         """
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
-        pass
+        return 2 * self.radius

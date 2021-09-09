@@ -6,10 +6,10 @@ Tests for all classes of shapes.
 
 import unittest
 
-from shapes.shape import Shape
-from shapes.square import Square
-from shapes.rectangle import Rectangle
-from shapes.circle import Circle
+from shape import Shape
+from square import Square
+from rectangle import Rectangle
+from circle import Circle
 
 
 class ShapesTestCase(unittest.TestCase):

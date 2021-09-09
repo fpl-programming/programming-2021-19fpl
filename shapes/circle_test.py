@@ -5,7 +5,7 @@ Tests for Circle class.
 """
 
 import unittest
-from shapes.circle import Circle
+from circle import Circle
 
 
 class CircleTestCase(unittest.TestCase):
