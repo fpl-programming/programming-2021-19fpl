@@ -6,7 +6,7 @@ Implementation of the class Square
 
 from math import sqrt
 
-from rectangle import Rectangle
+from shapes.rectangle import Rectangle
 
 
 class Square(Rectangle):

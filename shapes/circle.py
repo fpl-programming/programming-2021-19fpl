@@ -6,7 +6,7 @@ Implementation of the class Circle
 
 from math import pi
 
-from shape import Shape
+from shapes.shape import Shape
 
 
 class Circle(Shape):
