@@ -45,7 +45,7 @@ class SquareTestCase(unittest.TestCase):
         trapeze = Trapeze(4, (10, 9), (10, 20))
         self.assertEqual(trapeze.get_mean_line(), 15.0)
 
-    def test_trapeze_mean_line(self):
+    def test_angles_of_base(self):
         """
         Creates a trapeze.
         Tests that the angles of the base is calculated correctly.

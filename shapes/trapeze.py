@@ -53,8 +53,8 @@ class Trapeze(Shape):
         Returns the mean line of a trapeze
         :return tuple: left angle, right angle
         """
-        h = self._get_height
-        left = asin(h / self.left) * 180 / pi
-        right = asin(h / self.right) * 180 / pi
+        height = self._get_height
+        left = asin(height / self.left) * 180 / pi
+        right = asin(height / self.right) * 180 / pi
 
         return left, right
