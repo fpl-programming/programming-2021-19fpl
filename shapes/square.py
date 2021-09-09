@@ -4,8 +4,6 @@ Programming for linguists
 Implementation of the class Square
 """
 
-from math import sqrt
-
 from shapes.rectangle import Rectangle
 
 
@@ -16,6 +14,7 @@ class Square(Rectangle):
     def __init__(self, uid: int, length: int):
         super().__init__(uid, length, length)
 
+    '''
     def get_area(self):
         """
         Returns the area of a square
@@ -36,3 +35,4 @@ class Square(Rectangle):
         :return int: the diagonal length of a square
         """
         return sqrt(2 * self.length ** 2)
+    '''

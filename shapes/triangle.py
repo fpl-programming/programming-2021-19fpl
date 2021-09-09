@@ -1,7 +1,7 @@
 """
 Programming for linguists
 
-Implementation of the class Circle
+Implementation of the class Triangle
 """
 
 from math import sqrt
@@ -21,8 +21,8 @@ class Triangle(Shape):
 
     def get_perimeter(self):
         """
-        Returns the perimeter of a circle
-        :return int: the perimeter of a circle
+        Returns the perimeter of a triangle
+        :return int: the perimeter of a triangle
         """
         return self.first_side_l + self.second_side_l + self.third_side_l
 

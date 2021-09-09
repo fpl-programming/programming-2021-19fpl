@@ -9,7 +9,7 @@ import unittest
 from shapes.triangle import Triangle
 
 
-class CircleTestCase(unittest.TestCase):
+class TriangleTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Triangle
     """
