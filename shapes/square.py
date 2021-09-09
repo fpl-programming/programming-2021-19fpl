@@ -32,4 +32,3 @@ class Square (Rectangle):
         :return int: the diagonal length of a square
         """
         return super().get_diagonal()
-
