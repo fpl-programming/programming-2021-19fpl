@@ -35,4 +35,4 @@ class Square(Rectangle):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        return self.length * math.sqrt(2)
+        return Rectangle.get_diagonal(self)
