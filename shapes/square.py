@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Square
 """
-from shapes.rectangle import Rectangle
 from math import sqrt
+from shapes.rectangle import Rectangle
 
 
 class Square(Rectangle):

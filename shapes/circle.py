@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Circle
 """
-from shapes.shape import Shape
 from math import pi
+from shapes.shape import Shape
 
 
 class Circle(Shape):
