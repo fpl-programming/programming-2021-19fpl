@@ -6,9 +6,9 @@ Implementation of the abstract class Rhomb
 import math
 from shapes.rectangle import Rectangle
 
-class Rhomb(Rectangle):
+class Rhombus(Rectangle):
     """
-    A class for rhomb
+    A class for rhombus
     """
     def __init__(self, uid: int, length: int, alpha: int):
         super().__init__(uid, length, length)
@@ -16,22 +16,22 @@ class Rhomb(Rectangle):
 
     def get_area(self):
         """
-        Returns the area of a rhomb
-        :return int: the area of a rhomb
+        Returns the area of a rhombus
+        :return int: the area of a rhombus
         """
         return self.length**2 * math.sin(self.alpha)
 
     def get_perimeter(self):
         """
-        Returns the perimeter of a rhomb
-        :return int: the perimeter of a rhomb
+        Returns the perimeter of a rhombus
+        :return int: the perimeter of a rhombus
         """
         return 4 * self.length
 
     def get_diagonal(self):
         """
-        Returns the diagonal length of a rhomb
-        :return int: the diagonal length of a rhomb
+        Returns the diagonal length of a rhombus
+        :return int: the diagonal length of a rhombus
         """
         big_diagonal = self.length * math.sqrt(2 + 2 * math.cos(self.alpha))
         small_diagonal = self.length * math.sqrt(2 + 2 * math.cos(180 - self.alpha))
