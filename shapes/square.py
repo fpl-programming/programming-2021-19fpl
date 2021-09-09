@@ -31,4 +31,3 @@ class Square (Rectangle):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-
