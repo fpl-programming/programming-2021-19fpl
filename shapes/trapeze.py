@@ -6,7 +6,7 @@ import math
 from shapes.shape import Shape
 
 
-class RightTriangle(Shape):
+class RightTrapeze(Shape):
     """
     A class for right-angled triangle
     """
@@ -22,18 +22,19 @@ class RightTriangle(Shape):
         Returns the area of a triangle
         :return int: the area of a triangle
         """
-        return (self.a_side * self.b_side) // 2
+        return ((self.a_side + self.b_side) // 2) / math.sqrt(self.c_side ** 2 -
+                                                              ((self.a_side - self.b_side) ** 2) // 4)
 
     def get_perimeter(self):
         """
         Returns the perimeter of a triangle
         :return int: the perimeter of a triangle
         """
-        return self.a_side + self.b_side + self.c_side
+        return self.a_side + self.b_side + (2 * self.c_side)
 
     def get_diagonal(self):
         """
         Returns the diagonal length of a triangle
         :return int: the diagonal length of a triangle
         """
-        return int(math.sqrt(self.a_side ** 2 + self.b_side ** 2))
+        return int(math.sqrt(self.a_side ** 2 + self.b_side * self.c_side))
