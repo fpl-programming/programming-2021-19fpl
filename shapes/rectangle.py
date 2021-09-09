@@ -4,8 +4,9 @@ Programming for linguists
 Implementation of the class Rectangle
 """
 
-from shapes.shape import Shape
 from math import sqrt
+from shapes.shape import Shape
+
 
 class Rectangle(Shape):
     """
