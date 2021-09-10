@@ -37,10 +37,10 @@ class TriangleTestCase(unittest.TestCase):
         triangle = Triangle(0, 3, 4, 5)
         self.assertEqual(triangle.get_perimeter(), 12)
 
-    def test_triangle_get_incircle_radius(self):
+    def test_triangle_get_altitudes(self):
         """
         Creates a triangle.
-        Tests that the radius of the incircle is calculated correctly.
+        Tests that the lengths of altitudes are calculated correctly.
         """
         triangle = Triangle(0, 3, 4, 5)
-        self.assertEqual(triangle.get_incircle_radius(), 1)
+        self.assertEqual(triangle.get_altitudes(), (4, 3, 2.4))

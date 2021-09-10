@@ -35,9 +35,10 @@ class Triangle(Shape):
         return (sqrt(half_p * (half_p - self.first_side_l) * (half_p - self.second_side_l) *
                 (half_p - self.third_side_l)))
 
-    def get_incircle_radius(self):
+    def get_altitudes(self):
         """
-        Returns the radius of the incircle in a triangle
-        :return int: the radius of the incircle in a triangle
+        Returns the lengths of all three altitudes in a triangle
+        :return int: the lengths of all three altitudes in a triangle
         """
-        return self.get_area() / (self.get_perimeter() / 2)
+        s_twice = 2 * self.get_area()
+        return s_twice / self.first_side_l, s_twice / self.second_side_l, s_twice / self.third_side_l
