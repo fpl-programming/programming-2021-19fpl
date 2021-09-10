@@ -33,29 +33,29 @@ class TriangleTestCase(unittest.TestCase):
         Creates a triangle.
         Tests that the perimeter is calculated correctly.
         """
-        rectangle = Triangle(0, 9, 10, 11)
-        self.assertEqual(rectangle.get_perimeter(), 30)
+        triangle = Triangle(0, 9, 10, 11)
+        self.assertEqual(triangle.get_perimeter(), 30)
 
     def test_triangle_get_semiperimeter(self):
         """
         Creates a triangle.
         Tests that the semiperimeter is calculated correctly.
         """
-        rectangle = Triangle(0, 9, 10, 11)
-        self.assertEqual(rectangle.get_semiperimeter(), 15)
+        triangle = Triangle(0, 9, 10, 11)
+        self.assertEqual(triangle.get_semiperimeter(), 15)
 
     def test_triangle_get_shortest_altitude(self):
         """
         Creates a triangle.
-        Tests that the altitude to the longest side is calculated correctly.
+        Tests that the shortest altitude is calculated correctly.
         """
-        rectangle = Triangle(0, 9, 10, 11)
-        self.assertEqual(rectangle.get_shortest_altitude(), 7.713892158398701)
+        triangle = Triangle(0, 9, 10, 11)
+        self.assertEqual(triangle.get_shortest_altitude(), 7.713892158398701)
 
     def test_triangle_get_longest_altitude(self):
         """
         Creates a triangle.
-        Tests that the altitude to the shortest side is calculated correctly.
+        Tests that the longest altitude is calculated correctly.
         """
-        rectangle = Triangle(0, 9, 10, 11)
-        self.assertEqual(rectangle.get_longest_altitude(), 9.428090415820634)
+        triangle = Triangle(0, 9, 10, 11)
+        self.assertEqual(triangle.get_longest_altitude(), 9.428090415820634)
