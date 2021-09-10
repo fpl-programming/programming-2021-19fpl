@@ -11,10 +11,10 @@ class Parallelogram (Shape):
     """
     A class for parallelograms
     """
-    def __init__(self, uid: int, larger_side: int, lower_side: int, acute_angle: int):
+    def __init__(self, uid: int, width: int, length: int, acute_angle: int):
         super().__init__(uid)
-        self.larger_side = larger_side
-        self.lower_side = lower_side
+        self.width = width
+        self.length = length
         self.acute_angle = acute_angle
 
     def get_area(self):
@@ -22,7 +22,7 @@ class Parallelogram (Shape):
         Returns the area of a parallelogram
         :return int: the area of a parallelogram
         """
-        area = self.larger_side * self.lower_side * sin(self.acute_angle)
+        area = self.length * self.width * sin(self.acute_angle)
         return area
 
     def get_perimeter(self):
@@ -30,7 +30,7 @@ class Parallelogram (Shape):
         Returns the perimeter of a parallelogram
         :return int: the perimeter of a parallelogram
         """
-        perimeter = (2 * self.lower_side) + (2 * self.larger_side)
+        perimeter = (2 * self.width) + (2 * self.length)
         return perimeter
 
     def get_larger_height(self):
@@ -38,7 +38,7 @@ class Parallelogram (Shape):
         Returns the larger height of a parallelogram
         :return int: the larger height of a parallelogram
         """
-        larger_height = self.get_area() // self.lower_side
+        larger_height = self.get_area() // self.width
         return larger_height
 
     def get_lower_height(self):
@@ -46,5 +46,5 @@ class Parallelogram (Shape):
         Returns the lower height of a parallelogram
         :return int: the lower height of a parallelogram
         """
-        lower_height = self.get_area() // self.larger_side
+        lower_height = self.get_area() // self.length
         return lower_height

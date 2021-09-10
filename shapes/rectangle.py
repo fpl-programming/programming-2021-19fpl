@@ -12,9 +12,7 @@ class Rectangle(Parallelogram):
     A class for rectangles
     """
     def __init__(self, uid: int, width: int, length: int):
-        self.uid = uid  # унаследование от родителя?
-        self.width = width
-        self.length = length
+        super().__init__(uid, width, length, acute_angle=0)
 
     def get_area(self):
         """
