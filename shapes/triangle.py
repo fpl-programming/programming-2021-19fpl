@@ -41,4 +41,5 @@ class Triangle(Shape):
         :return int: the lengths of all three altitudes in a triangle
         """
         s_twice = 2 * self.get_area()
-        return s_twice / self.first_side_l, s_twice / self.second_side_l, s_twice / self.third_side_l
+        return (s_twice / self.first_side_l, s_twice / self.second_side_l,
+                s_twice / self.third_side_l)
