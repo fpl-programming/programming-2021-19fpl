@@ -3,7 +3,6 @@ Programming for linguists
 
 Implementation of the class Square
 """
-import math
 from shapes.rectangle import Rectangle
 
 
