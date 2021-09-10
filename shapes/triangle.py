@@ -38,7 +38,10 @@ class Triangle(Shape):
         :return int: the area of a triangle
         """
         semi_p = self.get_semiperimeter()
-        return sqrt(semi_p * (semi_p - self.side_1) * (semi_p - self.side_2) * (semi_p - self.side_3))
+        return sqrt(semi_p
+                    * (semi_p - self.side_1)
+                    * (semi_p - self.side_2)
+                    * (semi_p - self.side_3))
 
     def get_shortest_altitude(self):
         """
