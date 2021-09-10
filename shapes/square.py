@@ -17,7 +17,7 @@ class Square (Rectangle):
         Returns the area of a square
         :return int: the area of a square
         """
-        super().get_area()
+
 
     def get_perimeter(self):
         """
