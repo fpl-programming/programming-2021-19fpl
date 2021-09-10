@@ -29,9 +29,9 @@ class Triangle (Shape):
         """
 
         half_p=self.get_perimeter()/2
-        return math.sqrt(half_p*(self.half_p-self.first_s)
-                         *(self.half_p-self.second_s)
-                         *(self.half_p-self.third_s))
+        return math.sqrt(half_p*(half_p-self.first_s)
+                         *(half_p-self.second_s)
+                         *(half_p-self.third_s))
 
 
     def get_height(self):
