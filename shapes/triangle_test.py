@@ -29,14 +29,6 @@ class TriangleTestCase(unittest.TestCase):
         triangle = Triangle(0, 13, 14, 15)
         self.assertEqual(triangle.get_perimeter(), 42)
 
-    def test_triangle_get_semi_perimeter(self):
-        """
-        Creates a triangle.
-        Tests that the perimeter is calculated correctly.
-        """
-        triangle = Triangle(0, 13, 14, 15)
-        self.assertEqual(triangle.get_semi_perimeter(), 21)
-
     def test_triangle_get_area(self):
         """
         Creates a triangle.
@@ -44,3 +36,11 @@ class TriangleTestCase(unittest.TestCase):
         """
         triangle = Triangle(0, 13, 14, 15)
         self.assertEqual(triangle.get_area(), 84)
+
+    def test_triangle_get_semi_perimeter(self):
+        """
+        Creates a triangle.
+        Tests that the perimeter is calculated correctly.
+        """
+        triangle = Triangle(0, 13, 14, 15)
+        self.assertEqual(triangle.get_semi_perimeter(), 21)
