@@ -11,7 +11,7 @@ class RegularTriangle(Shape):
     A class for regular triangles
     """
     def __init__(self, uid: int, length: int):
-        self.uid = uid
+        super().__init__(uid)
         self.length = length
 
     def get_area(self):
@@ -23,5 +23,8 @@ class RegularTriangle(Shape):
         return perimeter
 
     def get_height(self):
+        """
+        Returns the height of a regular triangle
+        """
         height = 3 ** 0.5 / 2 * self.length
         return height

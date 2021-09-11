@@ -12,7 +12,7 @@ class Rectangle(Shape):
     A class for rectangles
     """
     def __init__(self, uid: int, width: int, length: int):
-        self.uid = uid
+        super().__init__(uid)
         self.width = width
         self.length = length
 
@@ -25,5 +25,8 @@ class Rectangle(Shape):
         return perimeter
 
     def get_diagonal(self):
+        """
+        Returns the diagonal of a rectangle
+        """
         diagonal = math.sqrt(self.width ** 2 + self.length ** 2)
         return diagonal

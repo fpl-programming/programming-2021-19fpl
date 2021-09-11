@@ -12,7 +12,7 @@ class Square(Shape):
     A class for squares
     """
     def __init__(self, uid: int, length: int):
-        self.uid = uid
+        super().__init__(uid)
         self.length = length
 
     def get_area(self):
@@ -24,5 +24,8 @@ class Square(Shape):
         return perimeter
 
     def get_diagonal(self):
+        """
+        Returns the diagonal of a square
+        """
         diagonal = math.sqrt(2 * self.length ** 2)
         return diagonal

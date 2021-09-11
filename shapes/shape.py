@@ -15,6 +15,9 @@ class Shape(ABC):
         self.uid = uid
 
     def get_uid(self):
+        """
+        Returns the uid of a shape
+        """
         return self.uid
 
     @abstractmethod
@@ -22,11 +25,9 @@ class Shape(ABC):
         """
         Returns the area of a shape
         """
-        pass
 
     @abstractmethod
     def get_perimeter(self):
         """
         Returns the perimeter of a shape
         """
-        pass

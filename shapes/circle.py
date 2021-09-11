@@ -12,7 +12,7 @@ class Circle(Shape):
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
-        self.uid = uid
+        super().__init__(uid)
         self.radius = radius
 
     def get_area(self):
@@ -24,5 +24,8 @@ class Circle(Shape):
         return perimeter
 
     def get_diameter(self):
+        """
+        Returns the diameter of a circle
+        """
         diameter = 2 * self.radius
         return diameter
