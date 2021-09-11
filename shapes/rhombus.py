@@ -29,4 +29,6 @@ class Rhombus(Square):
         :return ints: the diagonals' lengths of a rhombus
         """
         big_angle = (180 - (self.angle * 2)) / 2
-        return 2*self.length*math.cos(math.radians(big_angle/2)), 2*self.length*math.cos(math.radians(self.angle/2))
+        d_1 = 2*self.length*math.cos(math.radians(big_angle/2))
+        d_2 = 2*self.length*math.cos(math.radians(self.angle/2))
+        return d_1, d_2
