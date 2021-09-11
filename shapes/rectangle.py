@@ -10,7 +10,9 @@ class Rectangle:
     A class for rectangles
     """
     def __init__(self, uid: int, width: int, length: int):
-        pass
+        self.uid = uid
+        self.width = width
+        self.length = length
 
     def get_area(self):
         """
