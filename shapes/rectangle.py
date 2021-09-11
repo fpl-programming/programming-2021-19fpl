@@ -3,8 +3,6 @@ Programming for linguists
 
 Implementation of the class Rectangle
 """
-from math import sqrt
-
 from shapes.shape import Shape
 
 
@@ -36,4 +34,4 @@ class Rectangle(Shape):
         Returns the diagonal length  of a rectangle
         :return int: the diagonal length of a rectangle
         """
-        return sqrt(self.width ** 2 + self.length ** 2)
+        return (self.width ** 2 + self.length ** 2) ** 0.5
