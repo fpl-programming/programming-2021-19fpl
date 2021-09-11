@@ -34,4 +34,4 @@ class RhombusTestCase(unittest.TestCase):
         :return int: the diagonal length of a rectangle
         """
         rhombus = Rhombus(0, 6, 90)
-        self.assertEqual(rhombus.get_diagonal(),(6.303863865812756, 6.303863865812756))
+        self.assertEqual(rhombus.get_diagonal(), (6.303863865812756, 6.303863865812756))
