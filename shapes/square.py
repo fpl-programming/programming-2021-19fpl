@@ -5,15 +5,15 @@ Implementation of the class Square
 """
 
 from math import sqrt
-from shapes.shape import Shape
+from shapes.rectangle import Rectangle
 
 
-class Square(Shape):
+class Square(Rectangle):
     """
     A class for squares
     """
     def __init__(self, uid: int, length: int):
-        super().__init__(uid)
+        super().__init__(uid, length, length)
         self.length = length
 
     def get_area(self):
