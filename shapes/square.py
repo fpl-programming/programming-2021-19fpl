@@ -3,7 +3,7 @@ Programming for linguists
 
 Implementation of the class Square
 """
-from shape import Shape
+from shapes.shape import Shape
 
 class Square(Shape):
     """
