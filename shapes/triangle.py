@@ -30,5 +30,5 @@ class Triangle(Shape):
         :return int: the area of a triangle
         """
         half_perimeter = self.get_perimeter() / 2
-        return (half_perimeter * (half_perimeter - self.first_side) * 
+        return (half_perimeter * (half_perimeter - self.first_side) *
                (half_perimeter - self.second_side) * (half_perimeter - self.third_side)) ** 0.5
