@@ -8,10 +8,8 @@ from shapes.rectangle import Rectangle
 
 class Diamond(Rectangle):
     """
-    A class for squares
+    A class for diamonds (requires diagonals to enter)
     """
-    def __init__(self, uid: int, diagonal_one: int, diagonal_two: int):
-        super().__init__(uid, diagonal_one, diagonal_two)
 
     def get_area(self):
         """
