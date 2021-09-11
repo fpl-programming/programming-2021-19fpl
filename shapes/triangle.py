@@ -30,9 +30,9 @@ class Triangle(Shape):
         Returns the area of a triangle
         :return int: the area of a triangle
         """
-        s_perimeter = (self.side1 + self.side2 + self.side3) / 2
-        return sqrt(s_perimeter*(s_perimeter
-                    - self.side1)*(s_perimeter-self.side2)*(s_perimeter-self.side3))
+        return sqrt(self.get_semi_perimeter()*(self.get_semi_perimeter()
+                    - self.side1)*(self.get_semi_perimeter()-self.side2)
+                    * (self.get_semi_perimeter()-self.side3))
 
     def get_semi_perimeter(self):
         """
