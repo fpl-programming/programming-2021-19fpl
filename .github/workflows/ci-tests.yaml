@@ -1,6 +1,10 @@
-name: Python package
+name: Programming for Linguists CI
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -21,7 +25,7 @@ jobs:
         run: |
           cd ..
           export PYTHONPATH=./programming-2021-19fpl
-          python3 -m pylint programming-2021-19fpl
+          python3 -m pylint programming-2021-19fpl --ignore=seminars
       - name: Test with unittest
         run: |
           python3 -m unittest discover -p "*_test.py"
