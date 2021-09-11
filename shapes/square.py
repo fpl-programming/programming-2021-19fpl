@@ -5,7 +5,7 @@ Implementation of the class Square
 """
 from math import sqrt
 
-from shape import Shape
+from shapes.shape import Shape
 
 
 class Square(Shape):

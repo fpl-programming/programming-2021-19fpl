@@ -5,7 +5,7 @@ Implementation of the class Rectangle
 """
 from math import sqrt
 
-from shape import Shape
+from shapes.shape import Shape
 
 
 class Rectangle(Shape):
