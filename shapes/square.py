@@ -3,7 +3,7 @@ Programming for linguists
 
 Implementation of the class Square
 """
-from shapes.shape import Shape
+from shape import Shape
 
 class Square(Shape):
     """
@@ -32,4 +32,4 @@ class Square(Shape):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        return 2 ** 0.5 * self.length / 2
+        return (self.length**2*2)**0.5
