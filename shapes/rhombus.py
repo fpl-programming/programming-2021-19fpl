@@ -37,4 +37,6 @@ class Rhombus(Shape):
         Returns the diagonal length of a rhombus
         :return int: the diagonal length of a rhombus
         """
-        return self.length * math.sin(self.alpha / 2)
+        short_diagonal = (self.length * 2) * math.sin(self.alpha / 2)
+        long_diagonal = (self.length * 2) * math.cos(self.alpha / 2)
+        return short_diagonal, long_diagonal

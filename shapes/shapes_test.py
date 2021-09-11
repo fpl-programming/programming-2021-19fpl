@@ -10,6 +10,7 @@ from shapes.shape import Shape
 from shapes.square import Square
 from shapes.rectangle import Rectangle
 from shapes.circle import Circle
+from shapes.rhombus import Rhombus
 
 
 class ShapesTestCase(unittest.TestCase):
@@ -21,8 +22,8 @@ class ShapesTestCase(unittest.TestCase):
         Creates different shapes.
         Tests that the area is calculated correctly.
         """
-        shapes = [Square(0, 5), Circle(0, 3), Rectangle(0, 5, 6)]
-        areas = [25, 28.274333882308138, 30]
+        shapes = [Square(0, 5), Circle(0, 3), Rectangle(0, 5, 6), Rhombus(0, 8, 4, 90)]
+        areas = [25, 28.274333882308138, 30, 32]
         for index, shape in enumerate(shapes):
             self.assertEqual(shape.get_area(), areas[index])
 
@@ -31,8 +32,8 @@ class ShapesTestCase(unittest.TestCase):
         Creates different shapes.
         Tests that the perimeter is calculated correctly.
         """
-        shapes = [Square(0, 5), Circle(0, 2), Rectangle(0, 5, 6)]
-        areas = [20, 12.566370614359172, 22]
+        shapes = [Square(0, 5), Circle(0, 2), Rectangle(0, 5, 6), Rhombus(0, 8, 4, 90)]
+        areas = [20, 12.566370614359172, 22, 32]
         for index, shape in enumerate(shapes):
             self.assertEqual(shape.get_perimeter(), areas[index])
 
