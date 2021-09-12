@@ -26,7 +26,6 @@ class Shape(ABC):
         Returns the area of a shape
         """
 
-
     @abstractmethod
     def get_perimeter(self):
         """
