@@ -42,5 +42,5 @@ class TriangleTestCase(unittest.TestCase):
         Creates a triangle.
         Tests that the radius of internal circle of a triangle is calculated correctly.
         """
-        triangle = Triangle(0, 4, 5, 6)
+        triangle = Triangle(0, 3, 4, 5)
         self.assertEqual(triangle.get_int_circle_rad(), 1)
