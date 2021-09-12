@@ -11,7 +11,7 @@ class Shape(ABC):
     """
     An abstract class of a shape
     """
-    #here we go again
+
     def __init__(self, uid: int):
         self.uid = uid
 
@@ -27,10 +27,8 @@ class Shape(ABC):
         Returns the area of a shape
         """
 
-
     @abstractmethod
     def get_perimeter(self):
         """
         Returns the perimeter of a shape
         """
-
