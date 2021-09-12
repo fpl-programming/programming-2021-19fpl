@@ -3,63 +3,135 @@ from shapes.rhombus import Rhombus
 
 
 class RhombusTestCase(unittest.TestCase):
+    """
+        This Case of tests checks the functionality of the implementation of Rhombus
+    """
 
     def test_id(self):
-        r = Rhombus(228, 10, 10)
-        self.assertEqual(r.get_uid(), 228)
+        """
+        Creates a Rhombus.
+        Tests that the correct uid is returned.
+        """
+        rhombus = Rhombus(228, 10, 10)
+        self.assertEqual(rhombus.get_uid(), 228)
 
     def test_square_area(self):
-        r = Rhombus(0, 5, 5)
-        self.assertEqual(r.get_area(), 12.5)
+        """
+        Creates a Rhombus with equal diagonals(Square).
+        Tests that the area is calculated correctly.
+        """
+        rhombus = Rhombus(0, 5, 5)
+        self.assertEqual(rhombus.get_area(), 12.5)
 
     def test_area(self):
-        r = Rhombus(0, 5, 3)
-        self.assertEqual(r.get_area(), 7.5)
+        """
+        Creates a Rhombus.
+        Tests that the area is calculated correctly.
+        """
+        rhombus = Rhombus(0, 5, 3)
+        self.assertEqual(rhombus.get_area(), 7.5)
 
     def test_perimeter(self):
-        r = Rhombus(0, 6, 8)
-        self.assertEqual(r.get_perimeter(), 20)
+        """
+        Creates a Rhombus.
+        Tests that the perimeter is calculated correctly.
+        """
+        rhombus = Rhombus(0, 6, 8)
+        self.assertEqual(rhombus.get_perimeter(), 20)
+
+    def test_height(self):
+        """
+        Creates a Rhombus.
+        Tests that the height is calculated correctly.
+        """
+        rhombus = Rhombus(0, 6, 8)
+        self.assertEqual(rhombus.get_height(), 4.8)
 
     def test_square_perimeter(self):
-        r = Rhombus(0, 10, 10)
-        self.assertLess(abs(r.get_perimeter() - 28.28), 0.1)
+        """
+        Creates a Rhombus with equal diagonals(Square).
+        Tests that the perimeter is calculated correctly.
+        """
+
+        rhombus = Rhombus(0, 10, 10)
+        self.assertLess(abs(rhombus.get_perimeter() - 28.28), 0.1)
 
     def test_uid_bad_input(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-          r =Rhombus('j', 8, 8)
+            rhombus = Rhombus('j', 8, 8)
 
     def test_diagonal1_bad_input(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-            r = Rhombus(1, 'gg', 8)
+            rhombus = Rhombus(1, 'gg', 8)
 
     def test_diagonal2_bad_input(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-            r = Rhombus(4, 8, 'gg')
+            rhombus = Rhombus(4, 8, 'gg')
 
     def test_all_bad_input(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-            r = Rhombus('r', 'i', 'p')
+            rhombus = Rhombus('r', 'i', 'p')
 
     def test_uid_bad_value(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(ValueError):
-            r = Rhombus(-1, 8, 8)
+            rhombus = Rhombus(-1, 8, 8)
 
     def test_diagonal1_bad_value(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(ValueError):
-            r = Rhombus(1, -1, 8)
+            rhombus = Rhombus(1, -1, 8)
 
     def test_diagonal2_bad_value(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(ValueError):
-            r = Rhombus(4, 8, -1)
+            rhombus = Rhombus(4, 8, -1)
 
     def test_all_bad_value(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(ValueError):
-            r = Rhombus(-1, -1, -1)
+            rhombus = Rhombus(-1, -1, -1)
 
     def test_diagonals_bad_value_boolean(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-            r = Rhombus(1, True, True)
+            rhombus = Rhombus(1, True, True)
 
     def test_uid_bad_value_boolean(self):
+        """
+        Creates a Rhombus.
+        Tests that the rhombus can be created with only normal arguments.
+        """
         with self.assertRaises(TypeError):
-            r = Rhombus(True, 1, 1)
+            rhombus = Rhombus(True, 1, 1)
