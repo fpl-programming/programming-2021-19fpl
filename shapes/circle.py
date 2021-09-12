@@ -4,8 +4,8 @@ Programming for linguists
 Implementation of the class Circle
 """
 
-from shapes.shape import Shape
 import math
+from shapes.shape import Shape
 
 
 class Circle(Shape):

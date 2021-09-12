@@ -4,8 +4,8 @@ Programming for linguists
 Implementation of the class Square
 """
 
-from shapes.rectangle import Rectangle
 import math
+from shapes.rectangle import Rectangle
 
 
 class Square(Rectangle):
