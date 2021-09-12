@@ -35,7 +35,7 @@ class TriangleTestCase(unittest.TestCase):
         Tests that the perimeter is calculated correctly.
         """
         triangle = Triangle(0, 3, 4, 5)
-        self.assertEqual(triangle.get_perimeter(), 15)
+        self.assertEqual(triangle.get_perimeter(), 12)
 
     def test_triangle_int_circle_rad(self):
         """
@@ -43,7 +43,4 @@ class TriangleTestCase(unittest.TestCase):
         Tests that the radius of internal circle of a triangle is calculated correctly.
         """
         triangle = Triangle(0, 4, 5, 6)
-        self.assertEqual(triangle.get_int_circle_rad(), 0.8)
-
-
-
+        self.assertEqual(triangle.get_int_circle_rad(), 1)
