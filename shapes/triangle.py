@@ -40,5 +40,3 @@ class Triangle(Shape):
                     * (self.get_half_the_perimeter() - self.first_side)
                     * (self.get_half_the_perimeter() - self.second_side)
                     * (self.get_half_the_perimeter() - self.third_side))
-
-
