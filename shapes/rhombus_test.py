@@ -1,3 +1,9 @@
+"""
+Programming for linguists
+
+Tests for Rhombus class.
+"""
+
 import unittest
 from shapes.rhombus import Rhombus
 

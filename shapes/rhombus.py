@@ -1,3 +1,8 @@
+"""
+Programming for linguists
+
+Implementation of the class Rhombus
+"""
 from numbers import Number
 
 from shapes.shape import Shape
