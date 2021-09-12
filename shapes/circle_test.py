@@ -3,7 +3,6 @@ Programming for linguists
 
 Tests for Circle class.
 """
-
 import unittest
 from shapes.circle import Circle
 
@@ -44,6 +43,3 @@ class CircleTestCase(unittest.TestCase):
         """
         circle = Circle(0, 2)
         self.assertEqual(circle.get_diameter(), 4)
-
-
-
