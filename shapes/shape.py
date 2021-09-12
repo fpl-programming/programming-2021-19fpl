@@ -13,7 +13,7 @@ class Shape(ABC):
     """
     def __init__(self, uid: int):
         self.uid = uid
-        
+
     def get_uid(self):
         """
         Returns the uid of a shape
