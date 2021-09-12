@@ -63,6 +63,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus('j', 8, 8)
+            print(rhombus.get_height())
 
     def test_diagonal1_bad_input(self):
         """
@@ -71,6 +72,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus(1, 'gg', 8)
+            print(rhombus.get_height())
 
     def test_diagonal2_bad_input(self):
         """
@@ -79,6 +81,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus(4, 8, 'gg')
+            print(rhombus.get_height())
 
     def test_all_bad_input(self):
         """
@@ -87,6 +90,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus('r', 'i', 'p')
+            print(rhombus.get_height())
 
     def test_uid_bad_value(self):
         """
@@ -95,6 +99,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             rhombus = Rhombus(-1, 8, 8)
+            print(rhombus.get_height())
 
     def test_diagonal1_bad_value(self):
         """
@@ -103,6 +108,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             rhombus = Rhombus(1, -1, 8)
+            print(rhombus.get_height())
 
     def test_diagonal2_bad_value(self):
         """
@@ -111,6 +117,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             rhombus = Rhombus(4, 8, -1)
+            print(rhombus.get_height())
 
     def test_all_bad_value(self):
         """
@@ -119,6 +126,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(ValueError):
             rhombus = Rhombus(-1, -1, -1)
+            print(rhombus.get_height())
 
     def test_diagonals_bad_value_boolean(self):
         """
@@ -127,6 +135,7 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus(1, True, True)
+            print(rhombus.get_height())
 
     def test_uid_bad_value_boolean(self):
         """
@@ -135,3 +144,4 @@ class RhombusTestCase(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             rhombus = Rhombus(True, 1, 1)
+            print(rhombus.get_height())
