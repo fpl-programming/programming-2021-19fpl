@@ -11,4 +11,3 @@ class Square(Rectangle):
     """
     def __init__(self, uid: int, length: int):
         super().__init__(uid, length, length)
-
