@@ -1,11 +1,10 @@
 """
 Programming for linguists
-
 Implementation of the class Rectangle
 """
+from shapes.shape import Shape
 
-
-class Rectangle:
+class Rectangle(Shape):
     """
     A class for rectangles
     """
