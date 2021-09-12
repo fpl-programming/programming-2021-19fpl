@@ -11,7 +11,6 @@ class Circle:
     A class for circles
     """
     def __init__(self, uid: int, radius: int):
-
         super().__init__(uid)
         self.radius = radius
 
@@ -20,7 +19,6 @@ class Circle:
         Returns the area of a circle
         :return int: the area of a circle
         """
-
         circle_area = self.radius ** 2 * math.pi
         return circle_area
 
@@ -29,7 +27,6 @@ class Circle:
         Returns the perimeter of a circle
         :return int: the perimeter of a circle
         """
-
         circle_perimeter = self.radius * 2 * math.pi
         return circle_perimeter
 
@@ -38,6 +35,5 @@ class Circle:
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
-
         circle_diameter = self.radius * 2
         return circle_diameter
