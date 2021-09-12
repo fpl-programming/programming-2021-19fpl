@@ -10,7 +10,6 @@ class Rectangle:
     A class for rectangles
     """
     def __init__(self, uid: int, width: int, length: int):
-        pass
         super().__init__(uid)
         self.width = width
         self.length = length
@@ -20,7 +19,6 @@ class Rectangle:
         Returns the area of a rectangle
         :return int: the area of a rectangle
         """
-        pass
         rectangle_area = self.length * self.width
         return rectangle_area
 
@@ -29,7 +27,6 @@ class Rectangle:
         Returns the perimeter of a rectangle
         :return int: the perimeter of a rectangle
         """
-        pass
         rectangle_perimeter = (self.length + self.width) * 2
         return rectangle_perimeter
 
@@ -38,6 +35,5 @@ class Rectangle:
         Returns the diagonal length  of a rectangle
         :return int: the diagonal length of a rectangle
         """
-        pass
         rectangle_diagonal = math.sqrt(self.length ** 2 + self.width ** 2)
         return rectangle_diagonal
