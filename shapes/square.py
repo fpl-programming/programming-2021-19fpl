@@ -34,5 +34,5 @@ class Square(Shape):
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        square_diagonal = self.length * (2 ** 0.5)
+        square_diagonal = sqrt(2 * (self.length ** 2))
         return square_diagonal
