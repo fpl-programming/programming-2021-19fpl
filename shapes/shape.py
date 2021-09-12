@@ -3,7 +3,6 @@ Programming for linguists
 
 Implementation of the abstract class Shape
 """
-
 from abc import ABC, abstractmethod
 
 
