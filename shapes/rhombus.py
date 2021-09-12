@@ -1,10 +1,13 @@
-import math
 from numbers import Number
 
 from shapes.shape import Shape
 
 
 class Rhombus(Shape):
+    """
+      A class for rhombuses
+    """
+
     def __init__(self, uid: int, diagonal_1: float, diagonal_2: float):
         """Rhombus constructor"""
         super().__init__(uid)
