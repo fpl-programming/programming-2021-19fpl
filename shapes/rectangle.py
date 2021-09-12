@@ -5,16 +5,17 @@ Implementation of the class Rectangle
 """
 
 from math import sqrt
-from shapes.square import Square
+from shapes.shape import Shape
 
 
-class Rectangle(Square):
+class Rectangle(Shape):
     """
     A class for rectangles
     """
     def __init__(self, uid: int, width: int, length: int):
         self.width = width
-        super().__init__(uid, length)
+        self.length = length
+        super().__init__(uid)
 
     def get_area(self):
         """

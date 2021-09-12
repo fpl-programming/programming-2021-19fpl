@@ -22,13 +22,6 @@ class Rhombus(Square):
         """
         return int(self.length ** 2 * self.sin)
 
-    def get_perimeter(self):
-        """
-        Returns the perimeter of a rhombus
-        :return int: the perimeter of a rhombus
-        """
-        return self.length * 4
-
     def get_height(self):
         """
         Returns the height of a rhombus
