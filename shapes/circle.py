@@ -4,10 +4,10 @@ Programming for linguists
 Implementation of the class Circle
 """
 
-import math
+from math import pi
 from shapes.shape import Shape
 
-class Circle:
+class Circle(Shape):
     """
     A class for circles
     """
@@ -27,11 +27,11 @@ class Circle:
         Returns the perimeter of a circle
         :return int: the perimeter of a circle
         """
-
+        return 2 * pi * self.radius
 
     def get_diameter(self):
         """
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
-        pass
+        return 2 * self.radius

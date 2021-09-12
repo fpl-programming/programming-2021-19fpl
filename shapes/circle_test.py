@@ -12,6 +12,7 @@ class CircleTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Circle
     """
+
     def test_circle_get_uid(self):
         """
         Creates a circle.
@@ -43,3 +44,6 @@ class CircleTestCase(unittest.TestCase):
         """
         circle = Circle(0, 2)
         self.assertEqual(circle.get_diameter(), 4)
+
+
+
