@@ -1,6 +1,5 @@
 """
 Programming for linguists
-
 Implementation of the class Square
 """
 import math
