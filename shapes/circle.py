@@ -3,8 +3,8 @@ Programming for linguists
 
 Implementation of the class Circle
 """
-from shapes.shape import Shape
 from math import pi
+from shapes.shape import Shape
 
 
 class Circle(Shape):
@@ -13,7 +13,6 @@ class Circle(Shape):
     """
     def __init__(self, uid: int, radius: int):
         super().__init__(uid)
-        self.uid = uid
         self.radius = radius
 
     def get_area(self):
