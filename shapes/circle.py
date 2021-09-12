@@ -4,6 +4,8 @@ Programming for linguists
 Implementation of the class Circle
 """
 from math import pi
+
+
 from shapes.shape import Shape
 
 
