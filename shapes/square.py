@@ -11,7 +11,7 @@ class Square(Rectangle):
     A class for squares
     """
     def __init__(self, uid: int, length: int):
-        super.__init__(uid)
+        super().__init__(uid)
         self.length = length
 
     def get_area(self):
