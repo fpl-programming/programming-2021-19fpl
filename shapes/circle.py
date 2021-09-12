@@ -13,12 +13,18 @@ class Circle:
     def __init__(self, uid: int, radius: int):
         pass
 
+        super().__init__(uid)
+        self.radius = radius
+
     def get_area(self):
         """
         Returns the area of a circle
         :return int: the area of a circle
         """
         pass
+
+        circle_area = self.radius ** 2 * math.pi
+        return circle_area
 
     def get_perimeter(self):
         """
@@ -27,9 +33,15 @@ class Circle:
         """
         pass
 
+        circle_perimeter = self.radius * 2 * math.pi
+        return circle_perimeter
+
     def get_diameter(self):
         """
         Returns the diameter of a circle
         :return int: the diameter of a circle
         """
         pass
+
+        circle_diameter = self.radius * 2
+        return circle_diameter
