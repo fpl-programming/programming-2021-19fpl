@@ -12,7 +12,7 @@ class Square(Rectangle):
     A class for squares
     """
     def __init__(self, uid: int, length: int):
-        super().__init__(uid, length, width=length)
+        super().__init__(uid, length, length)
 
     def get_area(self):
         """
