@@ -7,10 +7,12 @@ Implementation of the class Circle
 from math import pi
 from shapes.shape import Shape
 
+
 class Circle(Shape):
     """
     A class for circles
     """
+
     def __init__(self, uid: int, radius: int):
         super().__init__(uid)
         self.radius = radius
@@ -20,7 +22,7 @@ class Circle(Shape):
         Returns the area of a circle
         :return int: the area of a circle
         """
-        return pi * self.radius**2
+        return pi * self.radius ** 2
 
     def get_perimeter(self):
         """
