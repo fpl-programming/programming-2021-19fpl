@@ -4,8 +4,8 @@ Programming for linguists
 Implementation of the class Triangle
 """
 
-from shapes.shape import Shape
 from math import sqrt
+from shapes.shape import Shape
 
 
 class Triangle(Shape):
@@ -67,4 +67,3 @@ class Triangle(Shape):
         """
         area = self.get_area()
         return self.side_1 * self.side_2 * self.side_3 / 4 * area
-

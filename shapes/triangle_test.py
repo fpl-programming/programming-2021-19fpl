@@ -68,7 +68,3 @@ class TriangleTestCase(unittest.TestCase):
         """
         triangle = Triangle(0, 3, 4, 5)
         self.assertEqual(triangle.get_circumscribed_circle_radius(), 90)
-
-
-
-
