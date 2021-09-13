@@ -36,7 +36,7 @@ class TriangleTestCase(unittest.TestCase):
         triangle = Triangle(0, 13, 14, 15)
         self.assertEqual(triangle.get_perimeter(), 42)
 
-    def test_rectangle_get_altitude(self):
+    def test_triangle_get_altitude(self):
         """
         Creates a triangle.
         Tests that the largest altitude is calculated correctly.
