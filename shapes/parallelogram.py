@@ -3,8 +3,9 @@ Programming for linguists
 
 Implementation of the class Parallelogram
 """
-from shapes.shape import Shape
 import math
+from shapes.shape import Shape
+
 class Parallelogram(Shape):
     """
     A class for parallelogram
