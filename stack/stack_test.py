@@ -1,3 +1,4 @@
+# pylint: skip-file
 """
 
 Tests for the Stack class.
@@ -7,7 +8,7 @@ import unittest
 
 from stack.stack import Stack
 
-
+# pylint: disable=E1111
 @unittest.skip
 class StackTestCase(unittest.TestCase):
     """
