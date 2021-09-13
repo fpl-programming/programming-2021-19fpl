@@ -40,5 +40,5 @@ class Parallelogram(Shape):
         parallelogram_diagonal = math.sqrt((math.pow(self.big_side, 2) +\
                                            math.pow(self.small_side, 2)) - 2 * self.big_side *\
                                            self.small_side * math.cos(self.beta_angle))
-        return parallelogram_diagonal
+        return round(parallelogram_diagonal)
 

@@ -42,4 +42,4 @@ class ParallelogramTestCase(unittest.TestCase):
         Tests that the diagonal is calculated correctly.
         """
         parallelogram = Parallelogram(0, 2, 8, 4, 120)
-        self.assertEqual(parallelogram.get_diagonal(), 6.476589298631652)
+        self.assertEqual(parallelogram.get_diagonal(), 6)
