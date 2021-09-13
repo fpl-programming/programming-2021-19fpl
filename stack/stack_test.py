@@ -1,5 +1,5 @@
+# pylint: skip-file
 """
-
 Tests for the Stack class.
 """
 
