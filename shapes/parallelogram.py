@@ -37,8 +37,8 @@ class Parallelogram(Shape):
         Returns the diagonal length  of a parallelogram
         :return int: the diagonal length of a parallelogram
         """
-        parallelogram_diagonal = math.sqrt(math.pow(self.big_side, 2)
-                                           + math.pow(self.small_side, 2) - 2 * self.big_side
-                                           * self.small_side * math.cos(self.beta_angle))
+        parallelogram_diagonal = math.sqrt(math.pow(self.big_side, 2) +
+                                           math.pow(self.small_side, 2) - 2 * self.big_side *
+                                           self.small_side * math.cos(self.beta_angle))
         return parallelogram_diagonal
 
