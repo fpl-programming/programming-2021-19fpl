@@ -35,11 +35,3 @@ class ParallelogramTestCase(unittest.TestCase):
         """
         parallelogram = Parallelogram(0, 2, 8, 4, 120)
         self.assertEqual(parallelogram.get_perimeter(), 20)
-
-    def test_parallelogram_get_diagonal(self):
-        """
-        Creates a parallelogram.
-        Tests that the diagonal is calculated correctly.
-        """
-        parallelogram = Parallelogram(0, 2, 8, 4, 120)
-        self.assertEqual(parallelogram.get_diagonal(), 6)

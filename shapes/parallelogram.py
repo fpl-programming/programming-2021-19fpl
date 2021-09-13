@@ -31,21 +31,3 @@ class Parallelogram(Shape):
         """
         parallelogram_perimeter = 2*(self.big_side+self.small_side)
         return parallelogram_perimeter
-
-    def get_diagonal(self):
-        """
-        Returns the diagonal length  of a parallelogram
-        :return int: the diagonal length of a parallelogram
-        """
-        summa = math.pow(self.big_side, 2) + math.pow(self.small_side, 2)
-        cosin = math.cos(self.beta_angle)
-        sec_sum = 2 * self.big_side * self.small_side
-        next = cosin * sec_sum
-        nexxt = summa - next
-        sqrt = math.sqrt(nexxt)
-        return round(sqrt)
-        '''parallelogram_diagonal = math.sqrt((math.pow(self.big_side, 2) +\
-                                           math.pow(self.small_side, 2)) - 2 * self.big_side *\
-                                           self.small_side * math.cos(self.beta_angle))
-        return round(parallelogram_diagonal)'''
-
