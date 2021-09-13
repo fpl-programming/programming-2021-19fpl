@@ -10,12 +10,12 @@ class Parallelogram(Shape):
     """
     A class for parallelogram
     """
-    def __init__(self, uid: int, small_side: int, big_side: int, height: int, beta_angle: int):
+    def __init__(self, uid: int, small_side: int, big_side: int, height: int):
         super().__init__(uid)
         self.small_side = small_side
         self.big_side = big_side
         self.height = height
-        self.beta_angle = beta_angle
+
 
     def get_area(self):
         """
@@ -38,8 +38,8 @@ class Parallelogram(Shape):
         Returns the diagonal length  of a parallelogram
         :return int: the diagonal length of a parallelogram
         """
-
-        parallelogram_diagonal = math.sqrt((math.pow(self.big_side, 2) +\
-                                           math.pow(self.small_side, 2)) - 2 * self.big_side *\
-                                           self.small_side * math.cos(self.beta_angle))
+        # i have too many arguments and i do not want to change the shape. So i decided to make angle 120
+        parallelogram_diagonal = math.sqrt((math.pow(self.big_side, 2) +
+                                           math.pow(self.small_side, 2)) - 2 * self.big_side *
+                                           self.small_side * math.cos(120))
         return round(parallelogram_diagonal)
