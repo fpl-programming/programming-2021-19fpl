@@ -7,12 +7,12 @@ import unittest
 
 from stack.stack import Stack
 
+@unittest.skip
 class StackTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Stack
     """
 
-    @unittest.skip
     def test_new_stack_is_empty(self):
         """
         Create an empty Stack.
@@ -22,7 +22,6 @@ class StackTestCase(unittest.TestCase):
         self.assertTrue(stack.empty())
         self.assertEqual(stack.size(), 0)
 
-    @unittest.skip
     def test_new_stack_from_list(self):
         """
         Create a Stack from a list.
@@ -35,7 +34,6 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), len(data_to_stack))
         self.assertEqual(stack.top(), data_to_stack[-1])
 
-    @unittest.skip
     def test_new_stack_from_generator(self):
         """
         Create a Stack from a generator.
@@ -46,7 +44,6 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), 10)
         self.assertEqual(stack.top(), 9)
 
-    @unittest.skip
     def test_push_element(self):
         """
         Push an element in stack.
@@ -57,7 +54,6 @@ class StackTestCase(unittest.TestCase):
         self.assertFalse(stack.empty())
         self.assertEqual(stack.size(), 1)
 
-    @unittest.skip
     def test_push_sequence_of_elements(self):
         """
         Push a sequence of elements in stack.
@@ -70,13 +66,11 @@ class StackTestCase(unittest.TestCase):
             stack.push(element)
         self.assertEqual(stack.size(), len(elements))
         for index, element in enumerate(reversed(elements)):
-            top = stack.top()
-            self.assertEqual(top, element)
+            self.assertEqual(stack.top(), element)
             stack.pop()
             self.assertEqual(stack.size(), len(elements) - index - 1)
         self.assertTrue(stack.empty())
 
-    @unittest.skip
     def test_call_top_of_empty_stack_raised_error(self):
         """
         Create an empty Stack.
@@ -85,7 +79,6 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         self.assertRaises(ValueError, stack.top)
 
-    @unittest.skip
     def test_call_pop_of_empty_stack_raised_error(self):
         """
         Create an empty Stack.
