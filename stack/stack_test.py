@@ -67,7 +67,8 @@ class StackTestCase(unittest.TestCase):
             stack.push(element)
         self.assertEqual(stack.size(), len(elements))
         for index, element in enumerate(reversed(elements)):
-            top = stack.top()
+            #top = stack.top()
+            top = 0
             self.assertEqual(top, element)
             stack.pop()
             self.assertEqual(stack.size(), len(elements) - index - 1)
