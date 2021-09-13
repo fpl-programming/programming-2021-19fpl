@@ -9,12 +9,11 @@ class Parallelogram(Shape):
     """
     A class for parallelogram
     """
-    def __init__(self, uid: int, small_side: int, big_side: int, height: int, beta_angle: int):
+    def __init__(self, uid: int, small_side: int, big_side: int, height: int):
         super().__init__(uid)
         self.small_side = small_side
         self.big_side = big_side
         self.height = height
-        self.beta_angle = beta_angle
 
     def get_area(self):
         """
