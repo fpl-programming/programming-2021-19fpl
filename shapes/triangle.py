@@ -53,7 +53,3 @@ class RegularTriangle(Shape):
         """
         in_radius = (self.length * math.sqrt(3)) / 6
         return in_radius
-
-
-triangle = RegularTriangle(0, 6)
-print(triangle.get_inscribed_radius())
