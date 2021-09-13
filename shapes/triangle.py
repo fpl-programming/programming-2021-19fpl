@@ -17,7 +17,7 @@ class RegularTriangle(Shape):
     def get_area(self):
         """
         Returns the area of a regular triangle
-        :return int: the area of a regular triangle
+        :return float: the area of a regular triangle
         """
         area = (self.length ** 2 * math.sqrt(3)) / 4
         return area
@@ -33,7 +33,7 @@ class RegularTriangle(Shape):
     def get_height(self):
         """
         Returns the height of a regular triangle
-        :return int: the height of a regular triangle
+        :return float: the height of a regular triangle
         """
         height = (self.length * math.sqrt(3)) / 2
         return height
@@ -41,7 +41,7 @@ class RegularTriangle(Shape):
     def get_circumscribed_radius(self):
         """
         Returns the radius of a circumscribed circle around a regular triangle
-        :return int: the radius of a circumscribed circle around a regular triangle
+        :return float: the radius of a circumscribed circle around a regular triangle
         """
         circum_radius = (self.length * math.sqrt(3)) / 3
         return circum_radius
@@ -49,7 +49,11 @@ class RegularTriangle(Shape):
     def get_inscribed_radius(self):
         """
         Returns the diameter of an inscribed circle into a regular triangle
-        :return int: the radius of an inscribed circle into a regular triangle
+        :return float: the radius of an inscribed circle into a regular triangle
         """
         in_radius = (self.length * math.sqrt(3)) / 6
         return in_radius
+
+
+triangle = RegularTriangle(0, 6)
+print(triangle.get_inscribed_radius())
