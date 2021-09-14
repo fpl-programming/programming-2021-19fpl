@@ -16,22 +16,19 @@ class Parallelogram(Shape):
         self.big_side = big_side
         self.height = height
 
-
     def get_area(self):
         """
         Returns the area of a parallelogram
         :return int: the area of a parallelogram
         """
-        parallelogram_area = self.height*self.big_side
-        return parallelogram_area
+        return self.height*self.big_side
 
     def get_perimeter(self):
         """
         Returns the perimeter of a parallelogram
         :return int: the perimeter of a parallelogram
         """
-        parallelogram_perimeter = 2*(self.big_side+self.small_side)
-        return parallelogram_perimeter
+        return 2*(self.big_side+self.small_side)
 
     def get_diagonal(self):
         """
@@ -39,7 +36,6 @@ class Parallelogram(Shape):
         :return int: the diagonal length of a parallelogram
         """
         # i have too many arguments and i do not want to change the shape
-        parallelogram_diagonal = math.sqrt((math.pow(self.big_side, 2) +
+        return round(math.sqrt((math.pow(self.big_side, 2) +
                                            math.pow(self.small_side, 2)) - 2 * self.big_side *
-                                           self.small_side * math.cos(120))
-        return round(parallelogram_diagonal)
+                                           self.small_side * math.cos(120)))

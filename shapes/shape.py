@@ -24,11 +24,11 @@ class Shape(ABC):
         """
         Returns the area of a shape
         """
-        return self.get_area()
+        raise NotImplementedError
 
     @abstractmethod
     def get_perimeter(self):
         """
         Returns the perimeter of a shape
         """
-        return self.get_perimeter()
+        raise NotImplementedError

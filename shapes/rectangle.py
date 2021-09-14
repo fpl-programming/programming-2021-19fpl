@@ -20,21 +20,18 @@ class Rectangle(Shape):
         Returns the area of a rectangle
         :return int: the area of a rectangle
         """
-        rectangle_area = self.length*self.width
-        return rectangle_area
+        return self.length*self.width
 
     def get_perimeter(self):
         """
         Returns the perimeter of a rectangle
         :return int: the perimeter of a rectangle
         """
-        rectangle_perimeter = (self.length+self.width)*2
-        return rectangle_perimeter
+        return (self.length+self.width)*2
 
     def get_diagonal(self):
         """
         Returns the diagonal length  of a rectangle
         :return int: the diagonal length of a rectangle
         """
-        rectangle_diagonal = math.sqrt(self.length**2 + self.width**2)
-        return rectangle_diagonal
+        return math.sqrt(self.length**2 + self.width**2)

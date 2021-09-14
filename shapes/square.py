@@ -19,21 +19,18 @@ class Square(Shape):
         Returns the area of a square
         :return int: the area of a square
         """
-        square_area = self.length**2
-        return square_area
+        return self.length**2
 
     def get_perimeter(self):
         """
         Returns the perimeter of a square
         :return int: the perimeter of a square
         """
-        square_perimeter = self.length*4
-        return square_perimeter
+        return self.length*4
 
     def get_diagonal(self):
         """
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        square_diagonal = math.sqrt(self.length**2 * 2)
-        return square_diagonal
+        return math.sqrt(self.length**2 * 2)
