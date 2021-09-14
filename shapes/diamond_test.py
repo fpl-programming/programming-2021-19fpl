@@ -33,8 +33,8 @@ class RectangleTestCase(unittest.TestCase):
         Creates a rectangle.
         Tests that the perimeter is calculated correctly.
         """
-        diamond = Diamond(0, 16, 12)
-        self.assertEqual(diamond.get_perimeter(), 40)
+        diamond = Diamond(0, 16, 11)
+        self.assertEqual(diamond.get_perimeter(), 38.8329756778952)
 
     def test_diamond_get_side(self):
         """
