@@ -3,9 +3,10 @@
 Implementation of the data structure "Stack"
 """
 
+import unittest
 from typing import Iterable
 
-
+@unittest.skip
 class Stack:
     """
     Stack Data Structure
