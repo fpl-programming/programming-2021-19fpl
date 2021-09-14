@@ -1,3 +1,4 @@
+# pylint: skip-file
 """
 
 Implementation of the data structure "Stack"
