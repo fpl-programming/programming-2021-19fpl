@@ -19,23 +19,27 @@ class Stack:
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
+        pass
 
     def pop(self):
         """
         Delete the element on the top of stack
         """
+        pass
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
+        pass
 
     def size(self) -> int:
         """
         Return the number of elements in stack
         :return: Number of elements in stack
         """
+        pass
 
     def empty(self) -> bool:
         """
@@ -43,3 +47,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
+        pass
