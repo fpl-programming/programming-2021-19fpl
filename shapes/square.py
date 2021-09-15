@@ -19,21 +19,18 @@ class Square(Rectangle):
         Returns the area of a square
         :return int: the area of a square
         """
-        area = self.length ** 2
-        return area
+        return self.length ** 2
 
     def get_perimeter(self):
         """
         Returns the perimeter of a square
         :return int: the perimeter of a square
         """
-        perimeter = self.length * 4
-        return perimeter
+        return self.length * 4
 
     def get_diagonal(self):
         """
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        diagonal = sqrt(2 * (self.length ** 2))
-        return diagonal
+        return sqrt(2 * (self.length ** 2))
