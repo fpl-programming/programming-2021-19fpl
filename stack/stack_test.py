@@ -5,7 +5,7 @@ Tests for the Stack class.
 
 import unittest
 
-from stack import Stack
+from stack.stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
