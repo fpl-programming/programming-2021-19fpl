@@ -29,7 +29,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if self.empty():
+        if self.empty:
             raise ValueError
         self.data.pop(-1)
 
@@ -38,7 +38,7 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if self.empty():
+        if self.empty:
             raise ValueError
         return self.data[-1]
 
@@ -55,4 +55,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return True if not self.data else False
+        return not bool(self.data)
