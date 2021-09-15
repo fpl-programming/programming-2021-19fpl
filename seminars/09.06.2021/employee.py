@@ -1,3 +1,4 @@
+# pylint: skip-file
 from abc import ABC, abstractmethod
 
 
