@@ -3,6 +3,7 @@ Programming for linguists
 
 Implementation of the class Square
 """
+from math import sqrt
 from shapes.rectangle import Rectangle
 
 
@@ -18,18 +19,18 @@ class Square(Rectangle):
         Returns the area of a square
         :return int: the area of a square
         """
-        return Rectangle.get_area(self)
+        return self.length ** 2
 
     def get_perimeter(self):
         """
         Returns the perimeter of a square
         :return int: the perimeter of a square
         """
-        return Rectangle.get_perimeter(self)
+        return self.length * 4
 
     def get_diagonal(self):
         """
         Returns the diagonal length of a square
         :return int: the diagonal length of a square
         """
-        return Rectangle.get_diagonal(self)
+        return self.length * sqrt(2)
