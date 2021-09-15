@@ -12,7 +12,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        self.stack_list = list()
+        self.stack_list = []
         if data:
             for element in data:
                 self.stack_list.append(element)
@@ -40,8 +40,7 @@ class Stack:
         """
         if self.stack_list:
             return self.stack_list[-1]
-        else:
-            raise ValueError
+        raise ValueError
 
     def size(self) -> int:
         """
@@ -56,7 +55,7 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if len(self.stack_list):
+        stack_length = len(self.stack_list)
+        if stack_length:
             return False
-        else:
-            return True
+        return True
