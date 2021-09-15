@@ -55,7 +55,6 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        stack_length = len(self.stack_list)
-        if stack_length:
+        if self.stack_list:
             return False
         return True
