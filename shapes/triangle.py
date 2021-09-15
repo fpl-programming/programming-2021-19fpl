@@ -12,25 +12,25 @@ class Triangle(Shape):
     """
     A class for triangles
     """
-    def __init__(self, uid: int, side_1: int, side_2: int, side_3: int):
+    def __init__(self, uid: int, left_side: int, right_side: int, bottom_side: int):
         super().__init__(uid)
-        self.side_1 = side_1
-        self.side_2 = side_2
-        self.side_3 = side_3
+        self.left_side = left_side
+        self.right_side = right_side
+        self.bottom_side = bottom_side
 
     def get_perimeter(self):
         """
         Returns the perimeter of a triangle
         :return int: the perimeter of a triangle
         """
-        return self.side_1 + self.side_2 + self.side_3
+        return self.left_side + self.right_side + self.bottom_side
 
     def get_semiperimeter(self):
         """
         Returns the semiperimeter of a triangle
         :return int: the semiperimeter of a triangle
         """
-        return self.get_perimeter() / 2
+        return (self.left_side + self.right_side + self.bottom_side) / 2
 
     def get_area(self):
         """
@@ -39,20 +39,20 @@ class Triangle(Shape):
         """
         semi_p = self.get_semiperimeter()
         return sqrt(semi_p
-                    * (semi_p - self.side_1)
-                    * (semi_p - self.side_2)
-                    * (semi_p - self.side_3))
+                    * (semi_p - self.left_side)
+                    * (semi_p - self.right_side)
+                    * (semi_p - self.bottom_side))
 
     def get_shortest_altitude(self):
         """
         Returns the shortest altitude of a triangle
         :return int: the shortest altitude of a triangle
         """
-        return (2 * self.get_area()) / max(self.side_1, self.side_2, self.side_3)
+        return (2 * self.get_area()) / max(self.left_side, self.right_side, self.bottom_side)
 
     def get_longest_altitude(self):
         """
         Returns the longest altitude of a triangle
         :return int: the longest altitude of a triangle
         """
-        return (2 * self.get_area()) / min(self.side_1, self.side_2, self.side_3)
+        return (2 * self.get_area()) / min(self.left_side, self.right_side, self.bottom_side)
