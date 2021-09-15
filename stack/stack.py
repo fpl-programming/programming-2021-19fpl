@@ -13,7 +13,7 @@ class Stack:
 
     def __init__(self, data: Iterable = None):
         if data is None:
-            self.data = list()
+            self.data = []
         else:
             self.data = list(data)
 
@@ -40,8 +40,7 @@ class Stack:
         """
         if self.data:
             return self.data[-1]
-        else:
-            raise ValueError
+        raise ValueError
 
     def size(self) -> int:
         """
