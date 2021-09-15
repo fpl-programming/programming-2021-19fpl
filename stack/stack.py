@@ -12,30 +12,44 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        pass
+        self.data = data
+        self.stack_list = list()
+        if data:
+            for element in data:
+                self.stack_list.append(element)
 
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
+        self.stack_list.append(element)
 
     def pop(self):
         """
         Delete the element on the top of stack
         """
+        if self.stack_list:
+            self.stack_list.pop()
+        else:
+            raise ValueError
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
+        if self.stack_list:
+            return self.stack_list[-1]
+        else:
+            raise ValueError
 
     def size(self) -> int:
         """
         Return the number of elements in stack
         :return: Number of elements in stack
         """
+        return len(self.stack_list)
 
     def empty(self) -> bool:
         """
@@ -43,3 +57,7 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
+        if len(self.stack_list):
+            return False
+        else:
+            return True
