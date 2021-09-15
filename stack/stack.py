@@ -12,7 +12,6 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        self.data = data
         self.stack_list = list()
         if data:
             for element in data:
