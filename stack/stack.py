@@ -29,13 +29,17 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        self.data[::-1].pop()
+        if self.empty():
+            raise ValueError
+        self.data.pop(-1)
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
+        if self.empty():
+            raise ValueError
         return self.data[-1]
 
     def size(self) -> int:
