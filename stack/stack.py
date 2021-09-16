@@ -12,9 +12,9 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if isinstance(data,type(None)):
-            self.data=[]
-        self.data = list(data)
+        if not  isinstance(data,type(None)):
+            self.data = list(data)
+        self.data = []
 
     def push(self, element):
         """
