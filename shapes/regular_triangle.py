@@ -15,16 +15,13 @@ class RegularTriangle(Shape):
         self.length = length
 
     def get_area(self):
-        area = 3 ** 0.5 / 4 * self.length ** 2
-        return area
+        return 3 ** 0.5 / 4 * self.length ** 2
 
     def get_perimeter(self):
-        perimeter = 3 * self.length
-        return perimeter
+        return 3 * self.length
 
     def get_height(self):
         """
         Returns the height of a regular triangle
         """
-        height = 3 ** 0.5 / 2 * self.length
-        return height
+        return 3 ** 0.5 / 2 * self.length

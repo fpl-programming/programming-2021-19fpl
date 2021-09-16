@@ -37,7 +37,7 @@ class RegularTriangleTestCase(unittest.TestCase):
         regular_triangle = RegularTriangle(0, 5)
         self.assertEqual(regular_triangle.get_perimeter(), 15)
 
-    def test_regular_triangle_get_diagonal(self):
+    def test_regular_triangle_get_height(self):
         """
         Creates a regular triangle.
         Tests that the height is calculated correctly.

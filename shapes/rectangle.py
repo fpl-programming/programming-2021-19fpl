@@ -17,16 +17,13 @@ class Rectangle(Shape):
         self.length = length
 
     def get_area(self):
-        area = self.width * self.length
-        return area
+        return self.width * self.length
 
     def get_perimeter(self):
-        perimeter = 2 * (self.width + self.length)
-        return perimeter
+        return 2 * (self.width + self.length)
 
     def get_diagonal(self):
         """
         Returns the diagonal of a rectangle
         """
-        diagonal = math.sqrt(self.width ** 2 + self.length ** 2)
-        return diagonal
+        return math.sqrt(self.width ** 2 + self.length ** 2)
