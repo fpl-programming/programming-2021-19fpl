@@ -16,16 +16,13 @@ class Circle(Shape):
         self.radius = radius
 
     def get_area(self):
-        area = pi * self.radius ** 2
-        return area
+        return pi * self.radius ** 2
 
     def get_perimeter(self):
-        perimeter = 2 * pi * self.radius
-        return perimeter
+        return 2 * pi * self.radius
 
     def get_diameter(self):
         """
         Returns the diameter of a circle
         """
-        diameter = 2 * self.radius
-        return diameter
+        return 2 * self.radius
