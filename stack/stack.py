@@ -12,14 +12,19 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        self.data = data
+        if data is not None:
+            self.data = data
+        else:
+            self.data = []
 
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
+
         self.data.append(element)
+
 
     def pop(self):
         """
