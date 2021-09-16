@@ -12,14 +12,14 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        self.data=list (data)
+        self.data = list(data)
 
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
-        return self.data.append [element]
+        self.data.append(element)
 
     def pop(self):
         """
@@ -27,7 +27,8 @@ class Stack:
         """
         if not self.data:
             raise ValueError
-        return self.data.pop(-1)
+        self.data.pop()
+
     def top(self):
         """
         Return the element on the top of stack
@@ -51,7 +52,6 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        return False
+        return  not self.data
+
 
