@@ -131,4 +131,4 @@ dmypy.json
 # PyCharm
 .idea
 _trial_temp/
-
+.DS_Store
