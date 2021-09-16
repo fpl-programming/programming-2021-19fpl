@@ -61,5 +61,3 @@ class Stack:
         if not self.data:
             return True
         return False
-
-
