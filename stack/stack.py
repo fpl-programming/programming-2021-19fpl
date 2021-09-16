@@ -32,8 +32,7 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        else:
-            return self.data.pop(-1)
+        return self.data.pop(-1)
 
     def top(self):
         """
@@ -42,18 +41,15 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        else:
-            return self.data[-1]
+        return self.data[-1]
 
     def size(self) -> int:
         """
         Return the number of elements in stack
         :return: Number of elements in stack
         """
-        if self.data:
-            return len(self.data)
-        else:
-            return 0
+        return len(self.data)
+
 
     def empty(self) -> bool:
         """
@@ -61,7 +57,6 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        else:
+        if self.data:
             return False
+        return True
