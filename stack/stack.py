@@ -19,7 +19,7 @@ class Stack:
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
-        return self.data.append(element)
+        self.data.append(element)
 
     def pop(self):
         """
