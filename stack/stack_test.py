@@ -87,3 +87,27 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_push_and_pop_element(self):
+        """
+        Push an element in an empty stack.
+        Pop the element and test that the size of stack is 0
+        """
+        stack = Stack()
+        element = 'something'
+        stack.push(element)
+        stack.pop()
+        self.assertEqual(stack.size(), 0)
+
+    def test_push_and_pop_elements(self):
+        """
+        Push elements from the list sequentially in an empty stack.
+        Pop the element and test that the size of stack is 0
+        """
+        stack = Stack()
+        elements = [1, 2.0, "string", None, False, Stack()]
+        while elements:
+            element = elements.pop()
+            stack.push(element)
+            stack.pop()
+            self.assertEqual(stack.size(), 0)
