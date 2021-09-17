@@ -13,7 +13,7 @@ class Stack:
 
     def __init__(self, data: Iterable = None):
         if data:
-            self.stack = [i for i in data]
+            self.stack = list(data)
         else:
             self.stack = []
 
@@ -54,4 +54,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return False if bool(self.stack) else True
+        return not bool(self.stack)
