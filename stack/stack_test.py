@@ -98,7 +98,8 @@ class StackTestCase(unittest.TestCase):
 
     def test_data_not_iterable(self):
         """
-        Test that call of method_are_data_iterable return False with the object that are not iterable
+        Test that call of method_are_data_iterable return False
+        with the object that are not iterable
         """
         elements = (1000, 0.0001, False, str)
         for element in elements:
@@ -106,7 +107,8 @@ class StackTestCase(unittest.TestCase):
 
     def test_new_stack_from_not_iterable(self):
         """
-        Test that the instantiation of class Stack result in raising ValueError with not iterable objects
+        Test that the instantiation of class Stack result in raising ValueError
+        with not iterable objects
         """
         elements = (1, True, float, 0.1)
         for element in elements:
@@ -115,8 +117,8 @@ class StackTestCase(unittest.TestCase):
     def test_new_stack_from_tuples_in_tuple(self):
         """
         Create a Stack from a tuple with tuples.
-        Check that its size equals to the length of the tuple (every tuple in a tuple is considered
-                                                                                        as one element)
+        Check that its size equals to the length of the tuple
+        (every tuple in a tuple is considered as one element)
         """
         data_to_stack = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
         stack = Stack(data_to_stack)
