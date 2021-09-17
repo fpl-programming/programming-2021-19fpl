@@ -12,9 +12,9 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if isinstance(data, int) or isinstance(data, str):
+        if isinstance(data, (int, str)) or isinstance(data, str):
             self.data = data
-        elif isinstance(data, list) or isinstance(data, tuple) or isinstance(data, range):
+        elif isinstance(data, (list, tuple, range)):
             self.data = list(data)
         elif isinstance(data, type(None)):
             self.data = []
@@ -34,7 +34,6 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-
         self.data.pop()
 
     def top(self):
@@ -44,7 +43,6 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        
         return self.data[-1]
 
     def size(self) -> int:
