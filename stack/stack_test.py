@@ -88,26 +88,46 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
 
-    def test_push_and_pop_element(self):
-        """
-        Push an element in an empty stack.
-        Pop the element and test that the size of stack is 0
-        """
-        stack = Stack()
-        element = 'something'
-        stack.push(element)
-        stack.pop()
-        self.assertEqual(stack.size(), 0)
-
     def test_push_and_pop_elements(self):
         """
         Push elements from the list sequentially in an empty stack.
         Pop the element and test that the size of stack is 0
         """
         stack = Stack()
-        elements = [1, 2.0, "string", None, False, Stack()]
-        while elements:
-            element = elements.pop()
+        elements = [1, 2.0, "string", None, TypeError, False, Stack()]
+        for element in elements:
             stack.push(element)
             stack.pop()
             self.assertEqual(stack.size(), 0)
+
+    def test_new_stack_from_string_and_pop(self):
+        """
+        Create Stack from a string.
+        Pop an element from the stack.
+        Test if the penultimate symbol of the string equals to the top element of the stack.
+        """
+        data_to_stack = "stack"
+        stack = Stack(data_to_stack)
+        stack.pop()
+        self.assertEqual(stack.top(), data_to_stack[-2])
+
+    def test_push_empty_data_types(self):
+        """
+        Push empty data types sequentially in an empty stack.
+        Test that the stack is not empty
+        """
+        empty_data_types = [[], (), {}, '', ""]
+        stack = Stack()
+        for element in empty_data_types:
+            stack.push(element)
+            self.assertFalse(stack.empty())
+
+    def test_new_stack_from_empty_data_types(self):
+        """
+        Create Stacks from empty data types.
+        Test that all the stacks is empty
+        """
+        empty_data_types = [[], (), {}, '', ""]
+        for element in empty_data_types:
+            stack = Stack(element)
+            self.assertTrue(stack.empty())
