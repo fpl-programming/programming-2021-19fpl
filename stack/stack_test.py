@@ -90,7 +90,8 @@ class StackTestCase(unittest.TestCase):
 
     def test_push_and_pop_elements(self):
         """
-        Push elements from the list sequentially in an empty stack.
+        Create an empty Stack.
+        Push elements from the list sequentially in the stack.
         Pop the element and test that the size of stack is 0
         """
         stack = Stack()
@@ -113,7 +114,8 @@ class StackTestCase(unittest.TestCase):
 
     def test_push_empty_data_types(self):
         """
-        Push empty data types sequentially in an empty stack.
+        Create an empty Stack.
+        Push empty data types sequentially in the stack.
         Test that the stack is not empty
         """
         empty_data_types = [[], (), {}, '', ""]
@@ -121,11 +123,12 @@ class StackTestCase(unittest.TestCase):
         for element in empty_data_types:
             stack.push(element)
             self.assertFalse(stack.empty())
+            stack.pop()
 
     def test_new_stack_from_empty_data_types(self):
         """
         Create Stacks from empty data types.
-        Test that all the stacks is empty
+        Test that all the stacks are empty
         """
         empty_data_types = [[], (), {}, '', ""]
         for element in empty_data_types:
