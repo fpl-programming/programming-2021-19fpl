@@ -102,7 +102,7 @@ class StackTestCase(unittest.TestCase):
         """
         elements = ([1, 2], (1, 2), 'ab', {1, 2}, {'a': 1, 'b': 2}, range(10))
         for element in elements:
-            self.assertTrue(Stack._is_data_iterable(element))
+            self.assertTrue(Stack._is_data_iterable(element))  # pylint: disable=protected-access
 
     def test_is_data_iterable_noniterable(self):
         """
@@ -110,4 +110,4 @@ class StackTestCase(unittest.TestCase):
         """
         elements = elements = (1, 1.1, print, True, list)
         for element in elements:
-            self.assertFalse(Stack._is_data_iterable(element))
+            self.assertFalse(Stack._is_data_iterable(element))  # pylint: disable=protected-access
