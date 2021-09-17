@@ -8,7 +8,6 @@ import unittest
 from stack.stack import Stack
 
 
-@unittest.skip
 class StackTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Stack
@@ -67,8 +66,7 @@ class StackTestCase(unittest.TestCase):
             stack.push(element)
         self.assertEqual(stack.size(), len(elements))
         for index, element in enumerate(reversed(elements)):
-            #top = stack.top()
-            top = 0
+            top = stack.top()
             self.assertEqual(top, element)
             stack.pop()
             self.assertEqual(stack.size(), len(elements) - index - 1)
@@ -89,3 +87,37 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_data_are_iterable(self):
+        """
+        Test that call of method _are_data_iterable return True with the iterable objects
+        """
+        elements = ((5, 4, 3, 2), {5: '5', 4: '4', 3: '3', 2: '2'}, {5, 4, 3, 2})
+        for element in elements:
+            self.assertTrue(Stack._are_data_iterated(element))
+
+    def test_data_not_iterable(self):
+        """
+        Test that call of method_are_data_iterable return False with the object that are not iterable
+        """
+        elements = (1000, 0.0001, False, str)
+        for element in elements:
+            self.assertFalse(Stack._are_data_iterated(element))
+
+    def test_new_stack_from_not_iterable(self):
+        """
+        Test that the instantiation of class Stack result in raising ValueError with not iterable objects
+        """
+        elements = (1, True, float, 0.1)
+        for element in elements:
+            self.assertRaises(ValueError, Stack().__init__, element)
+
+    def test_new_stack_from_tuples_in_tuple(self):
+        """
+        Create a Stack from a tuple with tuples.
+        Check that its size equals to the length of the tuple (every tuple in a tuple is considered
+                                                                                        as one element)
+        """
+        data_to_stack = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
+        stack = Stack(data_to_stack)
+        self.assertEqual(stack.size(), len(data_to_stack))
