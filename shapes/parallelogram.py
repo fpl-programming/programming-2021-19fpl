@@ -43,5 +43,4 @@ class Parallelogram(Shape):
 
         if short:
             return (sides_square_sum - double_sides_cos_product) ** 0.5
-        else:
-            return (sides_square_sum + double_sides_cos_product) ** 0.5
+        return (sides_square_sum + double_sides_cos_product) ** 0.5
