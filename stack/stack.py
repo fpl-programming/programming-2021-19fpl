@@ -28,7 +28,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if not len(self.data):
+        if not self.data:
             raise ValueError
         return self.data.pop()
 
@@ -37,7 +37,7 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if not len(self.data):
+        if not self.data:
             raise ValueError
         return self.data[-1]
 
