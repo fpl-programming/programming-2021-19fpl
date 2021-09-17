@@ -1,4 +1,3 @@
-# pylint: skip-file
 """
 
 Tests for the Stack class.
@@ -9,7 +8,6 @@ import unittest
 from stack.stack import Stack
 
 
-@unittest.skip
 class StackTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Stack
@@ -89,3 +87,29 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_new_stack_from_noniterable(self):
+        """
+        Test that call of Stack initializing function raises Value error with non-iterable object
+        """
+        elements = (1, 1.1, print, True, list)
+        for element in elements:
+            self.assertRaises(ValueError, Stack().__init__, element)
+
+    def test_is_data_iterable_iterable(self):
+        """
+        Test that call of staticmethod _is_data_iterable return True on iterable object
+        """
+        file = open('README.md')
+        elements = ([1, 2], (1, 2), 'ab', {1, 2}, {'a': 1, 'b': 2}, file, range(10))
+        for element in elements:
+            self.assertTrue(Stack._is_data_iterable(element))
+        file.close()
+
+    def test_is_data_iterable_noniterable(self):
+        """
+        Test that call of staticmethod _is_data_iterable return False on non-iterable object
+        """
+        elements = elements = (1, 1.1, print, True, list)
+        for element in elements:
+            self.assertFalse(Stack._is_data_iterable(element))
