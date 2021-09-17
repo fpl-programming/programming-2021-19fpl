@@ -1,4 +1,3 @@
-# pylint: skip-file
 """
 
 Implementation of the data structure "Stack"
@@ -13,30 +12,40 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        pass
+        if not data:
+            data = []
+        self.data = list(data)
 
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
+        self.data.append(element)
 
     def pop(self):
         """
         Delete the element on the top of stack
         """
+        if not self.data:
+            raise ValueError
+        self.data.pop()
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
+        if not self.data:
+            raise ValueError
+        return self.data[-1]
 
     def size(self) -> int:
         """
         Return the number of elements in stack
         :return: Number of elements in stack
         """
+        return len(self.data)
 
     def empty(self) -> bool:
         """
@@ -44,3 +53,6 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
+        if not self.data:
+            return True
+        return False
