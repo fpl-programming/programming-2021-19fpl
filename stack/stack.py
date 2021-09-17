@@ -53,6 +53,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if self.stack:
-            return False
-        return True
+        return not self.stack
