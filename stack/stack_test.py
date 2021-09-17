@@ -100,11 +100,9 @@ class StackTestCase(unittest.TestCase):
         """
         Test that call of staticmethod _is_data_iterable return True on iterable object
         """
-        file = open('README.md')
-        elements = ([1, 2], (1, 2), 'ab', {1, 2}, {'a': 1, 'b': 2}, file, range(10))
+        elements = ([1, 2], (1, 2), 'ab', {1, 2}, {'a': 1, 'b': 2}, range(10))
         for element in elements:
-            self.assertTrue(Stack._is_data_iterable(element))
-        file.close()
+            self.assertTrue(Stack._is_data_iterable(element))  # noqa
 
     def test_is_data_iterable_noniterable(self):
         """
@@ -112,4 +110,4 @@ class StackTestCase(unittest.TestCase):
         """
         elements = elements = (1, 1.1, print, True, list)
         for element in elements:
-            self.assertFalse(Stack._is_data_iterable(element))
+            self.assertFalse(Stack._is_data_iterable(element))  # noqa
