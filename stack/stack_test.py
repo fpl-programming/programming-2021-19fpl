@@ -44,15 +44,6 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), 10)
         self.assertEqual(stack.top(), 9)
 
-    def test_new_stack_from_none(self):  # TODO
-        """
-
-        """
-        stack = Stack()
-        self.assertFalse(stack.empty())
-        self.assertEqual(stack.size(), 0)
-        self.assertEqual(stack.data, [])
-
     def test_push_element(self):
         """
         Push an element in stack.
