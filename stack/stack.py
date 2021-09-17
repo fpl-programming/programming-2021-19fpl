@@ -14,8 +14,7 @@ class Stack:
     def __init__(self, data: Iterable = None):
         self.stack = []
         if data:
-            for element in data:
-                self.stack.append(element)
+            self.stack = list(data)
 
     def push(self, element):
         """
@@ -28,19 +27,18 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if self.stack:
-            self.stack.pop()
-        else:
+        if not self.stack:
             raise ValueError
+        self.stack.pop()
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if self.stack:
-            return self.stack[-1]
-        raise ValueError
+        if not self.stack:
+            raise ValueError
+        return self.stack[-1]
 
     def size(self) -> int:
         """
