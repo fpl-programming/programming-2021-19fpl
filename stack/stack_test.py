@@ -94,7 +94,7 @@ class StackTestCase(unittest.TestCase):
         """
         elements = ((5, 4, 3, 2), {5: '5', 4: '4', 3: '3', 2: '2'}, {5, 4, 3, 2})
         for element in elements:
-            self.assertTrue(Stack._are_data_iterated(element))
+            self.assertTrue(Stack._are_data_iterated(element))  # pylint: disable=W0212
 
     def test_data_not_iterable(self):
         """
@@ -102,7 +102,7 @@ class StackTestCase(unittest.TestCase):
         """
         elements = (1000, 0.0001, False, str)
         for element in elements:
-            self.assertFalse(Stack._are_data_iterated(element))
+            self.assertFalse(Stack._are_data_iterated(element))  # pylint: disable=W0212
 
     def test_new_stack_from_not_iterable(self):
         """
