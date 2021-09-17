@@ -1,3 +1,4 @@
+# pylint: skip-file
 """
 
 Tests for the Stack class.
@@ -8,6 +9,7 @@ import unittest
 from stack.stack import Stack
 
 
+@unittest.skip
 class StackTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Stack
