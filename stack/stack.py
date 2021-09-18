@@ -32,6 +32,8 @@ class Stack:
         """
         if len(self.data) != 0:
             del self.data[-1]
+        else:
+            raise ValueError
 
     def top(self):
         """
@@ -39,7 +41,9 @@ class Stack:
         :return: the element that is on the top of stack
         """
         if len(self.data) != 0:
-            return self.data.pop()
+            return self.data[-1]
+        else:
+            raise ValueError
 
     def size(self) -> int:
         """
