@@ -63,7 +63,7 @@ class Stack:
         """
         try:
             data_to_add = stack_to_merge.data
-        except AttributeError:
-            raise TypeError
+        except AttributeError as exc:
+            raise TypeError from exc
 
         self.data.extend(data_to_add)
