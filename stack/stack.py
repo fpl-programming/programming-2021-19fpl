@@ -39,7 +39,7 @@ class Stack:
         """
         if not self.data:
             raise ValueError('stack is empty')
-        self.data[-1]
+        return self.data[-1]
 
     def size(self) -> int:
         """
