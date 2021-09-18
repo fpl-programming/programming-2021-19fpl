@@ -25,7 +25,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if not len(self.data):
+        if not self.data:
             raise ValueError
         self.data.pop()
 
@@ -34,7 +34,7 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if len(self.data):
+        if self.data:
             return self.data[-1]
         raise ValueError
 
@@ -56,9 +56,15 @@ class Stack:
         return False
 
     def print(self):
+        """
+        Print elements one by one
+        """
         while self.data:
             print(self.top())
             self.pop()
 
     def delete_stack(self):
+        """
+        delete all elements
+        """
         self.data = []
