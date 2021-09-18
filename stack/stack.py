@@ -25,14 +25,13 @@ class Stack:
 
         self.data.append(element)
 
-
     def pop(self):
         """
         Delete the element on the top of stack
         """
         if self.empty():
             raise ValueError
-        return self.data.pop(-1)
+        return self.data.pop()
 
     def top(self):
         """
@@ -50,13 +49,10 @@ class Stack:
         """
         return len(self.data)
 
-
     def empty(self) -> bool:
         """
         Return whether stack is empty or not
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if self.data:
-            return False
-        return True
+        return bool(not self.data)
