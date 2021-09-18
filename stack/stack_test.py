@@ -94,7 +94,7 @@ class StackTestCase(unittest.TestCase):
     def test_call_print(self, mock_stdout):
         """
         Create a Stack.
-        Test that call of print function prints stack accordingly to first-in-last-out principe
+        Test that call of print function prints stack accordingly to first-in-last-out principle
         """
         stack = Stack('hello')
         stack.print()
