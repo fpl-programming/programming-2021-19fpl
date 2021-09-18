@@ -5,7 +5,7 @@ Tests for the Stack class.
 
 import unittest
 
-from stack.stack import Stack
+from stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
@@ -87,3 +87,33 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_reverse_stack(self):
+        """
+        Reverse a stack
+        """
+        data_to_stack = [1, 3, 5, 7, 2, 4]
+        stack = Stack(data_to_stack)
+        stack.reverse()
+        self.assertEqual([4, 2, 7, 5, 3, 1], stack.data)
+        self.assertEqual(data_to_stack[0], stack.top())
+
+    def test_reverse_empty_stack_raised_error(self):
+        """
+        Create an empty Stack.
+        Test that call of reverse function raises Value error
+        """
+        stack = Stack()
+        self.assertRaises(ValueError, stack.reverse)
+
+    def test_reverse_stack_pop_elements(self):
+        """
+        Reverse a stack
+        """
+        data_to_stack = [1, 3, 5, 7, 2, 4]
+        stack = Stack(data_to_stack)
+        stack.pop()
+        stack.reverse()
+        stack.pop()
+        self.assertEqual([2, 7, 5, 3], stack.data)
+        self.assertEqual(len(data_to_stack) - 2, stack.size())

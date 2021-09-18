@@ -27,7 +27,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if not self.data:
+        if self.empty():
             raise ValueError
         self.data.pop()
 
@@ -36,7 +36,7 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if not self.data:
+        if self.empty():
             raise ValueError
         return self.data[-1]
 
@@ -56,3 +56,11 @@ class Stack:
         if not self.data:
             return True
         return False
+
+    def reverse(self):
+        """
+        Reverse the stack
+        """
+        if self.empty():
+            raise ValueError
+        self.data = self.data[::-1]
