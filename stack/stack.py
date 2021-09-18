@@ -15,7 +15,7 @@ class Stack:
         if isinstance(data, list):
             self.data = data
         elif isinstance(data, range):
-            self.data = [element for element in data]
+            self.data = list(data)
         else:
             self.data = []
 
@@ -42,8 +42,7 @@ class Stack:
         """
         if len(self.data) != 0:
             return self.data[-1]
-        else:
-            raise ValueError
+        raise ValueError
 
     def size(self) -> int:
         """
@@ -58,7 +57,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if len(self.data) == 0:
-            return True
-        else:
-            return False
+        return bool(self.data)
