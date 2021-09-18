@@ -40,8 +40,7 @@ class Stack:
         """
         if self.stack:
             return self.stack[-1]
-        else:
-            raise ValueError
+        raise ValueError
 
     def size(self) -> int:
         """
@@ -56,7 +55,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.stack:
-            return True
-        else:
-            return False
+        return bool(not self.stack)
