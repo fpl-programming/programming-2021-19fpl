@@ -31,7 +31,7 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        self.data.pop(-1)
+        self.data.pop()
 
     def top(self):
         """
@@ -55,4 +55,15 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return not bool(self.data)
+        return not self.data
+
+    def merge(self, stack_to_merge):
+        """
+        Adds all of the elements from one stack to another
+        """
+        try:
+            data_to_add = stack_to_merge.data
+        except AttributeError:
+            raise TypeError
+
+        self.data.extend(data_to_add)

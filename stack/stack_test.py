@@ -5,7 +5,7 @@ Tests for the Stack class.
 
 import unittest
 
-from stack.stack import Stack
+from stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
@@ -87,3 +87,60 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_stack_order(self):
+        """
+        Push a sequence of elements in stack.
+        Test that the element we push is at the top
+        """
+        stack = Stack()
+        elements = (1, 2, "string", None, 0, Stack())
+        for element in elements:
+            stack.push(element)
+            top = stack.top()
+            self.assertEqual(element, top)
+
+    def test_stack_type(self):
+        """
+        Create an empty Stack.
+        Test that the type of Stack is list
+        """
+        stack = Stack()
+        self.assertEqual(stack.data, [])
+
+    def test_stack_from_a_string(self):
+        """
+        Create Stack with a string.
+        Test that Stack data is split string
+        """
+        stack = Stack("mama")
+        self.assertEqual(stack.data, ["m", "a", "m", "a"])
+
+    def test_stack_from_a_string_order(self):
+        """
+        Create Stack with a string.
+        Test that the last letter is at the top
+        """
+        stack = Stack("hero")
+        top = stack.top()
+        self.assertEqual(top, "o")
+
+    def test_merge_type(self):
+        """
+        Merge Stack with other types.
+        Test that call of merge function raises Type error
+        """
+        stack = Stack()
+        elements = (1, 2, "string", None, 0)
+        for element in elements:
+            self.assertRaises(TypeError, stack.merge, element)
+
+    def test_merge_order(self):
+        """
+        Create two Stacks.
+        Test the top of changed Stack
+        """
+        stack_1 = Stack([1, 2, 3])
+        stack_2 = Stack([4, 5, 6])
+        stack_1.merge(stack_2)
+        self.assertEqual(stack_1.top(), 6)
