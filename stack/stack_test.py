@@ -77,7 +77,7 @@ class StackTestCase(unittest.TestCase):
         Create an empty Stack.
         Test that call of top function raises Value error
         """
-        stack = stack.Stack()
+        stack = Stack()
         self.assertRaises(ValueError, stack.top)
 
     def test_call_pop_of_empty_stack_raised_error(self):
