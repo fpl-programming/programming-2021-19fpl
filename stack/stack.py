@@ -12,10 +12,11 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data is None:
+        if not isinstance(data, Iterable):
             self.data = []
         else:
             self.data = list(data)
+
 
     def push(self, element):
         """
@@ -39,9 +40,10 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if self.data:
-            return self.data[-1]
-        raise ValueError
+        if not self.data:
+            raise ValueError
+        return self.data[-1]
+
 
     def size(self) -> int:
         """
@@ -58,6 +60,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        return False
+        return not self.data
