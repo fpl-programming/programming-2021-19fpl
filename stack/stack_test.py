@@ -7,7 +7,7 @@ import io
 import unittest
 import unittest.mock
 
-from stack import Stack
+from stack.stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
