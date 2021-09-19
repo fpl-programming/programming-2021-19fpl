@@ -1,6 +1,4 @@
-@unittest.skip
 
-#pylint:skip-file
 
 """
 Programming for linguists
@@ -13,6 +11,10 @@ import unittest
 from queue_.queue_ import Queue_
 
 
+
+#pylint:skip-file
+
+@unittest.skip
 class QueueTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Queue

@@ -1,9 +1,10 @@
-#pylint:skip-file
+
 """
 Programming for linguists
 
 Implementation of the data structure "Queue"
 """
+#pylint:skip-file
 
 from typing import Iterable
 
