@@ -14,6 +14,8 @@ class Stack:
     def __init__(self, data: Iterable = None):
         if data is None:
             self.data = []
+        elif not isinstance(data, Iterable):
+            raise ValueError('Object is not iterable')
         else:
             self.data = list(data)
 
@@ -28,19 +30,18 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if self.data:
-            self.data.pop()
-        else:
-            raise ValueError
+        if self.empty():
+            raise ValueError('Stack is empty')
+        self.data.pop()
 
     def top(self):
         """
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
-        if self.data:
-            return self.data[-1]
-        raise ValueError
+        if self.empty():
+            raise ValueError('Stack is empty')
+        return self.data[-1]
 
     def size(self) -> int:
         """
@@ -55,4 +56,13 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return not bool(self.data)
+        return not self.data
+
+    def clear(self):
+        """
+        Delete all elements from stack
+        """
+        if self.empty():
+            raise ValueError('Stack is already empty')
+        while self.size() > 0:
+            self.pop()

@@ -87,3 +87,28 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_new_stack_from_not_iterable_objects(self):
+        """
+        Test that instantiation of class Stack with not iterable objects raises Value error
+        """
+        data_to_stack = [True, 1, 15.9, input, dict]
+        for item in data_to_stack:
+            self.assertRaises(ValueError, Stack().__init__, item)
+
+    def test_clear_stack(self):
+        """
+        Test that call of clear function deletes all elements of stack.
+        Check that stack is empty
+        """
+        stack = Stack(range(10))
+        stack.clear()
+        self.assertTrue(stack.empty())
+
+    def test_call_clear_of_empty_stack_raised_error(self):
+        """
+        Create an empty Stack.
+        Test that call of clear function raises Value error
+        """
+        stack = Stack()
+        self.assertRaises(ValueError, stack.clear)
