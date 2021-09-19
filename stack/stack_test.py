@@ -1,11 +1,11 @@
 """
-
 Tests for the Stack class.
 """
 
 import unittest
 
 from stack.stack import Stack
+
 
 class StackTestCase(unittest.TestCase):
     """
@@ -65,7 +65,8 @@ class StackTestCase(unittest.TestCase):
             stack.push(element)
         self.assertEqual(stack.size(), len(elements))
         for index, element in enumerate(reversed(elements)):
-            self.assertEqual(stack.top(), element)
+            top = stack.top()
+            self.assertEqual(top, element)
             stack.pop()
             self.assertEqual(stack.size(), len(elements) - index - 1)
         self.assertTrue(stack.empty())
