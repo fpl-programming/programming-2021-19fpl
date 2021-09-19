@@ -1,3 +1,4 @@
+# pylint: skip-file
 """
 
 Tests for the Stack class.
@@ -112,4 +113,4 @@ class StackTestCase(unittest.TestCase):
         Test that call of pop function does not return anything
         """
         stack = Stack([1, 2, 3, 4])
-        self.assertEqual(stack.pop(), None)
+        self.assertEqual(stack.pop(), None)  # pylint: disable=no-value-for-parameter
