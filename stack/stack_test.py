@@ -98,10 +98,18 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), 0)
 
     def test_works_with_non_iterable_data(self):
+        """
+        Create a Stack from non-iterable data.
+        Test that Stack is iterable.
+        """
         stack = Stack(5)
         self.assertEqual([5], stack.stack)
 
     def test_empty_stack_for_none(self):
+        """
+        Create a Stack from None.
+        Test that its size is 0.
+        """
         stack = Stack(None)
         self.assertTrue(stack.empty())
         self.assertEqual(stack.size(), 0)
