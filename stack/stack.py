@@ -26,7 +26,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if  self.empty():
+        if  not self.data :
             raise ValueError
         self.data.pop()
 
