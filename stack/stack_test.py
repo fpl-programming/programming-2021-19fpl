@@ -5,8 +5,8 @@ Tests for the Stack class.
 
 import unittest
 
-from stack.stack import Stack
-
+# from stack.stack import Stack
+from stack import Stack
 
 class StackTestCase(unittest.TestCase):
     """
@@ -86,4 +86,30 @@ class StackTestCase(unittest.TestCase):
         Test that call of pop function raises Value error
         """
         stack = Stack()
-        self.assertRaises(ValueError, stack.pop)
+        self.assertRaises(TypeError, stack.pop)
+
+    def test_init_non_iterable_raised_error(self):
+        """
+        Create a Stack with a non-iterable
+        Test that TypeError is raised
+        """
+        for non_iter in [1, True, 1.0]:
+            with self.assertRaises(ValueError):
+                Stack(non_iter)
+
+    def test_push_no_argument_raised_error(self):
+        """
+        Create an empty Stack.
+        Test that call of push function with no argument raises Value error
+        """
+        stack = Stack()
+        with self.assertRaises(TypeError):
+            stack.push()
+
+    def test_pop_function_returns_no_value(self):
+        """
+        Create an non-empty Stack.
+        Test that call of pop function does not return anything
+        """
+        stack = Stack([1, 2, 3, 4])
+        self.assertEqual(stack.pop(), None)

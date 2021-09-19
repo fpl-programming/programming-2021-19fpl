@@ -12,10 +12,12 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data:
-            self.stack = list(data)
-        else:
+        if data is None:
             self.stack = []
+        elif not hasattr(data, '__iter__'):
+            raise ValueError
+        else:
+            self.stack = list(data)
 
     def push(self, element):
         """
@@ -29,7 +31,7 @@ class Stack:
         Delete the element on the top of stack
         """
         if not self.stack:
-            raise ValueError
+            raise TypeError
         self.stack = self.stack[:-1]
 
     def top(self):
