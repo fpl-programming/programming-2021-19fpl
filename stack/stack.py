@@ -15,7 +15,8 @@ class Stack:
         if data is None:
             self.data = []
         else:
-             self.data = list(data)
+            self.data = list(data)
+
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
