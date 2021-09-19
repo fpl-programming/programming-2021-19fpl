@@ -42,8 +42,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
         for value in data:
-            test_value = queue.get()
-            self.assertEqual(test_value, value)
+            self.assertEqual(queue.get(), value)
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
