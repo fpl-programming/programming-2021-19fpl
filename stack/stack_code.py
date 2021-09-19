@@ -12,10 +12,12 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data:
+        if data and isinstance(data, Iterable):
             self.stack = data
-        else:
+        elif not data:
             self.stack = []
+        else:
+            self.stack = [data]
 
     def push(self, element):
         """

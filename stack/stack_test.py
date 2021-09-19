@@ -87,3 +87,21 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_new_stack_from_empty_list(self):
+        """
+        Create a Stack from empty list.
+        Test that its size is 0.
+        """
+        stack = Stack([])
+        self.assertTrue(stack.empty())
+        self.assertEqual(stack.size(), 0)
+
+    def test_works_with_non_iterable_data(self):
+        stack = Stack(5)
+        self.assertEqual([5], stack.stack)
+
+    def test_empty_stack_for_none(self):
+        stack = Stack(None)
+        self.assertTrue(stack.empty())
+        self.assertEqual(stack.size(), 0)
