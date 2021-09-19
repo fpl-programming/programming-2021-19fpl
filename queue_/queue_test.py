@@ -1,10 +1,11 @@
+@unittest.skip
+
 #pylint:skip-file
 """
 Programming for linguists
 
 Tests for Queue class.
 """
-@unittest.skip
 
 import unittest
 
