@@ -12,7 +12,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if  data is None:
+        if data is None:
             self.data = []
         self.data = list(data)
     def push(self, element):
@@ -26,7 +26,7 @@ class Stack:
         """
         Delete the element on the top of stack
         """
-        if  not self.data :
+        if not self.data:
             raise ValueError
         self.data.pop()
 
