@@ -85,34 +85,3 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
-
-    def test_call_top_and_pop_gives_same_values(self):
-        """
-        Create a stack with a sequence of elements.
-        Test that call of top and pop functions gives the same correct values
-        """
-        stack = Stack([5, 10, 15, 20, 25])
-        expected_output = 25
-        self.assertEqual(expected_output, stack.top())
-        self.assertEqual(stack.top(), stack.pop())
-
-    def test_stack_splits_string(self):
-        """
-        Create a stack with a string.
-        Test that Stack() transforms string into split string
-        """
-        stack = Stack('check')
-        expected_output = list('check')
-        self.assertEqual(stack.data, expected_output)
-
-    def test_pop_function_gives_reversed_sequence(self):
-        """
-        Create a stack with a string.
-        Test that call of pop function gives reversed sequence
-        """
-        stack = Stack('mood')
-        expected_output = 'doom'
-        actual_output = ''
-        while not stack.empty():
-            actual_output += stack.pop()
-        self.assertEqual(actual_output, expected_output)
