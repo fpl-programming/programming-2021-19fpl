@@ -13,7 +13,7 @@ class Stack:
 
     def __init__(self, data: Iterable = None):
         if isinstance(data, (int, float, complex, str)):
-            self.data = data
+            self.data = [data]
         elif isinstance(data, (list, tuple, range)):
             self.data = list(data)
         elif isinstance(data, type(None)):
@@ -50,7 +50,7 @@ class Stack:
         Return the number of elements in stack
         :return: Number of elements in stack
         """
-        return len(self.data)  # notes=FIXME
+        return len(self.data)
 
     def empty(self) -> bool:
         """
@@ -59,3 +59,9 @@ class Stack:
                  False if stack contains elements
         """
         return not self.data
+
+    def delete_stack(self):
+        """
+        Delete all elements from stack
+        """
+        self.data = []

@@ -44,6 +44,27 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), 10)
         self.assertEqual(stack.top(), 9)
 
+    def test_new_stack_from_none(self):
+        """
+        Create a Stack from None.
+        Test that its size is 0.
+        """
+        stack = Stack(None)
+        self.assertTrue(stack.empty())
+        self.assertEqual(stack.size(), 0)
+        self.assertEqual(stack.data, [])
+
+    def test_new_stack_from_float(self):
+        """
+        Create a Stack from a float element as a first.
+        Check that the size of stack is 1.
+        Check that the top element of stack equals to the given float element.
+        """
+        stack = Stack(156.2)
+        self.assertFalse(stack.empty())
+        self.assertEqual(stack.size(), 1)
+        self.assertEqual(stack.top(), 156.2)
+
     def test_push_element(self):
         """
         Push an element in stack.
@@ -87,3 +108,13 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_delete_all_elements(self):
+        """
+        Create a Stack.
+        Test that delete_stack() works correctly and deletes all elements from stack
+        """
+        stack = Stack()
+        stack.delete_stack()
+        self.assertTrue(stack.empty())
+        self.assertEqual(0, stack.size())
