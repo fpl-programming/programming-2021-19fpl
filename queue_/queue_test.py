@@ -9,7 +9,7 @@ import unittest
 
 from queue_.queue_ import Queue_
 
-# pylint: disable=E1111
+# pylint: disable=W0107
 @unittest.skip
 class QueueTestCase(unittest.TestCase):
     """
