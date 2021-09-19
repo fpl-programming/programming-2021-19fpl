@@ -56,5 +56,3 @@ class Stack:
                  False if stack contains elements
         """
         return not self.data
-
-
