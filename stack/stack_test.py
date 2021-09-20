@@ -87,3 +87,35 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_new_stack_from_string(self):
+        """
+        Create a stack from a string.
+        Check that the size of stack equals to the size of the string.
+        Check that the top element of stack equals to the latest element of the string.
+        """
+        data_to_stack = '1,2,5,7,3,9'
+        stack = Stack(data_to_stack)
+        self.assertFalse(stack.empty())
+        self.assertEqual(stack.size(), len(data_to_stack))
+        self.assertEqual(stack.top(), data_to_stack[-1])
+
+    def test_empty_stack(self):
+        """
+        Create an empty stack.
+        Check if stack = empty list
+        """
+        stack = Stack()
+        self.assertEqual(stack.data, [])
+
+    def test_new_stack_from_dict(self):
+        """
+        Create a stack from a tuple.
+        Check that the size of stack equals to the size of the tuple.
+        Check that the top element of stack equals to the latest element of the tuple.
+        """
+        data_to_stack = (float('inf'), -float('inf'), -100, [], ())
+        stack = Stack(data_to_stack)
+        self.assertFalse(stack.empty())
+        self.assertEqual(stack.size(), len(data_to_stack))
+        self.assertEqual(stack.top(), data_to_stack[-1])
