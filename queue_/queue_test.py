@@ -6,6 +6,8 @@ Tests for Queue class.
 
 import unittest
 
+from queue import Full
+
 from queue_.queue_ import Queue_
 
 
@@ -87,3 +89,37 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_new_queue_with_max_size(self):
+        """
+        Create a Queue_ with max_size.
+        Test that its field max_size is filled correctly
+        """
+        queue = Queue_(max_size=5)
+        self.assertEqual(queue.max_size, 5)
+
+    def test_put_element_into_full_queue(self):
+        """
+        Put element into a queue that is already full.
+        Test that call of put function raises Full exception
+        """
+        queue = Queue_([1, 2, 3, 4, 5], 5)
+        self.assertRaises(Full, queue.put, 6)
+
+    def test_limited_queue_is_full(self):
+        """
+        Create a full limited Queue_.
+        Test that call of full function returns True
+        """
+        queue = Queue_([1, 2, 3, 4, 5], 5)
+        self.assertTrue(queue.full())
+        queue.get()
+        self.assertFalse(queue.full())
+
+    def test_infinite_queue_is_not_full(self):
+        """
+        Create a nonempty infinite Queue_.
+        Test that call of full function returns False
+        """
+        queue = Queue_([1, 2, 3, 4, 5])
+        self.assertFalse(queue.full())
