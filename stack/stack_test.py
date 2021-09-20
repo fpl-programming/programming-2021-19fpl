@@ -87,3 +87,33 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_push_string(self):
+        """
+        Push a string in stack.
+        Test that it raises ValueError
+        """
+        stack = Stack("whoami")
+        self.assertEqual(stack.top(), "i")
+
+    def test_push_empty_container_types(self):
+        """
+        Push empty container types in stack.
+        Test that their size is 0
+        """
+        empty_containers = [[], {}, "", ()]
+        stack = Stack()
+
+        for element in empty_containers:
+            stack.push(element)
+            self.assertFalse(stack.empty())
+            stack.pop()
+
+    def test_new_stack_from_empty_list(self):
+        """
+        Push empty list in stack.
+        Test that its size is 0
+        """
+        stack = Stack([])
+        self.assertTrue(stack.empty())
+        self.assertEqual(stack.size(), 0)
