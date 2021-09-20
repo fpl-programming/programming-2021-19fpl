@@ -56,7 +56,10 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
+        empty = None
         if not self.data:
-            return True
+            empty = True
         else:
-            return False
+            empty = False
+
+        return empty
