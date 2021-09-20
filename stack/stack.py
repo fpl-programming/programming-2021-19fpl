@@ -39,8 +39,9 @@ class Stack:
         :return: the element that is on the top of stack
         """
         if self.data:
-            return self.data[-1]
-        raise ValueError
+            raise ValueError
+
+        return self.data[-1]
 
     def size(self) -> int:
         """
