@@ -88,36 +88,36 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
 
-    @unittest.skip
-    def test_data_are_iterable(self):
-        """
-        Test that call of method _are_data_iterable return True with the iterable objects
-        """
-        elements = ((5, 4, 3, 2), {5: '5', 4: '4', 3: '3', 2: '2'}, {5, 4, 3, 2})
-        for element in elements:
-            # self.assertTrue(Stack._are_data_iterated(element))  # pylint: disable=W0212
-            pass
-
-    @unittest.skip
-    def test_data_not_iterable(self):
-        """
-        Test that call of method_are_data_iterable return False
-        with the object that are not iterable
-        """
-        elements = (1000, 0.0001, False, str)
-        for element in elements:
-            # self.assertFalse(Stack._are_data_iterated(element))  # pylint: disable=W0212
-            pass
-
-    @unittest.skip
-    def test_new_stack_from_not_iterable(self):
-        """
-        Test that the instantiation of class Stack result in raising ValueError
-        with not iterable objects
-        """
-        elements = (1, True, float, 0.1)
-        for element in elements:
-            self.assertRaises(ValueError, Stack().__init__, element)
+    # @unittest.skip
+    # def test_data_are_iterable(self):
+    #     """
+    #     Test that call of method _are_data_iterable return True with the iterable objects
+    #     """
+    #     elements = ((5, 4, 3, 2), {5: '5', 4: '4', 3: '3', 2: '2'}, {5, 4, 3, 2})
+    #     for element in elements:
+    #         self.assertTrue(Stack._are_data_iterated(element))  # pylint: disable=W0212
+    #
+    #
+    # @unittest.skip
+    # def test_data_not_iterable(self):
+    #     """
+    #     Test that call of method_are_data_iterable return False
+    #     with the object that are not iterable
+    #     """
+    #     elements = (1000, 0.0001, False, str)
+    #     for element in elements:
+    #         # self.assertFalse(Stack._are_data_iterated(element))  # pylint: disable=W0212
+    #         pass
+    #
+    # @unittest.skip
+    # def test_new_stack_from_not_iterable(self):
+    #     """
+    #     Test that the instantiation of class Stack result in raising ValueError
+    #     with not iterable objects
+    #     """
+    #     elements = (1, True, float, 0.1)
+    #     for element in elements:
+    #         self.assertRaises(ValueError, Stack().__init__, element)
 
     def test_new_stack_from_tuples_in_tuple(self):
         """
