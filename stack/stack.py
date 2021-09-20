@@ -12,7 +12,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if not isinstance(data, type(None)):
+        if isinstance(data, Iterable):
             self.data = list(data)
         else:
             self.data = []
