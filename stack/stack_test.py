@@ -16,7 +16,7 @@ class StackTestCase(unittest.TestCase):
     def test_new_stack_is_empty(self):
         """
         Create an empty Stack.
-        Test that its size is 0.
+        Test that its size is 0
         """
         stack = Stack()
         self.assertTrue(stack.empty())
