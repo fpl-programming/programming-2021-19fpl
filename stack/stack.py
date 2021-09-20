@@ -30,7 +30,7 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        return self.data.pop()
+        self.data.pop()
 
     def top(self):
         """
