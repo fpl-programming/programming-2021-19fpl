@@ -63,7 +63,7 @@ class Stack:
             print(self.top())
             self.pop()
 
-    def delete_stack(self):
+    def clean_stack(self):
         """
         delete all elements
         """
