@@ -87,3 +87,31 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_stack_from_a_string(self):
+        """
+        Create Stack with a string.
+        Test that the string is split into elements
+        """
+        stack = Stack("mammal")
+        self.assertFalse(stack.empty())
+        self.assertEqual(stack.data, list("mammal"))
+
+    def test_size_of_stack_with_float(self):
+        """
+        Create a Stack from float data.
+        Test that its size is 4.
+        """
+        float_data = [45.8, 80.1, 93.7, 1.7]
+        stack = Stack(float_data)
+        self.assertFalse(stack.empty())
+        self.assertEqual(stack.size(), 4)
+
+    def test_stack_case_of_letters(self):
+        """
+        Create Stack with a string.
+        Test that the first letter is at the top
+        """
+        stack = Stack("Kate")
+        top = stack.top()
+        self.assertEqual(top, "K")
