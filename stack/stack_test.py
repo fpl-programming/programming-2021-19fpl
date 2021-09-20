@@ -90,7 +90,7 @@ class StackTestCase(unittest.TestCase):
 
     def test_reverse_stack(self):
         """
-        Reverse a stack
+        Reverse a stack.
         """
         data_to_stack = [1, 3, 5, 7, 2, 4]
         stack = Stack(data_to_stack)
@@ -101,14 +101,15 @@ class StackTestCase(unittest.TestCase):
     def test_reverse_empty_stack_raised_error(self):
         """
         Create an empty Stack.
-        Test that call of reverse function raises Value error
+        Test that call of reverse function raises Value error.
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.reverse)
 
     def test_reverse_stack_pop_elements(self):
         """
-        Reverse a stack
+        Pop an element out of stack, reverse a stack and pop again.
+        Checks that reverse function works correctly.
         """
         data_to_stack = [1, 3, 5, 7, 2, 4]
         stack = Stack(data_to_stack)
