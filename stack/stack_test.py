@@ -112,13 +112,13 @@ class StackTestCase(unittest.TestCase):
         expected_output = ''
         self.assertEqual(mock_stdout.getvalue(), expected_output)
 
-    def test_call_delete_stack(self):
+    def test_call_clean_stack(self):
         """
         Create a Stack.
-        Test that call of delete_stack function works correctly
+        Test that call of clean_stack function works correctly
         """
         stack = Stack([1, 2, 3, 4])
-        stack.delete_stack()
+        stack.clean_stack()
         self.assertEqual(0, stack.size())
         self.assertRaises(ValueError, stack.top)
         self.assertTrue(stack.empty())
