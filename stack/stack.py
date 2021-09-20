@@ -30,7 +30,6 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-
         self.data.pop()
 
     def top(self):
@@ -40,7 +39,6 @@ class Stack:
         """
         if self.data:
             raise ValueError
-
         return self.data[-1]
 
     def size(self) -> int:
