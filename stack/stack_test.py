@@ -112,6 +112,6 @@ class StackTestCase(unittest.TestCase):
         Create Stack with a string.
         Test that the first letter is at the top
         """
-        stack = Stack("Kate")
+        stack = Stack("cat")
         top = stack.top()
-        self.assertEqual(top, "K")
+        self.assertEqual(top, "t")
