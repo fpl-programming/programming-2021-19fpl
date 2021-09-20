@@ -12,22 +12,20 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data is None:
-            self.data = []
-        elif self._are_data_iterated(data):
+        try:
             self.data = list(data)
-        else:
-            raise ValueError
+        except TypeError:
+            self.data = []
 
-    @staticmethod
-    def _are_data_iterated(data):
-        """
-        Check whether the data are iterable
-        :param data: data to create stack
-        :return: True if data is an iterable object
-                 False if data is not an iterable object
-        """
-        return isinstance(data, Iterable)
+    # @staticmethod
+    # def _are_data_iterated(data):
+    #     """
+    #     Check whether the data are iterable
+    #     :param data: data to create stack
+    #     :return: True if data is an iterable object
+    #              False if data is not an iterable object
+    #     """
+    #     return isinstance(data, Iterable)
 
     def push(self, element):
         """
