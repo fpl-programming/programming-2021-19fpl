@@ -91,7 +91,7 @@ class StackTestCase(unittest.TestCase):
     def test_push_string(self):
         """
         Push a string in stack.
-        Test that it raises ValueError
+        Test that the last char equals predefined
         """
         stack = Stack("whoami")
         self.assertEqual(stack.top(), "i")
