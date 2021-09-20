@@ -12,14 +12,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if isinstance(data, (int, float, complex, str)):
-            self.data = [data]
-        elif isinstance(data, (list, tuple, range)):
-            self.data = list(data)
-        elif isinstance(data, type(None)):
-            self.data = []
-        else:
-            raise ValueError
+        self.data = list(data) if data else []
 
     def push(self, element):
         """

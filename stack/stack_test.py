@@ -54,16 +54,17 @@ class StackTestCase(unittest.TestCase):
         self.assertEqual(stack.size(), 0)
         self.assertEqual(stack.data, [])
 
-    def test_new_stack_from_float(self):
+    def test_new_stack_from_tuple(self):
         """
-        Create a Stack from a float element as a first.
-        Check that the size of stack is 1.
-        Check that the top element of stack equals to the given float element.
+        Create a Stack from a tuple.
+        Check that the size of stack equals to the size of the tuple.
+        Check that the top element of stack equals to the latest element of the tuple.
         """
-        stack = Stack(156.2)
+        data_to_stack = (1, 3, 5, 7, 2)
+        stack = Stack(data_to_stack)
         self.assertFalse(stack.empty())
-        self.assertEqual(stack.size(), 1)
-        self.assertEqual(stack.top(), 156.2)
+        self.assertEqual(stack.size(), 5)
+        self.assertEqual(stack.top(), 2)
 
     def test_push_element(self):
         """
@@ -114,7 +115,8 @@ class StackTestCase(unittest.TestCase):
         Create a Stack.
         Test that delete_stack() works correctly and deletes all elements from stack
         """
-        stack = Stack()
+        stack = Stack([1, 2, 3, 4, 5])
+        self.assertFalse(stack.empty())
         stack.delete_stack()
         self.assertTrue(stack.empty())
         self.assertEqual(0, stack.size())
