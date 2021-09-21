@@ -19,7 +19,7 @@ class Stack:
 
     def __init__(self, data: Iterable = None):
         self.my_top = None
-        self.size = 0
+        self.my_size = 0
 
     def push(self, element):
         """
@@ -27,7 +27,7 @@ class Stack:
         :param element: element to add to stack
         """
         self.my_top = Node(element, self.my_top)
-        self.size += 1
+        self.my_size += 1
 
     def pop(self):
         """
@@ -36,7 +36,7 @@ class Stack:
         if self.empty():
             raise ValueError
         self.my_top = self.my_top.next_node
-        self.size -= 1
+        self.my_size -= 1
 
     def top(self):
         """
@@ -52,7 +52,7 @@ class Stack:
         Return the number of elements in stack
         :return: Number of elements in stack
         """
-        return self.size
+        return self.my_size
 
     def empty(self) -> bool:
         """
@@ -60,4 +60,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return self.size == 0
+        return self.my_size == 0
