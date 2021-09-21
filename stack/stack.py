@@ -20,7 +20,10 @@ class Stack:
     def __init__(self, data: Iterable = None):
         self.my_top = None
         self.my_size = 0
-
+        if data is not None:
+            for element in data:
+                self.push(element)
+    
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
