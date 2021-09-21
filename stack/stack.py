@@ -33,6 +33,8 @@ class Stack:
         """
         Delete the element on the top of stack
         """
+        if self.empty():
+            raise ValueError
         self.top = self.top.next_node
         self.size -= 1
 
@@ -41,6 +43,8 @@ class Stack:
         Return the element on the top of stack
         :return: the element that is on the top of stack
         """
+        if self.empty():
+            raise ValueError
         return self.top.val
 
     def size(self) -> int:
