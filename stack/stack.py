@@ -61,3 +61,10 @@ class Stack:
                  False if stack contains elements
         """
         return self.top is None
+
+    def __getattr__(self, item):
+        if item == "top":
+            return self.top()
+        if item == "pop":
+            return self.pop()
+    
