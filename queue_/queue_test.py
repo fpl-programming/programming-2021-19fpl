@@ -1,4 +1,4 @@
-# pylint: skip-file
+
 """
 Programming for linguists
 
