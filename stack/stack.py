@@ -29,7 +29,6 @@ class Stack:
         self.top = Node(element, self.top)
         self.size += 1
 
-    @property
     def pop(self):
         """
         Delete the element on the top of stack
@@ -48,7 +47,6 @@ class Stack:
             raise ValueError
         return self.top.val
 
-    @property
     def size(self) -> int:
         """
         Return the number of elements in stack
