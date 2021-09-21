@@ -12,12 +12,14 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data and isinstance(data, Iterable):
+        if data and isinstance(data, list):
             self.stack = data
+        elif isinstance(data, int) or isinstance(data, float):
+            self.stack = [data]
+        elif data:
+            self.stack = list(data)
         elif not data:
             self.stack = []
-        else:
-            self.stack = [data]
 
     def push(self, element):
         """
@@ -31,7 +33,7 @@ class Stack:
         Delete the element on the top of stack
         """
         if self.stack:
-            self.stack = self.stack[:-1]
+            self.stack.pop(-1)
         else:
             raise ValueError
 
@@ -57,4 +59,11 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return bool(not self.stack)
+        return not self.stack
+
+
+
+
+
+
+
