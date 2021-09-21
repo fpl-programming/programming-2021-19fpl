@@ -55,3 +55,5 @@ class Stack:
                  False if stack contains elements
         """
         return not self.data
+stack = Stack("HSE")
+print(stack.pop())
