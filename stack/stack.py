@@ -11,11 +11,13 @@ class Node:
     Stack Node
     """
     def get_val(self):
+        """get value"""
         return self.val
 
     def get_next(self):
+        """get next node"""
         return self.next_node
-    
+
     def __init__(self, val, next_node):
         self.val = val
         self.next_node = next_node
