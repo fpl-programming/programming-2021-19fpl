@@ -87,3 +87,28 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_size_of_none_stack(self):
+        """"
+        Creates a Stack from None.
+        Test that its size is 0.
+        """
+        stack = Stack(None)
+        self.assertTrue(stack.empty())
+        self.assertEqual(stack.size(), 0)
+
+    def test_string_stack(self):
+        """
+        Creates a Stack from a string.
+        Test that Stack data is splitted.
+        """
+        stack = Stack('HSE')
+        self.assertEqual(stack.data, ['H', 'S', 'E'])
+
+    def test_string_stack_order(self):
+        """
+        Creates a Stack from a string
+        Tests that top element of the stack equals to the latest element of the string.
+        """
+        stack = Stack("HSE")
+        self.assertEqual(stack.top, "E")

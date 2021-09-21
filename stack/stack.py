@@ -12,10 +12,10 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if not data:
-            self.data = []
-        else:
+        try:
             self.data = list(data)
+        except TypeError:
+            self.data = []
 
     def push(self, element):
         """
