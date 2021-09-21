@@ -30,7 +30,7 @@ class Stack:
         """
         if not self.data:
             raise ValueError
-        self.data.pop()
+        return self.data.pop()
 
     def top(self):
         """
@@ -55,5 +55,3 @@ class Stack:
                  False if stack contains elements
         """
         return not self.data
-stack = Stack("HSE")
-print(stack.pop())

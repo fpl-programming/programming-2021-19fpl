@@ -104,11 +104,11 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack('HSE')
         self.assertEqual(stack.data, ['H', 'S', 'E'])
-"""def test_string_stack_order(self):
+
+    def test_string_stack_order(self):
         """
         Creates a Stack from a string
         Tests that top element of the stack equals to the latest element of the string.
         """
         stack = Stack("HSE")
         self.assertEqual(stack.top, "E")
-"""
