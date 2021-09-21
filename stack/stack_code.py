@@ -14,7 +14,7 @@ class Stack:
     def __init__(self, data: Iterable = None):
         if data and isinstance(data, list):
             self.stack = data
-        elif isinstance(data, int) or isinstance(data, float):
+        elif isinstance(data, (int, float)):
             self.stack = [data]
         elif data:
             self.stack = list(data)
