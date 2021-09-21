@@ -111,4 +111,4 @@ class StackTestCase(unittest.TestCase):
         Tests that top element of the stack equals to the latest element of the string.
         """
         stack = Stack("HSE")
-        self.assertEqual(stack.top, "E")
+        self.assertEqual(stack.top(), "E")
