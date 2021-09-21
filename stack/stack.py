@@ -18,7 +18,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        self.top = None
+        self.my_top = None
         self.size = 0
 
     def push(self, element):
@@ -26,7 +26,7 @@ class Stack:
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
-        self.top = Node(element, self.top)
+        self.my_top = Node(element, self.my_top)
         self.size += 1
 
     def pop(self):
@@ -35,7 +35,7 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        self.top = self.top.next_node
+        self.my_top = self.my_top.next_node
         self.size -= 1
 
     def top(self):
@@ -45,7 +45,7 @@ class Stack:
         """
         if self.empty():
             raise ValueError
-        return self.top.val
+        return self.my_top.val
 
     def size(self) -> int:
         """
