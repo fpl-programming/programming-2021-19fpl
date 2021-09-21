@@ -12,7 +12,6 @@ class Node:
         self.next = next_node
 
 
-#!
 class Stack:
     """
     Stack Data Structure
@@ -21,19 +20,21 @@ class Stack:
     def __init__(self, data: Iterable = None):
         self.top = None
         self.size = 0
-        
+
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
         self.top = Node(element, self.top)
+        self.size += 1
 
     def pop(self):
         """
         Delete the element on the top of stack
         """
         self.top = self.top.next_node
+        self.size -= 1
 
     def top(self):
         """
@@ -55,4 +56,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return self.top == None
+        return self.top is None
