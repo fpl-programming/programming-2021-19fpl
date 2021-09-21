@@ -9,7 +9,7 @@ from typing import Iterable
 class Node:
     def __init__(self, val, next_node):
         self.val = val
-        self.next = next_node
+        self.next_node = next_node
 
 
 class Stack:
@@ -23,7 +23,7 @@ class Stack:
         if data is not None:
             for element in data:
                 self.push(element)
-    
+
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
