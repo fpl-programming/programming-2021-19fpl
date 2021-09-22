@@ -12,10 +12,10 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data is None:
-            self.data = []
-        else:
+        try:
             self.data = list(data)
+        except ValueError:
+            self.data = []
 
     def push(self, element):
         """
@@ -54,6 +54,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        return False
+        return not self.data
