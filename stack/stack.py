@@ -14,6 +14,16 @@ class Stack:
     def __init__(self, data: Iterable = None):
         self.data = list(data) if data is not None else []
 
+    def __str__(self):
+        """
+        return string representation of the object
+        """
+        str_repr = ''
+        while self.data:
+            str_repr += self.top()
+            self.pop()
+        return str_repr
+
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
@@ -51,17 +61,14 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        return False
+        return not bool(self.data)
 
     def print(self):
         """
-        Print elements one by one
+        Print elements one by one in a column
         """
-        while self.data:
-            print(self.top())
-            self.pop()
+        for item in str(self):
+            print(item)
 
     def clean_stack(self):
         """

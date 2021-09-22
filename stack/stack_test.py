@@ -7,7 +7,7 @@ import io
 import unittest
 import unittest.mock
 
-from stack.stack import Stack
+from stack import Stack
 
 
 class StackTestCase(unittest.TestCase):
@@ -119,6 +119,7 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack([1, 2, 3, 4])
         stack.clean_stack()
+        print(stack)
         self.assertEqual(0, stack.size())
         self.assertRaises(ValueError, stack.top)
         self.assertTrue(stack.empty())
