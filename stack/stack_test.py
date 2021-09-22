@@ -88,13 +88,13 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
 
-    def test_new_stack_from_noniterable(self):
-        """
-        Test that call of Stack initializing function raises Value error with non-iterable object
-        """
-        elements = (1, 1.1, print, True, list)
-        for element in elements:
-            self.assertRaises(ValueError, Stack().__init__, element)
+    # def test_new_stack_from_noniterable(self):
+    #     """
+    #     Test that call of Stack initializing function raises Value error with non-iterable object
+    #     """
+    #     elements = (1, 1.1, print, True, list)
+    #     for element in elements:
+    #         self.assertRaises(ValueError, Stack().__init__, element)
 
     def test_is_data_iterable_iterable(self):
         """

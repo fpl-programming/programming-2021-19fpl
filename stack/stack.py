@@ -12,12 +12,13 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if self._is_data_iterable(data):
-            self.data = list(data)
-        elif data is None:
-            self.data = []
-        else:
-            raise ValueError('Data is not iterable.')
+        self.data = list(data) if data else []
+        # if self._is_data_iterable(data):
+        #     self.data = list(data)
+        # elif data is None:
+        #     self.data = []
+        # else:
+        #     raise ValueError('Data is not iterable.')
 
     def push(self, element):
         """
@@ -56,9 +57,7 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if self.data:
-            return False
-        return True
+        return False if self.data else True
 
     @staticmethod
     def _is_data_iterable(data):
