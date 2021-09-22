@@ -65,6 +65,9 @@ class Stack:
         return not self.data
 
     def pop_number_of_elements(self, number: int):
+        """
+        Delete the element on the top of stack and raises errors if incorrect arguments
+        """
         if not isinstance(number, int) or isinstance(number, bool):
             raise TypeError
         if number > self.size():
