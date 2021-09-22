@@ -6,6 +6,14 @@ Implementation of the data structure "Stack"
 from typing import Iterable
 
 
+class NumberOutOfRangeError(Exception):
+    """
+    Custom error
+    """
+    def __str__(self):
+        return 'Stack is smaller than number'
+
+
 class Stack:
     """
     Stack Data Structure
@@ -54,6 +62,13 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        if not self.data:
-            return True
-        return False
+        return not self.data
+
+    def pop_number_of_elements(self, number: int):
+        if not isinstance(number, int) or isinstance(number, bool):
+            raise TypeError
+        if number > self.size():
+            raise NumberOutOfRangeError
+        while number:
+            self.pop()
+            number -= 1

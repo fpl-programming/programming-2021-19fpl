@@ -5,7 +5,7 @@ Tests for the Stack class.
 
 import unittest
 
-from stack.stack import Stack
+from stack.stack import Stack, NumberOutOfRangeError
 
 
 class StackTestCase(unittest.TestCase):
@@ -87,3 +87,34 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_call_pop_for_number_of_elements(self):
+        """
+        Create a Stack.
+        Pop given number of elements
+        """
+        data_to_stack = [1, 3, 5, 7, 2, 4, 10, 8]
+        stack = Stack(data_to_stack)
+        stack.pop_number_of_elements(5)
+        self.assertEqual(3, stack.size())
+        self.assertEqual([1, 3, 5], stack.data)
+
+    def test_call_pop_for_number_out_of_range(self):
+        """
+        Create a Stack.
+        Test that call of pop_number_of_elements function raises custom error
+        """
+        data_to_stack = [1, 3, 5, 7, 2]
+        stack = Stack(data_to_stack)
+        self.assertRaises(NumberOutOfRangeError, stack.pop_number_of_elements, 9)
+
+    def test_call_pop_with_incorrect_argument(self):
+        """
+        Create a Stack.
+        Test that call of pop_number_of_elements function raises custom error
+        """
+        data_to_stack = [1, 3, 5, 7]
+        stack = Stack(data_to_stack)
+        incorrect_arguments = ['string', None, 1.09, True, False, [1, 2], ('a', 'b')]
+        for argument in incorrect_arguments:
+            self.assertRaises(TypeError, stack.pop_number_of_elements, argument)
