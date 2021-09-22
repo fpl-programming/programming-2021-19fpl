@@ -95,8 +95,7 @@ class StackTestCase(unittest.TestCase):
         Test that TypeError is raised
         """
         for non_iter in [1, True, 1.0]:
-            with self.assertRaises(ValueError):
-                Stack(non_iter)
+            self.assertRaises(ValueError, Stack, non_iter)
 
     def test_push_no_argument_raised_error(self):
         """
@@ -104,8 +103,7 @@ class StackTestCase(unittest.TestCase):
         Test that call of push function with no argument raises Value error
         """
         stack = Stack()
-        with self.assertRaises(TypeError):
-            stack.push()
+        self.assertRaises(TypeError, stack.push)
 
     def test_pop_function_returns_no_value(self):
         """

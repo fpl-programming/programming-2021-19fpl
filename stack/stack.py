@@ -12,12 +12,19 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data is None:
-            self.stack = []
-        elif not hasattr(data, '__iter__'):
-            raise ValueError
-        else:
+        try:
             self.stack = list(data)
+        except TypeError:
+            if not data:
+                self.stack = []
+            else:
+                raise ValueError
+        # if data is None:
+        #     self.stack = []
+        # elif not hasattr(data, '__iter__'):
+        #     raise ValueError
+        # else:
+        #     self.stack = list(data)
 
     def push(self, element):
         """
@@ -32,7 +39,7 @@ class Stack:
         """
         if not self.stack:
             raise TypeError
-        self.stack = self.stack[:-1]
+        self.stack.pop()
 
     def top(self):
         """
@@ -48,7 +55,7 @@ class Stack:
         Return the number of elements in stack
         :return: Number of elements in stack
         """
-        return len(self.stack) if self.stack else 0
+        return len(self.stack)
 
     def empty(self) -> bool:
         """
@@ -56,4 +63,4 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return not bool(self.stack)
+        return not self.stack
