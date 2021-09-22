@@ -5,7 +5,7 @@ Implementation of the data structure "Queue" from stack
 """
 
 from queue import Full
-from stack import Stack
+from queue_.stack import Stack
 
 
 # pylint: disable=invalid-name
