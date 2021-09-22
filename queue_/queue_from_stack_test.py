@@ -8,8 +8,8 @@ import unittest
 
 from queue import Full
 
-from queue_.queue_from_stack import Queue_
-from queue_.stack import Stack
+from queue_from_stack import Queue_
+from stack import Stack
 
 
 class QueueTestCase(unittest.TestCase):
