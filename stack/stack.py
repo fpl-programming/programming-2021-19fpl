@@ -14,11 +14,11 @@ class Stack:
     def __init__(self, data: Iterable = None):
         try:
             self.stack = list(data)
-        except TypeError:
+        except TypeError as exception:
             if not data:
                 self.stack = []
             else:
-                raise ValueError
+                raise ValueError from exception
         # if data is None:
         #     self.stack = []
         # elif not hasattr(data, '__iter__'):
