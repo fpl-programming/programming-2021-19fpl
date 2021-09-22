@@ -105,6 +105,9 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_([1, 2, 3, 4, 5], 5)
         self.assertRaises(Full, queue.put, 6)
+        queue.get()
+        queue.put(6)
+        self.assertEqual([2, 3, 4, 5, 6], queue.data)
 
     def test_limited_queue_is_full(self):
         """
