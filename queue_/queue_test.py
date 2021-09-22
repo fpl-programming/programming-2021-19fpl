@@ -8,6 +8,7 @@ import unittest
 
 from queue_.queue_ import Queue_
 
+# pylint: skip-file
 
 class QueueTestCase(unittest.TestCase):
     """
