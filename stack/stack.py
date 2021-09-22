@@ -33,7 +33,7 @@ class Stack:
         Delete the element on the top of stack
         """
         if self.stack:
-            self.stack.pop(-1)
+            self.stack.pop()
         else:
             raise ValueError
 
