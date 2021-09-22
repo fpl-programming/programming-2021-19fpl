@@ -14,7 +14,7 @@ class Stack:
     def __init__(self, data: Iterable = None):
         try:
             self.data = list(data)
-        except ValueError:
+        except TypeError:
             self.data = []
 
     def push(self, element):
