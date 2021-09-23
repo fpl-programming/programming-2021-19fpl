@@ -94,9 +94,9 @@ class QueueTestCase(unittest.TestCase):
         Test that function capacity returns correct data.
         """
         queue = Queue_()
-        self.assertEqual(50, queue.capacity)
+        self.assertEqual(50, queue.capacity())
         queue_new = Queue_(capacity=10)
-        self.assertEqual(10, queue_new.capacity)
+        self.assertEqual(10, queue_new.capacity())
 
     def test_full_ideal(self):
         """
