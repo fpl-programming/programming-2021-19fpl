@@ -60,6 +60,6 @@ class Queue_:
         """
         if not self.max_size:
             print("the queue is endless")
-        elif self.size == self.max_size:
+        elif self.size() == self.max_size:
             return True
         return False
