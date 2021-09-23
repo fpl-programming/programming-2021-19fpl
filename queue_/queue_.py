@@ -15,7 +15,7 @@ class Queue_:
 
     def __init__(self, data: Iterable = (), capacity: int = 50):
         self.data = list(data)
-        self.capacity = capacity
+        self._capacity = capacity
 
     def put(self, element):
         """
@@ -61,7 +61,7 @@ class Queue_:
         Return the capacity of queue_
         :return: the maximum length (capacity) of queue_
         """
-        return self.capacity
+        return self._capacity
 
     def full(self):
         """
@@ -69,6 +69,6 @@ class Queue_:
         :return: True if size of queue_ equals the capacity of queue_.
                  False if the queue_ contains less elements.
         """
-        if self.size() == self.capacity:
+        if self.size() == self._capacity:
             return True
         return False
