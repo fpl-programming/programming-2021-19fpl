@@ -51,3 +51,15 @@ class Queue_:
         :return: the element that is on the top of queue_
         """
         return self.data[0]
+
+    def full(self):
+        """
+        Return queue_ is full or not
+        :return: True if queue_ is full.
+                 False if the queue_ is not full
+        """
+        if not self.max_size:
+            print("the queue is endless")
+        elif self.size == self.max_size:
+            return True
+        return False
