@@ -100,8 +100,8 @@ class QueueTestCase(unittest.TestCase):
 
     def test_full_ideal(self):
         """
-        Create
-        Test
+        Create Queue and fill the capacity.
+        Test that at first the full function returns False, then True.
         """
         queue = Queue_(capacity=4)
         self.assertFalse(queue.full())
