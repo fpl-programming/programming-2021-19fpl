@@ -22,14 +22,14 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_elem_num: int = 10):
+    def __init__(self, data: Iterable = (), max_elem_num: int = 15):
         self.max_elem_num = max_elem_num
         try:
             self.data = list(data)
         except TypeError:
             self.data = []
         else:
-            if len(self.data) > self.max_elem_num:
+            if len(self.data) >= self.max_elem_num:
                 raise QueueIsTooLongError
 
     def put(self, element):
