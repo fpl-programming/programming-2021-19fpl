@@ -88,6 +88,7 @@ class Queue_:
             self.storage.pop()
         return last_el
 
+# pylint: disable=duplicate-code
     def capacity(self) -> int:
         """
         Return the max number of elements in queue_

@@ -73,6 +73,7 @@ class Queue_:
             raise IndexError('Queue is empty')
         return self.data[0]
 
+# pylint: disable=duplicate-code
     def capacity(self) -> int:
         """
         Return the max number of elements in queue_
