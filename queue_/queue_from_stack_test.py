@@ -35,7 +35,7 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue from stack.
         Test that its size is 0.
         """
-        queue = Queue_()
+        queue = Queue_(Stack())
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
@@ -53,18 +53,18 @@ class QueueTestCase(unittest.TestCase):
         Put an element in queue.
         Test that its size is 1.
         """
-        queue = Queue_()
-        queue.put(1)
+        queue = Queue_(Stack())
+        queue.put(4)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 1)
-        self.assertEqual(queue.top(), 1)
+        self.assertEqual(queue.top(), 4)
 
     def test_call_get_of_empty_queue_raised_error(self):
         """
         Create an empty Queue.
         Test that call of get function raises Assertion error
         """
-        queue = Queue_()
+        queue = Queue_(Stack())
         self.assertRaises(IndexError, queue.get)
 
     def test_capacity_of_full_queue(self):
@@ -72,7 +72,7 @@ class QueueTestCase(unittest.TestCase):
         Create a full Queue.
         Test that if the queue is full, its size is equal to its capacity
         """
-        queue = Queue_(Stack([1, 2, 3, 4]), 4)
+        queue = Queue_(Stack([1, 2, 3]), 3)
         if queue.full():
             self.assertEqual(queue.size(), queue.capacity())
 
@@ -82,7 +82,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of instantiation of class Queue_ with the number of elements
         larger than the capacity raises the TooManyElementsInQueue error
         """
-        self.assertRaises(TooManyElementsInQueueError, Queue_().__init__, Stack([1, 2, 3]), 2)
+        self.assertRaises(TooManyElementsInQueueError, Queue_().__init__, Stack([1, 2, 3, 4]), 3)
 
     @unittest.skip
     def test_call_put_of_full_queue_raised_error(self):
@@ -91,11 +91,11 @@ class QueueTestCase(unittest.TestCase):
         Put elements in the queue to make it full.
         Test that call of put function raises QueueIsFull error when the queue is full
         """
-        queue = Queue_(Stack([]), 4)
+        queue = Queue_(Stack([]), 5)
         self.assertTrue(queue.empty())
-        for element in range(4):
+        for element in range(5):
             queue.put(element)
-        self.assertEqual(queue.size(), 4)
+        self.assertEqual(queue.size(), 5)
         self.assertRaises(QueueIsFullError, queue.put, 1)
 
     def test_infinite_queue_is_not_full(self):
@@ -103,7 +103,7 @@ class QueueTestCase(unittest.TestCase):
         Create an infinite queue.
         Test that the call of full function is False
         """
-        queue = Queue_(Stack([1, 2, 3]))
+        queue = Queue_(Stack([1, 3, 4]))
         self.assertFalse(queue.full())
         queue.put(6)
         self.assertFalse(queue.full())

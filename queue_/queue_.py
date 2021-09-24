@@ -36,6 +36,7 @@ class TypeCapacityError(Exception):
         return "The capacity is not int"
 
 
+# pylint: disable=invalid-name
 class Queue_:
     """
     Queue Data Structure
@@ -44,17 +45,16 @@ class Queue_:
     def __init__(self, data: Iterable = (),  capacity: int = 0):
         if not isinstance(capacity, int):
             raise TypeCapacityError
-        else:
-            self._capacity = capacity
+        self._capacity = capacity
+
         try:
             listed_data = list(data)
         except TypeError:
             self.data = []
         else:
-            if (len(listed_data) > self._capacity) and (len(listed_data) and self._capacity):
+            if (listed_data and self._capacity) and (len(listed_data) > self._capacity):
                 raise TooManyElementsInQueueError
-            else:
-                self.data = listed_data
+            self.data = listed_data
 
     def put(self, element):
         """
@@ -114,8 +114,7 @@ class Queue_:
         if not self._capacity:
             return False  # if capacity == 0, the queue_ is infinite
 
-        elif self._capacity and self.size() == self._capacity:
+        if self._capacity and self.size() == self._capacity:
             return True
 
         return False
-

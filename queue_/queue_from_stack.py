@@ -1,3 +1,4 @@
+# pylint: disable=duplicate-code
 """
 Programming for linguists
 
@@ -5,38 +6,10 @@ Implementation of the data structure "Queue" from stack
 """
 
 from stack.stack import Stack
-#from queue_.queue_ import TooManyElementsInQueueError, QueueIsFullError
+from queue_.queue_ import TooManyElementsInQueueError, TypeCapacityError, QueueIsFullError
 
 
-class TooManyElementsInQueueError(Exception):
-    """
-    Custom error
-    Error is raised when a number of elements in queue_ is larger than its capacity
-    """
-    def __str__(self):
-        return "There are too many elements in the queue_"
-
-
-class QueueIsFullError(Exception):
-    """
-    Custom error
-    Error is raised when a new element cannot be added
-    due to the lack of the space in queue_
-    """
-    def __str__(self):
-        return "The queue_ is full"
-
-
-class TypeCapacityError(Exception):
-    """
-    Custom error
-    Error is raised capacity is not int
-    """
-
-    def __str__(self):
-        return "The capacity is not int"
-
-
+# pylint: disable=invalid-name
 class Queue_:
     """
     Queue Data Structure
@@ -45,14 +18,15 @@ class Queue_:
     def __init__(self, data: Stack = Stack(),  capacity: int = 0):
         if not isinstance(data, Stack):
             raise TypeError
+
         if not isinstance(capacity, int):
             raise TypeCapacityError
-        else:
-            self._capacity = capacity
+
+        self._capacity = capacity
+
         if data.size() > self._capacity and data.size() and self._capacity:
             raise TooManyElementsInQueueError
-        else:
-            self.data = data
+        self.data = data
 
     def put(self, element):
         """
@@ -133,7 +107,7 @@ class Queue_:
         if not self._capacity:
             return False  # if capacity == 0, the queue_ is infinite
 
-        elif self._capacity and self.size() == self._capacity:
+        if self._capacity and self.size() == self._capacity:
             return True
 
         return False
