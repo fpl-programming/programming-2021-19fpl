@@ -22,9 +22,9 @@ class Queue_:
         if not isinstance(capacity, int):
             raise TypeCapacityError
 
-        self._capacity = capacity
+        self._q_capacity = capacity
 
-        if data.size() > self._capacity and data.size() and self._capacity:
+        if data.size() > self._q_capacity and data.size() and self._q_capacity:
             raise TooManyElementsInQueueError
         self.data = data
 
@@ -91,25 +91,23 @@ class Queue_:
 
         return top_item
 
-    # pylint: disable=duplicate-code
     def capacity(self):
         """
         Return the capacity of queue_
         :return: the number of elements which can be in queue_
         """
-        return self._capacity
+        return self._q_capacity
 
-    # pylint: disable=duplicate-code
     def full(self):
         """
         Return whether queue_ is full or not
         :return: True if queue_ is full.
                  False if the queue_ is not full
         """
-        if not self._capacity:
+        if not self._q_capacity:
             return False  # if capacity == 0, the queue_ is infinite
 
-        if self._capacity and self.size() == self._capacity:
+        if self._q_capacity and self.size() == self._q_capacity:
             return True
 
         return False
