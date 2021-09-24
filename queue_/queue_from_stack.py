@@ -4,12 +4,14 @@ Programming for linguists
 Implementation of the data structure "Queue"
 """
 
-from typing import Iterable
-
 from stack.stack import Stack
 
 
 class CapacityError(Exception):
+    """
+    Custom Error
+    Raises when number of elements exceeds capacity
+    """
     pass
 
 

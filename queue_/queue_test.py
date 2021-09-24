@@ -1,3 +1,4 @@
+# pylint: disable=duplicate-code
 """
 Programming for linguists
 
@@ -105,13 +106,15 @@ class QueueTestCase(unittest.TestCase):
     def test_initialisation_of_class_queue_when_data_exceeded_capacity_raised_error(self):
         """
         Create a Queue.
-        Test that initialisation of class Queue when length of data exceeds capacity raises Capacity error
+        Test that initialisation of class Queue
+        when length of data exceeds capacity raises Capacity error
         """
         self.assertRaises(CapacityError, Queue_().__init__, range(41), 40)
 
     def test_queue_is_full(self):
         """
-        Test that call of full function returns False when queue is not full and after True when it is full
+        Test that call of full function returns False
+        when queue is not full and after True when it is full
         """
         queue = Queue_(range(39), 40)
         self.assertFalse(queue.full())

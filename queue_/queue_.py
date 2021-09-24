@@ -8,6 +8,10 @@ from typing import Iterable
 
 
 class CapacityError(Exception):
+    """
+    Custom Error
+    Raises when number of elements exceeds capacity
+    """
     pass
 
 
