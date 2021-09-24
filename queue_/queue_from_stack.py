@@ -1,10 +1,11 @@
 """
 Programming for linguists
 
-Implementation of the data structure "Queue"
+Implementation of the data structure "Queue" from stack
 """
 
-from typing import Iterable
+from stack.stack import Stack
+#from queue_.queue_ import TooManyElementsInQueueError, QueueIsFullError
 
 
 class TooManyElementsInQueueError(Exception):
@@ -41,20 +42,17 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (),  capacity: int = 0):
+    def __init__(self, data: Stack = Stack(),  capacity: int = 0):
+        if not isinstance(data, Stack):
+            raise TypeError
         if not isinstance(capacity, int):
             raise TypeCapacityError
         else:
             self._capacity = capacity
-        try:
-            listed_data = list(data)
-        except TypeError:
-            self.data = []
+        if data.size() > self._capacity and data.size() and self._capacity:
+            raise TooManyElementsInQueueError
         else:
-            if (len(listed_data) > self._capacity) and (len(listed_data) and self._capacity):
-                raise TooManyElementsInQueueError
-            else:
-                self.data = listed_data
+            self.data = data
 
     def put(self, element):
         """
@@ -64,7 +62,7 @@ class Queue_:
         if self.full():
             raise QueueIsFullError
 
-        return self.data.append(element)
+        return self.data.push(element)
 
     def get(self):
         """
@@ -72,7 +70,18 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
-        return self.data.pop(0)
+
+        tmp_stack = Stack()
+        while self.data.data:
+            tmp_stack.push(self.data.top())
+            self.data.pop()
+        top_item = tmp_stack.top()
+        tmp_stack.pop()
+        while tmp_stack.data:
+            self.data.push(tmp_stack.top())
+            tmp_stack.pop()
+
+        return top_item
 
     def empty(self) -> bool:
         """
@@ -80,14 +89,14 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return not self.data
+        return self.data.empty()
 
     def size(self) -> int:
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return len(self.data)
+        return self.data.size()
 
     def top(self):
         """
@@ -96,7 +105,17 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
-        return self.data[0]
+
+        tmp_stack = Stack()
+        while self.data.data:
+            tmp_stack.push(self.data.top())
+            self.data.pop()
+        top_item = tmp_stack.top()
+        while tmp_stack.data:
+            self.data.push(tmp_stack.top())
+            tmp_stack.pop()
+
+        return top_item
 
     def capacity(self):
         """
@@ -118,4 +137,3 @@ class Queue_:
             return True
 
         return False
-
