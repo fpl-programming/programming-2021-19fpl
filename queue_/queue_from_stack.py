@@ -91,6 +91,7 @@ class Queue_:
 
         return top_item
 
+    # pylint: disable=duplicate-code
     def capacity(self):
         """
         Return the capacity of queue_
@@ -98,6 +99,7 @@ class Queue_:
         """
         return self._capacity
 
+    # pylint: disable=duplicate-code
     def full(self):
         """
         Return whether queue_ is full or not
