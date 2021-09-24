@@ -4,8 +4,8 @@ Programming for linguists
 Implementation of the data structure "Queue" from stack
 """
 
-from queue import Full
-from queue_.stack import Stack
+from queue_.queue_ import FullQueue
+from stack.stack import Stack
 
 
 # pylint: disable=invalid-name
@@ -15,6 +15,8 @@ class Queue_:
     """
 
     def __init__(self, data: Stack = Stack(), max_size: int = 0):
+        if max_size and len(data.data) > max_size:
+            data.data = data.data[:max_size]
         self.data = data
         self.max_size = max_size
 
@@ -24,9 +26,9 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.full():
-            raise Full
+            raise FullQueue
 
-        self.data.data.append(element)
+        self.data.push(element)
 
     def get(self):
         """
@@ -40,14 +42,14 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return not self.data.data
+        return self.data.empty()
 
     def size(self) -> int:
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return len(self.data.data)
+        return self.data.size()
 
     def top(self):
         """

@@ -5,7 +5,6 @@ Implementation of the data structure "Queue"
 """
 
 from typing import Iterable
-from queue import Full
 
 
 # pylint: disable=invalid-name
@@ -15,7 +14,10 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size: int = 0):
-        self.data = list(data)
+        if max_size and len(list(data)) > max_size:
+            self.data = list(data)[:max_size]
+        else:
+            self.data = list(data)
         self.max_size = max_size
 
     def put(self, element):
@@ -24,7 +26,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.full():
-            raise Full
+            raise FullQueue
 
         self.data.append(element)
 
@@ -69,3 +71,7 @@ class Queue_:
             return True
 
         return False
+
+
+class FullQueue(Exception):
+    pass

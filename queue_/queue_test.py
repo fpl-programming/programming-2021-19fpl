@@ -6,9 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue import Full
-
-from queue_.queue_ import Queue_
+from queue_.queue_ import Queue_, FullQueue
 
 
 class QueueTestCase(unittest.TestCase):
@@ -93,10 +91,12 @@ class QueueTestCase(unittest.TestCase):
     def test_new_queue_with_max_size(self):
         """
         Create a Queue_ with max_size.
-        Test that its field max_size is filled correctly
+        Test that its field max_size is filled correctly and if data size is bigger than max_size,
+        the needed slice is taken
         """
-        queue = Queue_(max_size=5)
+        queue = Queue_([1, 2, 3, 4, 5, 6], max_size=5)
         self.assertEqual(queue.max_size, 5)
+        self.assertEqual(len(queue.data), 5)
 
     def test_put_element_into_full_queue(self):
         """
@@ -104,7 +104,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of put function raises Full exception
         """
         queue = Queue_([1, 2, 3, 4, 5], 5)
-        self.assertRaises(Full, queue.put, 6)
+        self.assertRaises(FullQueue, queue.put, 6)
         queue.get()
         queue.put(6)
         self.assertEqual([2, 3, 4, 5, 6], queue.data)
