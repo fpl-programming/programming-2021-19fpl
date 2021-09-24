@@ -6,6 +6,8 @@ Implementation of the data structure "Queue"
 
 from typing import Iterable
 
+from stack.stack import Stack
+
 
 class CapacityError(Exception):
     pass
@@ -17,14 +19,14 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), capacity_n: int = 40):
+    def __init__(self, data: Stack = Stack(), capacity_n: int = 40):
+        if not isinstance(data, Stack):
+            raise TypeError('Data is not Stack')
         if not isinstance(capacity_n, int):
             raise TypeError('Capacity is not int')
+        self.data = data
         self.capacity_n = capacity_n
-        try:
-            self.data = list(data)
-        except TypeError:
-            self.data = []
+        self.storage = Stack()
         if self.size() > self.capacity_n:
             raise CapacityError('Number of elements exceeds capacity')
 
@@ -35,7 +37,7 @@ class Queue_:
         """
         if self.full():
             raise CapacityError('Queue is already full')
-        self.data.append(element)
+        self.data.push(element)
 
     def get(self):
         """
@@ -43,7 +45,15 @@ class Queue_:
         """
         if self.empty():
             raise IndexError('Queue is empty')
-        return self.data.pop(0)
+        while not self.data.empty():
+            self.storage.push(self.data.top())
+            self.data.pop()
+        last_el = self.storage.top()
+        self.storage.pop()
+        while not self.storage.empty():
+            self.data.push(self.storage.top())
+            self.storage.pop()
+        return last_el
 
     def empty(self) -> bool:
         """
@@ -51,14 +61,14 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return not self.data
+        return self.data.empty()
 
     def size(self) -> int:
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return len(self.data)
+        return self.data.size()
 
     def top(self):
         """
@@ -67,7 +77,14 @@ class Queue_:
         """
         if self.empty():
             raise IndexError('Queue is empty')
-        return self.data[0]
+        while not self.data.empty():
+            self.storage.push(self.data.top())
+            self.data.pop()
+        last_el = self.storage.top()
+        while not self.storage.empty():
+            self.data.push(self.storage.top())
+            self.storage.pop()
+        return last_el
 
     def capacity(self) -> int:
         """

@@ -12,12 +12,10 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if data is None:
-            self.data = []
-        elif not isinstance(data, Iterable):
-            raise ValueError('Object is not iterable')
-        else:
+        try:
             self.data = list(data)
+        except TypeError:
+            self.data = []
 
     def push(self, element):
         """

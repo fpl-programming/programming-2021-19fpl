@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_, CapacityError
+from queue_.queue_from_stack import Stack, Queue_, CapacityError
 
 
 class QueueTestCase(unittest.TestCase):
@@ -29,7 +29,8 @@ class QueueTestCase(unittest.TestCase):
         Test that it is 1.
         """
         data = (1, 2, 3, 4)
-        queue = Queue_(data)
+        queue = Queue_(Stack(data))
+        print(queue.size())
         self.assertEqual(queue.get(), data[0])
 
     def test_new_queue_from_tuple(self):
@@ -38,7 +39,7 @@ class QueueTestCase(unittest.TestCase):
         Check that the size of queue_ equals to the size of the given tuple.
         """
         data = (1, 2, 3, 4)
-        queue = Queue_(data)
+        queue = Queue_(Stack(data))
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
         for value in data:
@@ -54,7 +55,7 @@ class QueueTestCase(unittest.TestCase):
         Check that the top element of queue equals to the latest element of the list.
         """
         data = [1, 3, 5, 7, 2, 4]
-        queue = Queue_(data)
+        queue = Queue_(Stack(data))
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
         self.assertEqual(queue.top(), data[0])
@@ -64,7 +65,7 @@ class QueueTestCase(unittest.TestCase):
         Create a Queue_ from a generator.
         Test that its size equals to the number provided in the generator.
         """
-        queue = Queue_(range(10))
+        queue = Queue_(Stack(range(10)))
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 10)
         self.assertEqual(queue.top(), 0)
@@ -86,6 +87,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of get function raises Assertion error
         """
         queue = Queue_()
+        print(queue.empty(), queue.data)
         self.assertRaises(IndexError, queue.get)
 
     def test_type_capacity_not_int_raised_error(self):
@@ -95,11 +97,18 @@ class QueueTestCase(unittest.TestCase):
         for capacity in ['a', 3.15, {'a': 'a'}, [2]]:
             self.assertRaises(TypeError, Queue_().__init__, None, capacity)
 
+    def test_data_is_stack(self):
+        """
+        Test that initialisation of class Queue when data is not Stack raises Type error
+        """
+        queue = Queue_()
+        self.assertTrue(isinstance(queue.data, Stack))
+
     def test_put_element_in_full_queue_raised_error(self):
         """
         Test that call of put function when queue is full raises Capacity error
         """
-        queue = Queue_(range(40), 40)
+        queue = Queue_(Stack(range(40)), 40)
         self.assertRaises(CapacityError, queue.put, 8)
 
     def test_initialisation_of_class_queue_when_data_exceeded_capacity_raised_error(self):
@@ -107,13 +116,13 @@ class QueueTestCase(unittest.TestCase):
         Create a Queue.
         Test that initialisation of class Queue when length of data exceeds capacity raises Capacity error
         """
-        self.assertRaises(CapacityError, Queue_().__init__, range(41), 40)
+        self.assertRaises(CapacityError, Queue_().__init__, Stack(range(41)), 40)
 
     def test_queue_is_full(self):
         """
         Test that call of full function returns False when queue is not full and after True when it is full
         """
-        queue = Queue_(range(39), 40)
+        queue = Queue_(Stack(range(39)), 40)
         self.assertFalse(queue.full())
         queue.put(2)
         self.assertTrue(queue.full())
@@ -122,7 +131,7 @@ class QueueTestCase(unittest.TestCase):
         """
         Test that call of capacity function returns the max size of queue
         """
-        queue = Queue_(range(40))
+        queue = Queue_(Stack(range(40)))
         self.assertEqual(40, queue.capacity())
-        queue_2 = Queue_(range(40), 50)
+        queue_2 = Queue_(Stack(range(40)), 50)
         self.assertEqual(50, queue_2.capacity())
