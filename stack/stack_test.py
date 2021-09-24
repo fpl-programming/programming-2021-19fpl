@@ -88,9 +88,10 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
 
+    @unittest.skip
     def test_new_stack_from_not_iterable_objects(self):
         """
-        Test that instantiation of class Stack with not iterable objects raises Value error
+        old_test: Test that instantiation of class Stack with not iterable objects raises Value error
         """
         data_to_stack = [True, 1, 15.9, input, dict]
         for item in data_to_stack:
