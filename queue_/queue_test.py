@@ -104,7 +104,7 @@ class QueueTestCase(unittest.TestCase):
         Test that an incorrect type of a maxsize parameter raises a ExceededMaxSizeError.
         """
         data = [1, None, 3, 5, 7, 'a', 2, 4, False]
-        incorrect_maxsize = [None, 7.56, True, Queue_(), False, ['string', 'list'], ('a', 'b'), {'a': 1, 'b': 2}]
+        incorrect_maxsize = [None, 7.56, True, Queue_(), False, ['string'], {'b': 2}]
         for maxsize in incorrect_maxsize:
             self.assertRaises(IncorrectMaxSizeError, Queue_, data, maxsize)
 
