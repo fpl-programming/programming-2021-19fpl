@@ -83,7 +83,18 @@ class Queue_:
         return self.data[0]
 
     def capacity(self):
+        """
+        Return the maxsize parameter.
+        :return: the maximum size of the queue_.
+        """
         return self._maxsize
 
     def full(self):
-        return True if self.size() == self.capacity() else False
+        """
+        Return whether queue_ is full or not
+        :return: True if queue_ contains number of elements equal to capacity.
+                 False if the queue_ does not contain number of elements equal to capacity.
+        """
+        if self.size() == self.capacity():
+            return True
+        return False
