@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_ import Queue_, IncorrectMaxSizeError, ExceededMaxSizeError, QueueIsFullError
+from queue_.queue_ import Queue_, IncorrectMaxSizeError, ExceededMaxSizeError, QueueIsFullError
 
 
 class QueueTestCase(unittest.TestCase):
