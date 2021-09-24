@@ -1,4 +1,3 @@
-# pylint: skip-file
 """
 Programming for linguists
 
@@ -7,10 +6,9 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
+from queue_ import Queue_, IncorrectMaxSizeError, ExceededMaxSizeError, QueueIsFullError
 
 
-@unittest.skip
 class QueueTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Queue
@@ -89,3 +87,50 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_queue_is_empty_with_non_iterable_data(self):
+        """
+        Create a Queue of noniterable data.
+        Test that its size is 0.
+        """
+        non_iterable_data = [None, 5, 1.09, True, Queue_(), False, 0, 1]
+        for data in non_iterable_data:
+            queue = Queue_(data)
+            self.assertTrue(queue.empty())
+            self.assertEqual(queue.size(), 0)
+
+    def test_incorrect_maxsize_raised_error(self):
+        """
+        Test that an incorrect type of a maxsize parameter raises a ExceededMaxSizeError.
+        """
+        data = [1, None, 3, 5, 7, 'a', 2, 4, False]
+        incorrect_maxsize = [None, 7.56, True, Queue_(), False, ['string', 'list'], ('a', 'b'), {'a': 1, 'b': 2}]
+        for maxsize in incorrect_maxsize:
+            self.assertRaises(IncorrectMaxSizeError, Queue_, data, maxsize)
+
+    def test_exceeded_maxsize_raised_error(self):
+        """
+        Create a Queue with a size that is bigger than capacity.
+        Test that creation of a Queue raises a ExceededMaxSizeError.
+        """
+        data = [1, None, 3, 5, 7, 'a', 2, 4, False]
+        self.assertRaises(ExceededMaxSizeError, Queue_, data, 3)
+
+    def test_new_queue_is_full(self):
+        """
+        Create a Queue with a size equal to capacity.
+        Test that Queue is full.
+        """
+        data = [1, None, 3, 5, 7, 'a']
+        queue = Queue_(data, 6)
+        self.assertEqual(queue.size(), queue.capacity())
+        self.assertTrue(queue.full())
+
+    def test_call_put_for_full_queue_raised_error(self):
+        """
+        Create a Queue with a size equal to capacity.
+        Test that call of put function raises a QueueIsFullError.
+        """
+        data = [1, None, 3, 5, 7, 'a']
+        queue = Queue_(data, 6)
+        self.assertRaises(QueueIsFullError, queue.put, 'new_element')
