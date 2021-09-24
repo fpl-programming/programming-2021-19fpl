@@ -76,7 +76,7 @@ class QueueTestCase(unittest.TestCase):
         if queue.full():
             self.assertEqual(queue.size(), queue.capacity())
 
-    @unittest.skip
+    #@unittest.skip
     def test_create_queue_with_too_many_elements(self):
         """
         Test that call of instantiation of class Queue_ with the number of elements
@@ -84,14 +84,14 @@ class QueueTestCase(unittest.TestCase):
         """
         self.assertRaises(TooManyElementsInQueueError, Queue_().__init__, Stack([1, 2, 3, 4]), 3)
 
-    @unittest.skip
+    #@unittest.skip
     def test_call_put_of_full_queue_raised_error(self):
         """
         Create an empty Queue with the capacity.
         Put elements in the queue to make it full.
         Test that call of put function raises QueueIsFull error when the queue is full
         """
-        queue = Queue_(Stack([]), 5)
+        queue = Queue_(Stack(), 5)
         self.assertTrue(queue.empty())
         for element in range(5):
             queue.put(element)
