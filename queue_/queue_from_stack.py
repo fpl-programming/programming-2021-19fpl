@@ -1,19 +1,10 @@
 """
 Programming for linguists
 
-Implementation of the data structure "Queue"
+Implementation of the data structure "Queue" with base of stack
 """
 
 from typing import Iterable
-
-
-class QueueIsTooLongError(Exception):
-    """
-    Error is raised when queue contains more elements than possible
-    """
-
-    def __str__(self):
-        return 'The queue is too long'
 
 
 # pylint: disable=invalid-name
@@ -22,23 +13,17 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_elem_num: int = 10):
-        self.max_elem_num = max_elem_num
+    def __init__(self, data: Iterable = ()):
         try:
             self.data = list(data)
         except TypeError:
             self.data = []
-        else:
-            if len(self.data) > self.max_elem_num:
-                raise QueueIsTooLongError
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        while len(self.data) >= self.max_elem_num:
-            self.data.pop(0)
         return self.data.append(element)
 
     def get(self):
@@ -69,6 +54,4 @@ class Queue_:
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
-        if not self.data:
-            raise IndexError
         return self.data[0]
