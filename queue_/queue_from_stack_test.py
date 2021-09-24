@@ -7,8 +7,9 @@ Tests for Queue class.
 import unittest
 
 from queue_.queue_from_stack import Queue_
-from stack.stack import Stack
 from queue_.queue_ import QueueIsTooLongError
+from stack.stack import Stack
+
 
 class QueueTestCase(unittest.TestCase):
     """
