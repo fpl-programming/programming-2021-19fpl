@@ -1,3 +1,4 @@
+# pylint: disable=duplicate-code
 """
 Programming for linguists
 
@@ -12,7 +13,6 @@ class CapacityError(Exception):
     Custom Error
     Raises when number of elements exceeds capacity
     """
-    pass
 
 
 # pylint: disable=invalid-name
