@@ -74,4 +74,7 @@ class Queue_:
 
 
 class FullQueue(Exception):
+    """
+    Raised when trying to put an element into a full queue
+    """
     pass
