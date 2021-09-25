@@ -14,15 +14,13 @@ class Queue_:
 
     def __init__(self, data: Iterable = (), capacity: int = 50):
         self.data = list(data)
-        self._capacity = capacity
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.full():
-            raise IndexError
+        assert self.max_size > self.size(), 'Many elements in a queue'
         self.data.append(element)
 
     def get(self):
