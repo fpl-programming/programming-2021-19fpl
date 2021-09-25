@@ -104,7 +104,7 @@ class QueueTestCase(unittest.TestCase):
         data = [1, 2, 3, 4, 5]
         limit = 5
         queue = Queue_(data, limit)
-        self.assertRaises(FullQueueError, queue.put(6))
+        self.assertRaises(FullQueueError, queue.put, 6)
 
     def test_call_full(self):
         """
