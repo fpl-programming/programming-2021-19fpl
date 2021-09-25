@@ -7,13 +7,23 @@ Implementation of the data structure "Queue"
 from typing import Iterable
 
 
+class FullQueueError(Exception):
+    """
+    Raises if an element added to a full queue
+    """
+
+
 # pylint: disable=invalid-name
 class Queue_:
     """
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = ()):
+    def __init__(self, data: Iterable = (), limit=0):
+        if not isinstance(limit, int):
+            raise TypeError
+        else: self.limit = limit
+
         if isinstance(data, list):
             self.data = data
         elif isinstance(data, (range, tuple)):
@@ -26,7 +36,9 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        self.data.append(element)
+        if self.full() is False:
+            self.data.append(element)
+        else: raise FullQueueError
 
     def get(self):
         """
@@ -61,3 +73,20 @@ class Queue_:
         if len(self.data) == 0:
             raise ValueError
         return self.data[0]
+
+    def capacity(self):
+        """
+        Return the maximum size of queue_
+        :return: the maximum size of queue_
+        """
+        return self.limit
+
+    def full(self):
+        """
+        Return whether queue_ is full or not
+        :return: True if it is possible to put new elements in queue_
+                 False if it is impossible to put new elements in queue_
+        """
+        if self.size() == self.limit:
+            return True
+        return False
