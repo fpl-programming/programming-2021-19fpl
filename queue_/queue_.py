@@ -22,7 +22,7 @@ class Queue_:
     def __init__(self, data: Iterable = (), limit=0):
         if not isinstance(limit, int):
             raise TypeError
-        else: self.limit = limit
+        self.limit = limit
 
         if isinstance(data, list):
             self.data = data
