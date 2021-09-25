@@ -24,13 +24,3 @@ class QueueStack(Stack):
         """
         assert self.max_size > self.size(), 'Too many elements in a queue.'
         self.data.insert(0, element)
-
-    def merge(self, stack_to_merge):
-        """
-        Adds all of the elements in right order to the queue
-        """
-        try:
-            data_to_add = stack_to_merge.data
-        except AttributeError as exc:
-            raise TypeError from exc
-        self.data = data_to_add + self.data

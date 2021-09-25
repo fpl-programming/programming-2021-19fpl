@@ -89,4 +89,4 @@ class QueueStackTestCase(unittest.TestCase):
         stack_1 = QueueStack([1, 2, 3])
         stack_2 = QueueStack([4, 5, 6])
         stack_1.merge(stack_2)
-        self.assertEqual(stack_1.top(), 1)
+        self.assertEqual(stack_1.top(), 4)
