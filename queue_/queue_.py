@@ -16,7 +16,7 @@ class Queue_:
     def __init__(self, data: Iterable = ()):
         if isinstance(data, list):
             self.data = data
-        elif isinstance(data, range) or isinstance(data, tuple):
+        elif isinstance(data, (range, tuple)):
             self.data = list(data)
         else:
             self.data = []
@@ -61,4 +61,3 @@ class Queue_:
         if len(self.data) == 0:
             raise ValueError
         return self.data[0]
-
