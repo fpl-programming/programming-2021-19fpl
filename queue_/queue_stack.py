@@ -36,19 +36,21 @@ class QueueStack_(Stack):
             raise IndexError
         return self.data.pop()
 
-    def capacity(self):
-        """
-        Return the capacity of queue_
-        :return: the maximum length (capacity) of queue_
-        """
-        return self._capacity
-
     def full(self):
         """
-        Return whether queue_ is full or not
-        :return: True if size of queue_ equals the capacity of queue_.
-                 False if the queue_ contains less elements.
+        Return whether queuestack_ is full or not
+        :return: True if size of queuestack_ equals the capacity of queue_.
+                 False if the queuestack_ contains less elements.
         """
         if self.size() == self._capacity:
             return True
         return False
+
+    def capacity(self):
+        """
+        Return the capacity of queuestack_
+        :return: the capacity (maximum size) of queuestack_
+        """
+        return self._capacity
+
+
