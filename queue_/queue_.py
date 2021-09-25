@@ -37,7 +37,7 @@ class Queue_:
         else:
             self.data = []
 
-        if len(self.data) > self.limit:
+        if len(self.data) > self.limit and self.limit != 0:
             raise ExceededQueueLimitError
 
     def put(self, element):
