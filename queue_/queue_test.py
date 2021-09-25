@@ -87,3 +87,32 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_capacity_is_ok(self):
+        """
+        Create an empty Queue and Queue with another capacity.
+        Test that function capacity returns correct data.
+        """
+        queue = Queue_()
+        self.assertEqual(20, queue.capacity())
+        queue_new = Queue_(capacity=10)
+        self.assertEqual(10, queue_new.capacity())
+
+    def test_put_more_than_capacity_raised_error(self):
+        """
+        Create a full Queue and put one more element.
+        Test that call of put function raises Assertion error.
+        """
+        queue = Queue_([1, 2, 3], 3)
+        self.assertRaises(IndexError, queue.put, 0)
+
+    def test_queue_is_full(self):
+        """
+        Create Queue and fill the capacity.
+        Test that at first the full function returns False, then True.
+        """
+        queue = Queue_()
+        self.assertFalse(queue.full())
+        for element in range(20):
+            queue.put(element)
+        self.assertTrue(queue.full())
