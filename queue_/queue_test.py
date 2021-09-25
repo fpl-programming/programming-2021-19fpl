@@ -114,18 +114,19 @@ class QueueTestCase(unittest.TestCase):
     def test_queue_is_full(self):
         """
         Test that call of full function returns False
-        when queue is not full and after True when it is full
+        when queue is not full and then True when it is full
         """
         queue = Queue_(range(39), 40)
         self.assertFalse(queue.full())
         queue.put(2)
         self.assertTrue(queue.full())
+        self.assertEqual(queue.size(), queue.capacity_n)
 
     def test_capacity(self):
         """
         Test that call of capacity function returns the max size of queue
         """
         queue = Queue_(range(40))
-        self.assertEqual(40, queue.capacity())
+        self.assertEqual(0, queue.capacity())  # queue is infinite
         queue_2 = Queue_(range(40), 50)
         self.assertEqual(50, queue_2.capacity())

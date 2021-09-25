@@ -21,16 +21,15 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Stack = Stack(), capacity_n: int = 40):
+    def __init__(self, data: Stack = Stack(), capacity_n_q: int = 0):
         if not isinstance(data, Stack):
             raise TypeError('Data is not Stack')
-        if not isinstance(capacity_n, int):
+        if not isinstance(capacity_n_q, int):
             raise TypeError('Capacity is not int')
         self.data = data
-        self.capacity_n = capacity_n
-        self.storage = Stack()
-        if self.size() > self.capacity_n:
-            raise CapacityError('Number of elements exceeds capacity')
+        self.capacity_n_q = capacity_n_q
+        if self.capacity_n_q and (self.size() > self.capacity_n_q):
+            raise CapacityError('Number of elements in stack exceeds capacity')
 
     def put(self, element):
         """
@@ -38,7 +37,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.full():
-            raise CapacityError('Queue is already full')
+            raise CapacityError('Queue from stack is already full')
         self.data.push(element)
 
     def get(self):
@@ -47,14 +46,15 @@ class Queue_:
         """
         if self.empty():
             raise IndexError('Queue is empty')
+        tmp_stack = Stack()
         while not self.data.empty():
-            self.storage.push(self.data.top())
+            tmp_stack.push(self.data.top())
             self.data.pop()
-        last_el = self.storage.top()
-        self.storage.pop()
-        while not self.storage.empty():
-            self.data.push(self.storage.top())
-            self.storage.pop()
+        last_el = tmp_stack.top()
+        tmp_stack.pop()
+        while not tmp_stack.empty():
+            self.data.push(tmp_stack.top())
+            tmp_stack.pop()
         return last_el
 
     def empty(self) -> bool:
@@ -79,29 +79,29 @@ class Queue_:
         """
         if self.empty():
             raise IndexError('Queue is empty')
+        tmp_stack = Stack()
         while not self.data.empty():
-            self.storage.push(self.data.top())
+            tmp_stack.push(self.data.top())
             self.data.pop()
-        last_el = self.storage.top()
-        while not self.storage.empty():
-            self.data.push(self.storage.top())
-            self.storage.pop()
+        last_el = tmp_stack.top()
+        while not tmp_stack.empty():
+            self.data.push(tmp_stack.top())
+            tmp_stack.pop()
         return last_el
 
-# pylint: disable=duplicate-code
     def capacity(self) -> int:
         """
-        Return the max number of elements in queue_
-        :return: Max number of elements in queue_
+        Return the max number of elements in queue
+        :return: Max number of elements in queue
         """
-        return self.capacity_n
+        return self.capacity_n_q
 
     def full(self) -> bool:
         """
-        Return whether queue_ is full or not
-        :return: True if queue_ is full.
-                False if queue_ is not full
+        Return whether queue is full or not
+        :return: True if queue is full.
+                False if queue is not full
         """
-        if self.size() == self.capacity():
+        if self.size() == self.capacity() and self.capacity_n_q:
             return True
         return False

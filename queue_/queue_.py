@@ -21,7 +21,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), capacity_n: int = 40):
+    def __init__(self, data: Iterable = (), capacity_n: int = 0):
         if not isinstance(capacity_n, int):
             raise TypeError('Capacity is not int')
         self.capacity_n = capacity_n
@@ -29,8 +29,9 @@ class Queue_:
             self.data = list(data)
         except TypeError:
             self.data = []
-        if self.size() > self.capacity_n:
-            raise CapacityError('Number of elements exceeds capacity')
+        else:
+            if self.capacity_n and (self.size() > self.capacity_n):
+                raise CapacityError('Number of elements exceeds capacity')
 
     def put(self, element):
         """
@@ -73,7 +74,6 @@ class Queue_:
             raise IndexError('Queue is empty')
         return self.data[0]
 
-# pylint: disable=duplicate-code
     def capacity(self) -> int:
         """
         Return the max number of elements in queue_
@@ -87,6 +87,6 @@ class Queue_:
         :return: True if queue_ is full.
                 False if queue_ is not full
         """
-        if self.size() == self.capacity():
+        if self.size() == self.capacity() and self.capacity_n:
             return True
         return False
