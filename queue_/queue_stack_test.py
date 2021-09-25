@@ -90,7 +90,3 @@ class QueueStackTestCase(unittest.TestCase):
         stack_2 = QueueStack([4, 5, 6])
         stack_1.merge(stack_2)
         self.assertEqual(stack_1.top(), 1)
-
-
-
-
