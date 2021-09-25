@@ -25,10 +25,10 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.full():
+        if not self.max_size or not self.full():
+            self.data.append(element)
+        else:
             raise FullQueue
-
-        self.data.append(element)
 
     def get(self):
         """
