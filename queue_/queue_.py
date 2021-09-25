@@ -73,6 +73,7 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
+
         return self.data.pop(0)
 
     def empty(self) -> bool:
@@ -97,6 +98,7 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
+
         return self.data[0]
 
     def capacity(self):

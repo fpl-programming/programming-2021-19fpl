@@ -1,4 +1,4 @@
-# pylint: disable=duplicate-code
+# pylint: skip-file
 """
 Programming for linguists
 
@@ -36,7 +36,7 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue from stack.
         Test that its size is 0.
         """
-        queue = Queue_(Stack())
+        queue = Queue_()
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
@@ -52,9 +52,9 @@ class QueueTestCase(unittest.TestCase):
     def test_put_element(self):
         """
         Put an element in queue.
-        Test that its size is 1.
+        Test that its size is 1 and the top is 4.
         """
-        queue = Queue_(Stack())
+        queue = Queue_()
         queue.put(4)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 1)
@@ -65,7 +65,7 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue.
         Test that call of get function raises Assertion error
         """
-        queue = Queue_(Stack())
+        queue = Queue_()
         self.assertRaises(IndexError, queue.get)
 
     def test_capacity_of_full_queue(self):
@@ -77,7 +77,6 @@ class QueueTestCase(unittest.TestCase):
         if queue.full():
             self.assertEqual(queue.size(), queue.capacity())
 
-    #@unittest.skip
     def test_create_queue_with_too_many_elements(self):
         """
         Test that call of instantiation of class Queue_ with the number of elements
@@ -85,7 +84,6 @@ class QueueTestCase(unittest.TestCase):
         """
         self.assertRaises(TooManyElementsInQueueError, Queue_().__init__, Stack([1, 2, 3, 4]), 3)
 
-    #@unittest.skip
     def test_call_put_of_full_queue_raised_error(self):
         """
         Create an empty Queue with the capacity.

@@ -1,4 +1,3 @@
-# pylint: disable=duplicate-code
 """
 Programming for linguists
 
