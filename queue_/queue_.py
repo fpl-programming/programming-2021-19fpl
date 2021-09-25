@@ -87,6 +87,6 @@ class Queue_:
         :return: True if it is possible to put new elements in queue_
                  False if it is impossible to put new elements in queue_
         """
-        if self.size() == self.limit:
+        if self.size() == self.limit and self.limit != 0:
             return True
         return False
