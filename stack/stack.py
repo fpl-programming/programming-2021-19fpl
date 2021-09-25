@@ -16,14 +16,12 @@ class Stack:
         else:
             self.data = list(data)
 
-
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
         self.data.append(element)
-
 
     def pop(self):
         """
@@ -32,7 +30,6 @@ class Stack:
         if self.empty():
             raise ValueError
         self.data.pop()
-
 
     def top(self):
         """
@@ -43,15 +40,12 @@ class Stack:
             raise ValueError
         return self.data[-1]
 
-
     def size(self) -> int:
         """
         Return the number of elements in stack
         :return: Number of elements in stack
         """
         return len(self.data)
-
-
 
     def empty(self) -> bool:
         """
