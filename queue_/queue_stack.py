@@ -19,6 +19,14 @@ class QueueStack_(Stack):
             raise TypeError
         self._capacity = capacity
 
+    def get(self):
+        """
+        Remove and return an item from queue_
+        """
+        if self.empty():
+            raise IndexError
+        return self.data.pop()
+
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
@@ -27,14 +35,6 @@ class QueueStack_(Stack):
         if self.full():
             raise IndexError
         self.data = [element] + self.data
-
-    def get(self):
-        """
-        Remove and return an item from queue_
-        """
-        if self.empty():
-            raise IndexError
-        return self.data.pop()
 
     def full(self):
         """
@@ -52,5 +52,3 @@ class QueueStack_(Stack):
         :return: the capacity (maximum size) of queuestack_
         """
         return self._capacity
-
-
