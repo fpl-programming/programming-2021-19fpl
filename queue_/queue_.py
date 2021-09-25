@@ -14,13 +14,15 @@ class Queue_:
 
     def __init__(self, data: Iterable = (), capacity: int = 50):
         self.data = list(data)
+        self._capacity = capacity
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        assert self.max_size > self.size(), 'Many elements in a queue'
+        if self.full():
+            raise IndexError
         self.data.append(element)
 
     def get(self):
@@ -52,3 +54,11 @@ class Queue_:
         :return: the element that is on the top of queue_
         """
         return self.data[0]
+    
+    def full(self):
+        """
+        Return whether queue_ is full or not
+        """
+        if self.size() == self._capacity:
+            return True
+        return False
