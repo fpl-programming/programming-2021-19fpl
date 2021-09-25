@@ -13,6 +13,12 @@ class FullQueueError(Exception):
     """
 
 
+class ExceededQueueLimitError(Exception):
+    """
+    Raises if queue is larger than its capacity
+    """
+
+
 # pylint: disable=invalid-name
 class Queue_:
     """
@@ -30,6 +36,9 @@ class Queue_:
             self.data = list(data)
         else:
             self.data = []
+
+        if len(self.data) > self.limit:
+            raise ExceededQueueLimitError
 
     def put(self, element):
         """

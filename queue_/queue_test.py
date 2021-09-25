@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
+from queue_.queue_ import Queue_, FullQueueError, ExceededQueueLimitError
 
 
 class QueueTestCase(unittest.TestCase):
@@ -87,3 +87,41 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_call_top_of_empty_queue_raised_error(self):
+        """
+        Create an empty Queue.
+        Test that call of top function raises Value error
+        """
+        queue = Queue_()
+        self.assertRaises(ValueError, queue.top)
+
+    def test_call_put_of_full_queue_raised_error(self):
+        """
+        Create a full Queue.
+        Test that call of put function raises FullQueueError
+        """
+        data = [1, 2, 3, 4, 5]
+        limit = 5
+        queue = Queue_(data, limit)
+        self.assertRaises(FullQueueError, queue.put(6))
+
+    def test_call_full(self):
+        """
+        Create a Queue with equal size and limit
+        Test that queue is full
+        """
+        data = [1, 2, 3, 4, 5]
+        limit = 5
+        queue = Queue_(data, limit)
+        self.assertEqual(queue.size(), 5)
+        self.assertTrue(queue.full())
+
+    def test_create_queue_exceeded_capacity_raised_error(self):
+        """
+        Create a Queue larger than its capacity.
+        Test that creation of Queue raises ExceededQueueLimit error
+        """
+        data = (1, 2, 3, 4)
+        limit = 3
+        self.assertRaises(ExceededQueueLimitError, Queue_(data, limit))
