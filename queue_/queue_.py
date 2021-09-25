@@ -65,7 +65,7 @@ class Queue_:
                  False if the queue_ is not full
         """
         if not self.max_size:
-            print('the queue size is infinite')
+            raise InfiniteQueue
 
         elif self.max_size and self.size() == self.max_size:
             return True
@@ -76,4 +76,10 @@ class Queue_:
 class FullQueue(Exception):
     """
     Raised when trying to put an element into a full queue
+    """
+
+
+class InfiniteQueue(Exception):
+    """
+    Raised when trying to call full function when a queue is infinite
     """

@@ -4,7 +4,7 @@ Programming for linguists
 Implementation of the data structure "Queue" from stack
 """
 
-from queue_.queue_ import FullQueue
+from queue_.queue_ import FullQueue, InfiniteQueue
 from stack.stack import Stack
 
 
@@ -17,7 +17,8 @@ class Queue_:
     def __init__(self, data: Stack = Stack(), max_size: int = 0):
         if max_size and len(data.data) > max_size:
             data.data = data.data[:max_size]
-        self.data = data
+        self.in_stack = data
+        self.out_stack = Stack()
         self.max_size = max_size
 
     def put(self, element):
@@ -25,16 +26,30 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.full():
+        if not self.max_size or not self.full():
+            self.in_stack.push(element)
+        else:
             raise FullQueue
-
-        self.data.push(element)
 
     def get(self):
         """
         Remove and return an item from queue_
         """
-        return self.data.data.pop(0)
+        if self.in_stack.empty():
+            raise IndexError
+
+        while self.in_stack.size() != 1:
+            self.out_stack.push(self.in_stack.top())
+            self.in_stack.pop()
+
+        top_element = self.in_stack.top()
+        self.in_stack.pop()
+
+        while not self.out_stack.empty():
+            self.in_stack.push(self.out_stack.top())
+            self.out_stack.pop()
+
+        return top_element
 
     def empty(self) -> bool:
         """
@@ -42,21 +57,34 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return self.data.empty()
+        return self.in_stack.empty()
 
     def size(self) -> int:
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return self.data.size()
+        return self.in_stack.size()
 
     def top(self):
         """
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
-        return self.data.data[0]
+        if self.in_stack.empty():
+            raise IndexError
+
+        while self.in_stack.size() != 1:
+            self.out_stack.push(self.in_stack.top())
+            self.in_stack.pop()
+
+        top_element = self.in_stack.top()
+
+        while not self.out_stack.empty():
+            self.in_stack.push(self.out_stack.top())
+            self.out_stack.pop()
+
+        return top_element
 
     def full(self):
         """
@@ -65,7 +93,7 @@ class Queue_:
                  False if the queue_ is not full
         """
         if not self.max_size:
-            print('the queue size is infinite')
+            raise InfiniteQueue
 
         elif self.max_size and self.size() == self.max_size:
             return True

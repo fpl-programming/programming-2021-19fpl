@@ -6,7 +6,7 @@ Tests for Queue from stack class.
 
 import unittest
 
-from queue_.queue_ import FullQueue
+from queue_.queue_ import FullQueue, InfiniteQueue
 from queue_.queue_from_stack import Queue_
 from stack.stack import Stack
 
@@ -23,7 +23,7 @@ class QueueTestCase(unittest.TestCase):
         """
         stack = Stack([1, 2, 3, 4, 5])
         queue = Queue_(stack)
-        self.assertTrue(isinstance(queue.data, Stack))
+        self.assertTrue(isinstance(queue.in_stack, Stack))
 
     def test_new_queue_is_empty(self):
         """
@@ -45,7 +45,7 @@ class QueueTestCase(unittest.TestCase):
 
     def test_put_element(self):
         """
-        Put an element in queue.
+        Put an element in queue with an empty stack.
         Test that its size is 1.
         """
         queue = Queue_()
@@ -56,7 +56,7 @@ class QueueTestCase(unittest.TestCase):
 
     def test_call_get_of_empty_queue_raised_error(self):
         """
-        Create an empty Queue.
+        Create a Queue with an empty stack.
         Test that call of get function raises Assertion error
         """
         queue = Queue_()
@@ -64,13 +64,13 @@ class QueueTestCase(unittest.TestCase):
 
     def test_new_queue_with_max_size(self):
         """
-        Create a Queue_ with max_size.
+        Create a full Queue_ from stack with max_size.
         Test that its field max_size is filled correctly and if data size is bigger than max_size,
         the needed slice is taken
         """
         queue = Queue_(Stack([1, 2, 3, 4, 5, 6]), max_size=5)
         self.assertEqual(queue.max_size, 5)
-        self.assertEqual(len(queue.data.data), 5)
+        self.assertEqual(len(queue.in_stack.data), 5)
 
     def test_put_element_into_full_queue(self):
         """
@@ -82,7 +82,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertRaises(FullQueue, queue.put, 6)
         queue.get()
         queue.put(6)
-        self.assertEqual([2, 3, 4, 5, 6], queue.data.data)
+        self.assertEqual([2, 3, 4, 5, 6], queue.in_stack.data)
 
     def test_limited_queue_is_full(self):
         """
@@ -102,4 +102,4 @@ class QueueTestCase(unittest.TestCase):
         """
         stack = Stack([1, 2, 3, 4, 5])
         queue = Queue_(stack)
-        self.assertFalse(queue.full())
+        self.assertRaises(InfiniteQueue, queue.full)

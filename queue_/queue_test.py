@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_, FullQueue
+from queue_.queue_ import Queue_, FullQueue, InfiniteQueue
 
 
 class QueueTestCase(unittest.TestCase):
@@ -90,7 +90,7 @@ class QueueTestCase(unittest.TestCase):
 
     def test_new_queue_with_max_size(self):
         """
-        Create a Queue_ with max_size.
+        Create a full Queue_ with max_size.
         Test that its field max_size is filled correctly and if data size is bigger than max_size,
         the needed slice is taken
         """
@@ -122,7 +122,7 @@ class QueueTestCase(unittest.TestCase):
     def test_infinite_queue_is_not_full(self):
         """
         Create a nonempty infinite Queue_.
-        Test that call of full function returns False
+        Test that call of full function raises InfiniteQueue exception
         """
         queue = Queue_([1, 2, 3, 4, 5])
-        self.assertFalse(queue.full())
+        self.assertRaises(InfiniteQueue, queue.full)
