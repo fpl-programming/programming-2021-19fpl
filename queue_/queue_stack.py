@@ -1,21 +1,20 @@
 """
 Programming for linguists
 
-Implementation of the data structure "Queue"
+Implementation of the data structure "Queue" based on Stack
 """
 
 from typing import Iterable
+from stack.stack import Stack
 
 
 # pylint: disable=invalid-name
-class Queue_:
+class QueueStack_(Stack):
     """
-    Queue Data Structure
+    Queue Data Structure On Stack
     """
-
     def __init__(self, data: Iterable = (), capacity: int = 50):
-        self.data = list(data)
-
+        super().__init__(data)
         if not isinstance(capacity, int):
             raise TypeError
         self._capacity = capacity
@@ -27,7 +26,7 @@ class Queue_:
         """
         if self.full():
             raise IndexError
-        self.data.append(element)
+        self.data = [element] + self.data
 
     def get(self):
         """
@@ -35,29 +34,7 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
-        return self.data.pop(0)
-
-    def empty(self) -> bool:
-        """
-        Return whether queue_ is empty or not
-        :return: True if queue_ does not contain any elements.
-                 False if the queue_ contains elements
-        """
-        return not self.data
-
-    def size(self) -> int:
-        """
-        Return the number of elements in queue_
-        :return: Number of elements in queue_
-        """
-        return len(self.data)
-
-    def top(self):
-        """
-        Return the element on the top of queue_
-        :return: the element that is on the top of queue_
-        """
-        return self.data[0]
+        return self.data.pop()
 
     def capacity(self):
         """
