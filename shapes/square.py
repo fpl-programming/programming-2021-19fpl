@@ -5,7 +5,7 @@ Implementation of the class Square
 """
 
 
-class Square:
+class Square():
     """
     A class for squares
     """
