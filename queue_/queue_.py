@@ -54,7 +54,7 @@ class Queue_:
         :return: the element that is on the top of queue_
         """
         return self.data[0]
-    
+
     def full(self):
         """
         Return whether queue_ is full or not
