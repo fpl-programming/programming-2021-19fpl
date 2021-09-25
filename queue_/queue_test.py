@@ -124,4 +124,4 @@ class QueueTestCase(unittest.TestCase):
         """
         data = (1, 2, 3, 4)
         limit = 3
-        self.assertRaises(ExceededQueueLimitError, Queue_(), data, limit)
+        self.assertRaises(ExceededQueueLimitError, Queue_, data, limit)
