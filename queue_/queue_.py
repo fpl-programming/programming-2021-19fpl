@@ -15,7 +15,7 @@ class Queue_:
 
     def __init__(self, data: Iterable = (), max_size: int = 0):
         self.max_size = max_size
-        if not isinstance(data, Iterable):
+        if data is None:
             self.data = []
         else:
             self.data = list(data)
@@ -32,7 +32,7 @@ class Queue_:
         """
         Remove and return an item from queue_
         """
-        self.data.pop(0)
+        return self.data.pop(0)
 
     def empty(self) -> bool:
         """
