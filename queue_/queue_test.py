@@ -16,7 +16,6 @@ class QueueTestCase(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of Queue
     """
 
-    @unittest.skip('skip')
     def test_new_queue_is_empty(self):
         """
         Create an empty Queue.
@@ -26,8 +25,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
-
-    @unittest.skip('skip')
     def test_get_element(self):
         """
         Get an element from a queue.
@@ -37,7 +34,6 @@ class QueueTestCase(unittest.TestCase):
         queue = Queue_(data)
         self.assertEqual(queue.get(), data[0])
 
-    @unittest.skip('skip')
     def test_new_queue_from_tuple(self):
         """
         Create a Queue from an iterable object.
@@ -53,7 +49,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
-    @unittest.skip('skip')
     def test_new_queue_from_list(self):
         """
         Create a Queue from a list.
@@ -66,7 +61,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), len(data))
         self.assertEqual(queue.top(), data[0])
 
-    @unittest.skip('skip')
     def test_new_queue_from_generator(self):
         """
         Create a Queue_ from a generator.
@@ -77,7 +71,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 10)
         self.assertEqual(queue.top(), 0)
 
-    @unittest.skip('skip')
     def test_put_element(self):
         """
         Put an element in queue.
@@ -89,7 +82,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 1)
         self.assertEqual(queue.top(), 1)
 
-    @unittest.skip('skip')
     def test_call_get_of_empty_queue_raised_error(self):
         """
         Create an empty Queue.
@@ -97,3 +89,19 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_max_size(self):
+        """
+        Create a Queue.
+        Test that max_size returns correct max size.
+        """
+        queue = Queue_([1, 2, 3, 4, 5], 5)
+        self.assertEqual(5, queue.max_size())
+
+    def test_full_queue(self):
+        """
+        Create a Queue with size equal to max size.
+        Test that Queue is full.
+        """
+        queue = Queue_([1, 2, 3, 4, 5], 5)
+        self.assertTrue(queue.full())
