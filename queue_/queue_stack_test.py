@@ -32,7 +32,7 @@ class QueueTestCase(unittest.TestCase):
         queue = QueueStack(data)
         self.assertEqual(queue.get(), data[0])
 
-    def test_new_queue_from_tuple(self):
+    def test_new_queue_stack_from_tuple(self):
         """
         Create a QueueStack from an iterable object.
         Check that the size of queue_ equals to the size of the given tuple.
@@ -47,7 +47,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
-    def test_new_queue_from_list(self):
+    def test_new_queue_stack_from_list(self):
         """
         Create a QueueStack from a list.
         Check that the size of queue equals to the size of the queue.
@@ -80,7 +80,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 1)
         self.assertEqual(queue.top(), 1)
 
-    def test_call_get_of_empty_queue_raised_error(self):
+    def test_call_get_of_empty_queue_stack_raised_error(self):
         """
         Create an empty QueueStack.
         Test that call of get function raises Assertion error
