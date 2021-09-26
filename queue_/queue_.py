@@ -25,16 +25,13 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.full():
-            raise IndexError
-        self.data.append(element)
+        if not self.max_size or not self.full():
+            self.data.append(element)
 
     def get(self):
         """
         Remove and return an item from queue_
         """
-        if self.empty():
-            raise IndexError
         self.data.pop(0)
 
     def empty(self) -> bool:
@@ -57,8 +54,6 @@ class Queue_:
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
-        if self.empty():
-            raise ValueError
         return self.data[0]
 
     def max_size(self):
