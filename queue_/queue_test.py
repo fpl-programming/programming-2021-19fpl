@@ -1,4 +1,3 @@
-# pylint: skip-file
 """
 Programming for linguists
 
@@ -9,7 +8,7 @@ import unittest
 
 from queue_.queue_ import Queue_
 
-@unittest.skip
+
 class QueueTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Queue
@@ -88,3 +87,30 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_new_queue_is_full(self):
+        """
+        Create a full Queue.
+        Test that its size = max_size.
+        """
+        data = (1, 2, 3, 4, 5)
+        queue = Queue_(data, 5)
+        self.assertTrue(queue.full())
+
+    def test_random_queue_is_full(self):
+        """
+        Create a Queue_ from a generator.
+        Test that its size = max_size
+        """
+        queue = Queue_(range(10), 10)
+        self.assertTrue(queue.full())
+
+    def test_put_the_element_into_full_queue(self):
+        """
+        Create a Queue_ from a tuple.
+        Test that call of get function raises Assertion error
+        """
+        data = (1, 3, 5, 7, 2, 4)
+        queue = Queue_(data, len(data))
+        self.assertTrue(queue.full())
+        self.assertRaises(Exception, queue.put)
