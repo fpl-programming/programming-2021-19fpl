@@ -87,3 +87,48 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_call_top_of_empty_queue_raised_error(self):
+        """
+        Create an empty Queue.
+        Test that call of top function raises Index error
+        """
+        queue = Queue_()
+        self.assertRaises(IndexError, queue.top)
+
+    def test_new_queue_is_full(self):
+        """
+        Create a Queue from data.
+        Set maximum size equal to the data size.
+        Test that the Queue is full
+        """
+        data = [1, 3, 5, 7, 2, 4]
+        queue = Queue_(data, len(data))
+        self.assertFalse(queue.empty())
+        self.assertTrue(queue.full())
+
+    def test_max_size(self):
+        """
+        Create an empty Queue with defined maximum size.
+        Test that call of max_size function returns the maximum size.
+        """
+        max_size = 1
+        queue = Queue_([], max_size)
+        self.assertEqual(queue.max_size(), max_size)
+
+    def test_max_size_error(self):
+        """
+        Test that creating a Queue from data exceeding the defined max size raises Value error.
+        """
+        data = [1, 2, 3]
+        max_size = 1
+        self.assertRaises(ValueError, Queue_, data, max_size)
+
+    def test_put_element_in_full_queue(self):
+        """
+        Create a Queue from a list with its maximum size equal to the data size.
+        Test that call of put function raises Value error
+        """
+        data = [1, 3, 5, 7, 2, 4]
+        queue = Queue_(data, len(data))
+        self.assertRaises(ValueError, queue.put, 'element to put')

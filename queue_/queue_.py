@@ -19,7 +19,7 @@ class Queue_:
             self.queue_ = list(data)
         self.queue_max_size = queue_max_size
         if len(self.queue_) > self.queue_max_size:
-            raise IndexError
+            raise ValueError
 
     def put(self, element):
         """
@@ -27,7 +27,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if len(self.queue_) == self.queue_max_size:
-            raise IndexError
+            raise ValueError
         self.queue_.append(element)
 
     def get(self):
