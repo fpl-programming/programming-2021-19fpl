@@ -91,6 +91,10 @@ class QueueTestCase(unittest.TestCase):
         self.assertRaises(IndexError, queue.get)
 
     def test_max_size(self):
+        """
+        Create a queue from a list.
+        Check that the number of elements in the queue equals to the maximum number.
+        """
         data = [1, 3, 5, 7, 2, 4]
         max_s = 3
         queue = Queue_(data, max_s)
