@@ -29,7 +29,7 @@ class Stack:
         """
         if not self.stack:
             raise ValueError
-        self.stack.pop()
+        return self.stack.pop()
 
     def top(self):
         """
