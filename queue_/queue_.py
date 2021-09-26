@@ -16,8 +16,8 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (),max_size: int=100 ):
-        if data is ():
-            self.data=[]
+        if not isinstance(data,Iterable):
+            self.data = []
         else:
             self.data=list(data)
         self.max_size=max_size
