@@ -87,3 +87,19 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_new_queue_is_full(self):
+        """
+        Create a full Queue.
+        Tests that its size equals the limitation.
+        """
+        queue = Queue_((1, 6), limitation=2)
+        self.assertTrue(queue.full())
+
+    def test_size_is_more_limitation(self):
+        """
+        Create a full Queue and put an extra element.
+        Test that call of put function raises Assertion error
+        """
+        queue = Queue_((1, 2, 4), limitation=3)
+        self.assertEqual(IndexError, queue.put(), 0)
