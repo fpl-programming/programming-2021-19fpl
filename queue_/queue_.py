@@ -5,7 +5,7 @@ Implementation of the data structure "Queue"
 """
 
 from typing import Iterable
-from queue import Full
+
 
 
 # pylint: disable=invalid-name
@@ -76,4 +76,3 @@ class Queue_:
         :return: the maximum length of queue_
         """
         return self.max_size
-
