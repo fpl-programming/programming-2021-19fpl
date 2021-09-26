@@ -47,7 +47,6 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 0)
         self.assertTrue(queue.empty())
 
-
     def test_new_queue_stack_from_list(self):
         """
         Create a QueueStack from a list.
