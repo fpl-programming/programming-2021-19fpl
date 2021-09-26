@@ -68,4 +68,3 @@ class Queue_:
                  False if the queue_ is not full
         """
         return self.size == self.limitation
-
