@@ -88,15 +88,6 @@ class QueueTestCase(unittest.TestCase):
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
 
-    def test_queue_with_max_size(self):
-        """
-        Create a Queue with max_size.
-        Test that it has filled max_size and it is filled correctly
-        """
-        queue = Queue_([1, 2, 3, 4, 5, 6], max_size=5)
-        self.assertEqual(queue.max_size, 5)
-        self.assertEqual(len(queue.data), 5)
-
     def test_full_queue(self):
         """
         Create a Queue with size equal to max size.
