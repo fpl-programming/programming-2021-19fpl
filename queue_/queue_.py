@@ -14,11 +14,11 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size: int = 0):
-        self.max_size = max_size
         if data is None:
             self.data = []
         else:
             self.data = list(data)
+        self.max_size = max_size
 
     def put(self, element):
         """
