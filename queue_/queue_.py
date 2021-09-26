@@ -18,7 +18,7 @@ class Queue_:
             self.data = []
         else:
             self.data = list(data)
-        self.max_size = max_size
+        self._max_size = max_size
 
     def put(self, element):
         """
@@ -63,7 +63,7 @@ class Queue_:
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return self.max_size
+        return self._max_size
 
     def full(self):
         """
@@ -71,4 +71,4 @@ class Queue_:
         :return: True if the queue_ is full.
                  False if the queue_ contains less elements
         """
-        return self.size() == self.max_size
+        return self.size() == self._max_size
