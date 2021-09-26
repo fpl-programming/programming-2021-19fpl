@@ -93,21 +93,13 @@ class QueueTestCase(unittest.TestCase):
         Create a Queue with max_size.
         Test that it has filled max_size and it is filled correctly
         """
-        queue = Queue_(max_size=3)
-        self.assertEqual(queue.max_size, 3)
-
-    def test_more_than_max_size(self):
-        """
-        Create a full Queue and add an element.
-        Test that call of put function raises Assertion error
-        """
-        queue = Queue_([1, 2, 3], 3)
-        self.assertRaises(IndexError, queue.put, 0)
+        queue = Queue_(max_size=5)
+        self.assertEqual(queue.max_size, 5)
 
     def test_full_queue(self):
         """
         Create a Queue with size equal to max size.
         Test that Queue is full
         """
-        queue = Queue_([1, 2, 3], 3)
+        queue = Queue_([1, 2, 3, 4, 5], 5)
         self.assertTrue(queue.full())

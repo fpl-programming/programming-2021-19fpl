@@ -54,6 +54,8 @@ class Queue_:
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
+        if not self.data:
+            raise ValueError
         return self.data[0]
 
     def max_size(self):
