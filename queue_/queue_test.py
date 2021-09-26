@@ -9,8 +9,7 @@ import unittest
 
 from queue_.queue_ import Queue_
 
-# pylint: disable=W0107
-@unittest.skip
+
 class QueueTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Queue
@@ -89,3 +88,11 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_new_queue_is_full(self):
+        """
+        Create a full Queue.
+        Tests that its size equals the maximum numbers.
+        """
+        queue = Queue_((1, 6), max_size=2)
+        self.assertTrue(queue.full())
