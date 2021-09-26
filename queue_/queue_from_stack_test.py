@@ -27,12 +27,12 @@ class QueueTestCase(unittest.TestCase):
 
     def test_new_queue_is_empty(self):
         """
-        Create an empty Queue.
+        Create a Queue with an empty stack.
         Test that its size is 0.
         """
-        queue = Queue_()
-        self.assertTrue(queue.empty())
-        self.assertEqual(queue.size(), 0)
+        queue_from_stack = Queue_()
+        self.assertTrue(queue_from_stack.empty())
+        self.assertEqual(queue_from_stack.size(), 0)
 
     def test_get_element(self):
         """
@@ -48,19 +48,19 @@ class QueueTestCase(unittest.TestCase):
         Put an element in queue with an empty stack.
         Test that its size is 1.
         """
-        queue = Queue_()
-        queue.put(1)
-        self.assertFalse(queue.empty())
-        self.assertEqual(queue.size(), 1)
-        self.assertEqual(queue.top(), 1)
+        queue_from_stack = Queue_()
+        queue_from_stack.put(2)
+        self.assertFalse(queue_from_stack.empty())
+        self.assertEqual(queue_from_stack.size(), 1)
+        self.assertEqual(queue_from_stack.top(), 2)
 
     def test_call_get_of_empty_queue_raised_error(self):
         """
         Create a Queue with an empty stack.
-        Test that call of get function raises Assertion error
+        Test that call of get function raises IndexError
         """
-        queue = Queue_()
-        self.assertRaises(IndexError, queue.get)
+        queue_from_stack = Queue_()
+        self.assertRaises(IndexError, queue_from_stack.get)
 
     def test_new_queue_with_max_size(self):
         """
@@ -68,9 +68,9 @@ class QueueTestCase(unittest.TestCase):
         Test that its field max_size is filled correctly and if data size is bigger than max_size,
         the needed slice is taken
         """
-        queue = Queue_(Stack([1, 2, 3, 4, 5, 6]), max_size=5)
-        self.assertEqual(queue.max_size, 5)
-        self.assertEqual(len(queue.in_stack.data), 5)
+        queue_from_stack = Queue_(Stack([7, 8, 9, 10, 11, 12]), max_size=4)
+        self.assertEqual(queue_from_stack.max_size, 4)
+        self.assertEqual(len(queue_from_stack.in_stack.data), 4)
 
     def test_put_element_into_full_queue(self):
         """

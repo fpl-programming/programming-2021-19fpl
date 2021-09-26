@@ -71,7 +71,7 @@ class QueueTestCase(unittest.TestCase):
 
     def test_put_element(self):
         """
-        Put an element in queue.
+        Put an element in empty queue.
         Test that its size is 1.
         """
         queue = Queue_()

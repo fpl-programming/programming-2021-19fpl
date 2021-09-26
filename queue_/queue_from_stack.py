@@ -19,14 +19,14 @@ class Queue_:
             data.data = data.data[:max_size]
         self.in_stack = data
         self.out_stack = Stack()
-        self.max_size = max_size
+        self.maximum_size = max_size
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if not self.max_size or not self.full():
+        if not self.maximum_size or not self.full():
             self.in_stack.push(element)
         else:
             raise FullQueue
@@ -88,14 +88,14 @@ class Queue_:
 
     def full(self):
         """
-        Return whether queue_ is full or not
-        :return: True if queue_ is full.
-                 False if the queue_ is not full
+        Return whether queue_ created from stack is full or not
+        :return: True if queue_ created from stack is full.
+                 False if the queue_ created from stack is not full
         """
-        if not self.max_size:
+        if not self.maximum_size:
             raise InfiniteQueue
 
-        elif self.max_size and self.size() == self.max_size:
+        if self.maximum_size and self.size() == self.maximum_size:
             return True
 
         return False

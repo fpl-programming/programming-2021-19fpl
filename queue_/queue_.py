@@ -67,7 +67,7 @@ class Queue_:
         if not self.max_size:
             raise InfiniteQueue
 
-        elif self.max_size and self.size() == self.max_size:
+        if self.max_size and self.size() == self.max_size:
             return True
 
         return False
