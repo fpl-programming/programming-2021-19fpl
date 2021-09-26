@@ -5,6 +5,11 @@ Implementation of the data structure "Queue"
 """
 
 from typing import Iterable
+from math import inf
+
+
+class LimitError(Exception):
+    pass
 
 
 # pylint: disable=invalid-name
@@ -13,14 +18,17 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = ()):
+    def __init__(self, data: Iterable = (), limit: int = inf):
         self.data = list(data) if data is not None else []
+        self.limit = limit
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
+        if self.size() >= self.limit:
+            raise LimitError('limit has been reached')
         self.data.append(element)
 
     def get(self):

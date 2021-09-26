@@ -6,8 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
-
+from queue_.queue_ import Queue_, LimitError
 
 class QueueTestCase(unittest.TestCase):
     """
@@ -87,3 +86,11 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_push_limit(self):
+        """
+        Create a Queue with max number of elements.
+        Test that an exception will be raised
+        """
+        queue = Queue_([1, 2, 3], 3)
+        self.assertRaises(LimitError, queue.put, 4)
