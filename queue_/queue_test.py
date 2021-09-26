@@ -86,7 +86,7 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
-    
+
     def test_full_queue(self):
         """
         Create a full queue.
