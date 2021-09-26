@@ -77,4 +77,3 @@ class Queue_:
         """
         return self.max_size
 
-
