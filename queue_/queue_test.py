@@ -23,6 +23,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
+
     def test_get_element(self):
         """
         Get an element from a queue.
@@ -80,6 +81,7 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 1)
         self.assertEqual(queue.top(), 1)
 
+
     def test_call_get_of_empty_queue_raised_error(self):
         """
         Create an empty Queue.
@@ -87,3 +89,9 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_max_size(self):
+        data = [1, 3, 5, 7, 2, 4]
+        max_s = 3
+        queue = Queue_(data, max_s)
+        self.assertFalse(queue.is_full())

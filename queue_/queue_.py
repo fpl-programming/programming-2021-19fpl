@@ -25,7 +25,7 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        self.data.insert(0, element)
+        self.data.append(element)
 
     def get(self):
         """
@@ -48,7 +48,6 @@ class Queue_:
         """
         return len(self.data)
 
-
     def top(self):
         """
         Return the element on the top of queue_
@@ -57,3 +56,13 @@ class Queue_:
         if not self.data:
             raise ValueError
         return self.data[0]
+
+    def is_full(self):
+        """
+        Return whether queue_ has maxsize or not
+        :return: True if the number of elements in the list is bigger than the maximum number.
+                 False if the number of elements in the list is not bigger than the maximum number.
+        """
+        if self.size() > self.maxsize:
+            return False
+        return True
