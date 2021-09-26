@@ -67,4 +67,4 @@ class Queue_:
         :return: True if queue_ if full
                  False if the queue_ is not full
         """
-        return self.size == self.limitation
+        return self.size() == self.limitation
