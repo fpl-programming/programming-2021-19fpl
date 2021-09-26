@@ -13,17 +13,21 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = ()):
+    def __init__(self, data: Iterable = (), queue_max_size: int = float('inf')):
         self.queue_ = []
         if data:
             self.queue_ = list(data)
-            print(self.queue_)
+        self.queue_max_size = queue_max_size
+        if len(self.queue_) > self.queue_max_size:
+            raise IndexError
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
+        if len(self.queue_) == self.queue_max_size:
+            raise IndexError
         self.queue_.append(element)
 
     def get(self):
@@ -57,3 +61,18 @@ class Queue_:
         if not self.queue_:
             raise IndexError
         return self.queue_[0]
+
+    def max_size(self):
+        """
+        Return the maximum size of queue_
+        :return: number of maximum size of queue_
+        """
+        return self.queue_max_size
+
+    def full(self):
+        """
+        Return whether queue_ is full or not
+        :return: True if queue_ is full.
+                 False if the queue_ is not full
+        """
+        return len(self.queue_) == self.queue_max_size
