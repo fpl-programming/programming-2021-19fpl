@@ -4,8 +4,8 @@ Programming for linguists
 Implementation of the data structure "QueueStack"
 """
 
-from stack.stack import Stack
 from typing import Iterable
+from stack.stack import Stack
 
 
 class QueueStack(Stack):
