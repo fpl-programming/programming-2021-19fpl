@@ -69,7 +69,7 @@ class QueueTestCase(unittest.TestCase):
         the needed slice is taken
         """
         queue_from_stack = Queue_(Stack([7, 8, 9, 10, 11, 12]), max_size=4)
-        self.assertEqual(queue_from_stack.max_size, 4)
+        self.assertEqual(queue_from_stack.maximum_size, 4)
         self.assertEqual(len(queue_from_stack.in_stack.data), 4)
 
     def test_put_element_into_full_queue(self):
