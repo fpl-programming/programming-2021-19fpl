@@ -12,9 +12,13 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), capacity: int = 50):
-        self.data = list(data)
-        self.capacity = capacity
+    def __init__(self, data: Iterable = (), limitation: int = 100):
+        try:
+            self.data = list(data)
+        except TypeError:
+            self.data = []
+
+        self.limitation = limitation
 
     def put(self, element):
         """
@@ -56,6 +60,10 @@ class Queue_:
         return self.data[0]
 
     def full(self):
-        if self.size == self.capacity:
-            return True
-        return False
+        """
+        Return whether queue_ is full or not
+        :return: True if queue_ if full
+                 False if the queue_ is not full
+        """
+        return self.size == self.limitation
+
