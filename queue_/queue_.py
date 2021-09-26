@@ -13,7 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size: int = 0):
+    def __init__(self, data: Iterable = (), max_size: int = 5):
         if data is None:
             self.data = []
         else:
@@ -25,8 +25,7 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if not self.max_size or not self.full():
-            self.data.append(element)
+        self.data.append(element)
 
     def get(self):
         """
