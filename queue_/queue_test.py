@@ -102,4 +102,4 @@ class QueueTestCase(unittest.TestCase):
         Test that call of put function raises Assertion error
         """
         queue = Queue_((1, 2, 4), limitation=3)
-        self.assertEqual(IndexError, queue.put, 0)
+        self.assertEqual(IndexError, queue.put(1))
