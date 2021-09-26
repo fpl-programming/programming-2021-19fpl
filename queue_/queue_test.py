@@ -108,7 +108,7 @@ class QueueTestCase(unittest.TestCase):
     def test_put_the_element_into_full_queue(self):
         """
         Create a Queue_ from a tuple.
-        Test that call of get function raises Assertion error
+        Test that call of get function raises Exception
         """
         data = (1, 3, 5, 7, 2, 4)
         queue = Queue_(data, len(data))
