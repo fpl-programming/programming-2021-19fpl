@@ -1,4 +1,3 @@
-#pylint: skip-file
 """
 Programming for linguists
 
@@ -9,7 +8,7 @@ import unittest
 
 from queue_.queue_ import Queue_
 
-@unittest.skip
+
 class QueueTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Queue
@@ -88,3 +87,27 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_queue_with_max_size(self):
+        """
+        Create a Queue with max_size.
+        Test that it has filled max_size and it is filled correctly
+        """
+        queue = Queue_(max_size=3)
+        self.assertEqual(queue.max_size, 3)
+
+    def test_more_than_max_size(self):
+        """
+        Create a full Queue and add an element.
+        Test that call of put function raises Assertion error
+        """
+        queue = Queue_([1, 2, 3], 3)
+        self.assertRaises(IndexError, queue.put, 0)
+
+    def test_full_queue(self):
+        """
+        Create a Queue with size equal to max size.
+        Test that Queue is full
+        """
+        queue = Queue_([1, 2, 3], 3)
+        self.assertTrue(queue.full())

@@ -13,20 +13,25 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = ()):
+    def __init__(self, data: Iterable = (), max_size: int = 0):
         self.data = list(data)
+        self.max_size = max_size
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
+        if self.full():
+            raise IndexError
         self.data.append(element)
 
     def get(self):
         """
         Remove and return an item from queue_
         """
+        if self.empty():
+            raise IndexError
         self.data.pop(0)
 
     def empty(self) -> bool:
@@ -49,4 +54,21 @@ class Queue_:
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
+        if self.empty():
+            raise ValueError
         return self.data[0]
+
+    def max_size(self):
+        """
+        Return the number of elements in queue_
+        :return: Number of elements in queue_
+        """
+        return self.max_size
+
+    def full(self):
+        """
+        Return whether queue_ is full or not
+        :return: True if the queue_ is full.
+                 False if the queue_ contains less elements
+        """
+        return self.size() == self.max_size
