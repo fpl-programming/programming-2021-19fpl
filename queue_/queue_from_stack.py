@@ -3,8 +3,8 @@
 Implementation of the data structure "Queue" based on the data structure "Stack"
 """
 
-from stack.stack import Stack
 from typing import Iterable
+from stack.stack import Stack
 
 
 class QueueFromStack(Stack):
@@ -21,42 +21,52 @@ class QueueFromStack(Stack):
             self.tmp_stack.push(self.stack.pop())
         while not self.tmp_stack.empty():
             self.queue_.append(self.tmp_stack.pop())
+        self.is_queue = True
 
-    def put(self, element):
+    def queue_to_stack(self):
         """
-        Add the element ‘element’ at the end of queue_
-        :param element: element to add to queue_
+        Turns queue_ back to stack
         """
-        self.queue_.append(element)
-
-    def get(self):
-        """
-        Remove and return an item from queue_
-        """
-        if not self.queue_:
-            raise IndexError
-        return self.queue_.pop(0)
+        while self.queue_:
+            self.stack.push(self.queue_.pop(0))
+        self.is_queue = False
 
     def empty(self) -> bool:
         """
-        Return whether queue_ is empty or not
-        :return: True if queue_ does not contain any elements.
-                 False if the queue_ contains elements
+        Return whether queue_ or stack is empty or not
+        :return: True if queue_/stack does not contain any elements.
+                 False if queue_/stack contains elements
         """
-        return not self.queue_
+        if self.is_queue:
+            return not self.queue_
+        self.stack.empty()
 
-    def size(self) -> int:
+    def get(self):
         """
-        Return the number of elements in queue_
-        :return: Number of elements in queue_
+        Remove and return an item from queue_ or stack
         """
-        return len(self.queue_)
+        if not self.queue_ and not self.stack:
+            raise IndexError
+        elif self.is_queue:
+            return self.queue_.pop(0)
+        self.stack.pop()
+
+    def put(self, element):
+        """
+        Add the element ‘element’ at the end of queue_ or at the top of stack
+        :param element: element to add to queue_ or to stack
+        """
+        if self.is_queue:
+            self.queue_.append(element)
+        self.stack.push(element)
 
     def top(self):
         """
-        Return the element on the top of queue_
-        :return: the element that is on the top of queue_
+        Return the available element depending on current data structure.
+        :return: the element that is on the top of queue_ or stack
         """
-        if not self.queue_:
+        if not self.queue_ and not self.stack:
             raise IndexError
-        return self.queue_[0]
+        elif self.is_queue:
+            return self.queue_[0]
+        self.stack.top()
