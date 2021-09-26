@@ -1,4 +1,5 @@
 """
+Programming for linguists
 
 Implementation of the data structure "Stack"
 """

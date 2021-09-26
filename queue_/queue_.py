@@ -13,7 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), queue_size: int = 1):
+    def __init__(self, data: Iterable = (), queue_size: int = 'no_info'):
         if data and isinstance(data, list):
             self.queue = data
         elif isinstance(data, (int, float)):
@@ -22,7 +22,13 @@ class Queue_:
             self.queue = list(data)
         elif not data:
             self.queue = []
-        self.queue_size = queue_size
+        if isinstance(queue_size, int):
+            self.queue_size = queue_size
+        elif queue_size == 'no_info':
+            self.queue_size = len(self.queue) if len(self.queue) > 0 else len(self.queue) + 1
+        else:
+            raise TypeError
+        self.queue = self.queue[:self.queue_size]
 
     def put(self, element):
         """
@@ -35,7 +41,7 @@ class Queue_:
 
     def get(self):
         """
-        Remove and return an item from queue_
+        Remove and return an item from queue_stack
         """
         return self.queue.pop(0)
 
