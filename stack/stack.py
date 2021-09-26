@@ -13,7 +13,7 @@ class Stack:
 
     def __init__(self, data: Iterable = None):
         if not isinstance(data, type(None)):
-            self.data = list(data)
+            raise ValueError
         else:
             self.data = []
 
