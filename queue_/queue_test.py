@@ -92,3 +92,8 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_new_queue_is_full(self):
+        queue = Queue_(range (10),10)
+        self.assertTrue(queue.full())
+        self.assertEqual(queue.size(), 10)
