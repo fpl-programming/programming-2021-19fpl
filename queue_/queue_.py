@@ -14,8 +14,11 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size: int = 0):
-        self.data = list(data)
         self.max_size = max_size
+        if not isinstance(data, Iterable):
+            self.data = []
+        else:
+            self.data = list(data)
 
     def put(self, element):
         """
