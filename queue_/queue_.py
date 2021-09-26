@@ -12,7 +12,6 @@ class LimitError(Exception):
     """
     custom error
     """
-    pass
 
 
 # pylint: disable=invalid-name
