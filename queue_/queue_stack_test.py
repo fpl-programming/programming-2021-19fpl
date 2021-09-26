@@ -35,23 +35,24 @@ class QueueTestCase(unittest.TestCase):
     def test_new_queue_stack_from_tuple(self):
         """
         Create a QueueStack from an iterable object.
-        Check that the size of queue_ equals to the size of the given tuple.
+        Check that the size of queue_stack equals to the size of the given tuple.
         """
         data = (1, 2, 3, 4)
         queue = QueueStack(data)
-        self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
+        self.assertFalse(queue.empty())
         for value in data:
             test_value = queue.get()
             self.assertEqual(test_value, value)
-        self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
+        self.assertTrue(queue.empty())
+
 
     def test_new_queue_stack_from_list(self):
         """
         Create a QueueStack from a list.
-        Check that the size of queue equals to the size of the queue.
-        Check that the top element of queue equals to the latest element of the list.
+        Check that the size of queue_stack equals to the size of the queue.
+        Check that the top element of queue_stack equals to the latest element of the list.
         """
         data = [1, 3, 5, 7, 2, 4]
         queue = QueueStack(data)
