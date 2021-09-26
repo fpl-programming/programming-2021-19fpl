@@ -104,11 +104,11 @@ class QueueTestCase(unittest.TestCase):
         queue = Queue_(range(10), 5)
         self.assertFalse(queue.full())
 
-    def test_put_elements_into_full_quequeue(self):
+    def test_put_elements_into_full_queue(self):
         """
         Create a queue.
         Test that function can't put elements into full queue.
         """
-        queque = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-        t_queue = Queue_(queque, len(queque))
+        queue = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        t_queue = Queue_(queue, len(queue))
         self.assertTrue(t_queue.full())
