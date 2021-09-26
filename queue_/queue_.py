@@ -15,7 +15,7 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size: int = 100):
-        self.max_size = max_size
+        self.max_size_ = max_size
         if not isinstance(data, Iterable):
             self.data = []
         else:
@@ -68,11 +68,11 @@ class Queue_:
         return: True if queue_ is full
         False if the queue_ is not full
         """
-        return self.size() == self.max_size
+        return self.size() == self.max_size_
 
     def max_size(self):
         """
         Return the maximum possible size of queue_
         :return: the maximum length of queue_
         """
-        return self.max_size
+        return self.max_size_
