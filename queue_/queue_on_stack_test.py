@@ -5,12 +5,12 @@ Tests for Queue class.
 """
 
 import unittest
-from queue_.queue_on_stack import Queue_, LimitError
+from queue_.queue_on_stack import QueueOnStack_, LimitError
 
 
-class QueueTestCase(unittest.TestCase):
+class QueueOnStackTestCase(unittest.TestCase):
     """
-    This Case of tests checks the functionality of the implementation of Queue
+    This Case of tests checks the functionality of the implementation of Queue on stack
     """
 
     def test_new_queue_is_empty(self):
@@ -18,7 +18,7 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue.
         Test that its size is 0.
         """
-        queue = Queue_()
+        queue = QueueOnStack_()
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
@@ -28,7 +28,7 @@ class QueueTestCase(unittest.TestCase):
         Test that it is 1.
         """
         data = (1, 2, 3, 4)
-        queue = Queue_(data)
+        queue = QueueOnStack_(data)
         self.assertEqual(queue.get(), data[0])
 
     def test_new_queue_from_tuple(self):
@@ -37,7 +37,7 @@ class QueueTestCase(unittest.TestCase):
         Check that the size of queue_ equals to the size of the given tuple.
         """
         data = (1, 2, 3, 4)
-        queue = Queue_(data)
+        queue = QueueOnStack_(data)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
         for value in data:
@@ -53,7 +53,7 @@ class QueueTestCase(unittest.TestCase):
         Check that the top element of queue equals to the latest element of the list.
         """
         data = [1, 3, 5, 7, 2, 4]
-        queue = Queue_(data)
+        queue = QueueOnStack_(data)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
         self.assertEqual(queue.top(), data[0])
@@ -63,7 +63,7 @@ class QueueTestCase(unittest.TestCase):
         Create a Queue_ from a generator.
         Test that its size equals to the number provided in the generator.
         """
-        queue = Queue_(range(10))
+        queue = QueueOnStack_(range(10))
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 10)
         self.assertEqual(queue.top(), 0)
@@ -73,7 +73,7 @@ class QueueTestCase(unittest.TestCase):
         Put an element in queue.
         Test that its size is 1.
         """
-        queue = Queue_()
+        queue = QueueOnStack_()
         queue.put(1)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 1)
@@ -84,7 +84,7 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue.
         Test that call of get function raises Assertion error
         """
-        queue = Queue_()
+        queue = QueueOnStack_()
         self.assertRaises(IndexError, queue.get)
 
     def test_push_limit(self):
@@ -92,5 +92,5 @@ class QueueTestCase(unittest.TestCase):
         Create a Queue with max number of elements.
         Test that an exception will be raised
         """
-        queue = Queue_([1, 2, 3], 3)
+        queue = QueueOnStack_([1, 2, 3], 3)
         self.assertRaises(LimitError, queue.put, 4)

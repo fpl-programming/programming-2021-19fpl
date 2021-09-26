@@ -9,6 +9,9 @@ from math import inf
 
 
 class LimitError(Exception):
+    """
+    custom error
+    """
     pass
 
 

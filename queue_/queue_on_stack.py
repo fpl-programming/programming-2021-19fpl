@@ -3,17 +3,14 @@ Programming for linguists
 
 Implementation of the data structure "Queue on stack"
 """
-from stack.stack import Stack
 from typing import Iterable
 from math import inf
-
-
-class LimitError(Exception):
-    pass
+from stack.stack import Stack
+from queue_.queue_ import LimitError
 
 
 # pylint: disable=invalid-name
-class Queue_:
+class QueueOnStack_:
     """
     Queue Data Structure
     """
