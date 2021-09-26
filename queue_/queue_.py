@@ -23,7 +23,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.full():
-            return Exception
+            raise Exception
         self.data.append(element)
 
     def get(self):
