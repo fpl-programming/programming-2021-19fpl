@@ -16,6 +16,8 @@ class Queue_:
     def __init__(self, data: Iterable = (), max_size_queue: int = float("inf")):
         self.data = list(data)
         self.max_size_queue = max_size_queue
+        for element in data:
+            self.put(element)
 
     def put(self, element):
         """
