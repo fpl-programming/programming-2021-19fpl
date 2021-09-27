@@ -70,5 +70,5 @@ class Queue_:
         """
 
         if not self._max_size:
-            print("the queue is endless")
+            return "the queue is endless"
         return self.size() == self._max_size
