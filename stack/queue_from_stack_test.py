@@ -6,8 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
-# from queue_ import Queue_
+from queue_from_stack import Queue_
 
 
 class QueueTestCase(unittest.TestCase):
@@ -102,11 +101,14 @@ class QueueTestCase(unittest.TestCase):
         Create various instances of Queue.
         Test whether it is possible to know is they are full
         """
-        for data, capacity, expected_answer in zip(([1, 2, 3], [1, 2, 3], [1, 2, 3]),
-                                                   (3, 5),
-                                                   (True, False, False)):
-            queue = Queue_(data, capacity)
-            self.assertEqual(queue.full(), expected_answer)
+        queue = Queue_([1, 2, 3], 3)
+        self.assertEqual(queue.full(), True)
+
+        queue = Queue_([1, 2, 3])
+        self.assertEqual(queue.full(), False)
+
+        queue = Queue_([1, 2, 3], 5)
+        self.assertEqual(queue.full(), False)
 
     def test_incorrect_input_not_iterable_raised_error(self):
         """

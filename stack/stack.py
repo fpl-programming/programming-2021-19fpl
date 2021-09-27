@@ -19,12 +19,6 @@ class Stack:
                 self.stack = []
             else:
                 raise ValueError from exception
-        # if data is None:
-        #     self.stack = []
-        # elif not hasattr(data, '__iter__'):
-        #     raise ValueError
-        # else:
-        #     self.stack = list(data)
 
     def push(self, element):
         """
