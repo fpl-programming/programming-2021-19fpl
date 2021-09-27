@@ -6,7 +6,7 @@ Implementation of the data structure "Queue" based on data structure "Stack"
 
 from typing import Iterable
 # from stack.stack import Stack
-from stack import Stack
+from stack.stack import Stack
 
 
 # pylint: disable=invalid-name
