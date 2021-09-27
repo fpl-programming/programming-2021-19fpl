@@ -27,6 +27,8 @@ class QueueFromStack(Stack):
         """
         Turns queue_ back to stack
         """
+        if not self.is_queue:
+            return TypeError
         while self.queue_:
             self.stack.push(self.queue_.pop(0))
         self.is_queue = False
@@ -45,11 +47,11 @@ class QueueFromStack(Stack):
         """
         Remove and return an item from queue_ or stack
         """
-        if not self.queue_ and not self.stack:
-            raise IndexError
-        elif self.is_queue:
-            return self.queue_.pop(0)
-        self.stack.pop()
+        if not self.is_queue:
+            if not self.stack:
+                raise IndexError
+            self.stack.pop()
+        return self.queue_.pop(0)
 
     def put(self, element):
         """
@@ -65,8 +67,8 @@ class QueueFromStack(Stack):
         Return the available element depending on current data structure.
         :return: the element that is on the top of queue_ or stack
         """
-        if not self.queue_ and not self.stack:
-            raise IndexError
-        elif self.is_queue:
-            return self.queue_[0]
-        self.stack.top()
+        if not self.is_queue:
+            if not self.stack:
+                raise IndexError
+            self.stack.top()
+        return self.queue_[0]
