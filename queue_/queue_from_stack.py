@@ -48,7 +48,7 @@ class QueueFromStack(Stack):
         Remove and return an item from queue_ or stack
         """
         if not self.is_queue:
-            if not self.stack:
+            if self.stack.empty():
                 raise IndexError
             self.stack.pop()
         if not self.queue_:
@@ -70,7 +70,7 @@ class QueueFromStack(Stack):
         :return: the element that is on the top of queue_ or stack
         """
         if not self.is_queue:
-            if not self.stack:
+            if self.stack.empty():
                 raise IndexError
             self.stack.top()
         if not self.queue_:
