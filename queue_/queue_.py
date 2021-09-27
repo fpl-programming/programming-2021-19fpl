@@ -26,7 +26,7 @@ class Queue_:
         :return: True if queue_ does is full.
         False if the queue_ can contain more elements
         """
-        return True if len(self.data) == self.max_size else False
+        return bool(len(self.data) == self.max_size)
 
     def change_max_size(self, value: int):
         """
