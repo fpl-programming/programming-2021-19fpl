@@ -12,10 +12,7 @@ class Stack:
     """
 
     def __init__(self, data: Iterable = None):
-        if not isinstance(data, type(None)):
-            raise ValueError
-        else:
-            self.data = []
+        self. data = list (data) if not isinstance(data, type(None)) else []
 
     def push(self, element):
         """
@@ -57,4 +54,4 @@ class Stack:
                  False if stack contains elements
         """
 
-        return bool(not self.data)
+        return not self.data

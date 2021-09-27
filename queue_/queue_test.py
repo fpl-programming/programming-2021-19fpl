@@ -14,6 +14,45 @@ class QueueTestCase(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of Queue
     """
 
+    def test_new_queue_is_full(self):
+        """
+        Create a full Queue.
+        Test that it is full and its size equals to the max_size.
+        """
+        data = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        queue = Queue_(data)
+        self.assertTrue(queue.full())
+        self.assertEqual(queue.size(), queue.max_size)
+
+    def test_call_put_of_full_queue(self):
+        """
+        Create a full Queue.
+        Test that call of get function raises Value error.
+        """
+        data = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        queue = Queue_(data)
+        self.assertRaises(ValueError, queue.put())
+
+    def test_change_max_size(self):
+        """
+        Changes max_size of queue
+        Test that it is 5
+        """
+        queue = Queue_()
+        queue.change_max_size(5)
+        self.assertEqual(queue.max_size, 5)
+
+    def test_change_max_size_invalid_value(self):
+        """
+        Changes max_size of queue with invalid value
+        Test that call of get function raises Value error
+        """
+        queue = Queue_()
+        values = [(0, 9), 0, [1, 2], None, '123']
+        for value in values:
+            queue.change_max_size(value)
+            self.assertRaises(ValueError, queue.change_max_size())
+
     def test_new_queue_is_empty(self):
         """
         Create an empty Queue.
@@ -68,6 +107,15 @@ class QueueTestCase(unittest.TestCase):
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 10)
         self.assertEqual(queue.top(), 0)
+
+    def test_nue_full_queue_from_generator(self):
+        """
+        Create a full Queue_ from a generator.
+        Test that its size is not more than max_size.
+        """
+        queue = Queue_(range(11))
+        self.assertTrue(queue.full())
+        self.assertEqual(queue.size(), 10)
 
     def test_put_element(self):
         """
