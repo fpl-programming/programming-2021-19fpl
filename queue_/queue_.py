@@ -33,8 +33,9 @@ class Queue_:
         Changes max_size of queue_
         :param value: value to be max_size of queue_
         """
-        if not isinstance(value, int) or value > 0:
-            raise ValueError
+        if not isinstance(value, int):
+            if value > 0:
+                raise ValueError
         else:
             self.max_size = value
 
