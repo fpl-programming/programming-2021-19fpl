@@ -25,7 +25,8 @@ class QueueFromStack(Stack):
 
     def queue_to_stack(self):
         """
-        Turns queue_ back to stack
+        Turns queue_ back to stack.
+        Raises Type error if the data is already in the stack.
         """
         if not self.is_queue:
             raise TypeError
@@ -40,7 +41,7 @@ class QueueFromStack(Stack):
                  False if queue_/stack contains elements
         """
         if not self.is_queue:
-            self.stack.empty()
+            return self.stack.empty()
         return not self.queue_
 
     def get(self):
@@ -50,7 +51,7 @@ class QueueFromStack(Stack):
         if not self.is_queue:
             if self.stack.empty():
                 raise IndexError
-            self.stack.pop()
+            return self.stack.pop()
         if not self.queue_:
             raise IndexError
         return self.queue_.pop(0)
@@ -60,9 +61,10 @@ class QueueFromStack(Stack):
         Add the element ‘element’ at the end of queue_ or at the top of stack
         :param element: element to add to queue_ or to stack
         """
-        if self.is_queue:
-            self.queue_.append(element)
         self.stack.push(element)
+        if self.is_queue:
+            self.stack.pop()
+            self.queue_.append(element)
 
     def top(self):
         """
@@ -72,7 +74,7 @@ class QueueFromStack(Stack):
         if not self.is_queue:
             if self.stack.empty():
                 raise IndexError
-            self.stack.top()
+            return self.stack.top()
         if not self.queue_:
             raise IndexError
         return self.queue_[0]

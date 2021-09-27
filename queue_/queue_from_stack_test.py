@@ -48,7 +48,7 @@ class QueueFromStackTestCase(unittest.TestCase):
         queue_2 = QueueFromStack(data)
         queue_2.queue_to_stack()
         self.assertFalse(queue_1.empty())
-        # self.assertFalse(queue_2.empty())
+        self.assertFalse(queue_2.empty())
 
     def test_call_top_of_queue_and_stack(self):
         """
@@ -63,7 +63,7 @@ class QueueFromStackTestCase(unittest.TestCase):
         queue_2.queue_to_stack()
         self.assertFalse(queue_2.is_queue)
         self.assertEqual(queue_1.top(), data[0])
-        # self.assertEqual(queue_2.top(), data[-1])
+        self.assertEqual(queue_2.top(), data[-1])
 
     def test_call_get_of_empty_queue_and_stack(self):
         """
@@ -80,7 +80,10 @@ class QueueFromStackTestCase(unittest.TestCase):
 
     def test_put_element_into_queue_and_stack(self):
         """
-        a
+        Create two empty queues.
+        Turn one queue into stack back.
+        Put an element in the stack and in the queue.
+        Test that call of top function of both stack and queue returns the element.
         """
         queue_1 = QueueFromStack([])
         queue_2 = QueueFromStack([])
@@ -88,4 +91,4 @@ class QueueFromStackTestCase(unittest.TestCase):
         queue_1.put('a')
         queue_2.put('a')
         self.assertEqual(queue_1.top(), 'a')
-        # self.assertEqual(queue_2.top(), 'a')
+        self.assertEqual(queue_2.top(), 'a')
