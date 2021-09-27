@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
+from queue_.queue_ import Queue_, QueueIsFull
 
 
 class QueueTestCase(unittest.TestCase):
@@ -113,4 +113,4 @@ class QueueTestCase(unittest.TestCase):
         data = (1, 3, 5, 7, 2, 4)
         queue = Queue_(data, len(data))
         self.assertTrue(queue.full())
-        self.assertRaises(Exception, queue.put)
+        self.assertRaises(QueueIsFull, queue.put)

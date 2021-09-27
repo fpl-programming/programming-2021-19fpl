@@ -17,13 +17,13 @@ class Queue_:
         self.data = list(data)
         self.max_size = max_size
 
-    def put(self, element):
+    def put(self, element=None):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
         if self.full():
-            raise Exception
+            raise QueueIsFull
         self.data.append(element)
 
     def get(self):
@@ -61,3 +61,9 @@ class Queue_:
                  False if the queue_ is not full
         """
         return self.size() == self.max_size
+
+
+class QueueIsFull(Exception):
+    """"
+    Error class
+    """
