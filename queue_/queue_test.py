@@ -103,4 +103,3 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_([1, 2, 3], 5)
         self.assertEqual(5, queue.max_size())
-
