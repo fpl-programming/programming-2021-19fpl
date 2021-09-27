@@ -7,7 +7,6 @@ from typing import Iterable
 from stack.stack import Stack
 
 
-# pylint: disable=invalid-name
 class SQueue(Stack):
     """
     Queue Data Structure Based On Stack
