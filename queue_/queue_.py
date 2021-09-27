@@ -14,8 +14,11 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size: int = 0):
-        self.data = list(data)
         self.max_size = max_size
+        if not isinstance(data, Iterable):
+            self.data = []
+        else:
+            self.data = list(data)
 
     def put(self, element):
         """
@@ -52,14 +55,20 @@ class Queue_:
         """
         return self.data[0]
 
+    def max_size(self):
+        """
+        Return the number of elements in queue_
+        :return: Number of elements in queue_
+        """
+        return self.max_size
+
     def full(self):
         """
         Return queue_ is full or not
         :return: True if queue_ is full.
                  False if the queue_ is not full
         """
+
         if not self.max_size:
             print("the queue is endless")
-        elif self.size() == self.max_size:
-            return True
-        return False
+        return self.size() == self.max_size
