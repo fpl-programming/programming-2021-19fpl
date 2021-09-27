@@ -41,7 +41,7 @@ class QueueFromStack(Stack):
         """
         if self.is_queue:
             return not self.queue_
-        self.stack.empty()
+        bool(self.stack.empty())
 
     def get(self):
         """
