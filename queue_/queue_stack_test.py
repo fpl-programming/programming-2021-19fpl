@@ -7,7 +7,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_stack import QueueStack_
+from queue.queue_stack import QueueStack_
 
 
 class QueueTestCase(unittest.TestCase):
@@ -29,9 +29,9 @@ class QueueTestCase(unittest.TestCase):
         Get an element from a queue.
         Test that it is 1.
         """
-        data = (1, 2, 3, 4)
+        data = (3, 2, 1, 4)
         queue = QueueStack_(data)
-        self.assertEqual(queue.get(), data[-1])
+        self.assertEqual(queue.get(), data[0])
 
     def test_new_queue_stack_from_tuple(self):
         """
@@ -42,7 +42,7 @@ class QueueTestCase(unittest.TestCase):
         queue = QueueStack_(data)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
-        for value in data[::-1]:
+        for value in data:
             test_value = queue.get()
             self.assertEqual(test_value, value)
         self.assertEqual(queue.size(), 0)
@@ -54,11 +54,11 @@ class QueueTestCase(unittest.TestCase):
         Check that the size of queue equals to the size of the queue.
         Check that the top element of queue equals to the latest element of the list.
         """
-        data = [1, 3, 5, 7, 2, 4]
+        data = [2, 3, 5, 7, 1, 4]
         queue = QueueStack_(data)
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
-        self.assertEqual(queue.top(), data[-1])
+        self.assertEqual(queue.top(), data[0])
 
     def test_new_queue_stack_from_generator(self):
         """
@@ -68,7 +68,7 @@ class QueueTestCase(unittest.TestCase):
         queue = QueueStack_(range(10))
         self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), 10)
-        self.assertEqual(queue.top(), 9)
+        self.assertEqual(queue.top(), 0)
 
     def test_put_queue_stack_element(self):
         """

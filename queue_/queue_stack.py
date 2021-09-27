@@ -25,7 +25,13 @@ class QueueStack_(Stack):
         """
         if self.empty():
             raise IndexError
-        return self.data.pop()
+        temp_stack = []
+        while self.data:
+            temp_stack.append(self.data.pop(0))
+        last_elem = temp_stack.pop(0)
+        while temp_stack:
+            self.data = [temp_stack.pop()] + self.data
+        return last_elem
 
     def put(self, element):
         """
@@ -34,7 +40,18 @@ class QueueStack_(Stack):
         """
         if self.full():
             raise IndexError
-        self.data = [element] + self.data
+        self.data.append(element)
+
+    def top(self):
+        if self.empty():
+            raise IndexError
+        temp_stack = []
+        while self.data:
+            temp_stack.append(self.data.pop(0))
+        top_elem = temp_stack[0]
+        while temp_stack:
+            self.data = [temp_stack.pop()] + self.data
+        return top_elem
 
     def full(self):
         """
