@@ -16,10 +16,12 @@ class StackQueue:
     """
 
     def __init__(self, data: Iterable = (), max_size_queue: int = float("inf")):
-        self.first = Stack(data)
+        self.first = Stack()
         self.second = Stack()
         self.max_size_queue = max_size_queue
-
+        for element in list(data):
+            self.put(element)
+            
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
