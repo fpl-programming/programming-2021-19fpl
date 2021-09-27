@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
+from queue_.queue_ import Queue_, EmptyQueueError, QueueOverflowError
 
 
 class QueueTestCase(unittest.TestCase):
@@ -86,7 +86,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of get function raises Assertion error
         """
         queue = Queue_()
-        self.assertRaises(IndexError, queue.get)
+        self.assertRaises(EmptyQueueError, queue.get)
 
     def test_put_overcapacity(self):
         """
@@ -94,7 +94,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of put function raises Assertion error
         """
         queue = Queue_([2, 3, 4, 5, 6], 5)
-        self.assertRaises(IndexError, queue.put, 1)
+        self.assertRaises(QueueOverflowError, queue.put, 1)
 
     def test_queue_capacity(self):
         """

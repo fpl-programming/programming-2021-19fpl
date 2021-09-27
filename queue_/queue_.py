@@ -8,14 +8,14 @@ from typing import Iterable
 
 class EmptyQueueError(IndexError):
     """
-    Empty Queue interaction error
+    Empty Queue interaction custom error
     """
     ...
 
 
 class QueueOverflowError(IndexError):
     """
-    Queue overflow error
+    Queue overflow custom error
     """
     ...
 

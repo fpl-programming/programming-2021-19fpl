@@ -6,7 +6,7 @@ Tests for SQueue class.
 
 import unittest
 
-from queue_.squeue import SQueue
+from queue_.squeue import SQueue, EmptyQueueError, QueueOverflowError
 
 
 class SQueueTestCase(unittest.TestCase):
@@ -94,7 +94,7 @@ class SQueueTestCase(unittest.TestCase):
         Test that call of get function raises Assertion error
         """
         queue = SQueue()
-        self.assertRaises(IndexError, queue.get)
+        self.assertRaises(EmptyQueueError, queue.get)
 
     def test_queue_stack_capacity(self):
         """
@@ -137,4 +137,4 @@ class SQueueTestCase(unittest.TestCase):
         """
         queue = SQueue([2, 3, 4, 5, 6, 7], 6)
 
-        self.assertRaises(IndexError, queue.put, 1)
+        self.assertRaises(QueueOverflowError, queue.put, 1)
