@@ -7,6 +7,7 @@ Implementation of the data structure "Queue"
 from typing import Iterable
 
 
+# pylint: disable=invalid-name
 class Queue_:
     """
     Queue Data Structure
