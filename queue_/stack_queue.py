@@ -50,7 +50,7 @@ class StackQueue:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return self.size == 0
+        return self.size() == 0
 
     def size(self) -> int:
         """
