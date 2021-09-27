@@ -18,6 +18,7 @@ class Queue_:
 
         self.data = list(data)
         if self.maxlen and self.size() > self.maxlen:
+            # pylint: disable=invalid-unary-operand-type
             self.data = self.data[-maxlen:]
 
     def put(self, element):
@@ -26,7 +27,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.maxlen and self.full():
-            first = self.get()
+            self.get()
             self.data.append(element)
         else:
             self.data.append(element)
@@ -45,7 +46,7 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return False if self.data else True
+        return not self.data
 
     def size(self) -> int:
         """

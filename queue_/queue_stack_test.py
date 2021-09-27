@@ -19,9 +19,9 @@ class QueueTestCase(unittest.TestCase):
         Create an empty Queue.
         Test that its size is 0.
         """
-        queue = QueueStack()
-        self.assertTrue(queue.empty())
-        self.assertEqual(queue.size(), 0)
+        queue_stack = QueueStack()
+        self.assertTrue(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), 0)
 
     def test_get_element(self):
         """
@@ -29,8 +29,8 @@ class QueueTestCase(unittest.TestCase):
         Test that it is 1.
         """
         data = (1, 2, 3, 4)
-        queue = QueueStack(data)
-        self.assertEqual(queue.get(), data[0])
+        queue_stack = QueueStack(data)
+        self.assertEqual(queue_stack.get(), data[0])
 
     def test_new_queue_from_tuple(self):
         """
@@ -38,14 +38,14 @@ class QueueTestCase(unittest.TestCase):
         Check that the size of queue_ equals to the size of the given tuple.
         """
         data = (1, 2, 3, 4)
-        queue = QueueStack(data)
-        self.assertFalse(queue.empty())
-        self.assertEqual(queue.size(), len(data))
+        queue_stack = QueueStack(data)
+        self.assertFalse(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), len(data))
         for value in data:
-            test_value = queue.get()
+            test_value = queue_stack.get()
             self.assertEqual(test_value, value)
-        self.assertTrue(queue.empty())
-        self.assertEqual(queue.size(), 0)
+        self.assertTrue(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), 0)
 
     def test_new_queue_from_list(self):
         """
@@ -54,36 +54,36 @@ class QueueTestCase(unittest.TestCase):
         Check that the top element of queue equals to the latest element of the list.
         """
         data = [1, 3, 5, 7, 2, 4]
-        queue = QueueStack(data)
-        self.assertFalse(queue.empty())
-        self.assertEqual(queue.size(), len(data))
-        self.assertEqual(queue.top(), data[0])
+        queue_stack = QueueStack(data)
+        self.assertFalse(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), len(data))
+        self.assertEqual(queue_stack.top(), data[0])
 
     def test_new_queue_from_generator(self):
         """
         Create a Queue_ from a generator.
         Test that its size equals to the number provided in the generator.
         """
-        queue = QueueStack(range(10))
-        self.assertFalse(queue.empty())
-        self.assertEqual(queue.size(), 10)
-        self.assertEqual(queue.top(), 0)
+        queue_stack = QueueStack(range(10))
+        self.assertFalse(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), 10)
+        self.assertEqual(queue_stack.top(), 0)
 
     def test_put_element(self):
         """
         Put an element in queue.
         Test that its size is 1.
         """
-        queue = QueueStack()
-        queue.put(1)
-        self.assertFalse(queue.empty())
-        self.assertEqual(queue.size(), 1)
-        self.assertEqual(queue.top(), 1)
+        queue_stack = QueueStack()
+        queue_stack.put(1)
+        self.assertFalse(queue_stack.empty())
+        self.assertEqual(queue_stack.size(), 1)
+        self.assertEqual(queue_stack.top(), 1)
 
     def test_call_get_of_empty_queue_raised_error(self):
         """
         Create an empty Queue.
         Test that call of get function raises Assertion error.
         """
-        queue = QueueStack()
-        self.assertRaises(IndexError, queue.get)
+        queue_stack = QueueStack()
+        self.assertRaises(IndexError, queue_stack.get)

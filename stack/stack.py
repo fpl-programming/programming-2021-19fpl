@@ -57,7 +57,7 @@ class Stack:
         :return: True if stack does not contain any elements
                  False if stack contains elements
         """
-        return False if self.data else True
+        return not self.data
 
     @staticmethod
     def _is_data_iterable(data):
