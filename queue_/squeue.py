@@ -5,6 +5,7 @@ Implementation of the data structure "Queue" based on Stack
 
 from typing import Iterable
 from stack.stack import Stack
+from queue_.queue_ import EmptyQueueError, QueueOverflowError
 
 
 class SQueue(Stack):
@@ -24,7 +25,7 @@ class SQueue(Stack):
         Remove and return an item from queue_
         """
         if self.empty():
-            raise IndexError
+            raise EmptyQueueError
 
         return self.data.pop()
 
@@ -34,7 +35,7 @@ class SQueue(Stack):
         :param element: element to add to queue_
         """
         if self.full():
-            raise IndexError
+            raise QueueOverflowError
 
         self.data = [element] + self.data
 
