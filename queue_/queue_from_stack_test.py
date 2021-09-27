@@ -6,8 +6,7 @@ Tests for QueueFromStack class.
 
 import unittest
 
-# from queue_.queue_from_stack import QueueFromStack
-from queue_from_stack import QueueFromStack
+from queue_.queue_from_stack import QueueFromStack
 
 
 class QueueFromStackTestCase(unittest.TestCase):
@@ -25,4 +24,3 @@ class QueueFromStackTestCase(unittest.TestCase):
         queue.queue_to_stack()
         self.assertFalse(queue.is_queue)
         self.assertRaises(TypeError, queue.queue_to_stack)
-

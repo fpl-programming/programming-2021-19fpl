@@ -51,6 +51,8 @@ class QueueFromStack(Stack):
             if not self.stack:
                 raise IndexError
             self.stack.pop()
+        if not self.queue_:
+            raise IndexError
         return self.queue_.pop(0)
 
     def put(self, element):
@@ -71,4 +73,6 @@ class QueueFromStack(Stack):
             if not self.stack:
                 raise IndexError
             self.stack.top()
+        if not self.queue_:
+            raise IndexError
         return self.queue_[0]
