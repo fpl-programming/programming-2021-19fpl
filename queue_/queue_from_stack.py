@@ -39,9 +39,9 @@ class QueueFromStack(Stack):
         :return: True if queue_/stack does not contain any elements.
                  False if queue_/stack contains elements
         """
-        if self.is_queue:
-            return not self.queue_
-        bool(self.stack.empty())
+        if not self.is_queue:
+            self.stack.empty()
+        return not self.queue_
 
     def get(self):
         """
