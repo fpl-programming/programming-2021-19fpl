@@ -31,7 +31,7 @@ class QueueTestCase(unittest.TestCase):
         """
         data = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
         queue = Queue_(data)
-        self.assertRaises(ValueError, queue.put)
+        self.assertRaises(ValueError, queue.put(1))
 
     def test_change_max_size(self):
         """
