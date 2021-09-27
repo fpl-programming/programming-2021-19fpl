@@ -7,6 +7,24 @@ Implementation of the data structure "Queue"
 from typing import Iterable
 
 
+class FullQueueError(Exception):
+    """
+    Custom error
+    """
+
+
+class EmptyQueueError(Exception):
+    """
+    Custom error
+    """
+
+
+class CapacityError(Exception):
+    """
+    Custom error
+    """
+
+
 # pylint: disable=invalid-name
 class Queue_:
     """
@@ -22,13 +40,16 @@ class Queue_:
         except TypeError:
             self.queue = []
 
+        if len(self.queue) > self._capacity:
+            raise CapacityError
+
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
         if self.full():
-            raise IndexError
+            raise FullQueueError
         self.queue.append(element)
 
     def get(self):
@@ -36,7 +57,7 @@ class Queue_:
         Remove and return an item from queue_
         """
         if self.empty():
-            raise IndexError
+            raise EmptyQueueError
         return self.queue.pop(0)
 
     def empty(self) -> bool:
