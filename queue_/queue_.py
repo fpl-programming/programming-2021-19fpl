@@ -22,6 +22,8 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
+        if self.size() >= self.max_size_queue:
+            raise IndexError
         self.data.append(element)
 
     def get(self):
