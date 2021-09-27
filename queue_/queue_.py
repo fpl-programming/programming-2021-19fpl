@@ -33,10 +33,10 @@ class Queue_:
         Changes max_size of queue_
         :param value: value to be max_size of queue_
         """
-        if not isinstance(value, int) or value <= 0:
-            raise ValueError
-        else:
+        if isinstance(value, int) and value > 0:
             self.max_size = value
+        else:
+            raise ValueError
 
     def put(self, element):
         """
