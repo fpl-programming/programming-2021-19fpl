@@ -21,7 +21,6 @@ class StackQueue:
         self.max_size_queue = max_size_queue
         for element in list(data):
             self.put(element)
-            
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
@@ -38,10 +37,7 @@ class StackQueue:
         if self.empty():
             raise IndexError
         if self.second.empty():
-            while not self.first.empty():
-                element = self.first.top()
-                self.second.push(element)
-                self.first.pop()
+            self._shift()
         element = self.second.top()
         self.second.pop()
         return element
@@ -68,4 +64,15 @@ class StackQueue:
         """
         if self.empty():
             raise IndexError
+        if self.second.empty():
+            self._shift()
         return self.second.top()
+
+    def _shift(self):
+        """
+        shifts elements to second stack
+        """
+        while not self.first.empty():
+            element = self.first.top()
+            self.second.push(element)
+            self.first.pop()
