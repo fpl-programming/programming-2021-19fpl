@@ -1,5 +1,3 @@
-from stack.stack import Stack
-
 """
 Programming for linguists
 
@@ -7,6 +5,7 @@ Implementation of the data structure "Queue"
 """
 
 from typing import Iterable
+from stack.stack import Stack
 
 
 # pylint: disable=invalid-name
@@ -21,6 +20,7 @@ class StackQueue:
         self.max_size_queue = max_size_queue
         for element in list(data):
             self.put(element)
+
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
