@@ -28,7 +28,7 @@ class QueueFromStack(Stack):
         Turns queue_ back to stack
         """
         if not self.is_queue:
-            return TypeError
+            raise TypeError
         while self.queue_:
             self.stack.push(self.queue_.pop(0))
         self.is_queue = False
