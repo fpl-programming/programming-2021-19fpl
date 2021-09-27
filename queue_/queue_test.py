@@ -87,3 +87,40 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_call_top_of_empty_queue_raised_error(self):
+        """
+        Create an empty Queue.
+        Test that call of top function raises Assertion error
+        """
+        queue = Queue_()
+        self.assertRaises(IndexError, queue.top)
+
+    def test_create_queue_with_limited_size(self):
+        """
+        Create a Queue with limited size from a range of 10 with maxlen 10.
+        Check if maxlen is correct.
+        Check that the size of queue equals to the maxlen.
+        Check if queue is full.
+        """
+        data = range(10)
+        maxlen = 10
+        queue = Queue_(data, maxlen=maxlen)
+        self.assertEqual(queue.maxlen, maxlen)
+        self.assertEqual(queue.size(), maxlen)
+        self.assertTrue(queue.full())
+
+    def test_create_queue_bigger_than_limited_size(self):
+        """
+        Create a Queue from a range of 20 with maxlen 10.
+        Check that the size of queue equals to the maxlen.
+        Check if queue is full.
+        Check if top of the queue equals a list of range from 10 to 20.
+        """
+        data = range(20)
+        limited_data = list(range(10, 20))
+        maxlen = 10
+        queue = Queue_(data, maxlen=maxlen)
+        self.assertEqual(queue.size(), maxlen)
+        self.assertTrue(queue.full())
+        self.assertEqual(queue.data, limited_data)
