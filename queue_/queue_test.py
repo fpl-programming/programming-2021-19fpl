@@ -31,7 +31,7 @@ class QueueTestCase(unittest.TestCase):
         """
         data = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
         queue = Queue_(data)
-        self.assertRaises(ValueError, queue.put())
+        self.assertRaises(ValueError, queue.put)
 
     def test_change_max_size(self):
         """
@@ -50,8 +50,7 @@ class QueueTestCase(unittest.TestCase):
         queue = Queue_()
         values = [(0, 9), 0, [1, 2], None, '123']
         for value in values:
-            queue.change_max_size(value)
-            self.assertRaises(ValueError, queue.change_max_size())
+            self.assertRaises(ValueError, queue.change_max_size(value))
 
     def test_new_queue_is_empty(self):
         """
