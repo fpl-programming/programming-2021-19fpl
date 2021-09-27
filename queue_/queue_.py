@@ -34,7 +34,7 @@ class Queue_:
         :param value: value to be max_size of queue_
         """
         if not isinstance(value, int) or value > 0:
-            raise Exception
+            raise ValueError
         else:
             self.max_size = value
 
@@ -46,7 +46,7 @@ class Queue_:
         if not self.full():
             self.data.append(element)
         else:
-            raise Exception
+            raise ValueError('queue_ is full')
 
     def get(self):
         """

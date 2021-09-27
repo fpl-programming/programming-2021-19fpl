@@ -24,14 +24,14 @@ class QueueTestCase(unittest.TestCase):
         self.assertTrue(queue.full())
         self.assertEqual(queue.size(), queue.max_size)
 
-    def test_call_put_of_full_queue_raised_exception(self):
+    def test_call_put_of_full_queue_raised_ValueError(self):
         """
         Create a full Queue.
-        Test that call of get function raises Exception.
+        Test that call of get function raises ValueError.
         """
         data = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
         queue = Queue_(data)
-        self.assertRaises(Exception, queue.put(1))
+        self.assertRaises(ValueError, queue.put)
 
     def test_change_max_size(self):
         """
@@ -45,12 +45,12 @@ class QueueTestCase(unittest.TestCase):
     def test_change_max_size_invalid_value(self):
         """
         Changes max_size of queue with invalid value
-        Test that call of get function raises Exception
+        Test that call of get function raises ValueError
         """
         queue = Queue_()
         values = [(0, 9), 0, [1, 2], None, '123']
         for value in values:
-            self.assertRaises(Exception, queue.change_max_size(value))
+            self.assertRaises(ValueError, queue.change_max_size(value))
 
     def test_new_queue_is_empty(self):
         """
