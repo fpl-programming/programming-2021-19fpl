@@ -7,7 +7,7 @@ Implementation of the data structure "Queue"
 from typing import Iterable
 
 
-class Queue:
+class Queue_:
     """
     Queue Data Structure
     """
