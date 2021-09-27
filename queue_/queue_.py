@@ -7,10 +7,16 @@ from typing import Iterable
 
 
 class EmptyQueueError(IndexError):
+    """
+    Empty Queue interaction error
+    """
     ...
 
 
 class QueueOverflowError(IndexError):
+    """
+    Queue overflow error
+    """
     ...
 
 
