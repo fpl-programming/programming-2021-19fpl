@@ -87,3 +87,10 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_()
         self.assertRaises(IndexError, queue.get)
+
+    def test_queue_overflow_raise_error(self):
+        """
+        Error which is called when size is too big
+        """
+        queue = Queue_(data=[2, 3], max_size_queue=2)
+        self.assertRaises(IndexError, queue.put, 1)

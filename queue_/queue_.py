@@ -28,7 +28,6 @@ class Queue_:
             raise IndexError
         self.data.append(element)
 
-
     def get(self):
         """
         Remove and return an item from queue_
