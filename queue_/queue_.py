@@ -13,9 +13,12 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size=9):
-        self.data = list(data)
+    def __init__(self, data: Iterable = (), max_size=10):
         self.max_size = max_size
+        if len(data) <= max_size:
+            self.data = list(data)
+        else:
+            self.data = list(data[:max_size])
 
     def full(self):
         """
@@ -30,7 +33,7 @@ class Queue_:
         Changes max_size of queue_
         :param value: value to be max_size of queue_
         """
-        if not isinstance(value, int) and value > 0:
+        if not isinstance(value, int) or value > 0:
             raise ValueError
         else:
             self.max_size = value
@@ -71,4 +74,4 @@ class Queue_:
         Return the element on the top of queue_
         :return: the element that is on the top of queue_
         """
-        return self.data[-1]
+        return self.data[0]
