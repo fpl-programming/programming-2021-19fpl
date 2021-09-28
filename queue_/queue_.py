@@ -8,7 +8,7 @@ from typing import Iterable
 
 
 # pylint: disable=invalid-name
-class Queue:
+class Queue_:
     """
     Queue Data Structure
     """
