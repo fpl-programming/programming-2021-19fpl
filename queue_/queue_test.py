@@ -86,7 +86,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of get function raises Assertion error
         """
         queue = Queue_()
-        self.assertRaises(QueueIsFullError, queue.get)
+        self.assertRaises(IndexError, queue.get)
 
     def test_max_size(self):
         """
@@ -102,7 +102,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of put function raises Assertion error
         """
         queue = Queue_([1, 2, 3, 4, 5], 5)
-        self.assertRaises(, queue.put)
+        self.assertRaises(QueueIsFullError, queue.put)
 
     def test_queue_is_full(self):
         """
