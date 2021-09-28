@@ -15,8 +15,6 @@ class QueueStack:
     def __init__(self, data: Iterable = None, queue_size: int = 'no_info'):
         if data and isinstance(data, list):
             self.stack = data
-        elif isinstance(data, (int, float)):
-            self.stack = [data]
         elif not data:
             self.stack = []
         elif data:
@@ -36,20 +34,19 @@ class QueueStack:
         """
         self.stack.append(element)
 
+    def empty(self) -> bool:
+        """
+        Return whether stack is empty or not
+        :return: True if stack does not contain any elements
+                 False if stack contains elements
+        """
+        return not self.stack
+
     def get(self):
         """
         Remove and return an item from queue_stack
         """
         return self.stack.pop()
-
-    def top(self):
-        """
-        Return the element on the top of stack
-        :return: the element that is on the top of stack
-        """
-        if self.stack:
-            return self.stack[-1]
-        raise ValueError
 
     def put(self, element):
         """
@@ -67,10 +64,11 @@ class QueueStack:
         """
         return len(self.stack)
 
-    def empty(self) -> bool:
+    def top(self):
         """
-        Return whether stack is empty or not
-        :return: True if stack does not contain any elements
-                 False if stack contains elements
+        Return the element on the top of stack
+        :return: the element that is on the top of stack
         """
-        return not self.stack
+        if self.stack:
+            return self.stack[-1]
+        raise ValueError
