@@ -91,16 +91,15 @@ class QueueTestCase(unittest.TestCase):
     def test_put_out_of_the_size(self):
         """
         Create a QueueStack of certain size. Put more than allowed.
-        Test that the size of QueueStack is unchanged.
+        Test that the ValueError is raised.
         """
         queue = QueueStack([1, 2, 3], 3)
-        queue.put(4)
-        self.assertEqual(queue.size(), 3)
+        self.assertRaises(ValueError, queue.put, 4)
 
     def test_unpassed_size(self):
         """
         Create a QueueStack with a not passed size.
-        Test that the size of QueueStack equals the size of data.
+        Test that the ValueError is raised.
         """
         queue = QueueStack([1, 2, 3])
         self.assertEqual(queue.size(), 3)
@@ -108,8 +107,7 @@ class QueueTestCase(unittest.TestCase):
     def test_put_out_of_the_unpassed_size(self):
         """
         Create a QueueStack with a not passed size. Put more than allowed.
-        Test that the size of QueueStack is unchanged.
+        Test that the ValueError is raised.
         """
         queue = QueueStack([1, 2, 3])
-        queue.put(2)
-        self.assertEqual(queue.size(), 3)
+        self.assertRaises(ValueError, queue.put, 4)

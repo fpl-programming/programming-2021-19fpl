@@ -34,6 +34,6 @@ class QueueStack(Stack):
         Add the element ‘element’ at the end of queue_stack
         :param element: element to add to queue_stack
         """
+        if len(self.stack) == self.queue_size:
+            raise ValueError
         self.stack.insert(0, element)
-        if len(self.stack) > self.queue_size:
-            self.get()

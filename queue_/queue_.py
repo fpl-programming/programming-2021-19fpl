@@ -36,7 +36,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         self.queue.append(element)
-        if len(self.queue) > self.queue_size:
+        if self.full():
             self.get()
 
     def get(self):
@@ -66,3 +66,13 @@ class Queue_:
         :return: the element that is on the top of queue_
         """
         return self.queue[0]
+
+    def full(self):
+        """
+        Return whether queue_ contains more elements than allowed
+        :return: True if queue_ is full.
+                False if the queue_ is not full.
+        """
+        if isinstance(self.queue_size, int) and len(self.queue) > self.queue_size:
+            return True
+        return False
