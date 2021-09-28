@@ -17,10 +17,10 @@ class QueueStack:
             self.stack = data
         elif isinstance(data, (int, float)):
             self.stack = [data]
-        elif data:
-            self.stack = list(data)
         elif not data:
             self.stack = []
+        elif data:
+            self.stack = list(data)
         else:
             raise TypeError
         if isinstance(queue_size, int):
@@ -29,27 +29,18 @@ class QueueStack:
             self.queue_size = len(self.stack) if len(self.stack) > 0 else len(self.stack) + 1
         self.stack = self.stack[::-1][:self.queue_size]
 
-    def get(self):
-        """
-        Remove and return an item from queue_stack
-        """
-        return self.stack.pop()
-
-    def put(self, element):
-        """
-        Add the element ‘element’ at the end of queue_stack
-        :param element: element to add to queue_stack
-        """
-        if len(self.stack) == self.queue_size:
-            raise ValueError
-        self.stack.insert(0, element)
-
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
         self.stack.append(element)
+
+    def get(self):
+        """
+        Remove and return an item from queue_stack
+        """
+        return self.stack.pop()
 
     def top(self):
         """
@@ -59,6 +50,15 @@ class QueueStack:
         if self.stack:
             return self.stack[-1]
         raise ValueError
+
+    def put(self, element):
+        """
+        Add the element ‘element’ at the end of queue_stack
+        :param element: element to add to queue_stack
+        """
+        if len(self.stack) == self.queue_size:
+            raise ValueError
+        self.stack.insert(0, element)
 
     def size(self) -> int:
         """
