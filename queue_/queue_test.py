@@ -102,7 +102,7 @@ class QueueTestCase(unittest.TestCase):
         Test that call of put function raises Assertion error
         """
         queue = Queue_([1, 2, 3, 4, 5], 5)
-        self.assertRaises(QueueIsFullError, queue.put)
+        self.assertRaises(QueueIsFullError, queue.put, 0)
 
     def test_queue_is_full(self):
         """
