@@ -7,6 +7,11 @@ Implementation of the data structure "Queue"
 from typing import Iterable
 
 
+class QueueIsFullError(Exception):
+    """
+    custom error
+    """
+
 # pylint: disable=invalid-name
 class Queue_:
     """
@@ -26,7 +31,7 @@ class Queue_:
         :param element: element to add to queue_
         """
         if self.full():
-            raise IndexError
+            raise QueueIsFullError
         self.data.append(element)
 
     def get(self):
