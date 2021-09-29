@@ -10,14 +10,18 @@ class EmptyQueueError(IndexError):
     """
     Empty Queue interaction custom error
     """
-    ...
 
 
-class QueueOverflowError(IndexError):
+class QueueOverflowError(OverflowError):
     """
     Queue overflow custom error
     """
-    ...
+
+
+class CapacityError(ValueError):
+    """
+    Wrong capacity custom error
+    """
 
 
 # pylint: disable=invalid-name
@@ -31,6 +35,9 @@ class Queue_:
 
         if not isinstance(capacity, int):
             raise TypeError
+
+        if len(self.data) > capacity:
+            raise CapacityError
 
         self._capacity = capacity
 
@@ -88,7 +95,4 @@ class Queue_:
         :return: True if size of queue_ equals the capacity of queue_.
                  False if the queue_ contains less elements.
         """
-        if self.size() == self._capacity:
-            return True
-
-        return False
+        return self.size() == self._capacity
