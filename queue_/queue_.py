@@ -25,6 +25,8 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
+        if self.full():
+            raise QueueIsFullError
         self.data.append(element)
 
     def get(self):
@@ -71,3 +73,9 @@ class Queue_:
                  False if the queue_ contains less elements
         """
         return self.size() == self._max_size
+
+
+class QueueIsFullError(Exception):
+    """
+    Custom Error
+    """
