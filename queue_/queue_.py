@@ -14,15 +14,17 @@ class Queue_:
     """
 
     def __init__(self, data: Iterable = (), max_size_queue: int = float("inf")):
-        self.data = list(data)
         self.max_size_queue = max_size_queue
+        self.data = []
+        for element in list(data):
+            self.put(element)
 
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.size() >= self.max_size_queue:
+        if self.full():
             raise IndexError
         self.data.append(element)
 
@@ -36,13 +38,19 @@ class Queue_:
         del self.data[0]
         return result
 
+    def full(self):
+        """
+        Checks if the queue is full
+        """
+        return self.max_size_queue == len(self.data)
+
     def empty(self) -> bool:
         """
         Return whether queue_ is empty or not
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return len(self.data) == 0
+        return not bool(len(self.data))
 
     def size(self) -> int:
         """
