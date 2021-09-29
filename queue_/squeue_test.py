@@ -27,6 +27,10 @@ class SQueueTestCase(unittest.TestCase):
         self.assertEqual(queue.size(), 0)
 
     def test_new_queue_from_stack(self):
+        """
+        Create a SQueue from stack.
+        Test that no excessive casts are made and SQueue is still based on Stack
+        """
         stack = Stack(range(10))
         queue = SQueue(stack)
 
