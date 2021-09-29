@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_
+from queue_.queue_ import Queue_,FullQueueError
 
 
 class QueueTestCase(unittest.TestCase):
@@ -103,3 +103,11 @@ class QueueTestCase(unittest.TestCase):
         """
         queue = Queue_([1, 2, 3], 5)
         self.assertEqual(5, queue.max_size())
+
+    def test_put_element_in_full_queue(self):
+        """
+                Create a full Queue and put one more element.
+                Test that call of put function raises Assertion error.
+                """
+        queue = Queue_([1, 2, 3], 3)
+        self.assertRaises(FullQueueError, queue.put, 0)
