@@ -50,7 +50,7 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return not bool(len(self.data))
+        return self.data == []
 
     def size(self) -> int:
         """
