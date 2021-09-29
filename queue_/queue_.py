@@ -13,9 +13,9 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size: int = 5):
-        if data is None:
-            self.data = []
+    def __init__(self, data: Iterable = (), max_size: int = 0):
+        if max_size and len(list(data)) > max_size:
+            self.data = list(data)[:max_size]
         else:
             self.data = list(data)
         self._max_size = max_size
