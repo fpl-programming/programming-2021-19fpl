@@ -25,6 +25,7 @@ class Queue_:
             if self.data.size() > self.max_elem_num:
                 raise QueueIsTooLongError
 
+    @staticmethod
     def get_reversed_stack(data: list):
         """
         Method returns the reversed stack
