@@ -106,8 +106,8 @@ class QueueTestCase(unittest.TestCase):
 
     def test_put_element_in_full_queue(self):
         """
-                Create a full Queue and put one more element.
-                Test that call of put function raises Assertion error.
-                """
+        Create a full Queue and put one more element.
+        Test that call of put function raises Assertion error.
+        """
         queue = Queue_([1, 2, 3], 3)
         self.assertRaises(QueueIsFullError, queue.put, 0)

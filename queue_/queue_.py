@@ -34,8 +34,7 @@ class Queue_:
         """
         if self.full():
             raise QueueIsFullError
-        else:
-            self.data.append(element)
+        self.data.append(element)
 
     def get(self):
         """
