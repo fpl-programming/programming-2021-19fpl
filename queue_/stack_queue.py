@@ -18,8 +18,8 @@ class StackQueue:
         self.first = Stack()
         self.second = Stack()
         self.max_size_queue = max_size_queue
-        for element in list(data):
-            self.put(element)
+        for item in list(data):
+            self.put(item)
 
     def put(self, element):
         """
