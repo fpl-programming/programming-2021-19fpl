@@ -87,3 +87,12 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_iterator(self):
+        """
+        Stack iterator test
+        """
+        stack = Stack()
+        for value in [1, 2, 3, 4, 5]:
+            stack.push(value)
+        self.assertEqual([value for value in iter(stack)], [5, 4, 3, 2, 1])
