@@ -13,7 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size: int = 0):
+    def __init__(self, data: Iterable = (), max_size: int = 100):
         if max_size and len(list(data)) > max_size:
             self.data = list(data)[:max_size]
         else:
