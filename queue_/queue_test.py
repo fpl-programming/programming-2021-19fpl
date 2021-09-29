@@ -183,3 +183,15 @@ class StackQueueTestCase(unittest.TestCase):
         """
         queue = StackQueue(data=[2, 3], max_size_queue=2)
         self.assertRaises(IndexError, queue.put, 1)
+
+    def test_stress_put_and_get(self):
+        """
+        using a lot of elements here
+        """
+        queue = StackQueue()
+        for i in range(10):
+            for j in range(i, 1000000 + i):
+                queue.put(j)
+            for j in range(999999):
+                queue.get()
+            self.assertEqual(queue.get(), i)
