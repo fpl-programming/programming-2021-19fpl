@@ -26,7 +26,7 @@ class StackQueue:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.size() >= self.max_size_queue:
+        if self.full():
             raise IndexError
         return self.first.push(element)
 
@@ -42,13 +42,19 @@ class StackQueue:
         self.second.pop()
         return element
 
+    def full(self):
+        """
+        Checks if the queue is full
+        """
+        return self.max_size_queue == self.size()
+
     def empty(self) -> bool:
         """
         Return whether queue_ is empty or not
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return self.size() == 0
+        return not bool(self.size())
 
     def size(self) -> int:
         """
