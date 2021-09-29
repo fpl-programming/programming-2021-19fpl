@@ -35,7 +35,7 @@ class Queue_:
         if self.empty():
             raise IndexError
         result = self.data[0]
-        del self.data[0]
+        self.data = self.data[1:]
         return result
 
     def full(self):
