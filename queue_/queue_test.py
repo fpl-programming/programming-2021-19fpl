@@ -194,4 +194,4 @@ class StackQueueTestCase(unittest.TestCase):
                 queue.put(j)
             for j in range(999999):
                 queue.get()
-            self.assertEqual(queue.get(), i)
+            self.assertEqual(queue.get() - 999999, i)
