@@ -53,6 +53,9 @@ class Stack:
             for element in data:
                 self.push(element)
 
+    def __iter__(self):
+        return StackIterator(self.my_top)
+
     def push(self, element):
         """
         Add the element ‘element’ at the top of stack
