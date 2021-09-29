@@ -95,4 +95,4 @@ class StackTestCase(unittest.TestCase):
         stack = Stack()
         for value in [1, 2, 3, 4, 5]:
             stack.push(value)
-        self.assertEqual([value for value in stack], [5, 4, 3, 2, 1])
+        self.assertEqual(list(stack), [5, 4, 3, 2, 1])

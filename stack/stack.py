@@ -23,6 +23,7 @@ class Node:
         return self.next_node
 
 
+# pylint: disable=too-few-public-methods
 class StackIterator:
     """
     Stack iterators class
