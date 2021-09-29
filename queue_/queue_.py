@@ -13,7 +13,7 @@ class Queue_:
     Queue Data Structure
     """
 
-    def __init__(self, data: Iterable = (), max_size_queue: int = 50):
+    def __init__(self, data: Iterable = (), max_size_queue: int = float("inf")):
         self.data = list(data)
         self.max_size_queue = max_size_queue
 
@@ -22,7 +22,7 @@ class Queue_:
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        if self.full():
+        if self.size() >= self.max_size_queue:
             raise IndexError
         self.data.append(element)
 
@@ -42,7 +42,7 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return not self.data
+        return len(self.data) == 0
 
     def size(self) -> int:
         """
