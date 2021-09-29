@@ -33,9 +33,6 @@ class StackIterator:
     def __next__(self):
         if self.now_element is None:
             raise StopIteration
-        if self.now_element.get_next() is None:
-            raise StopIteration
-
         element = self.now_element.get_val()
         self.now_element = self.now_element.get_next()
         return element
