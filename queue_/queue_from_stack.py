@@ -9,17 +9,6 @@ from queue_.queue_ import QueueIsTooLongError
 
 
 # pylint: disable=invalid-name
-def get_reversed_stack(data: list):
-    """
-    Method returns the reversed stack
-    """
-    tmp_stack = Stack()
-    data = Stack(data)
-
-    while data.size() != 0:
-        tmp_stack.push(data.pop())
-    return tmp_stack
-
 class Queue_:
     """
     Queue Data Structure
@@ -36,17 +25,28 @@ class Queue_:
             if self.data.size() > self.max_elem_num:
                 raise QueueIsTooLongError
 
+    def get_reversed_stack(data: list):
+        """
+        Method returns the reversed stack
+        """
+        tmp_stack = Stack()
+        new_data = Stack(data)
+
+        while new_data.size() != 0:
+            tmp_stack.push(new_data.pop())
+        return tmp_stack
+
     def put(self, element):
         """
         Add the element ‘element’ at the end of queue_
         :param element: element to add to queue_
         """
-        tmp_stack = get_reversed_stack(self.data.data)
+        tmp_stack = Queue_.get_reversed_stack(self.data.data)
 
         while tmp_stack.size() >= self.max_elem_num:
             tmp_stack.pop()
 
-        self.data = get_reversed_stack(tmp_stack.data)
+        self.data = Queue_.get_reversed_stack(tmp_stack.data)
         return self.data.push(element)
 
     def get(self):
@@ -56,10 +56,10 @@ class Queue_:
         if self.data.empty():
             raise IndexError
 
-        tmp_stack = get_reversed_stack(self.data.data)
+        tmp_stack = Queue_.get_reversed_stack(self.data.data)
         needed_value = tmp_stack.top()
         tmp_stack.pop()
-        self.data = get_reversed_stack(tmp_stack.data)
+        self.data = Queue_.get_reversed_stack(tmp_stack.data)
         return needed_value
 
     def empty(self) -> bool:
@@ -85,5 +85,5 @@ class Queue_:
         if not self.data:
             raise IndexError
 
-        tmp_stack = get_reversed_stack(self.data.data)
+        tmp_stack = Queue_.get_reversed_stack(self.data.data)
         return tmp_stack.top()
