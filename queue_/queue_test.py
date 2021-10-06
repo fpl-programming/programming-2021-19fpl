@@ -97,6 +97,6 @@ class QueueTestCase(unittest.TestCase):
         """
         j
         """
-        queue = Queue_(range (10),10)
+        queue = Queue_(range(10),10)
         self.assertTrue(queue.full())
         self.assertEqual(queue.size(), 10)

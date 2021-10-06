@@ -19,8 +19,8 @@ class Queue_:
         if not isinstance(data,Iterable):
             self.data = []
         else:
-            self.data=list(data)
-        self.max_size=max_size
+            self.data = list(data)
+        self.max_size = max_size
 
 
     def put(self, element):
@@ -64,4 +64,4 @@ class Queue_:
         return: True if queue_ is full
         False if the queue_ is not full
         """
-        return self.size()==self.max_size
+        return self.size() == self.max_size
