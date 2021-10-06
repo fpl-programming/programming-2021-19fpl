@@ -4,82 +4,100 @@ Test for Node class
 
 import unittest
 
-from binarytree.node import Node
+# from binarytree.node import Node
+from node import Node
 
 
 class NodeTestCase(unittest.TestCase):
     """
-    This Case of tests checks the functionality of the implementation of Node
+    This Case of tests checks the functionality of the Node implementation
     """
 
-    def test_add_left_1(self):
+    def test_node_add_left_descendant(self):
         """
-        whatcha doinnnnn
+            (positive testing of add_left)
+        Create a Node.
+        Add left descendant from a list of correct values.
+        Test that the input value is equal to the left descendant of the Node
         """
-        self.assertEqual(True, True)
+        smaller_than_five = [0, Node(1), 2, Node(3), 4]
+        for element in smaller_than_five:
+            node = Node(5)
+            node.add_left(element)
+            self.assertEqual(element, node.left)
 
-    def test_add_left_2(self):
+    def test_node_add_wrong_left_descendants(self):
         """
-        whatcha doinnnnn
+            (negative testing of add_left)
+        Create a Node.
+        Add left descendant from lists of incorrect values.
+        Test that call of add_left function with incorrect inputs raises errors
         """
-        self.assertEqual(True, True)
+        greater_than_five = [Node(5), 6, Node(7), 1000, Node(100000000000)]
+        for element in greater_than_five:
+            node = Node(5)
+            self.assertRaises(ValueError, node.add_left, element)
+        non_integers = [2.4, 'three', None, {}]
+        for element in non_integers:
+            node = Node(5)
+            self.assertRaises(TypeError, node.add_left, element)
 
     def test_add_left_3(self):
         """
-        whatcha doinnnnn
+            (end-to-end testing of add_left)
+        Create a Node with three left descendants.
+        Test that the values are added correctly to the Node.
         """
-        self.assertEqual(True, True)
+        node = Node(10000000)
+        node.add_left(Node(3))
+        node.left.add_left(Node(2))
+        node.left.left.add_left(Node(1))
+        self.assertEqual(10000000, node.value)
+        self.assertEqual(3, node.left.value)
+        self.assertEqual(2, node.left.left.value)
+        self.assertEqual(1, node.left.left.left.value)
 
-    def test_add_right_1(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
 
-    def test_add_right_2(self):
+    def test_node_add_right_descendant(self):
         """
-        whatcha doinnnnn
+            (positive testing of add_right)
+        Create a Node.
+        Add right descendant from a list of correct values.
+        Test that the input value is equal to the right descendant of the Node
         """
-        self.assertEqual(True, True)
+        greater_than_five = [6, Node(7), Node(8), 9, Node(10000000)]
+        for element in greater_than_five:
+            node = Node(5)
+            node.add_right(element)
+            self.assertEqual(element, node.right)
+
+    def test_node_add_wrong_right_descendants(self):
+        """
+            (negative testing of add_right)
+        Create a Node.
+        Add right descendant from lists of incorrect values.
+        Test that call of add_right function with incorrect inputs raises errors
+        """
+        smaller_than_five = [5, Node(4), 3, 2, Node(1), Node(0)]
+        for element in smaller_than_five:
+            node = Node(5)
+            self.assertRaises(ValueError, node.add_right, element)
+        non_integers = [10.44465, 'twelve', None, {}]
+        for element in non_integers:
+            node = Node(5)
+            self.assertRaises(TypeError, node.add_right, element)
 
     def test_add_right_3(self):
         """
-        whatcha doinnnnn
+            (end-to-end testing of add_right)
+        Create a Node with three right descendants.
+        Test that the values are added correctly to the Node.
         """
-        self.assertEqual(True, True)
-
-    def test_return_left_1(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
-
-    def test_return_left_2(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
-
-    def test_return_left_3(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
-
-    def test_return_right_1(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
-
-    def test_return_right_2(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
-
-    def test_return_right_3(self):
-        """
-        whatcha doinnnnn
-        """
-        self.assertEqual(True, True)
+        node = Node(0)
+        node.add_right(Node(1))
+        node.right.add_right(Node(2))
+        node.right.right.add_right(Node(3))
+        self.assertEqual(0, node.value)
+        self.assertEqual(1, node.right.value)
+        self.assertEqual(2, node.right.right.value)
+        self.assertEqual(3, node.right.right.right.value)
