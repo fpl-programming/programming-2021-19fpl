@@ -21,10 +21,10 @@ class NodeTestCase(unittest.TestCase):
         Test that the input value is equal to the left descendant of the Node
         """
         smaller_than_five = [0, Node(1), 2, Node(3), 4]
-        for element in smaller_than_five:
+        for val in smaller_than_five:
             node = Node(5)
-            node.add_left(element)
-            self.assertEqual(element, node.left)
+            node.add_left(val)
+            self.assertEqual(val, node.left)
 
     def test_call_add_wrong_left_descendants_raised_error(self):
         """
@@ -34,13 +34,13 @@ class NodeTestCase(unittest.TestCase):
         Test that call of add_left function with incorrect inputs raises errors
         """
         greater_than_five = [Node(5), 6, Node(7), 1000, Node(100000000000)]
-        for element in greater_than_five:
+        for val in greater_than_five:
             node = Node(5)
-            self.assertRaises(ValueError, node.add_left, element)
+            self.assertRaises(ValueError, node.add_left, val)
         non_integers = [2.4, 'three', None, {}, []]
-        for element in non_integers:
+        for val in non_integers:
             node = Node(5)
-            self.assertRaises(TypeError, node.add_left, element)
+            self.assertRaises(TypeError, node.add_left, val)
 
     def test_node_add_multiple_left_descendants(self):
         """
@@ -65,10 +65,10 @@ class NodeTestCase(unittest.TestCase):
         Test that the input value is equal to the right descendant of the Node
         """
         greater_than_five = [6, Node(7), Node(8), 9, Node(10000000)]
-        for element in greater_than_five:
+        for val in greater_than_five:
             node = Node(5)
-            node.add_right(element)
-            self.assertEqual(element, node.right)
+            node.add_right(val)
+            self.assertEqual(val, node.right)
 
     def test_call_add_wrong_right_descendants_raised_error(self):
         """
@@ -78,13 +78,13 @@ class NodeTestCase(unittest.TestCase):
         Test that call of add_right function with incorrect inputs raises errors
         """
         smaller_than_five = [5, Node(4), 3, 2, Node(1), Node(0)]
-        for element in smaller_than_five:
+        for val in smaller_than_five:
             node = Node(5)
-            self.assertRaises(ValueError, node.add_right, element)
+            self.assertRaises(ValueError, node.add_right, val)
         non_integers = [10.44465, 'twelve', None, {}, []]
-        for element in non_integers:
+        for val in non_integers:
             node = Node(5)
-            self.assertRaises(TypeError, node.add_right, element)
+            self.assertRaises(TypeError, node.add_right, val)
 
     def test_node_add_multiple_right_descendants(self):
         """

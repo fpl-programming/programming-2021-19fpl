@@ -14,7 +14,7 @@ class Node:
         self.left = None
         self.right = None
 
-    def add_left(self, value_to_add: int):
+    def add_left(self, value_to_add):
         """
         Add left descendant of the node
         :param value_to_add: a value smaller than the value of the node
@@ -32,7 +32,7 @@ class Node:
         else:
             raise TypeError('Binary tree contains only integers and Node instances')
 
-    def add_right(self, value_to_add: int):
+    def add_right(self, value_to_add):
         """
         Add right descendant of the node
         :param value_to_add: a value greater than the value of the node

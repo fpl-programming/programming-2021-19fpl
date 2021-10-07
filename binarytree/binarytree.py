@@ -37,20 +37,31 @@ class BinaryTree:
         else:
             self.root = Node(value)
 
-    def find(self, value) -> bool:
+    def find(self, value: int):
         """
-        Return whether the value is in the binary tree or not
-        :return: True if the binary tree contains the value.
-                 False if the binary tree does not contain the value
+        Return the value if the binary tree contains it
         """
-        if self.root is None:
-            return False
-        pass
+        def find_recursive(value_to_find, current_node):
+            if value_to_find == current_node.value:
+                return value_to_find
+            elif value_to_find < current_node.value:
+                if current_node.left is not None:
+                    if value_to_find == current_node.left.value:
+                        return value_to_find
+                    return find_recursive(value_to_find, current_node.left)
+            elif value_to_find > current_node.value:
+                if current_node.right is not None:
+                    if value_to_find == current_node.right.value:
+                        return value_to_find
+                    return find_recursive(value_to_find, current_node.right)
+
+        if self.root is not None and isinstance(value, int):
+            return find_recursive(value, self.root)
 
     def remove(self, value):
         """
-        Remove the value from the binary tree
-        :param value: value to remove from the binary tree
+        Remove the node from the binary tree and return its value
+        :param value: value of the node to be removed from the binary tree
         """
         if self.root is None:
             raise IndexError
