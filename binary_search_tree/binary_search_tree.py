@@ -1,4 +1,4 @@
-# pylint disable=R0903
+# pylint disable-msg=R0903
 """
 Programming for linguists
 
@@ -58,7 +58,7 @@ class BinarySearchTree:
             self.size += 1
         else:
             if root is None:
-                if self._contains(node):
+                if self.contains(node):
                     raise DuplicateError('Node is already in BinarySearchTree')
                 root = self.root
             if root.root > node.root:
@@ -79,7 +79,7 @@ class BinarySearchTree:
         Remove the node from the tree
         """
         if root is None:
-            if not self._contains(node):
+            if not self.contains(node):
                 raise NodeNotFoundError('Can not remove non-existent node')
             root = self.root
         if root.root == node.root:
@@ -105,7 +105,7 @@ class BinarySearchTree:
         :return: the node that was specified in find function
         """
         if root is None:
-            if not self._contains(node):
+            if not self.contains(node):
                 raise NodeNotFoundError('Node is not found')
             root = self.root
         if node.root == root.root:
@@ -156,14 +156,14 @@ class BinarySearchTree:
             if node.right_node is not None:
                 breadth_tree.append(node.right_node)
             if number == (len(breadth_tree) - 1):
-                return breadth_tree
+                return 1
             traverse(breadth_tree[number + 1], number + 1)
 
         breadth_tree.append(self.root)
         traverse(self.root, 0)
         return breadth_tree
 
-    def _contains(self, node: Node, root=None) -> bool:
+    def contains(self, node: Node, root=None) -> bool:
         """
         Return whether node in tree or not
         :return: True if tree contains a node.
@@ -178,7 +178,7 @@ class BinarySearchTree:
         if node.root < root.root:
             if root.left_node is None:
                 return False
-            return self._contains(node, root.left_node)
+            return self.contains(node, root.left_node)
         if root.right_node is None:
             return False
-        return self._contains(node, root.right_node)
+        return self.contains(node, root.right_node)
