@@ -6,5 +6,7 @@ tree.add(6)
 tree.add(4)
 tree.add(5)
 tree.remove(5)
-print(tree.tree_root.left_node.left_node.right_node) # проверка на удаление
-print(tree.find(5)) # проверка на поиск
+print(tree.tree_root.left_node.left_node.right_node)  # проверка на удаление
+print(tree.find(5))  # проверка на поиск
+
+print(tree.depth(8))  # поиск глубины

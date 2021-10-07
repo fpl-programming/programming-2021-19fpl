@@ -85,7 +85,17 @@ class BSTree:
                 if base_node.right_node is None:  # а большего значения нет, то
                     return False  # в дереве нет такого значения
                 else:  # если есть большее значение
-                    base_node = base_node.left_node  # будем сравнивать с числом, которое больше рассматриваемого
+                    base_node = base_node.right_node  # будем сравнивать с числом, которое больше рассматриваемого
 
-    def depth(self):
-        pass
+    def depth(self, node):
+        if isinstance(node, int):
+            node = Node(node)
+
+        if node is None:
+            return 0
+
+        if node.root == self.tree_root.root:  # начинаем с корня дерева
+            node = self.tree_root
+
+        tree_depth = 1 + max(self.depth(node.left_node), self.depth(node.right_node))
+        return tree_depth
