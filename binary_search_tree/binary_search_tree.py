@@ -1,3 +1,4 @@
+# pylint disable=R0903
 """
 Programming for linguists
 
@@ -48,9 +49,6 @@ class BinarySearchTree:
         self.root = None
         self.size = 0
 
-    def __repr__(self):
-        pass
-
     def add(self, node: Node, root=None):
         """
         Add the node to the tree
@@ -60,7 +58,7 @@ class BinarySearchTree:
             self.size += 1
         else:
             if root is None:
-                if self.contains(node):
+                if self._contains(node):
                     raise DuplicateError('Node is already in BinarySearchTree')
                 root = self.root
             if root.root > node.root:
@@ -81,7 +79,7 @@ class BinarySearchTree:
         Remove the node from the tree
         """
         if root is None:
-            if not self.contains(node):
+            if not self._contains(node):
                 raise NodeNotFoundError('Can not remove non-existent node')
             root = self.root
         if root.root == node.root:
@@ -107,16 +105,14 @@ class BinarySearchTree:
         :return: the node that was specified in find function
         """
         if root is None:
-            if not self.contains(node):
+            if not self._contains(node):
                 raise NodeNotFoundError('Node is not found')
             root = self.root
         if node.root == root.root:
             return root
-        else:
-            if node.root < root.root:
-                return self.find(node, root.left_node)
-            else:
-                return self.find(node, root.right_node)
+        if node.root < root.root:
+            return self.find(node, root.left_node)
+        return self.find(node, root.right_node)
 
     def get_max_height(self, root=None) -> int:
         """
@@ -144,28 +140,6 @@ class BinarySearchTree:
         """
         return self.size
 
-    def contains(self, node: Node, root=None) -> bool:
-        """
-        Return whether node in tree or not
-        :return: True if tree contains a node.
-                 False if tree does not contain a node
-        """
-        if self.root is None:
-            raise EmptyError('BinarySearchTree is empty')
-        if root is None:
-            root = self.root
-        if node.root == root.root:
-            return True
-        else:
-            if node.root < root.root:
-                if root.left_node is None:
-                    return False
-                return self.contains(node, root.left_node)
-            else:
-                if root.right_node is None:
-                    return False
-                return self.contains(node, root.right_node)
-
     def traverse_breadth_tree(self):
         """
         Return the nodes according to breadth
@@ -183,9 +157,28 @@ class BinarySearchTree:
                 breadth_tree.append(node.right_node)
             if number == (len(breadth_tree) - 1):
                 return breadth_tree
-            else:
-                traverse(breadth_tree[number + 1], number + 1)
+            traverse(breadth_tree[number + 1], number + 1)
 
         breadth_tree.append(self.root)
         traverse(self.root, 0)
         return breadth_tree
+
+    def _contains(self, node: Node, root=None) -> bool:
+        """
+        Return whether node in tree or not
+        :return: True if tree contains a node.
+                 False if tree does not contain a node
+        """
+        if self.root is None:
+            raise EmptyError('BinarySearchTree is empty')
+        if root is None:
+            root = self.root
+        if node.root == root.root:
+            return True
+        if node.root < root.root:
+            if root.left_node is None:
+                return False
+            return self._contains(node, root.left_node)
+        if root.right_node is None:
+            return False
+        return self._contains(node, root.right_node)

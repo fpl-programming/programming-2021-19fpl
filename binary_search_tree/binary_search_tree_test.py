@@ -1,3 +1,4 @@
+# pylint disable=R0904
 """
 Programming for linguists
 
@@ -112,7 +113,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.add(node_left_2)
         tree.add(node_right)
         tree.remove(node_left_2)
-        self.assertFalse(tree.contains(node_left_2))
+        self.assertFalse(tree._contains(node_left_2))
         self.assertIsNone(tree.root.left_node.left_node)
 
     def test_remove_from_empty_tree_raises_error(self):
@@ -135,7 +136,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         Check that contains function raises Empty Error when BinarySearchTree is empty
         """
         tree = BinarySearchTree()
-        self.assertRaises(EmptyError, tree.contains, Node(5))
+        self.assertRaises(EmptyError, tree._contains, Node(5))
 
     def test_contains_node(self):
         """
@@ -145,8 +146,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree = BinarySearchTree()
         node_root = Node(5)
         tree.add(node_root)
-        self.assertTrue(tree.contains(node_root))
-        self.assertFalse(tree.contains(Node(6)))
+        self.assertTrue(tree._contains(node_root))
+        self.assertFalse(tree._contains(Node(6)))
 
     def test_contains_node_in_tree_with_several_nodes(self):
         """
@@ -159,8 +160,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.add(node_left)
         tree.add(node_left_2)
         tree.add(node_right)
-        self.assertTrue(tree.contains(node_right))
-        self.assertFalse(tree.contains(Node(1)))
+        self.assertTrue(tree._contains(node_right))
+        self.assertFalse(tree._contains(Node(1)))
 
     def test_find_not_existent_node_raises_error(self):
         """
