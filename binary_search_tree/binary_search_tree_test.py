@@ -1,6 +1,6 @@
 # pylint: skip-file
 """
-Skip due to disable R0904 does not work
+Skip due to disable R0904 (about public methods) does not work
 Programming for linguists
 
 Tests for Node, BinarySearchTree classes.

@@ -1,4 +1,7 @@
+# pylint: skip-file
 """
+Skip due to disable R0903 (about public methods) and
+ R1710 (does not like return in traverse) does not work
 Programming for linguists
 
 Implementation of the data structure "Binary Search Tree"
@@ -37,16 +40,6 @@ class Node:
         self.right_node = None
         self.left_node = None
         self.value = value
-
-    def public_method_1(self):
-        """
-        Added to pass lint. Did not want to skip all file, disable R0903 does not work
-        """
-
-    def public_method_2(self):
-        """
-        Added to pass lint. Did not want to skip all file, disable R0903 does not work
-        """
 
 
 class BinarySearchTree:
@@ -158,7 +151,6 @@ class BinarySearchTree:
             raise EmptyError('BinarySearchTree is empty')
         breadth_tree = []
 
-        # pylint disable=R1710
         def traverse(node, number):
             nonlocal breadth_tree
             if node.left_node is not None:
