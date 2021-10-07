@@ -42,13 +42,11 @@ class Node:
         """
         Added to pass lint. Did not want to skip all file, disable R0903 does not work
         """
-        pass
 
     def public_method_2(self):
         """
         Added to pass lint. Did not want to skip all file, disable R0903 does not work
         """
-        pass
 
 
 class BinarySearchTree:
@@ -160,6 +158,7 @@ class BinarySearchTree:
             raise EmptyError('BinarySearchTree is empty')
         breadth_tree = []
 
+        # pylint disable=R1710
         def traverse(node, number):
             nonlocal breadth_tree
             if node.left_node is not None:
@@ -167,7 +166,7 @@ class BinarySearchTree:
             if node.right_node is not None:
                 breadth_tree.append(node.right_node)
             if number == (len(breadth_tree) - 1):
-                return []
+                return breadth_tree
             traverse(breadth_tree[number + 1], number + 1)
 
         breadth_tree.append(self.root)
