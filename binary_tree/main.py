@@ -99,3 +99,6 @@ class BSTree:
 
         tree_depth = 1 + max(self.depth(node.left_node), self.depth(node.right_node))
         return tree_depth
+
+    def print(self):
+        pass
