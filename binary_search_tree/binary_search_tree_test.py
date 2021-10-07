@@ -1,4 +1,6 @@
+# pylint: skip-file
 """
+Skip due to disable R0904 does not work
 Programming for linguists
 
 Tests for Node, BinarySearchTree classes.
@@ -23,7 +25,7 @@ class NodeTestCase(unittest.TestCase):
         self.assertEqual(node.root, 8)
         self.assertIsNone(node.left_node, node.right_node)
 
-    def _test_node_from_not_int_raises_error(self):
+    def test_node_from_not_int_raises_error(self):
         """
         Test that initialisation of class Node when root is not int raises Type error
         """
@@ -80,7 +82,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertEqual(tree.root.left_node.left_node.right_node, node_right)
         self.assertIsNone(tree.root.right_node)
 
-    def _test_add_duplicate_node_raises_error(self):
+    def test_add_duplicate_node_raises_error(self):
         """
         Create an empty BinarySearchTree.
         Check that addition of a duplicate Node raises Duplicate Error
@@ -115,14 +117,14 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertFalse(tree.contains(node_left_2))
         self.assertIsNone(tree.root.left_node.left_node)
 
-    def _test_remove_from_empty_tree_raises_error(self):
+    def test_remove_from_empty_tree_raises_error(self):
         """
         Check that removal from an empty BinarySearchTree raises Empty Error
         """
         tree = BinarySearchTree()
         self.assertRaises(EmptyError, tree.remove, Node(5))
 
-    def _test_remove_non_existent_node_raises_error(self):
+    def test_remove_non_existent_node_raises_error(self):
         """
         Check that removal from an empty BinarySearchTree raises NodeNotFound Error
         """
@@ -130,7 +132,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.add(Node(6))
         self.assertRaises(NodeNotFoundError, tree.remove, Node(5))
 
-    def _test_contains_node_empty_tree_raises_error(self):
+    def test_contains_node_empty_tree_raises_error(self):
         """
         Check that contains function raises Empty Error when BinarySearchTree is empty
         """
@@ -162,7 +164,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertTrue(tree.contains(node_right))
         self.assertFalse(tree.contains(Node(1)))
 
-    def _test_find_not_existent_node_raises_error(self):
+    def test_find_not_existent_node_raises_error(self):
         """
         Check that contains function raises NodeNotFound Error when Node is not found
         """
@@ -222,7 +224,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree = BinarySearchTree()
         self.assertEqual(tree.get_size(), 0)
 
-    def _test_get_max_height_of_empty_tree_raises_error(self):
+    def test_get_max_height_of_empty_tree_raises_error(self):
         """
         Check that getting max height of an empty BinarySearchTree raises Empty Error
         """
@@ -249,7 +251,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             tree.add(node)
         self.assertEqual(tree.get_max_height(), 6)
 
-    def _test_traverse_breadth_tree_when_tree_is_empty_raises_error(self):
+    def test_traverse_breadth_tree_when_tree_is_empty_raises_error(self):
         """
         Check that getting breath_tree of an empty BinarySearchTree raises Empty Error
         """
