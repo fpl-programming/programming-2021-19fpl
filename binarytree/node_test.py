@@ -4,8 +4,8 @@ Test for Node class
 
 import unittest
 
-# from binarytree.node import Node
-from node import Node
+from binarytree.node import Node
+# from node import Node
 
 
 class NodeTestCase(unittest.TestCase):
@@ -15,7 +15,7 @@ class NodeTestCase(unittest.TestCase):
 
     def test_node_add_left_descendant(self):
         """
-            (positive testing of add_left)
+            (positive testing of add_left function)
         Create a Node.
         Add left descendant from a list of correct values.
         Test that the input value is equal to the left descendant of the Node
@@ -26,9 +26,9 @@ class NodeTestCase(unittest.TestCase):
             node.add_left(element)
             self.assertEqual(element, node.left)
 
-    def test_node_add_wrong_left_descendants(self):
+    def test_call_add_wrong_left_descendants_raised_error(self):
         """
-            (negative testing of add_left)
+            (negative testing of add_left function)
         Create a Node.
         Add left descendant from lists of incorrect values.
         Test that call of add_left function with incorrect inputs raises errors
@@ -37,14 +37,14 @@ class NodeTestCase(unittest.TestCase):
         for element in greater_than_five:
             node = Node(5)
             self.assertRaises(ValueError, node.add_left, element)
-        non_integers = [2.4, 'three', None, {}]
+        non_integers = [2.4, 'three', None, {}, []]
         for element in non_integers:
             node = Node(5)
             self.assertRaises(TypeError, node.add_left, element)
 
-    def test_add_left_3(self):
+    def test_node_add_multiple_left_descendants(self):
         """
-            (end-to-end testing of add_left)
+            (end-to-end testing of add_left function)
         Create a Node with three left descendants.
         Test that the values are added correctly to the Node.
         """
@@ -57,10 +57,9 @@ class NodeTestCase(unittest.TestCase):
         self.assertEqual(2, node.left.left.value)
         self.assertEqual(1, node.left.left.left.value)
 
-
     def test_node_add_right_descendant(self):
         """
-            (positive testing of add_right)
+            (positive testing of add_right function)
         Create a Node.
         Add right descendant from a list of correct values.
         Test that the input value is equal to the right descendant of the Node
@@ -71,9 +70,9 @@ class NodeTestCase(unittest.TestCase):
             node.add_right(element)
             self.assertEqual(element, node.right)
 
-    def test_node_add_wrong_right_descendants(self):
+    def test_call_add_wrong_right_descendants_raised_error(self):
         """
-            (negative testing of add_right)
+            (negative testing of add_right function)
         Create a Node.
         Add right descendant from lists of incorrect values.
         Test that call of add_right function with incorrect inputs raises errors
@@ -82,14 +81,14 @@ class NodeTestCase(unittest.TestCase):
         for element in smaller_than_five:
             node = Node(5)
             self.assertRaises(ValueError, node.add_right, element)
-        non_integers = [10.44465, 'twelve', None, {}]
+        non_integers = [10.44465, 'twelve', None, {}, []]
         for element in non_integers:
             node = Node(5)
             self.assertRaises(TypeError, node.add_right, element)
 
-    def test_add_right_3(self):
+    def test_node_add_multiple_right_descendants(self):
         """
-            (end-to-end testing of add_right)
+            (end-to-end testing of add_right function)
         Create a Node with three right descendants.
         Test that the values are added correctly to the Node.
         """
