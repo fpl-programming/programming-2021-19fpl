@@ -1,4 +1,3 @@
-# pylint disable-msg=R0904
 """
 Programming for linguists
 
@@ -24,7 +23,7 @@ class NodeTestCase(unittest.TestCase):
         self.assertEqual(node.root, 8)
         self.assertIsNone(node.left_node, node.right_node)
 
-    def test_node_from_not_int_raises_error(self):
+    def _test_node_from_not_int_raises_error(self):
         """
         Test that initialisation of class Node when root is not int raises Type error
         """
@@ -81,7 +80,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertEqual(tree.root.left_node.left_node.right_node, node_right)
         self.assertIsNone(tree.root.right_node)
 
-    def test_add_duplicate_node_raises_error(self):
+    def _test_add_duplicate_node_raises_error(self):
         """
         Create an empty BinarySearchTree.
         Check that addition of a duplicate Node raises Duplicate Error
@@ -116,14 +115,14 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertFalse(tree.contains(node_left_2))
         self.assertIsNone(tree.root.left_node.left_node)
 
-    def test_remove_from_empty_tree_raises_error(self):
+    def _test_remove_from_empty_tree_raises_error(self):
         """
         Check that removal from an empty BinarySearchTree raises Empty Error
         """
         tree = BinarySearchTree()
         self.assertRaises(EmptyError, tree.remove, Node(5))
 
-    def test_remove_non_existent_node_raises_error(self):
+    def _test_remove_non_existent_node_raises_error(self):
         """
         Check that removal from an empty BinarySearchTree raises NodeNotFound Error
         """
@@ -131,7 +130,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.add(Node(6))
         self.assertRaises(NodeNotFoundError, tree.remove, Node(5))
 
-    def test_contains_node_empty_tree_raises_error(self):
+    def _test_contains_node_empty_tree_raises_error(self):
         """
         Check that contains function raises Empty Error when BinarySearchTree is empty
         """
@@ -163,7 +162,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertTrue(tree.contains(node_right))
         self.assertFalse(tree.contains(Node(1)))
 
-    def test_find_not_existent_node_raises_error(self):
+    def _test_find_not_existent_node_raises_error(self):
         """
         Check that contains function raises NodeNotFound Error when Node is not found
         """
@@ -223,7 +222,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree = BinarySearchTree()
         self.assertEqual(tree.get_size(), 0)
 
-    def test_get_max_height_of_empty_tree_raises_error(self):
+    def _test_get_max_height_of_empty_tree_raises_error(self):
         """
         Check that getting max height of an empty BinarySearchTree raises Empty Error
         """
@@ -241,7 +240,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_get_max_height_of_tree_with_several_nodes(self):
         """
-        Check that get_size function returns the correct length of max branch
+        Check that get_max_height function returns the correct length of max branch
         """
         tree = BinarySearchTree()
         nodes_to_add = [Node(8), Node(4), Node(2), Node(3), Node(10),
@@ -250,25 +249,25 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             tree.add(node)
         self.assertEqual(tree.get_max_height(), 6)
 
-    def test_get_breadth_tree_when_tree_is_empty_raises_error(self):
+    def _test_traverse_breadth_tree_when_tree_is_empty_raises_error(self):
         """
         Check that getting breath_tree of an empty BinarySearchTree raises Empty Error
         """
         tree = BinarySearchTree()
         self.assertRaises(EmptyError, tree.traverse_breadth_tree)
 
-    def test_get_breadth_tree_when_tree_has_only_root(self):
+    def test_traverse_breadth_tree_when_tree_has_only_root(self):
         """
-        Check that get_breadth_tree function returns a list 1 number
+        Check that traverse_breadth_tree function returns a list 1 number
         """
         tree = BinarySearchTree()
         node_root = Node(5)
         tree.add(node_root)
         self.assertEqual(tree.traverse_breadth_tree()[0].root, 5)
 
-    def test_get_breadth_tree_when_tree_has_several_nodes(self):
+    def test_traverse_breadth_tree_when_tree_has_several_nodes(self):
         """
-        Check that get_breadth_tree function returns a list with numbers according to breadth
+        Check that traverse_breadth_tree function returns a list with numbers according to breadth
         Tests that first number in list is the root and
          the last is on the last level of tree on the right
         """
