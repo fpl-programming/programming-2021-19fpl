@@ -56,8 +56,7 @@ class Tree:
             return self.find(value, node.right)
         if value < node.value and node.left:
             return self.find(value, node.left)
-        else:
-            return False
+        return False
 
     def remove(self, value: int, node: Node = None):
         """
