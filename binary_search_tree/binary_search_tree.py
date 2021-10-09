@@ -81,6 +81,8 @@ class BinarySearchTree:
         if node is None:
             return self.find(number, self.root)
 
+        if number == node.root:
+            return node
         if number < node.root:
             if node.left is not None:
                 return self.find(number, node.left)
@@ -89,7 +91,8 @@ class BinarySearchTree:
             if node.right is not None:
                 return self.find(number, node.right)
             return None
-        return node
+
+        return None
 
     def remove(self, number: int, node=None):
         """
