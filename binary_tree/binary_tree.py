@@ -121,24 +121,15 @@ class BinaryTree:
 
         # case 2: remove-node has no children
         if node.left_child is None and node.right_child is None:
-            if data < parent.value:
-                parent.left_child = None
-            else:
-                parent.right_child = None
+            self._remove_node(data, node, parent, mode='no')
 
         # case 3: remove-node has left child only
         elif node.left_child and node.right_child is None:
-            if data < parent.value:
-                parent.left_child = node.left_child
-            else:
-                parent.right_child = node.left_child
+            self._remove_node(data, node, parent, mode='left')
 
         # case 4: remove-node has right child only
         elif node.left_child is None and node.right_child:
-            if data < parent.value:
-                parent.left_child = node.right_child
-            else:
-                parent.right_child = node.right_child
+            self._remove_node(data, node, parent, mode='right')
 
         # case 5: remove-node has left and right children
         else:
@@ -173,6 +164,14 @@ class BinaryTree:
             self.root.value = del_node.value
 
     @staticmethod
+    def _remove_node(data, node, parent, mode='no'):
+        mode_dict = {'no': None, 'left': node.left_child, 'right': node.right_child}
+        if data < parent.value:
+            parent.left_child = mode_dict[mode]
+        else:
+            parent.right_child = mode_dict[mode]
+
+    @staticmethod
     def _remove_node_two_children(node):
         """Remove node with two children."""
         del_node_parent = node
@@ -204,4 +203,3 @@ class BinaryTree:
         """Validate data."""
         if not isinstance(data, int):
             raise ValueError('Data is not integer.')
-
