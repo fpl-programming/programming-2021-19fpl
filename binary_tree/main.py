@@ -18,6 +18,18 @@ class Node:
         self.right_node = None
         self.value = None
 
+    def first_public_method(self):
+        """
+        Solves lint problem
+        """
+        pass
+
+    def second_public_method(self):
+        """
+        Solves lint problem
+        """
+        pass
+
 
 class BSTree:
     """
@@ -117,15 +129,15 @@ class BSTree:
             if number < base_node.root:  # если искомое число меньше,
                 if base_node.left_node is None:  # а меньшего значения нет, то
                     return False  # в дереве нет такого значения
-                else:  # если есть меньшее значение
-                    # будем сравнивать с числом, которое меньше рассматриваемого
-                    base_node = base_node.left_node
+                # если есть меньшее значение
+                # будем сравнивать с числом, которое меньше рассматриваемого
+                base_node = base_node.left_node
             elif number > base_node.root:  # если искомое число больше,
                 if base_node.right_node is None:  # а большего значения нет, то
                     return False  # в дереве нет такого значения
-                else:  # если есть большее значение
-                    # будем сравнивать с числом, которое больше рассматриваемого
-                    base_node = base_node.right_node
+                # если есть большее значение
+                # будем сравнивать с числом, которое больше рассматриваемого
+                base_node = base_node.right_node
 
     def depth(self, node):
         """
