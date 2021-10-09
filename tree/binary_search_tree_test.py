@@ -4,8 +4,8 @@ Tests for the Tree class.
 
 import unittest
 
-from binary_search_tree import Tree
-from node import Node
+from tree.binary_search_tree import Tree
+from tree.node import Node
 
 
 class TreeTestCase(unittest.TestCase):

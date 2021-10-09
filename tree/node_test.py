@@ -2,7 +2,7 @@
 Tests for the Node class.
 """
 
-from node import Node
+from tree.node import Node
 
 import unittest
 
