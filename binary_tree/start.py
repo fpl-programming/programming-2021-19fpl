@@ -1,3 +1,8 @@
+"""
+Programming for linguists
+
+Realization of the data structure "Binary Searching Tree"
+"""
 from binary_tree.main import BSTree
 
 tree = BSTree()
