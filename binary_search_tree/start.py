@@ -2,7 +2,7 @@
 Binary Search Tree implementation starter
 """
 
-from binary_search_tree import BinarySearchTree
+from binary_search_tree.binary_search_tree import BinarySearchTree
 
 if __name__ == '__main__':
     tree = BinarySearchTree('BST')

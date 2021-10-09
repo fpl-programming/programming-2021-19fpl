@@ -131,8 +131,8 @@ class BinarySearchTree:
                 return tree_node
             if element < tree_node.root:
                 return recursive_find_node(tree_node.left_node)
-            else:
-                return recursive_find_node(tree_node.right_node)
+
+            return recursive_find_node(tree_node.right_node)
 
         return recursive_find_node(self._root)
 

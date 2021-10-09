@@ -5,7 +5,8 @@ Tests for Queue class.
 """
 
 import unittest
-from binary_search_tree.binary_search_tree import BinarySearchTree, Node, NodeExistsError, NodeNotFoundError
+from binary_search_tree.binary_search_tree import BinarySearchTree, Node, \
+    NodeExistsError, NodeNotFoundError
 
 
 class MyTestCase(unittest.TestCase):
