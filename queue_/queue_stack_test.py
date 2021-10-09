@@ -42,8 +42,8 @@ class QueueTestCase(unittest.TestCase):
         queue = QueueStack_(data)
         self.assertEqual(queue.size(), len(data))
         self.assertFalse(queue.empty())
-        for value in data:
-            test_value = queue.get()
+        for _ in data:
+            queue.get()
         self.assertTrue(queue.empty())
         self.assertEqual(queue.size(), 0)
 
