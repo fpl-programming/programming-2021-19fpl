@@ -61,7 +61,17 @@ class Tree:
         return node
 
     def find(self, value):
-        pass
+        return self._find(self.root, value)
+
+    def _find(self, node, value):
+        if node is None:
+            return False
+        if node.get_value() == value:
+            return True
+        if node.get_value() > value:
+            return self._find(node.get_left(), value)
+        else:
+            return self._find(node.get_right(), value)
 
     def get_size(self):
         return self.size
