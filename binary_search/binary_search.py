@@ -95,6 +95,9 @@ class BinarySearchTree:
         return self._root.root
 
     def go_width_traversal(self):
+        """
+        Return all the nodes of the tree
+        """
         if not self._root.root:
             raise ValueError('Impossible to go around tree, no elements in the tree')
         all_nodes = [self._root]
@@ -108,6 +111,9 @@ class BinarySearchTree:
         return all_nodes
 
     def __str__(self):
+        """
+        Return all the nodes of the tree by levels
+        """
         all_nodes = ['\n', str(self._root.root), '\n']
         current_level = [self._root]
         nodes_of_level = [self._root]
