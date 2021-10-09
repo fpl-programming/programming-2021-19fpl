@@ -101,20 +101,21 @@ class BinarySearchTree:
             raise NoTreeError
         if not self.find(number):
             raise NoNodeError
-        if node is None:
-            return self.remove(number, self.root)
+        return self._remove_from_root(number, self.root)
+
+    def _remove_from_root(self, number, node=None):
         if number == self.root.root:
             self.root = None
         elif number < node.root:
             if number == node.left.root:
                 node.left = None
             else:
-                self.remove(number, node.left)
+                self._remove_from_root(number, node.left)
         else:
             if number == node.right.root:
                 node.right = None
             else:
-                self.remove(number, node.right)
+                self._remove_from_root(number, node.right)
 
     def get_height(self, node=None):
         """
