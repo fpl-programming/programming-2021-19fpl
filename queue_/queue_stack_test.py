@@ -40,13 +40,12 @@ class QueueTestCase(unittest.TestCase):
         """
         data = (1, 2, 3, 4)
         queue = QueueStack_(data)
-        self.assertFalse(queue.empty())
         self.assertEqual(queue.size(), len(data))
+        self.assertFalse(queue.empty())
         for value in data:
             test_value = queue.get()
-            self.assertEqual(test_value, value)
-        self.assertEqual(queue.size(), 0)
         self.assertTrue(queue.empty())
+        self.assertEqual(queue.size(), 0)
 
     def test_new_queue_stack_from_list(self):
         """

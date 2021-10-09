@@ -42,7 +42,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         """
         tree = BinarySearchTree(root=8)
         tree.add(6)
-        self.assertIsInstance(tree.add(6), str)
+        self.assertRaises(ValueError, tree.add, 6)
 
     def test_binary_search_tree_find(self):
         """
@@ -97,8 +97,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         for elem in [6, 9, 5, 7]:
             tree.add(elem)
         tree.remove(6)
-        for el in [6, 5, 7]:
-            self.assertEqual(tree.find(el).root, None)
+        for element in [6, 5, 7]:
+            self.assertEqual(tree.find(element).root, None)
 
     def test_remove_root(self):
         """
@@ -109,8 +109,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         for elem in [6, 9, 5, 7]:
             tree.add(elem)
         tree.remove(8)
-        for el in [6, 9, 5, 7]:
-            self.assertEqual(tree.find(el).root, None)
+        for element in [6, 9, 5, 7]:
+            self.assertEqual(tree.find(element).root, None)
 
     def test_remove_not_existing(self):
         """
@@ -118,7 +118,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         Test that it returns a message.
         """
         tree = BinarySearchTree(root=8)
-        self.assertIsInstance(tree.remove(9), str)
+        self.assertRaises(ValueError, tree.remove, 9)
 
     def test_get_root_no_initial(self):
         """
@@ -152,11 +152,3 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         Create a BinarySearchTree with root and all the sequence.
         Test that all functions work fine together.
         """
-        pass
-
-    '''
-    def test_binary_search_tree_print(self):
-        tree = BinarySearchTree(root=8)
-        tree.add(6)
-        self.assertEqual(tree.__str__(), '8 6')
-    '''

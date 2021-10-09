@@ -23,7 +23,7 @@ class BinarySearchTree:
             self._root = Node(element)
             return
         if self.find(element).root:
-            return 'Element Already In The Tree'
+            raise ValueError('Element Already In The Tree')
         self._add_node(self._root, element)
 
     def _add_node(self, root: 'Node', element: int):
@@ -65,7 +65,7 @@ class BinarySearchTree:
         :param element: element to remove from the tree
         """
         if self.find(element).root is None:
-            return 'No node found to remove'
+            raise ValueError('No node found to remove')
         if element == self._root.root:
             self._root = Node(None)
             return
@@ -94,20 +94,10 @@ class BinarySearchTree:
         """
         return self._root.root
 
-    '''
-    def __str__(self):
-        roots = [self._root.root]
-        cur_node = self._root
-        
-        for side in [left_node, right_node]:
-            while cur_node.side:
-                roots.append(cur_node.side.root)
-                cur_node = cur_node.side
-            
-        return ' '.join(roots)
-    '''
+    # def __str__(self):
 
 
+# pylint: disable=too-few-public-methods
 class Node:
     """
     Node Data Structure
