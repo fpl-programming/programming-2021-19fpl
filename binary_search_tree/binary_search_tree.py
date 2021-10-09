@@ -80,16 +80,16 @@ class BinarySearchTree:
             raise NoTreeError
         if node is None:
             return self.find(number, self.root)
-        if number == node.root:
-            return node
+
         if number < node.root:
             if node.left is not None:
                 return self.find(number, node.left)
             return None
-        else:
+        if number > node.root:
             if node.right is not None:
                 return self.find(number, node.right)
             return None
+        return node
 
     def remove(self, number: int, node=None):
         """
