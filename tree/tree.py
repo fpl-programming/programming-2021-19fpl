@@ -39,7 +39,7 @@ class Tree:
             root.set_left(self._insert(root.get_left(), value))
         else:
             root.set_right(self._insert(root.get_right(), value))
-        
+        return root
 
     def erase(self, value):
         pass
