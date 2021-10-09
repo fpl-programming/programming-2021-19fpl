@@ -1,12 +1,17 @@
-from binary_tree.main import Node, BSTree
+from binary_tree.main import BSTree
 
 tree = BSTree()
+# Добавляем значения в дерево
 tree.add(8)
 tree.add(6)
-tree.add(4)
-tree.add(5)
-tree.remove(5)
-print(tree.tree_root.left_node.left_node.right_node)  # проверка на удаление
-print(tree.find(5))  # проверка на поиск
-
-print(tree.depth(8))  # поиск глубины
+tree.add(3)
+tree.add(9)
+tree.add(7)
+# Удаляем значение из дерева
+tree.remove(7)
+# Ищем значение в дереве --> False
+print(tree.find(7))
+# Находим глубину дерева
+print(tree.depth(8))  # поиск глубины --> 3
+# Выводим дерево
+print(tree.print_tree())

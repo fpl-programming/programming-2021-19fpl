@@ -6,8 +6,13 @@ Implementation of the data structure "Binary Searching Tree"
 
 
 class Node:
+    """
+    Node Structure
+    """
 
-    def __init__(self, root: int):  # число
+    def __init__(self, root: int):
+        if not isinstance(root, int) or isinstance(root, bool):
+            raise TypeError
         self.root = root
         self.left_node = None
         self.right_node = None
@@ -15,14 +20,25 @@ class Node:
 
 
 class BSTree:
+    """
+    Binary Searching Tree Structure
+    """
 
-    def __init__(self, tree_root=None):  # число
+    def __init__(self, tree_root=None):
         if isinstance(tree_root, int):
             self.tree_root = Node(tree_root)
-        else:
+        elif tree_root is None:
             self.tree_root = None
+        else:
+            raise TypeError
 
-    def add(self, new_node: int):  # число
+    def add(self, new_node: int):
+        """
+        Adds a node in Tree
+        """
+        if not isinstance(new_node, int):
+            raise TypeError
+
         new_node = Node(new_node)
 
         if self.tree_root is None:
@@ -46,7 +62,16 @@ class BSTree:
             else:
                 break
 
-    def remove(self, bad_node: int):  # число
+    def remove(self, bad_node: int):
+        """
+        Removes a node from Tree
+        """
+        if not isinstance(bad_node, int) or isinstance(bad_node, bool):
+            raise TypeError
+
+        if self.find(bad_node) is False:
+            raise ValueError
+
         bad_node = Node(bad_node)
 
         if self.tree_root.root == bad_node.root:  # если узел, который надо удалить, равен корню
@@ -69,7 +94,16 @@ class BSTree:
                     else:
                         base_node = base_node.right_node  # если не ближайший правый узел - смотрим дальше
 
-    def find(self, number):   # число
+    def find(self, number):
+        """
+        Finds a node in Tree
+        :return: the node that was found in Tree
+        """
+        if not isinstance(number, int) or isinstance(number, bool):
+            raise TypeError
+
+        if self.tree_root is None:
+            return False
 
         base_node = self.tree_root  # сравниваемое значение
 
@@ -88,11 +122,19 @@ class BSTree:
                     base_node = base_node.right_node  # будем сравнивать с числом, которое больше рассматриваемого
 
     def depth(self, node):
+        """
+        Finds the depth of Tree
+        :return: a number of Tree levels
+        """
         if isinstance(node, int):
             node = Node(node)
-
-        if node is None:
+        elif node is None:
             return 0
+        elif not isinstance(node, Node):
+            raise TypeError
+
+        if self.find(node.root) is False:  # если нет дерева с таким корнем
+            raise ValueError
 
         if node.root == self.tree_root.root:  # начинаем с корня дерева
             node = self.tree_root
@@ -100,5 +142,16 @@ class BSTree:
         tree_depth = 1 + max(self.depth(node.left_node), self.depth(node.right_node))
         return tree_depth
 
-    def print(self):
-        pass
+    def print_tree(self):
+        """
+        Represents the depth of Tree
+        """
+        def recurse(node, level):
+            tree_structure = ""
+            if node is not None:
+                tree_structure += recurse(node.right_node, level + 1)
+                tree_structure += "| " * level
+                tree_structure += str(node.root) + "\n"
+                tree_structure += recurse(node.left_node, level + 1)
+            return tree_structure
+        return recurse(self.tree_root, 0)
