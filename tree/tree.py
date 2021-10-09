@@ -42,8 +42,15 @@ class Tree:
         return root
 
     def erase(self, value):
-        pass
+        if self.find(value):
+            self.root = self._erase(self.root, value)
+            self.size -= 1
+        else:
+            raise IndexError
 
+    def _erase(self,):
+        pass
+    
     def find(self, value):
         pass
 
