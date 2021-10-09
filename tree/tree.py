@@ -29,7 +29,17 @@ class Tree:
         self.size = 0
 
     def insert(self, value):
-        pass
+        self.root = self._insert(self.root, value)
+        self.size += 1
+
+    def _insert(self, root, value):
+        if root is None:
+            return Node(value)
+        if root.get_value() > value:
+            root.set_left(self._insert(root.get_left(), value))
+        else:
+            root.set_right(self._insert(root.get_right(), value))
+        return root
 
     def erase(self, value):
         pass
