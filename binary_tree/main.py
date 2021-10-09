@@ -51,14 +51,14 @@ class BSTree:
                 if base_node.left_node is None:  # если меньшего значения нет, добавляем
                     base_node.left_node = new_node
                     break
-                else:  # если уже есть меньшее значение, то будем сравнивать с меньшим
-                    base_node = base_node.left_node
+                # если уже есть меньшее значение, то будем сравнивать с меньшим
+                base_node = base_node.left_node
             elif new_node.root > base_node.root:
                 if base_node.right_node is None:  # если большего значения нет, добавляем
                     base_node.right_node = new_node
                     break
-                else:  # если уже есть большее значение, то будем сравнивать с большим
-                    base_node = base_node.right_node
+                # если уже есть большее значение, то будем сравнивать с большим
+                base_node = base_node.right_node
             else:
                 break
 
@@ -87,18 +87,16 @@ class BSTree:
                     if bad_node.root == base_node.left_node.root:
                         base_node.left_node = None
                         break
-                    else:
-                        # если не ближайший левый узел - смотрим дальше
-                        base_node = base_node.left_node
-                        # если узел, который надо удалить больше сравниваемого
+                    # если не ближайший левый узел - смотрим дальше
+                    base_node = base_node.left_node
+                    # если узел, который надо удалить больше сравниваемого
                 elif bad_node.root > base_node.root:
                     # если это его ближайший правый узел - удаляем
                     if bad_node.root == base_node.right_node.root:
                         base_node.right_node = None
                         break
-                    else:
-                        # если не ближайший правый узел - смотрим дальше
-                        base_node = base_node.right_node
+                    # если не ближайший правый узел - смотрим дальше
+                    base_node = base_node.right_node
 
     def find(self, number):
         """
@@ -116,16 +114,18 @@ class BSTree:
         while True:
             if number == base_node.root:
                 return Node(number)
-            elif number < base_node.root:  # если искомое число меньше,
+            if number < base_node.root:  # если искомое число меньше,
                 if base_node.left_node is None:  # а меньшего значения нет, то
                     return False  # в дереве нет такого значения
                 else:  # если есть меньшее значение
-                    base_node = base_node.left_node  # будем сравнивать с числом, которое меньше рассматриваемого
+                    # будем сравнивать с числом, которое меньше рассматриваемого
+                    base_node = base_node.left_node
             elif number > base_node.root:  # если искомое число больше,
                 if base_node.right_node is None:  # а большего значения нет, то
                     return False  # в дереве нет такого значения
                 else:  # если есть большее значение
-                    base_node = base_node.right_node  # будем сравнивать с числом, которое больше рассматриваемого
+                    # будем сравнивать с числом, которое больше рассматриваемого
+                    base_node = base_node.right_node
 
     def depth(self, node):
         """
