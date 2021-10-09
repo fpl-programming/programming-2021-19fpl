@@ -22,11 +22,13 @@ class Node:
         """
         Solves lint problem
         """
+        return 1
 
     def second_public_method(self):
         """
         Solves lint problem
         """
+        return 1
 
 
 class BSTree:
