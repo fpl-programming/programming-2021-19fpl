@@ -83,15 +83,10 @@ class BinarySearchTree:
 
         if number == node.root:
             return node
-        if number < node.root:
-            if node.left is not None:
-                return self.find(number, node.left)
-            return None
-        if number > node.root:
-            if node.right is not None:
-                return self.find(number, node.right)
-            return None
-
+        if number < node.root and node.left is not None:
+            return self.find(number, node.left)
+        if number > node.root and node.right is not None:
+            return self.find(number, node.right)
         return None
 
     def remove(self, number: int, node=None):
