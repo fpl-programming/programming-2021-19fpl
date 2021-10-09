@@ -7,7 +7,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue.queue_stack import QueueStack_
+from queue_.queue_stack import QueueStack_
 
 
 class QueueTestCase(unittest.TestCase):
