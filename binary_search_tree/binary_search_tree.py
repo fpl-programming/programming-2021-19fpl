@@ -1,3 +1,4 @@
+# pylint: disable=too-few-public-methods
 """
 Implementation of the data structure 'Binary Search Tree'
 """
@@ -48,7 +49,7 @@ class BinarySearchTree:
         """
         if not isinstance(number, int) or isinstance(number, bool):
             raise TypeError
-        elif self.root is None:
+        if self.root is None:
             self.root = Node(number)
         elif self.find(number) is not None:
             raise NodeExistsError
@@ -79,17 +80,16 @@ class BinarySearchTree:
             raise NoTreeError
         if node is None:
             return self.find(number, self.root)
-        else:
-            if number == node.root:
-                return node
-            elif number < node.root:
-                if node.left is None:
-                    return None
+        if number == node.root:
+            return node
+        if number < node.root:
+            if node.left is not None:
                 return self.find(number, node.left)
-            else:
-                if node.right is None:
-                    return None
+            return None
+        else:
+            if node.right is not None:
                 return self.find(number, node.right)
+            return None
 
     def remove(self, number: int, node=None):
         """
@@ -127,10 +127,9 @@ class BinarySearchTree:
             return 0
         if node is None:
             return self.get_height(self.root)
-        else:
-            left_height = self.get_height(node.left) if node.left else 0
-            right_height = self.get_height(node.right) if node.right else 0
-            return max(left_height, right_height) + 1
+        left_height = self.get_height(node.left) if node.left else 0
+        right_height = self.get_height(node.right) if node.right else 0
+        return max(left_height, right_height) + 1
 
     def __str__(self):
         return self._print_tree(self.root)

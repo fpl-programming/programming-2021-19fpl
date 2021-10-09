@@ -22,7 +22,7 @@ if __name__ == '__main__':
           f'Its left child is {node_element.left.root}. '
           f'Its right child is {node_element.right.root}.\n')
 
-    print('3. Let us remove an element "6" from the tree and see the structure of the tree after removing.\n')
+    print('3. Let us remove an element "6" from the tree and see the tree after removing.\n')
     print('The Binary Search Tree before:')
     print(tree)
 

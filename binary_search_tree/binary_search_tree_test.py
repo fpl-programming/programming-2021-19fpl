@@ -5,7 +5,8 @@ Tests for BinarySearchTree class.
 """
 
 import unittest
-from binary_search_tree.binary_search_tree import Node, BinarySearchTree, NoTreeError, NoNodeError, NodeExistsError
+from binary_search_tree.binary_search_tree import Node, BinarySearchTree
+from binary_search_tree.binary_search_tree import NoTreeError, NoNodeError, NodeExistsError
 
 
 class BinarySearchTreeTestCase(unittest.TestCase):
@@ -136,7 +137,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_get_height_after_removing(self):
         """
-        Test that a call of the function returns a correct number of levels in the tree after removing some elements.
+        Test that a call of the function returns a correct number of levels.
         """
         tree = BinarySearchTree()
         elements = [10, 8, 12, 6, 7]
