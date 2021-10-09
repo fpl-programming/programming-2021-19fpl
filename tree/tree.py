@@ -64,7 +64,7 @@ class Tree:
         pass
 
     def get_size(self):
-        pass
+        return self.size
 
     def height(self):
         pass
