@@ -13,7 +13,7 @@ Tree in tests:
 
 import unittest
 
-from binary_tree import BinaryTree, Node
+from binary_tree.binary_tree import BinaryTree, Node
 
 
 class BinaryTreeTestCase(unittest.TestCase):

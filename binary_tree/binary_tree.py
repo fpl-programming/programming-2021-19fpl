@@ -101,30 +101,7 @@ class BinaryTree:
 
         # data is in root node
         if self.root.value == data:
-            if self.root.left_child is None and self.root.right_child is None:
-                self.root = None
-            elif self.root.left_child and self.root.right_child is None:
-                self.root = self.root.left_child
-            elif self.root.left_child is None and self.root.right_child:
-                self.root = self.root.right_child
-            elif self.root.left_child and self.root.right_child:
-                del_node_parent = self.root
-                del_node = self.root.right_child
-                while del_node.left_child:
-                    del_node_parent = del_node
-                    del_node = del_node.left_child
-
-                if del_node.right_child:
-                    if del_node_parent.value > del_node.value:
-                        del_node_parent.left_child = del_node.right_child
-                    elif del_node_parent.value < del_node.value:
-                        del_node_parent.right_child = del_node.right_child
-                else:
-                    if del_node.value < del_node_parent.value:
-                        del_node_parent.left_child = None
-                    else:
-                        del_node_parent.right_child = None
-                self.root.value = del_node.value
+            self._remove_root()
             return True
 
         parent = None
@@ -165,13 +142,24 @@ class BinaryTree:
 
         # case 5: remove-node has left and right children
         else:
-            del_node_parent = node
-            del_node = node.right_child
+            self._remove_node_two_children(node)
+        return True
+
+    def _remove_root(self):
+        """Remove root."""
+        if self.root.left_child is None and self.root.right_child is None:
+            self.root = None
+        elif self.root.left_child and self.root.right_child is None:
+            self.root = self.root.left_child
+        elif self.root.left_child is None and self.root.right_child:
+            self.root = self.root.right_child
+        elif self.root.left_child and self.root.right_child:
+            del_node_parent = self.root
+            del_node = self.root.right_child
             while del_node.left_child:
                 del_node_parent = del_node
                 del_node = del_node.left_child
 
-            node.value = del_node.value
             if del_node.right_child:
                 if del_node_parent.value > del_node.value:
                     del_node_parent.left_child = del_node.right_child
@@ -182,7 +170,28 @@ class BinaryTree:
                     del_node_parent.left_child = None
                 else:
                     del_node_parent.right_child = None
-        return True
+            self.root.value = del_node.value
+
+    @staticmethod
+    def _remove_node_two_children(node):
+        """Remove node with two children."""
+        del_node_parent = node
+        del_node = node.right_child
+        while del_node.left_child:
+            del_node_parent = del_node
+            del_node = del_node.left_child
+
+        node.value = del_node.value
+        if del_node.right_child:
+            if del_node_parent.value > del_node.value:
+                del_node_parent.left_child = del_node.right_child
+            elif del_node_parent.value < del_node.value:
+                del_node_parent.right_child = del_node.right_child
+        else:
+            if del_node.value < del_node_parent.value:
+                del_node_parent.left_child = None
+            else:
+                del_node_parent.right_child = None
 
     def depth_in_order_print(self):
         """Go to depth and print values."""
@@ -192,6 +201,7 @@ class BinaryTree:
 
     @staticmethod
     def _validate_data(data):
-        """Validata data."""
+        """Validate data."""
         if not isinstance(data, int):
             raise ValueError('Data is not integer.')
+
