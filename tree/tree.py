@@ -49,8 +49,17 @@ class Tree:
             raise IndexError
 
     def _erase(self,):
-        pass
-    
+        if node.get_value() == value:
+            if node.get_right() is None:
+                return node.get_left()
+            node.get_right().set_left(node.get_left())
+            return node.get_right()
+        if node.get_value() > value:
+            node.set_left(self._erase(node.get_left(), value))
+        else:
+            node.set_right(self._erase(node.get_right(), value))
+        return node
+
     def find(self, value):
         pass
 
