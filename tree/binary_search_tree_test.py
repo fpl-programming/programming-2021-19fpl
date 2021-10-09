@@ -14,15 +14,24 @@ class TreeTestCase(unittest.TestCase):
     """
 
     def test_tree_creation(self):
+        """
+        Test if a new tree is created correctly
+        """
         root = Node(0)
         tree = Tree(root)
         self.assertEqual(tree.root.value, 0)
 
     def test_tree_creation_incorrect_input(self):
+        """
+        Test that creation of a tree with incorrect input raises TypeError
+        """
         for root in [0, True, '']:
             self.assertRaises(TypeError, Tree, root)
 
     def test_add(self):
+        """
+        Test that nodes are added to the tree correctly
+        """
         root = Node(0)
         right_child = Node(2)
         root.insert_right(right_child)
@@ -33,11 +42,17 @@ class TreeTestCase(unittest.TestCase):
         self.assertEqual(tree.root.right.left.value, 1)
 
     def test_add_existing_element(self):
+        """
+        Test that adding an existing value raises ValueError
+        """
         root = Node(0)
         tree = Tree(root)
         self.assertRaises(ValueError, tree.add, 0)
 
     def test_find(self):
+        """
+        Test that existing values are found, non-existing are not found
+        """
         root = Node(0)
         tree = Tree(root)
         tree.add(2)
@@ -48,11 +63,17 @@ class TreeTestCase(unittest.TestCase):
             self.assertFalse(tree.find(non_existing))
 
     def test_find_incorrect_input(self):
+        """
+        Test that searching for incorrect value raises TypeError
+        """
         tree = Tree(Node(0))
         for incorrect in [1.0, (), '']:
             self.assertRaises(TypeError, tree.find(incorrect))
 
     def test_remove(self):
+        """
+        Test that nodes are removed correctly
+        """
         tree = Tree(Node(0))
         for value in [2, 1, 3, 4, -2, -3, -1]:
             tree.add(value)
@@ -63,18 +84,27 @@ class TreeTestCase(unittest.TestCase):
             self.assertTrue(tree.find(left))
 
     def test_remove_root_raises_error(self):
+        """
+        Test that removal of root raises ValueError
+        """
         tree = Tree(Node(0))
         for value in [2, 1, 3, 4, -2, -3, -1]:
             tree.add(value)
         self.assertRaises(ValueError, tree.remove, 0)
 
     def test_get_height(self):
+        """
+        Test that height of a tree is calculated correcrly
+        """
         tree = Tree(Node(0))
         for value in [2, 1, 3, 4, -2, -3, -1]:
             tree.add(value)
         self.assertEqual(3, tree.get_height())
 
     def test_dfs(self):
+        """
+        Test that existing values are found, non-existing are not found
+        """
         tree = Tree(Node(0))
         values = [2, 1, 3, 4, -2, -3, -1]
         for value in values:
@@ -84,15 +114,21 @@ class TreeTestCase(unittest.TestCase):
             self.assertFalse(tree.depth_first_search(value + 100))
 
     def test_dfs_incorrect_value(self):
+        """
+        Test that searching for incorrect value raises TypeError
+        """
         tree = Tree(Node(0))
         for incorrect_value in ['', None, 10.0, []]:
             self.assertRaises(TypeError, tree.depth_first_search, incorrect_value)
 
     def test_binary_tree_total(self):
-
+        """
+        Test that all methods work correctly altogether as a pipeline
+        """
         root = Node(0)
         self.assertEqual(0, root.value)
-        self.assertEquals(None, root.left, root.right)
+        self.assertEqual(None, root.left)
+        self.assertEqual(None, root.right)
 
         tree = Tree(root)
         self.assertEqual(tree.get_height(), 0)

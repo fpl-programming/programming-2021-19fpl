@@ -50,12 +50,12 @@ class Tree:
             node = self.root
         if node.value == value:
             return True
-        elif not (node.right or node.left):
+        if not (node.right or node.left):
             return False
         if value > node.value and node.right:
-            return self.find(value, node.right)
-        elif value < node.value and node.left:
-            return self.find(value, node.left)
+            return bool(self.find(value, node.right))
+        if value < node.value and node.left:
+            return bool(self.find(value, node.left))
 
     def remove(self, value: int, node: Node = None):
         """
