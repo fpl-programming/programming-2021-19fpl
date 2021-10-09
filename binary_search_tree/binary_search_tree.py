@@ -127,9 +127,9 @@ class BinarySearchTree:
             """
             if tree_node is None:
                 return None
-            elif element == tree_node.root:
+            if element == tree_node.root:
                 return tree_node
-            elif element < tree_node.root:
+            if element < tree_node.root:
                 return recursive_find_node(tree_node.left_node)
             else:
                 return recursive_find_node(tree_node.right_node)
@@ -162,7 +162,7 @@ class BinarySearchTree:
         :return: list of numbers of the tree in order from left to right
         """
 
-        numbers_list = list()
+        numbers_list = []
 
         def recursive_traversal(tree_node):
             """

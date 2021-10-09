@@ -1,14 +1,18 @@
+# pylint: disable=W0212
 """
 Programming for linguists
 Tests for Queue class.
 """
 
-
 import unittest
-from binary_search_tree import BinarySearchTree, Node, NodeExistsError, NodeNotFoundError
+from binary_search_tree.binary_search_tree import BinarySearchTree, Node, NodeExistsError, NodeNotFoundError
 
 
 class MyTestCase(unittest.TestCase):
+    """
+    Tests for BinarySearchTree class
+    """
+
     def test_create_node_ideal(self):
         """
         Create a node with 5 as a parameter.
@@ -26,7 +30,7 @@ class MyTestCase(unittest.TestCase):
         for element in elements:
             self.assertRaises(TypeError, Node.__init__, element)
 
-    def test_new_BST_is_empty(self):
+    def test_new_bst_is_empty(self):
         """
         Create a binary search tree.
         Test that its root is None and its name is "Binary tree".
@@ -35,7 +39,7 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(tree.name, 'Binary search tree')
         self.assertEqual(tree._root, None)
 
-    def test_new_BST_with_wrong_name_raised_error(self):
+    def test_new_bst_with_wrong_name_raised_error(self):
         """
         Test that call of instantiation of class BinarySearchTree with
         the not string name raises the type error
@@ -112,9 +116,6 @@ class MyTestCase(unittest.TestCase):
         tree.add(11)
         tree.remove(10)
         self.assertEqual(tree._root, None)
-        # self.assertEqual(tree._root.root, None)
-        # self.assertEqual(tree._root.left_node, None)
-        # self.assertEqual(tree._root.right_node, None)
 
     def test_find_element_ideal(self):
         """
@@ -153,7 +154,8 @@ class MyTestCase(unittest.TestCase):
         returns the node with that element
         """
         tree = BinarySearchTree('Binary search tree')
-        for element in range(900):  # not more 977 because maximum recursion depth exceeded
+        for element in range(900):  # not more 977 because maximum recursion
+            # depth exceeded
             tree.add(element)
         found_element = tree.find(899)
         self.assertEqual(found_element.root, 899)
@@ -242,7 +244,8 @@ class MyTestCase(unittest.TestCase):
         is equal to the list of elements were added
         """
         tree = BinarySearchTree('Binary search tree')
-        elements = [element for element in range(900)]  # not more 977 because maximum recursion depth exceeded
+        elements = list(range(900))  # not more 977 because maximum
+        # recursion depth exceeded
         for element in elements:
             tree.add(element)
         self.assertEqual(tree.get_tree_traversal(), elements)
