@@ -2,9 +2,9 @@
 Tests for the Node class.
 """
 
-from tree.node import Node
-
 import unittest
+
+from tree.node import Node
 
 
 class NodeTestCase(unittest.TestCase):
