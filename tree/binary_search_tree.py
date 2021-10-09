@@ -3,7 +3,7 @@
 Implementation of the data structure "Binary Search Tree"
 """
 
-from node import Node
+from tree.node import Node
 
 
 class Tree:
