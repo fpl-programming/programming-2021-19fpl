@@ -8,17 +8,17 @@ from binary_tree import BinaryTree
 
 
 if __name__ == '__main__':
-    print('''Let's create this tree
+    print(r'''Let's create this tree
             5
-          /   \\
+          /   \
          2     7
-       /  \   / \\
+       /  \   / \
       0   4  6  10''')
 
     tree = BinaryTree()
     for elem in (5, 2, 7, 0, 4, 6, 10):
         print(f'Insert {elem}', tree.insert(elem))
-    print(f'Insert 5 again', tree.insert(5))
+    print('Insert 5 again', tree.insert(5))
 
     print('Tree:', end=' ')
     tree.depth_in_order_print()

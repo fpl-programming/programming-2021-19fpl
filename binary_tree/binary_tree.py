@@ -4,13 +4,17 @@ Programming for linguists
 Implementation of the data structures "Node" and "Binary Tree"
 """
 
+
 class Node:
+    """Node class."""
+
     def __init__(self, val):
         self.value = val
         self.left_child = None
         self.right_child = None
 
     def insert(self, data):
+        """Insert data as node's child"""
         if self.value == data:
             return False
 
@@ -26,6 +30,7 @@ class Node:
         return True
 
     def find(self, data):
+        """Find data in the node."""
         if self.value == data:
             return True
 
@@ -38,6 +43,7 @@ class Node:
         return False
 
     def get_height(self):
+        """Get height of the node."""
         if self.left_child and self.right_child:
             return 1 + max(self.left_child.get_height(), self.right_child.get_height())
         if self.left_child:
@@ -47,6 +53,7 @@ class Node:
         return 1
 
     def depth_in_order_print(self):
+        """Go to depth and print values."""
         if self:
             if self.left_child:
                 self.left_child.depth_in_order_print()
@@ -56,10 +63,13 @@ class Node:
 
 
 class BinaryTree:
+    """Binary tree class."""
+
     def __init__(self):
         self.root = None
 
     def insert(self, data):
+        """Insert data to the tree."""
         self._validate_data(data)
 
         if self.root:
@@ -68,6 +78,7 @@ class BinaryTree:
         return True
 
     def find(self, data):
+        """Find data in the tree."""
         self._validate_data(data)
 
         if self.root:
@@ -75,11 +86,13 @@ class BinaryTree:
         return False
 
     def get_height(self):
+        """Get haight of the tree."""
         if self.root:
             return self.root.get_height()
         return 0
 
     def remove(self, data):
+        """Remove data from the tree."""
         self._validate_data(data)
 
         # empty tree
@@ -112,7 +125,6 @@ class BinaryTree:
                     else:
                         del_node_parent.right_child = None
                 self.root.value = del_node.value
-
             return True
 
         parent = None
@@ -136,51 +148,50 @@ class BinaryTree:
                 parent.left_child = None
             else:
                 parent.right_child = None
-            return True
 
         # case 3: remove-node has left child only
-        if node.left_child and node.right_child is None:
+        elif node.left_child and node.right_child is None:
             if data < parent.value:
                 parent.left_child = node.left_child
             else:
                 parent.right_child = node.left_child
-            return True
 
         # case 4: remove-node has right child only
-        if node.left_child is None and node.right_child:
+        elif node.left_child is None and node.right_child:
             if data < parent.value:
                 parent.left_child = node.right_child
             else:
                 parent.right_child = node.right_child
-            return True
 
         # case 5: remove-node has left and right children
-        del_node_parent = node
-        del_node = node.right_child
-        while del_node.left_child:
-            del_node_parent = del_node
-            del_node = del_node.left_child
-
-        node.value = del_node.value
-        if del_node.right_child:
-            if del_node_parent.value > del_node.value:
-                del_node_parent.left_child = del_node.right_child
-            elif del_node_parent.value < del_node.value:
-                del_node_parent.right_child = del_node.right_child
         else:
-            if del_node.value < del_node_parent.value:
-                del_node_parent.left_child = None
+            del_node_parent = node
+            del_node = node.right_child
+            while del_node.left_child:
+                del_node_parent = del_node
+                del_node = del_node.left_child
+
+            node.value = del_node.value
+            if del_node.right_child:
+                if del_node_parent.value > del_node.value:
+                    del_node_parent.left_child = del_node.right_child
+                elif del_node_parent.value < del_node.value:
+                    del_node_parent.right_child = del_node.right_child
             else:
-                del_node_parent.right_child = None
+                if del_node.value < del_node_parent.value:
+                    del_node_parent.left_child = None
+                else:
+                    del_node_parent.right_child = None
         return True
 
     def depth_in_order_print(self):
+        """Go to depth and print values."""
         if self.root is not None:
             self.root.depth_in_order_print()
         print('', end='\n')
 
-
     @staticmethod
     def _validate_data(data):
+        """Validata data."""
         if not isinstance(data, int):
             raise ValueError('Data is not integer.')

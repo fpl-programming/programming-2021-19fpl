@@ -1,3 +1,4 @@
+# pylint: disable=W1401
 """
 Programming for linguists
 
@@ -196,7 +197,8 @@ class BinaryTreeTestCase(unittest.TestCase):
     def test_remove_two_children(self):
         """
         Creates a binary tree.
-        Tests that tree can remove node with two children and new node equals the min value from right node's child.
+        Tests that tree can remove node with two children
+        and new node equals the min value from right node's child.
                 5
               /   \
              2     7
