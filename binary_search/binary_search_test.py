@@ -6,7 +6,7 @@ Tests for BinarySearchTree class.
 
 import unittest
 
-from binary_search import BinarySearchTree
+from binary_search.binary_search import BinarySearchTree
 
 
 class BinarySearchTreeTestCase(unittest.TestCase):
