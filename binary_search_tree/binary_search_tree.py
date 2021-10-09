@@ -89,7 +89,7 @@ class BinarySearchTree:
             return self.find(number, node.right)
         return None
 
-    def remove(self, number: int, node=None):
+    def remove(self, number: int):
         """
         Removes number and all its children from the tree
         :param number: element to remove from the tree
