@@ -94,7 +94,30 @@ class BinarySearchTree:
         """
         return self._root.root
 
-    # def __str__(self):
+    def go_width_traversal(self):
+        if not self._root.root:
+            raise ValueError('Impossible to go around tree, no elements in the tree')
+        all_nodes = [self._root]
+        current_level = [self._root]
+        nodes_of_level = [self._root]
+        while nodes_of_level:
+            nodes_of_level = [node.left_node for node in current_level if node.left_node] + \
+                             [node.right_node for node in current_level if node.right_node]
+            all_nodes.extend(nodes_of_level)
+            current_level = nodes_of_level
+        return all_nodes
+
+    def __str__(self):
+        all_nodes = ['\n', str(self._root.root), '\n']
+        current_level = [self._root]
+        nodes_of_level = [self._root]
+        while nodes_of_level:
+            nodes_of_level = [node.left_node for node in current_level if node.left_node] + \
+                             [node.right_node for node in current_level if node.right_node]
+            list_to_add = [str(node.root) for node in nodes_of_level] + ['\n']
+            all_nodes.extend(list_to_add)
+            current_level = nodes_of_level
+        return ' '.join(all_nodes)
 
 
 # pylint: disable=too-few-public-methods

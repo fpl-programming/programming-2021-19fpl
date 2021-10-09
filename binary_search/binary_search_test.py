@@ -147,6 +147,37 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.add(9)
         self.assertEqual(tree.get_root(), 9)
 
+    def test_go_width_traversal(self):
+        """
+        Create a BinarySearchTree with root, add elements.
+        Test that the function can go around tree correctly.
+        """
+        tree = BinarySearchTree(root=8)
+        list_elements = [6, 9, 5, 7, 10, 12]
+        for elem in list_elements:
+            tree.add(elem)
+        result = [element.root for element in tree.go_width_traversal()]
+        self.assertEqual(len(result), len(list_elements)+1)
+
+    def test_go_width_traversal_no_elements(self):
+        """
+        Create an empty BinarySearchTree.
+        Test that the function rises error.
+        """
+        tree = BinarySearchTree()
+        self.assertRaises(ValueError, tree.go_width_traversal)
+
+    def test_print_tree(self):
+        """
+        Create a BinarySearchTree with root, add elements.
+        Test that str method divides tree into levels.
+        """
+        tree = BinarySearchTree(root=8)
+        for elem in [6, 9, 5, 7, 10, 12, 3]:
+            tree.add(elem)
+        result = [elem for elem in str(tree).split('\n') if elem.strip()]
+        self.assertEqual(4, len(result))
+
     def test_end_to_end(self):
         """
         Create a BinarySearchTree with root and all the sequence.
