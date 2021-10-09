@@ -77,7 +77,12 @@ class Tree:
         return self.size
 
     def height(self):
-        pass
+        return self._height(self.root)
+
+    def _height(self, root):
+        if root is None:
+            return 0
+        return 1 + max(self._height(root.get_left()), self._height(root.get_right()))
 
     def width(self):
         pass
