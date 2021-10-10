@@ -40,3 +40,34 @@ class NodeTestCase(unittest.TestCase):
             tree = BinaryTree()
             tree.add(4, 10)
             self.assertEqual(tree.find(4, 10), True)
+
+        def test_remove_root(self):
+            """
+            Remove the root element
+            """
+            tree = BinaryTree()
+            tree.add(None, 3)
+            tree.remove(None, 3)
+            self.assertEqual(tree.root, None)
+
+        def test_find_element(self):
+            """
+            Find the element
+            """
+
+            tree = BinaryTree()
+            tree.add(None,3)
+            tree.add(None,2)
+            tree.add(None,8)
+            self.assertEqual(tree.find(None,6), True)
+
+        def test_get_height(self):
+            """
+            Get the height of the  binary tree
+            """
+            tree = BinaryTree()
+            tree.add(None,7)
+            tree.add(None,10)
+            tree.add(None,6)
+            self.assertEqual(tree.get_height(), 2)
+
