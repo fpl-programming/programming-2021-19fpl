@@ -29,7 +29,7 @@ class NonexistentNodeError(Exception):
     def __str__(self):
         return 'There is no such node in the tree'
 
-
+# pylint: disable=too-few-public-methods
 class Node:
     """
     Node Data Structure
@@ -91,8 +91,7 @@ class BinarySearchTree:
         """
         if not self.root:
             raise EmptyTreeError
-        else:
-            return self._find(value_to_find, self.root)
+        return self._find(value_to_find, self.root)
 
 
     def _find(self, value_to_find, cur_node):
@@ -102,10 +101,10 @@ class BinarySearchTree:
         if value_to_find > cur_node.root and cur_node.right:
             return self._find(value_to_find, cur_node.right)
 
-        elif value_to_find < cur_node.root and cur_node.left:
+        if value_to_find < cur_node.root and cur_node.left:
             return self._find(value_to_find, cur_node.left)
 
-        elif value_to_find == cur_node.root:
+        if value_to_find == cur_node.root:
             return cur_node
 
         else:
@@ -117,8 +116,7 @@ class BinarySearchTree:
         """
         if not self.find(value_to_delete):
             raise NonexistentNodeError
-        else:
-            self._remove_node(self.find(value_to_delete))
+        self._remove_node(self.find(value_to_delete))
 
     def _remove_node(self, value_to_delete):
         """
@@ -178,8 +176,7 @@ class BinarySearchTree:
         """
         if self.root is None:
             return 0
-        else:
-            return self._get_height(self.root, cur_height=0)
+        return self._get_height(self.root, cur_height=0)
 
     def _get_height(self, cur_node, cur_height):
         """
@@ -214,17 +211,17 @@ class BinarySearchTree:
         if cur_level == 1:
             return cur_node.root
 
-        elif cur_level > 1:
+        if cur_level > 1:
             left = self._width_traverse(cur_node.left, cur_level - 1)
             right = self._width_traverse(cur_node.right, cur_level - 1)
 
             if left is None:
                 return right
 
-            elif right is None:
+            if right is None:
                 return left
 
-            elif left is None and right is None:
+            if left is None and right is None:
                 return
 
             return left, right
