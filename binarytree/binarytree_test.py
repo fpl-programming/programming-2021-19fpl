@@ -69,5 +69,4 @@ class NodeTestCase(unittest.TestCase):
             tree.add(None,7)
             tree.add(None,10)
             tree.add(None,6)
-            self.assertEqual(tree.get_height(), 2)
-
+            self.assertEqual(tree.get_height(None), 2)
