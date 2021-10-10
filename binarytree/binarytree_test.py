@@ -27,7 +27,7 @@ class NodeTestCase(unittest.TestCase):
         """
         elements = ['fjf', 0.45, {'a': 'node'}, []]
         for el in elements:
-            self.assertRaises(ValueError, Node.__init__, el)
+            self.assertRaises(ValueError, Node, el)
 
     class BinaryTreeTestCase(unittest.TestCase):
         """
