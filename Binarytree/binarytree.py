@@ -20,19 +20,18 @@ class Node:
     """
     Node Data Structure
     """
-    def __init__(self, el: int):
-        if not isinstance(el, int):
-            raise ValueError
-        self.element = el
-        self.right = None
-        self.left = None
 
-    def first_public_method(self):
+    def __init__(self, data):
+        self.data = data
+        self.left_element = None
+        self.right_element = None
+
+    def method_1(self):
         """
         To solve the lint problem
         """
 
-    def second_public_method(self):
+    def method_2(self):
         """
         To solve the lint problem
         """
@@ -45,66 +44,61 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
-    def add(self, el, node=None):
+    def add(self, element, node=None):
         """
         Add element to the tree
         """
         if self.root is None:
-            self.root = Node(el)
+            self.root = Node(element)
         else:
-            if self.find(el):
+            if self.find(element):
                 raise ValueError
             if node is None:
                 node = self.root
-            if el < node.element:
-                if node.left is None:
-                    node.left = Node(el)
-                else:
-                    self.add(el, node.left)
+            if element > node.element:
+                if node.right_element is None:
+                    node.right_element = Node(element)
+                self.add(node.right_element, element)
             else:
-                if node.right is None:
-                    node.right = Node(el)
-                else:
-                    self.add(el, node.right)
+                if node.left.element is None:
+                    node.left_element = Node(element)
+                self.add(node.left_element, element)
 
-    def remove(self, el, node=None):
+    def remove(self, element, node=None):
         """
         Remove element from the tree
         """
-        if self.root is None:
-            raise EmptyError
-        if self.find(el) is True:
+        if self.find(element) is True:
             if node is None:
                 node = self.root
-            if el < node.el and node.left:
-                if node.left.el == el:
-                    node.left = None
+            if element < node.element and node.left_element:
+                if node.left.element == element:
+                    node.left_element = None
                 else:
-                    self.remove(el, node.left)
-            if el > node.el and node.right:
-                if node.right.el == el:
-                    node.right = None
+                    self.remove(element, node.leftelement)
+            if element > node.element and node.right_element:
+                if node.right_element == element:
+                    node.right_element = None
                 else:
-                    self.remove(el, node.right)
+                    self.remove(element, node.right_element)
         else:
             raise NoNodeError
 
-    def find(self, el, node=None):
+    def find(self, element, node=None):
         """
         Find if this element is in the tree
         """
         if self.root is None:
             raise EmptyError
+
         if node is None:
             node = self.root
-        if node.element == el:
+        if node.element == element or node.left_element or node.right_element:
             return True
-        if not (node.left or node.right):
-            return False
-        if el < node.element and node.left:
-            return self.find(el, node.left)
-        if el > node.element and node.right:
-            return self.find(el, node.right)
+        if element < node.element and node.left_element:
+            return self.find(element, node.left_element)
+        if element > node.element and node.right_element:
+            return self.find(element, node.right_element)
         return False
 
     def get_height(self, node=None):
@@ -115,11 +109,11 @@ class BinarySearchTree:
             raise EmptyError
         if node is None:
             node = self.root
-        if node.left:
+        if node.left_element:
             left_height = self.get_height(node.left)
         else:
             left_height = 0
-        if node.right:
+        if node.right_element:
             right_height = self.get_height(node.right)
         else:
             right_height = 0
