@@ -3,7 +3,7 @@ Binary tree testing module
 """
 
 import unittest
-from binary_tree.main import Node, Tree
+from binary_tree.main import Tree
 
 
 class TreeUnitTestCase(unittest.TestCase):
