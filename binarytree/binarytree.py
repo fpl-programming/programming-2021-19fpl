@@ -12,7 +12,7 @@ class Node:
         self.right_element = None
 
 
-class BinaryTree(Node):
+class BinaryTree():
     def __init__(self, tree, root):
         self.root = None
 
@@ -65,4 +65,3 @@ class BinaryTree(Node):
 
     def get_height(self):
         pass
-
