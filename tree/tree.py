@@ -17,6 +17,16 @@ class Node:
         self.left_node = left_node
         self.right_node = right_node
 
+    def first_public_method(self):
+        """
+        Solve a lint problem
+        """
+
+    def second_public_method(self):
+        """
+        Solve a lint problem
+        """
+
 
 class BinarySearchTree:
     """
