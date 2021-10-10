@@ -59,8 +59,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_add_existing_element_raised_error(self):
         """
-         Create an empty Binary Search Tree.
-         Test that add method raises DuplicateError when adding an existing value.
+        Create an empty Binary Search Tree.
+        Test that add method raises DuplicateError when adding an existing value.
         """
         tree = BinarySearchTree()
         tree.add(100)
@@ -85,7 +85,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_find_non_existing_element(self):
         """
-        Create an empty Binary Search Tree.
+        Create a Binary Search Tree with 7 elements.
         Test that find method returns False when trying to find non-existing element in tree.
         """
         tree = BinarySearchTree()
@@ -95,7 +95,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_find_elements(self):
         """
-        Create an empty Binary Search Tree.
+        Create a Binary Search Tree with 7 elements.
         Test that find method returns correct values.
         """
         tree = BinarySearchTree()
@@ -118,8 +118,9 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_remove_non_existing_node_raised_error(self):
         """
-        Create an empty Binary Search Tree.
-        Tst that remove_node method raises NonExistingNodeError when trying to delete non-existing node.
+        Create a Binary Search Tree with 8 elements.
+        Test that remove_node method raises NonExistingNodeError
+        when trying to delete non-existing node.
         """
         tree = BinarySearchTree()
         for value in [10, 23, 4, 35, 54, 67, 1, 98]:
@@ -137,7 +138,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_get_height_of_same_length_nodes(self):
         """
         Create a Binary Search Tree with 5 elements.
-        Test that get_height method works correctly when last nodes are at the same level.
+        Test that get_height method works correctly
+        when last nodes are at the same level.
         """
         tree = BinarySearchTree()
         for value in [10, 4, 5, 23, 40]:
@@ -147,7 +149,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_get_height_of_different_length_nodes(self):
         """
         Create a Binary Search Tree with 6 elements.
-        Test that get_height method returns the longest branch when last nodes are at the different levels.
+        Test that get_height method returns the longest branch
+        when last nodes are at the different levels.
         """
         tree = BinarySearchTree()
         for value in [8, 4, 10, 2, 6, 3]:
@@ -157,7 +160,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_call_width_traverse(self):
         """
         Create a Binary Search Tree with 7 elements.
-        Test that width_traverse method returns correct values
+        Test that width_traverse method returns correct values.
         """
         tree = BinarySearchTree()
         for value in [8, 4, 10, 2, 6, 3, 7]:
@@ -179,7 +182,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_remove_node_with_no_children(self):
         """
         Create a Binary Search Tree with 7 elements.
-        Test that remove_node method deletes node with no children
+        Test that remove_node method deletes node with no children.
         """
         tree = BinarySearchTree()
         for value in [8, 4, 10, 2, 6, 3, 7]:
@@ -190,7 +193,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_remove_node_with_one_child(self):
         """
         Create a Binary Search Tree with 7 elements.
-        Test that remove_node method deletes node and replaces it with its child
+        Test that remove_node method deletes node and replaces it with its child.
         """
         tree = BinarySearchTree()
         for value in [8, 4, 10, 2, 6, 3, 7]:
@@ -202,7 +205,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     def test_remove_node_with_two_children(self):
         """
         Create a Binary Search Tree with 7 elements.
-        Test that remove_node method deletes node with two children and replaces it with its biggest child
+        Test that remove_node method deletes node with two children
+        and replaces it with its biggest child.
         """
         tree = BinarySearchTree()
         for value in [8, 4, 10, 2, 6, 3, 7]:

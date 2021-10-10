@@ -126,21 +126,18 @@ class BinarySearchTree:
         """
         parent_node = value_to_delete.parent
 
-        if value_to_delete.left and value_to_delete.right:
-            num_of_children = 2
-        elif value_to_delete.left is None and value_to_delete.right is None:
-            num_of_children = 0
-        else:
-            num_of_children = 1
-
         def get_min_child(node):
             cur_value = node
             while cur_value.left is not None:
                 cur_value = cur_value.left
             return cur_value
 
-        # No children
-        if num_of_children == 0:
+        if value_to_delete.left and value_to_delete.right: # 2 children
+                heir = get_min_child(value_to_delete.right)
+                value_to_delete.root = heir.root
+                self._remove_node(heir)
+
+        elif value_to_delete.left is None and value_to_delete.right is None: # no children
             if parent_node is not None:
                 if parent_node.left == value_to_delete:
                     parent_node.left = None
@@ -149,8 +146,7 @@ class BinarySearchTree:
             else:
                 self.root = None
 
-        # 1 child
-        elif num_of_children == 1:
+        else: # 1 child
             if value_to_delete.left is not None:
                 child = value_to_delete.left
             else:
@@ -165,12 +161,6 @@ class BinarySearchTree:
                 self.root = child
 
             child.parent = parent_node
-
-        # 2 children
-        else:
-            heir = get_min_child(value_to_delete.right)
-            value_to_delete.root = heir.root
-            self._remove_node(heir)
 
     def get_height(self):
         """
@@ -210,7 +200,7 @@ class BinarySearchTree:
         Recursively get nodes of the tree by level
         """
         if cur_node is None:
-            return
+            return None
 
         if cur_level == 1:
             return cur_node.root
