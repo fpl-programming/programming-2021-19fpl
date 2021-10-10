@@ -16,16 +16,14 @@ class NodeTestCase(unittest.TestCase):
 
     def test_create_node(self):
         """
-        Create a node with data 5 and tests
-        if it is correct
+        Test that node is created correctly.
         """
         node = Node(8)
         self.assertEqual(node.data, 8)
 
     def test_create_node_with_not_int_element(self):
         """
-        Test if there would be a error
-        when the element's type  is not int
+         Test that incorrect element in creating new node raises ValueError.
         """
         elements = [15, [], 0.45, "fdgd", {'num': 'node'}]
         for element in elements:
