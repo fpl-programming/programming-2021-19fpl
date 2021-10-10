@@ -1,8 +1,15 @@
+"""
+Binary tree testing module
+"""
+
 from tree.tree import Tree
 import unittest
 
 
 class TreeUnitTestCase(unittest.TestCase):
+    """
+    Binary tree test case
+    """
     def test_insert_increase_sequence(self):
         """
         inserting positive test
@@ -18,7 +25,7 @@ class TreeUnitTestCase(unittest.TestCase):
         inserting end-to-end test
         """
         tree = Tree()
-        data = [x for x in range(100)]
+        data = [x for x in list(range(100))]
         data.reverse()
         for i in data:
             tree.insert(i)
@@ -60,7 +67,7 @@ class TreeUnitTestCase(unittest.TestCase):
         find ent-to-end test
         """
         tree = Tree()
-        data = [x for x in range(100)]
+        data = [x for x in list(range(100))]
         for i in data:
             tree.insert(i)
         data.reverse()
