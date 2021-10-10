@@ -6,6 +6,7 @@ Tests for BinarySearchTree class.
 
 import unittest
 
+import binary_tree
 from binary_tree.start import TreeNode
 from binary_tree.start import BinarySearchTree
 
@@ -15,12 +16,12 @@ class TestBinarySearchTree(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of BinarySearchTree
     """
     @classmethod
-    def set_up_1(self):
+    def set_up_1(cls):
         """
         Create a tree
         """
-        binary_tree = BinarySearchTree()
-        return binary_tree
+        cls.binary_tree = BinarySearchTree()
+        return cls.binary_tree
 
     def set_up_2(self):
         """

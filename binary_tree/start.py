@@ -137,6 +137,8 @@ class BinarySearchTree:
     The Binary Search Tree
     """
 
+    current_node = None
+
     def __init__(self):
         self.root = None
         self.size = 0
@@ -233,7 +235,7 @@ class BinarySearchTree:
             raise KeyError('Error, value not in tree')
 
     @classmethod
-    def elem_remove(self, current_node):
+    def elem_remove(cls, current_node):
         """
         Consider 3 cases:
                         an element we want to remove doesn't have parents
@@ -241,36 +243,36 @@ class BinarySearchTree:
                         can take place of this element
                         an element we want to remove has a parent but cannot take its place
         """
-        if current_node.is_leaf():
-            if current_node == current_node.parent.left:
-                current_node.parent.left = None
+        if cls.current_node.is_leaf():
+            if cls.current_node == cls.current_node.parent.left:
+                cls.current_node.parent.left = None
             else:
-                current_node.parent.right = None
-        elif current_node.has_both_children():
-            succ = current_node.find_successor()
+                cls.current_node.parent.right = None
+        elif cls.current_node.has_both_children():
+            succ = cls.current_node.find_successor()
             succ.splice()
-            current_node.val = succ.val
+            cls.current_node.val = succ.val
         else:
-            if current_node.has_left():
-                if current_node.is_left():
-                    current_node.left.parent = current_node.parent
-                    current_node.parent.left = current_node.left
-                elif current_node.is_right():
-                    current_node.left.parent = current_node.parent
-                    current_node.parent.right = current_node.left
+            if cls.current_node.has_left():
+                if cls.current_node.is_left():
+                    cls.current_node.left.parent = cls.current_node.parent
+                    cls.current_node.parent.left = cls.current_node.left
+                elif cls.current_node.is_right():
+                    cls.current_node.left.parent = cls.current_node.parent
+                    cls.current_node.parent.right = cls.current_node.left
                 else:
-                    current_node.replaceNode(current_node.left.val,
-                                             current_node.left.left, current_node.left.right)
+                    cls.current_node.replaceNode(cls.current_node.left.val,
+                                                 cls.current_node.left.left, cls.current_node.left.right)
             else:
-                if current_node.is_left():
-                    current_node.right.parent = current_node.parent
-                    current_node.parent.left = current_node.right
-                elif current_node.is_right():
-                    current_node.right.parent = current_node.parent
-                    current_node.parent.right = current_node.right
+                if cls.current_node.is_left():
+                    cls.current_node.right.parent = cls.current_node.parent
+                    cls.current_node.parent.left = cls.current_node.right
+                elif cls.current_node.is_right():
+                    cls.current_node.right.parent = cls.current_node.parent
+                    cls.current_node.parent.right = cls.current_node.right
                 else:
-                    current_node.replaceNode(current_node.right.val,
-                                             current_node.right.left, current_node.right.right)
+                    cls.current_node.replaceNode(cls.current_node.right.val,
+                                                 cls.current_node.right.left, cls.current_node.right.right)
 
     def contains(self, key):
         """
