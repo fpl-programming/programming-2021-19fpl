@@ -25,7 +25,7 @@ class Node:
         """
 
 
-class BinaryTree(Node):
+class BinaryTree():
     """
        Node structure
     """
