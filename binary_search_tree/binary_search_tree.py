@@ -21,7 +21,7 @@ class DuplicateError(Exception):
     def __str__(self):
         return 'Value is already in the tree'
 
-class NonexistentNodeError(Exception):
+class NonExistentNodeError(Exception):
     """
     Custom Error
     Error is raised when there is no such node in the tree
@@ -57,6 +57,9 @@ class BinarySearchTree:
         """
         Add the element 'value_to_add' as a node to the tree
         """
+        if not isinstance(value_to_add, int):
+            raise TypeError
+
         if self.root is None:
             self.root = Node(value_to_add)
         else:
@@ -107,15 +110,14 @@ class BinarySearchTree:
         if value_to_find == cur_node.root:
             return cur_node
 
-        else:
-            return False
+        return False
 
     def remove_node(self, value_to_delete):
         """
         Delete the element 'value_to_delete' from the tree
         """
         if not self.find(value_to_delete):
-            raise NonexistentNodeError
+            raise NonExistentNodeError
         self._remove_node(self.find(value_to_delete))
 
     def _remove_node(self, value_to_delete):
@@ -193,13 +195,15 @@ class BinarySearchTree:
         """
         Print nodes of the tree by levels
         """
+        if not self.root:
+            raise EmptyTreeError
+
         height = self.get_height()
         level_values = {}
         for level in range(1, height + 1):
             level_values[level] = self._width_traverse(self.root, level)
 
-        for key, values in level_values.items():
-            print(f'Level({key}) values: {values}')
+        return level_values
 
     def _width_traverse(self, cur_node, cur_level):
         """
