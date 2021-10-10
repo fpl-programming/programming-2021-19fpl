@@ -13,13 +13,6 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of Queue
     """
 
-    def test_tree_creation(self):
-        """
-        Test if a new tree is created correctly
-        """
-        tree = BinarySearchTree(0)
-        self.assertEqual(tree._root, 0)
-
     def test_add_root(self):
         """
         Create an empty BinarySearchTree and add an element.

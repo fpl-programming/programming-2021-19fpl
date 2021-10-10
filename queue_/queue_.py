@@ -77,7 +77,6 @@ class Queue_:
         :return: True if queue_ is full.
                  False if the queue_ is not full
         """
-
         if not self._max_size:
             return "the queue is endless"
         return self.size() == self._max_size
