@@ -36,7 +36,7 @@ class BinarySearchTree:
         """
         if element == node.root:
             print(f'{element} is already in the tree')
-            return
+            return node
         if element < node.root:
             if node.left_node is None:
                 node.left_node = Node(element)
@@ -86,13 +86,12 @@ class BinarySearchTree:
 
         if self.is_empty():
             print('The tree is empty')
-            return
-
-        node = self._find_element_in_root_recursive(element, self.root)
-        if node is None:
-            print('Not found')
         else:
-            return node
+            node = self._find_element_in_root_recursive(element, self.root)
+            if node is None:
+                print('Not found')
+            else:
+                return node
 
     def _find_element_in_left_right_nodes_recursive(self, element, node):
         """
