@@ -232,6 +232,7 @@ class BinarySearchTree:
         else:
             raise KeyError('Error, value not in tree')
 
+    @classmethod
     def elem_remove(self, current_node):
         """
         Consider 3 cases:
@@ -258,7 +259,7 @@ class BinarySearchTree:
                     current_node.left.parent = current_node.parent
                     current_node.parent.right = current_node.left
                 else:
-                    current_node.replaceNode(current_node.left.payload,
+                    current_node.replaceNode(current_node.left.val,
                                              current_node.left.left, current_node.left.right)
             else:
                 if current_node.is_left():
@@ -268,7 +269,7 @@ class BinarySearchTree:
                     current_node.right.parent = current_node.parent
                     current_node.parent.right = current_node.right
                 else:
-                    current_node.replaceNode(current_node.right.payload,
+                    current_node.replaceNode(current_node.right.val,
                                              current_node.right.left, current_node.right.right)
 
     def contains(self, key):

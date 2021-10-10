@@ -15,18 +15,12 @@ class TestBinarySearchTree(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of BinarySearchTree
     """
 
-    def set_up_1(self):
-        """
-        Create a tree
-        """
-        binary_tree = BinarySearchTree()
-        return binary_tree
 
     def set_up_2(self):
         """
         Put elements in the tree
         """
-        binary_tree = self.set_up_1()
+        binary_tree = BinarySearchTree()
         binary_tree.put(20)
         binary_tree.put(10)
         binary_tree.put(8)
@@ -129,7 +123,7 @@ class TestBinarySearchTree(unittest.TestCase):
         self.assertEqual(binary_tree.get(100), 100)
         self.assertEqual(binary_tree.get(20), 20)
 
-    def test_5(self):
+    def test_check_height(self):
         """
         Check height
         """
