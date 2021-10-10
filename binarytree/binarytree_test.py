@@ -37,6 +37,6 @@ class NodeTestCase(unittest.TestCase):
             """
             Tests if the new element is added to the tree
             """
-            tree = BinaryTree
+            tree = BinaryTree()
             tree.add(4, 10)
             self.assertEqual(tree.find(4, 10), True)
