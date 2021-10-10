@@ -13,7 +13,7 @@ class TreeUnitTestCase(unittest.TestCase):
 
     def test_insert_increase_sequence(self):
         """
-        inserting increasing values test
+        inserting increasing values 
         """
         tree = Tree()
         for i in range(100):

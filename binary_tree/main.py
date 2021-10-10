@@ -5,7 +5,7 @@ Binary tree implementation
 
 class Node:
     """
-    Tree's node structure
+    node structure
     """
     def __init__(self, value):
         self.value = value
@@ -67,7 +67,7 @@ class Tree:
 
     def _insert(self, root, value):
         """
-        recursive method which chooses where to place next node
+        method which chooses where to place next node
         """
         if not isinstance(value, int):
             raise ValueError
