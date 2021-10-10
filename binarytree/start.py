@@ -20,6 +20,6 @@ if __name__ == '__main__':
     tree.remove(None,6)
     print(tree)
 
-    RESULT = tree.get_height()
+    RESULT = tree.get_height(None)
 
     assert RESULT == 4, 'BST does not work'
