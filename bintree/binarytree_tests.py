@@ -14,14 +14,22 @@ class NodeTestCase(unittest.TestCase):
         This Case of tests checks the functionality of the implementations of Node.
         """
 
-    def test_create_new_node(self):
+    def test_create_node(self):
         """
-        Test that node is created correctly.
+        Create a node with data 5 and tests
+        if it is correct
         """
-        nodes = [20, 11, 33, 1, 31, 10, 30]
-        for element in nodes:
-            node = Node(element)
-            self.assertEqual(node.element, element)
+        node = Node(8)
+        self.assertEqual(node.data, 8)
+
+    def test_create_node_with_not_int_element(self):
+        """
+        Test if there would be a error
+        when the element's type  is not int
+        """
+        elements = [15, [], 0.45, "fdgd", {'num': 'node'}]
+        for element in elements:
+            self.assertRaises(ValueError, Node, element)
 
     class BinarySearchTreeTestCase(unittest.TestCase):
         """
