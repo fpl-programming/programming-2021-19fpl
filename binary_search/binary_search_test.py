@@ -224,4 +224,3 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.remove(9)
         tree.remove(7)
         self.assertEqual(1, tree.get_max_height())
-
