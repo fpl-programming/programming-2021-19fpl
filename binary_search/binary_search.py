@@ -10,8 +10,7 @@ class BinarySearchTree:
     BinarySearchTree Structure
     """
 
-    def __init__(self, name: str = None, root: int = None):
-        self.name = name
+    def __init__(self, root: int = None):
         self._root = Node(root)
 
     def add(self, element: int):
@@ -48,6 +47,7 @@ class BinarySearchTree:
         """
         Find and return the required node
         :param element: element to find in the tree
+        :return: required node
         """
         current_node = self._root
         while current_node.root != element and current_node.root:
@@ -91,12 +91,24 @@ class BinarySearchTree:
     def get_root(self):
         """
         Return the current root of the tree
+        :return: the root of the tree
         """
         return self._root.root
+
+    def get_max_height(self):
+        """
+        Return the maximum
+        :return: max height
+        """
+        if not self._root.root:
+            return 0
+        levels = [elem for elem in self.__str__().split('\n') if elem.strip()]
+        return len(levels)
 
     def go_width_traversal(self):
         """
         Return all the nodes of the tree
+        :return: list of nodes
         """
         if not self._root.root:
             raise ValueError('Impossible to go around tree, no elements in the tree')
@@ -113,6 +125,7 @@ class BinarySearchTree:
     def __str__(self):
         """
         Return all the nodes of the tree by levels
+        :return: string of tree levels
         """
         all_nodes = ['\n', str(self._root.root), '\n']
         current_level = [self._root]

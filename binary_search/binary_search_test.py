@@ -137,15 +137,13 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree = BinarySearchTree(root=8)
         self.assertEqual(tree.get_root(), 8)
 
-    def test_get_root_after_removal(self):
+    def test_get_root_no_root(self):
         """
         Create a BinarySearchTree with root, remove the root and add an element.
         Test that the root is the new element.
         """
-        tree = BinarySearchTree(root=7)
-        tree.remove(7)
-        tree.add(9)
-        self.assertEqual(tree.get_root(), 9)
+        tree = BinarySearchTree()
+        self.assertEqual(tree.get_root(), None)
 
     def test_go_width_traversal(self):
         """
@@ -178,8 +176,52 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         result = [elem for elem in str(tree).split('\n') if elem.strip()]
         self.assertEqual(4, len(result))
 
+    def test_get_max_height_no_tree(self):
+        """
+        Create an empty BinarySearchTree.
+        Test that max height is zero.
+        """
+        tree = BinarySearchTree()
+        self.assertEqual(0, tree.get_max_height())
+
+    def test_get_max_height_only_root(self):
+        """
+        Create a BinarySearchTree with root only.
+        Test that max height is one.
+        """
+        tree = BinarySearchTree(root=7)
+        self.assertEqual(1, tree.get_max_height())
+
+    def test_get_max_height_ideal(self):
+        """
+        Create a BinarySearchTree with root, add elements.
+        Test that max height is correct.
+        """
+        tree = BinarySearchTree()
+        for elem in [6, 9, 5, 7, 10, 12, 3, 13]:
+            tree.add(elem)
+        self.assertEqual(5, tree.get_max_height())
+
     def test_end_to_end(self):
         """
         Create a BinarySearchTree with root and all the sequence.
         Test that all functions work fine together.
         """
+        tree = BinarySearchTree()
+        for elem in [8, 6, 9, 5]:
+            tree.add(elem)
+        tree.remove(6)
+
+        self.assertEqual(8, tree.get_root())
+        self.assertEqual(2, tree.get_max_height())
+
+        for elem in [7, 10, 12, 3]:
+            tree.add(elem)
+
+        self.assertEqual(6, len(tree.go_width_traversal()))
+        self.assertEqual(4, tree.get_max_height())
+
+        tree.remove(9)
+        tree.remove(7)
+        self.assertEqual(1, tree.get_max_height())
+
