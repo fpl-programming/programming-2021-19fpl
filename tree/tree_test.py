@@ -26,9 +26,7 @@ class TreeUnitTestCase(unittest.TestCase):
         inserting decreasing test
         """
         tree = Tree()
-        data = []
-        for x in range(100):
-            data.append(x)
+        data = list(range(100))
         data.reverse()
         for i in data:
             tree.insert(i)
@@ -108,9 +106,8 @@ class TreeUnitTestCase(unittest.TestCase):
         erase stress test
         """
         tree = Tree()
-        for i in range(100):
-            tree.insert(i)
-        for i in range(100):
+        data = list(range(100))
+        for i in data:
             tree.erase(i)
         self.assertEqual(0, tree.get_size())
 
