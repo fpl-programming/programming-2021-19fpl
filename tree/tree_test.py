@@ -25,7 +25,7 @@ class TreeUnitTestCase(unittest.TestCase):
         inserting end-to-end test
         """
         tree = Tree()
-        data = [x for x in list(list(range(100)))]
+        data = [x for x in list(range(100))]
         data.reverse()
         for i in data:
             tree.insert(i)
@@ -68,7 +68,7 @@ class TreeUnitTestCase(unittest.TestCase):
         """
         tree = Tree()
         data = [x for x in list(list(range(100)))]
-        for i in data:
+        for i in range(1, 100):
             tree.insert(i)
         data.reverse()
         for i in data:
