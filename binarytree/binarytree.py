@@ -6,17 +6,38 @@ Implementation of the data structure "Binarytree"
 
 
 class Node:
+    """
+    Node structure
+    """
     def __init__(self, data):
         self.data = data
         self.left_element = None
         self.right_element = None
 
+    def method_1(self):
+        """
+        Lint requirements
+        """
+        pass
 
-class BinaryTree():
+    def method_2(self):
+        """
+        Lint requirements
+        """
+        pass
+
+
+class BinaryTree(Node):
+    """
+       Node structure
+    """
     def __init__(self, tree, root):
         self.root = None
 
-    def add(self,node, element):
+    def add(self, node, element):
+        """
+        Add the node to the tree
+        """
         if self.root is None:
             self.root=Node(element)
         else:
@@ -32,6 +53,9 @@ class BinaryTree():
                 self.add(node.left_element, element)
 
     def find(self, node, key ):
+        """
+        Find the node in  the tree
+        """
 
         if self.root is None:
             print ('The root is empty')
@@ -46,6 +70,9 @@ class BinaryTree():
         return False
 
     def remove(self, node, element):
+        """
+        Remove the node from the tree
+        """
         if self.root is None:
             print('The root is empty')
         if self.find(None,element) is True:
@@ -64,4 +91,7 @@ class BinaryTree():
 
 
     def get_height(self):
+        """
+        Get  the height of the tree
+        """
         pass
