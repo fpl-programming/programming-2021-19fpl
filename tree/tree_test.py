@@ -13,7 +13,7 @@ class TreeUnitTestCase(unittest.TestCase):
 
     def test_insert_increase_sequence(self):
         """
-        inserting positive test
+        inserting increasing values test
         """
         tree = Tree()
         for i in range(100):
@@ -21,10 +21,9 @@ class TreeUnitTestCase(unittest.TestCase):
 
         self.assertEqual(tree.height(), 100)
 
-    # pylint: disable=unnecessary - comprehension
     def test_insert_decrease_sequence(self):
         """
-        inserting end-to-end test
+        inserting decreasing test
         """
         tree = Tree()
         data = [i for i in range(100)]
@@ -64,7 +63,6 @@ class TreeUnitTestCase(unittest.TestCase):
         tree.erase(10)
         self.assertRaises(IndexError, tree.erase, 10)
 
-    # pylint: disable=unnecessary - comprehension
     def test_find(self):
         """
         find ent-to-end test
@@ -116,3 +114,8 @@ class TreeUnitTestCase(unittest.TestCase):
         """
         incorrect value input test
         """
+        tree = Tree()
+        bad_input = ["None", 1.12345, [], {}, None]
+        for val in bad_input:
+            self.assertRaises(ValueError, tree.insert, val)
+
