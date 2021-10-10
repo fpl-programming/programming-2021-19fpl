@@ -18,7 +18,7 @@ class NodeTestCase(unittest.TestCase):
         """
         Test that node is created correctly.
         """
-        nodes = [15, 19, 33, 12, 1, 40, 30]
+        nodes = [20, 11, 33, 1, 31, 10, 30]
         for element in nodes:
             node = Node(element)
             self.assertEqual(node.element, element)
@@ -60,12 +60,12 @@ class NodeTestCase(unittest.TestCase):
             """
             tree = BinarySearchTree()
             node = 9
-            node_left = 4
-            node_right = 2
+            node_left_element = 4
+            node_right_element = 2
             tree.add(node)
-            tree.add(node_left)
-            tree.add(node_right)
-            self.assertEqual(tree.find(node_right), True)
+            tree.add(node_left_element)
+            tree.add(node_right_element)
+            self.assertEqual(tree.find(node_right_element), True)
 
         def test_get_height(self):
             """
