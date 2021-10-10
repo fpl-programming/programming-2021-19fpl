@@ -14,12 +14,18 @@ class QueueTestCase(unittest.TestCase):
     """
 
     def test_add_the_root_element(self):
+        """
+        Add one element to the binary tree
+        """
         element = 3
         binary_tree = BinaryTree()
         binary_tree.add(element)
         self.assertEqual(binary_tree.root.value, 3)
 
     def test_add_three_elements(self):
+        """
+        Add three elements on the right to the binary tree
+        """
         element1 = 3
         element2 = 5
         element3 = 6
@@ -32,6 +38,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.root.right.right.value, element3)
 
     def test_add_three_diff_elements(self):
+        """
+        Add three elements on both sides
+        """
         element1 = 3
         element2 = 5
         element3 = 2
@@ -44,12 +53,18 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.root.left.value, element3)
 
     def test_find_element_root(self):
+        """
+        Find the root element
+        """
         element = 3
         binary_tree = BinaryTree()
         binary_tree.add(element)
         self.assertEqual(binary_tree.find(element), 3)
 
     def test_find_third_elements(self):
+        """
+        Find the element on the third level
+        """
         element1 = 3
         element2 = 5
         element3 = 6
@@ -57,9 +72,12 @@ class QueueTestCase(unittest.TestCase):
         binary_tree.add(element1)
         binary_tree.add(element2)
         binary_tree.add(element3)
-        self.assertEqual(binary_tree.find(5), 5)
+        self.assertEqual(binary_tree.find(6), 6)
 
     def test_find_not_existing_element(self):
+        """
+        Find the element that does not exist
+        """
         element1 = 3
         element2 = 5
         element3 = 6
@@ -70,6 +88,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertRaises(ValueError, binary_tree.find, 7)
 
     def test_remove_root(self):
+        """
+        Remove the root element
+        """
         element = 3
         binary_tree = BinaryTree()
         binary_tree.add(element)
@@ -77,6 +98,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.root, None)
 
     def test_remove_third_element(self):
+        """
+        Remove the element at the last level
+        """
         element1 = 3
         element2 = 2
         element3 = 1
@@ -89,6 +113,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.root.left.left, None)
 
     def test_remove_not_existing_element(self):
+        """
+        Remove the element that does not exist
+        """
         element1 = 3
         element2 = 2
         element3 = 1
@@ -99,10 +126,16 @@ class QueueTestCase(unittest.TestCase):
         self.assertRaises(ValueError, binary_tree.remove, 5)
 
     def test_get_height_empty(self):
+        """
+        Get the height of the empty binary tree
+        """
         binary_tree = BinaryTree()
         self.assertEqual(binary_tree.get_height(), 0)
 
     def test_get_height_easy(self):
+        """
+        Get the height of the easy binary tree
+        """
         element1 = 3
         element2 = 2
         element3 = 1
@@ -113,6 +146,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.get_height(),3)
 
     def test_get_height_hard(self):
+        """
+        Get the height of the hard binary tree
+        """
         element1 = 3
         element2 = 5
         element3 = 2
@@ -125,6 +161,9 @@ class QueueTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.get_height(), 3)
 
     def test_all_tree(self):
+        """
+        End-to-end testing
+        """
         element1 = 8
         element2 = 10
         element3 = 3

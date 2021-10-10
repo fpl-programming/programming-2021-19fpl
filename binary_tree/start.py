@@ -21,5 +21,5 @@ if __name__ == '__main__':
     print('Высота бинарного дерева поиска: {}'.format(binary_tree.get_height()))
 
     RESULT = binary_tree.get_height()
-    expected = 3
-    assert RESULT == expected, 'BinaryTree not working'
+    EXPECTED = 3
+    assert RESULT == EXPECTED, 'BinaryTree not working'
