@@ -2,7 +2,7 @@
 Programming for linguists
 Start script for BinarySearchTree
 """
-from views import start
+
 from binary_tree.binary_tree import BinarySearchTree
 
 if __name__ == '__main__':
