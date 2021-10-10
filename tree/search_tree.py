@@ -16,6 +16,10 @@ class Node:
         self.left = None
 
     def insert(self, data):
+        """
+        Add the element ‘data' in the tree
+        :param data: element to add in a tree
+        """
         if data > self.data:
             if self.right is None:
                 self.right = Node(data)
@@ -26,10 +30,13 @@ class Node:
                 self.left = Node(data)
                 return
             self.left.insert(data)
-        elif data == self.data:
-            raise Existed(data)
+        raise Existed(data)
 
     def find(self, data):
+        """
+        Find the element ‘data' in the tree
+        :param data: element to find in a tree
+        """
         if self.data == data:
             return f'data {data} is found', self
         elif data > self.data and self.right is not None:
@@ -39,6 +46,10 @@ class Node:
         raise NotExisted(data)
 
     def find_height(self, node):
+        """
+        Find the hight from node
+        :param node: node from which to find the height
+        """
         if node is None:
             return 0
         left_height = self.find_height(node.left)
@@ -47,12 +58,21 @@ class Node:
 
     @staticmethod
     def find_min_deep(node):
+        """
+        Find the deepest element in a subtree node
+        :param node: subtree in which to search
+        """
         current_node = node
         while current_node.left is not None:
             current_node = current_node.left
         return current_node
 
     def delete_node(self, node, data):
+        """
+        Delete the node with data
+        :param node: node from which to start deleting
+        :param data: data of the node to be deleted
+        """
         # 0 - node is a leaf
         if node is None:
             return node
@@ -61,11 +81,11 @@ class Node:
         if data < node.data:
             node.left = self.delete_node(node.left, data)
         # recursively got to the right side
-        elif data > node.data:
+        if data > node.data:
             node.right = self.delete_node(node.right, data)
 
         # the node to be deleted is found
-        else:
+        if data == node.data:
             # node with one child - just take the value of this child
             if node.left is None:
                 temp = node.right
@@ -82,6 +102,9 @@ class Node:
         return node
 
     def in_width(self):
+        """
+        Go in a tree in width
+        """
         whole_tree, current_level = [self], [self]
 
         def make_step(level):
