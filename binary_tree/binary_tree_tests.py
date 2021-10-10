@@ -1,9 +1,16 @@
+"""
+Tests for BinaryTree
+"""
+
 import unittest
 
 from binary_tree.main import BinaryTree, Node
 
 
 class BinaryTreeTestCase(unittest.TestCase):
+    """
+    Tests for BinaryTree
+    """
 
     def test_create_node(self):
         """

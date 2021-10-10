@@ -5,6 +5,7 @@ Implementation of the data structure "BinaryTree"
 """
 
 
+# pylint: disable=too-few-public-methods
 class Node:
     """
     Node Data Structure
@@ -40,7 +41,6 @@ class BinaryTree:
             node.left = Node(node_to_add)
         elif node_to_add > node.root:
             node.right = Node(node_to_add)
-        return
 
     def add_node(self, node_to_add):
         """
@@ -65,7 +65,6 @@ class BinaryTree:
             else:
                 self.node = Node(None)
                 break
-        return
 
     def search_node(self, searched_node):
         """
