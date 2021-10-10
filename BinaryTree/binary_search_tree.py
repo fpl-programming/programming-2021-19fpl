@@ -86,13 +86,11 @@ class BinarySearchTree:
 
         if self.is_empty():
             print('The tree is empty')
-            return
-
-        node = self._find_element_in_root_recursive(element, self.root)
-        if node is None:
-            print('Not found')
+        else:
+            node = self._find_element_in_root_recursive(element, self.root)
+            if node is None:
+                print('Not found')
             return node
-        return node
 
     def _find_element_in_left_right_nodes_recursive(self, element, node):
         """
