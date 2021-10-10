@@ -1,4 +1,4 @@
-from tree import Tree
+from tree.tree import Tree
 import unittest
 
 
