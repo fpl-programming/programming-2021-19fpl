@@ -7,7 +7,7 @@ Start script for Binary search tree
 from binary_tree.binary_tree import BinarySearchTree
 
 if __name__ == '__main__':
-    print('''We should get this tree
+    print(r'''We should get this tree
             6
           /   \
          1     8
