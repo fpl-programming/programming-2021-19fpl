@@ -3,6 +3,8 @@ Programming for linguists
 Implementation of the data structure "BinarySearchTree"
 """
 
+# pylint: disable=too-few-public-methods
+
 
 class Node:
     """
@@ -45,7 +47,6 @@ class BinarySearchTree:
             self._add_node(root.left_node, element)
         elif element > root.root and root.right_node:
             self._add_node(root.right_node, element)
-
         else:
             new_node = Node(element)
             if element < root.root:
