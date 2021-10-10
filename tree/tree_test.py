@@ -10,6 +10,7 @@ class TreeUnitTestCase(unittest.TestCase):
     """
     Binary tree test case
     """
+
     def test_insert_increase_sequence(self):
         """
         inserting positive test
@@ -20,6 +21,7 @@ class TreeUnitTestCase(unittest.TestCase):
 
         self.assertEqual(tree.height(), 100)
 
+    # pylint: disable=unnecessary - comprehension
     def test_insert_decrease_sequence(self):
         """
         inserting end-to-end test
@@ -62,6 +64,7 @@ class TreeUnitTestCase(unittest.TestCase):
         tree.erase(10)
         self.assertRaises(IndexError, tree.erase, 10)
 
+    # pylint: disable=unnecessary - comprehension
     def test_find(self):
         """
         find ent-to-end test
