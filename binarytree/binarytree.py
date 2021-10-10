@@ -54,6 +54,7 @@ class BinarySearchTree:
             elif element > root.root:
                 root.right_node = new_node
             return
+        return None
 
     def remove(self, element: int):
         """
