@@ -16,13 +16,11 @@ class Node:
         """
         empty
         """
-        pass
 
     def some_method_again(self):
         """
         empty
         """
-        pass
 
 
 class BinaryTree:
@@ -100,10 +98,9 @@ class BinaryTree:
             return node.value
         if element < node.value and node.left:
             return self._find(element, node.left)
-        elif element > node.value and node.right:
+        if element > node.value and node.right:
             return self._find(element, node.right)
-        else:
-            raise ValueError
+        raise ValueError
 
     def get_height(self):
         """
