@@ -39,9 +39,9 @@ class Node:
         """
         if self.data == data:
             return f'data {data} is found', self
-        elif data > self.data and self.right is not None:
+        if data > self.data and self.right is not None:
             return self.right.find(data)
-        elif data < self.data and self.left is not None:
+        if data < self.data and self.left is not None:
             return self.left.find(data)
         raise NotExisted(data)
 
@@ -90,7 +90,7 @@ class Node:
             if node.left is None:
                 temp = node.right
                 return temp
-            elif node.right is None:
+            if node.right is None:
                 temp = node.left
                 return temp
             # two children - find the smallest in the right subtree
