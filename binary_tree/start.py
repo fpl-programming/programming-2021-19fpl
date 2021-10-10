@@ -133,6 +133,9 @@ class TreeNode:
 
 
 class BinarySearchTree:
+    """
+    The Binary Search Tree
+    """
 
     def __init__(self):
         self.root = None
@@ -174,8 +177,7 @@ class BinarySearchTree:
             res = self._get(val, self.root)
             if res:
                 return res.val
-            else:
-                return None
+            return None
         else:
             return None
 
@@ -189,8 +191,7 @@ class BinarySearchTree:
             return current_node
         elif val < current_node.val:
             return self._get(val, current_node.left)
-        else:
-            return self._get(val, current_node.right)
+        return self._get(val, current_node.right)
 
     def print_tree(self):
         """
@@ -222,7 +223,7 @@ class BinarySearchTree:
         if self.size > 1:
             node_to_delete = self._get(val, self.root)
             if node_to_delete:
-                self.removee(node_to_delete)
+                self.remove_elem(node_to_delete)
                 self.size = self.size - 1
             else:
                 raise KeyError('Error, value not in tree')
@@ -232,11 +233,12 @@ class BinarySearchTree:
         else:
             raise KeyError('Error, value not in tree')
 
-    def removee(self, current_node):
+    def remove_elem(self, current_node):
         """
         Consider 3 cases:
                         an element we want to remove doesn't have parents
-                        an element we want to remove has a parent and they can take place of this element
+                        an element we want to remove has a parent and they
+                        can take place of this element
                         an element we want to remove has a parent but cannot take its place
         """
         if current_node.is_leaf():
@@ -257,7 +259,8 @@ class BinarySearchTree:
                     current_node.left.parent = current_node.parent
                     current_node.parent.right = current_node.left
                 else:
-                    current_node.replaceNode(current_node.left.payload, current_node.left.left, current_node.left.right)
+                    current_node.replaceNode(current_node.left.payload,
+                                             current_node.left.left, current_node.left.right)
             else:
                 if current_node.is_left():
                     current_node.right.parent = current_node.parent
@@ -266,7 +269,8 @@ class BinarySearchTree:
                     current_node.right.parent = current_node.parent
                     current_node.parent.right = current_node.right
                 else:
-                    current_node.replaceNode(current_node.right.payload, current_node.right.left, current_node.right.right)
+                    current_node.replaceNode(current_node.right.payload,
+                                             current_node.right.left, current_node.right.right)
 
     def contains(self, key):
         """
@@ -276,8 +280,7 @@ class BinarySearchTree:
         """
         if self._get(key, self.root):
             return True
-        else:
-            return False
+        return False
 
     def height(self):
         """
@@ -285,8 +288,7 @@ class BinarySearchTree:
         """
         if self.root:
             return self._height(self.root)
-        else:
-            return 0
+        return 0
 
     def _height(self, current_node):
         if not current_node:

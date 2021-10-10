@@ -6,8 +6,8 @@ Tests for BinarySearchTree class.
 
 import unittest
 
-from start import TreeNode
-from start import BinarySearchTree
+from binary_tree.start import TreeNode
+from binary_tree.start import BinarySearchTree
 
 
 class TestBinarySearchTree(unittest.TestCase):
@@ -16,10 +16,16 @@ class TestBinarySearchTree(unittest.TestCase):
     """
 
     def set_up(self):
+        """
+        Create a tree
+        """
         binary_tree = BinarySearchTree()
         return binary_tree
 
     def set_up_1(self):
+        """
+        Put elements in the tree
+        """
         binary_tree = self.set_up()
         binary_tree.put(20)
         binary_tree.put(10)
@@ -128,10 +134,10 @@ class TestBinarySearchTree(unittest.TestCase):
         Check height
         """
         binary_tree = self.set_up_1()
-        h = binary_tree.height()
-        self.assertNotEqual(h, 3)
-        self.assertEqual(h, 4)
-        self.assertNotEqual(h, 5)
+        height = binary_tree.height()
+        self.assertNotEqual(height, 3)
+        self.assertEqual(height, 4)
+        self.assertNotEqual(height, 5)
 
 
 if __name__ == "__main__":
