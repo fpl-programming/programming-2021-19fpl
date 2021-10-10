@@ -1,7 +1,7 @@
 """
 Programming for linguists
 
-Implementation of the data structure "Binary Tree"
+Implementation of the data structure "Binary Search Tree"
 """
 
 
