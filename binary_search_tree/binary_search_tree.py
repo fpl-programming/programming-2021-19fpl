@@ -193,6 +193,7 @@ class BinarySearchTree:
 
         return level_values
 
+    # pylint: disable=inconsistent-return-statements
     def _width_traverse(self, cur_node, cur_level):
         """
         Recursively get nodes of the tree by level
