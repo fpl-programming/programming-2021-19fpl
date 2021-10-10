@@ -27,7 +27,7 @@ class NodeTestCase(unittest.TestCase):
         Create a Node with no integer attribute
         Test that creation of Node raises Type error
         """
-        elements = ['123', [], (), {}, 2.5, True]
+        elements = ['123', [], (), {}, 2.5]
         for element in elements:
             self.assertRaises(ValueError, Node, element)
 
@@ -44,25 +44,24 @@ class NodeTestCase(unittest.TestCase):
         tree.add(59)
         self.assertEqual(tree.find(59), True)
 
-    def test_remove_node(self):   # remove
+    def test_remove(self):  # remove
         """
-        Remove node from Tree
-        Test that Tree has no such node
+        Test that remove function removes element.
         """
         tree = BinarySearchTree()
-        tree.add(85)
-        tree.remove(85)
-        self.assertFalse(tree.find(85))
+        tree.add(10)
+        self.assertEqual(tree.remove(10), None)
 
-    def test_find_existing_node(self):  # find
+    def test_find_non_existing_node(self):  # find
         """
-        Find existing node in Tree
-        Test that method returns node
+        Find non existing node in Tree
+        Test that method returns False
         """
         tree = BinarySearchTree()
-        tree.add(45)
-        self.assertEqual(tree.find(5).element, Node(5).element)
-        self.assertEqual(isinstance(tree.find(5), Node), isinstance(Node(5), Node))
+        tree.add(5)
+        tree.add(3)
+        tree.remove(5)
+        self.assertFalse(tree.find(5))
 
     def test_get_height(self):  # get_height
         """
