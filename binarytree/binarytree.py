@@ -90,7 +90,18 @@ class BinaryTree():
             print("there is no node")
 
 
-    def get_height(self):
+    def get_height(self,node):
         """
         Get  the height of the tree
         """
+        if self.root is None:
+            print('Root is empty')
+        if node.left_element:
+            left_h = self.get_height(node.left_element)
+        else:
+            left_h=0
+        if node.right_element:
+            right_h=self.get_height(node.right_element)
+        else:
+            right_h=0
+        return 1+max(left_h,right_h)

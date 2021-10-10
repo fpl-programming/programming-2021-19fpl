@@ -1,3 +1,6 @@
+"""
+start.py file
+"""
 from binarytree.binarytree import BinaryTree
 
 if __name__ == '__main__':
