@@ -6,7 +6,7 @@ Tests for BinarySearchTree class
 
 import unittest
 
-from bintree.binarytree import Node, BinarySearchTree
+from bintree.binarytree import Node, BinarySearchTree, NoNodeError, EmptyError
 
 
 class NodeTestCase(unittest.TestCase):
@@ -51,6 +51,16 @@ class NodeTestCase(unittest.TestCase):
             tree.add(15)
             self.assertRaises(ValueError, tree.add, 15)
 
+        def test_add_multiple_elements(self):
+            """
+            Test that add function adds all elements.
+            """
+            tree = BinarySearchTree()
+            nodes = [20, 33, 31, 30]
+            for element in nodes:
+                tree.add(element)
+                self.assertEqual(tree.find(element), True)
+
         def test_remove(self):
             """
             Test that remove function removes element.
@@ -58,6 +68,25 @@ class NodeTestCase(unittest.TestCase):
             tree = BinarySearchTree()
             tree.add(15)
             self.assertEqual(tree.remove(15), None)
+
+        def test_remove_element(self):
+            """
+            Test that remove function removes not only element, but also all his descendants.
+            """
+            tree = BinarySearchTree()
+            nodes = [2, 15, 3, 31, 74]
+            for element in nodes:
+                tree.add(element)
+            tree.remove(15)
+            self.assertEqual(tree.find(31), False)
+
+        def test_remove_not_existing_element(self):
+            """
+            Test that remove function raises NoNodeError when an element is not in the tree.
+            """
+            tree = BinarySearchTree()
+            tree.add(15)
+            self.assertRaises(NoNodeError, tree.remove, 3)
 
         def test_find(self):
             """
@@ -73,6 +102,24 @@ class NodeTestCase(unittest.TestCase):
             tree.add(node_right_element)
             self.assertEqual(tree.find(node_right_element), True)
 
+        def test_find_not_existing_element(self):
+            """
+            Create a BinarySearchTree.
+            Test that find function return False in case when element is not found
+            """
+            tree = BinarySearchTree()
+            nodes = [5, 14, 27, 19]
+            for element in nodes:
+                tree.add(element)
+            self.assertEqual(tree.find(26), False)
+
+        def test_find_element_in_empty_tree(self):
+            """
+            Test that find function raises EmptyError when tree is empty
+            """
+            tree = BinarySearchTree()
+            self.assertRaises(EmptyError, tree.find, 14)
+
         def test_get_height(self):
             """
             Test that get_height function returns the max height of the tree.
@@ -82,3 +129,22 @@ class NodeTestCase(unittest.TestCase):
             for element in nodes:
                 tree.add(element)
             self.assertEqual(tree.get_height(), 4)
+
+        def test_get_height_of_empty_tree(self):
+            """
+            Test that get_height function raises EmptyError when tree is empty
+            """
+            tree = BinarySearchTree()
+            self.assertRaises(EmptyError, tree.get_height)
+
+        def test_get_height_after_remove(self):
+            """
+            Create a BinarySearchTree.
+            Test that get_height function returns correct max height of the tree after removing element
+            """
+            tree = BinarySearchTree()
+            nodes = [23, 19, 76, 41, 14]
+            for element in nodes:
+                tree.add(element)
+            tree.remove(20)
+            self.assertEqual(tree.get_height(), 2)
