@@ -20,10 +20,9 @@ class Node:
     """
     Node Data Structure
     """
-
     def __init__(self, element: int):
         if not isinstance(element, int):
-            raise ValueError
+            raise TypeError
         self.element = element
         self.right = None
         self.left = None
