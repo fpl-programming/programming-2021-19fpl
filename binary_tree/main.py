@@ -164,6 +164,3 @@ class Tree:
             list_now_level = list_next_level
             list_next_level = []
         return result
-
-tree = Tree()
-print(tree.width())
