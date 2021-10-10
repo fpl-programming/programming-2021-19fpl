@@ -133,9 +133,9 @@ class BinarySearchTree:
             return cur_value
 
         if value_to_delete.left and value_to_delete.right: # 2 children
-             heir = get_min_child(value_to_delete.right)
-             value_to_delete.root = heir.root
-             self._remove_node(heir)
+            heir = get_min_child(value_to_delete.right)
+            value_to_delete.root = heir.root
+            self._remove_node(heir)
 
         elif value_to_delete.left is None and value_to_delete.right is None: # no children
             if parent_node is not None and parent_node.left == value_to_delete:
@@ -214,6 +214,6 @@ class BinarySearchTree:
                 return left
 
             if left is None and right is None:
-                return
+                return None
 
             return left, right
