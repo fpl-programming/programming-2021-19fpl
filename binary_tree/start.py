@@ -178,8 +178,7 @@ class BinarySearchTree:
             if res:
                 return res.val
             return None
-        else:
-            return None
+        return None
 
     def _get(self, val, current_node):
         """
@@ -187,9 +186,9 @@ class BinarySearchTree:
         """
         if not current_node:
             return None
-        elif current_node.val == val:
+        if current_node.val == val:
             return current_node
-        elif val < current_node.val:
+        if val < current_node.val:
             return self._get(val, current_node.left)
         return self._get(val, current_node.right)
 
@@ -223,7 +222,7 @@ class BinarySearchTree:
         if self.size > 1:
             node_to_delete = self._get(val, self.root)
             if node_to_delete:
-                self.remove_elem(node_to_delete)
+                self.elem_remove(node_to_delete)
                 self.size = self.size - 1
             else:
                 raise KeyError('Error, value not in tree')
@@ -233,7 +232,7 @@ class BinarySearchTree:
         else:
             raise KeyError('Error, value not in tree')
 
-    def remove_elem(self, current_node):
+    def elem_remove(self, current_node):
         """
         Consider 3 cases:
                         an element we want to remove doesn't have parents

@@ -15,18 +15,18 @@ class TestBinarySearchTree(unittest.TestCase):
     This Case of tests checks the functionality of the implementation of BinarySearchTree
     """
 
-    def set_up(self):
+    def set_up_1(self):
         """
         Create a tree
         """
         binary_tree = BinarySearchTree()
         return binary_tree
 
-    def set_up_1(self):
+    def set_up_2(self):
         """
         Put elements in the tree
         """
-        binary_tree = self.set_up()
+        binary_tree = self.set_up_1()
         binary_tree.put(20)
         binary_tree.put(10)
         binary_tree.put(8)
@@ -55,7 +55,7 @@ class TestBinarySearchTree(unittest.TestCase):
         """
         Check the tree has nodes
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
 
         self.assertEqual(binary_tree.root.val, 20)
         self.assertEqual(binary_tree.root.left.val, 10)
@@ -70,7 +70,7 @@ class TestBinarySearchTree(unittest.TestCase):
         Check if a node is deleted in the tree
         Case 1: delete a leaf
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
 
         binary_tree.delete(5)
         self.assertTrue(binary_tree.contains(20))
@@ -88,7 +88,7 @@ class TestBinarySearchTree(unittest.TestCase):
         Check if a node is deleted in the tree
         Case 2: delete one child
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
 
         binary_tree.delete(10)
         self.assertTrue(binary_tree.contains(20))
@@ -106,7 +106,7 @@ class TestBinarySearchTree(unittest.TestCase):
         Check if a node is deleted in the tree
         Case 3: delete two children
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
 
         binary_tree.delete(8)
         self.assertTrue(binary_tree.contains(20))
@@ -123,7 +123,7 @@ class TestBinarySearchTree(unittest.TestCase):
         """
         Check if we get node that we want to get
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
         self.assertEqual(binary_tree.get(5), 5)
         self.assertEqual(binary_tree.get(1), None)
         self.assertEqual(binary_tree.get(100), 100)
@@ -133,7 +133,7 @@ class TestBinarySearchTree(unittest.TestCase):
         """
         Check height
         """
-        binary_tree = self.set_up_1()
+        binary_tree = self.set_up_2()
         height = binary_tree.height()
         self.assertNotEqual(height, 3)
         self.assertEqual(height, 4)
