@@ -8,21 +8,41 @@ import unittest
 from binarytree.binarytree import BinarySearchTree, Node
 
 
-class BinarySearchTreeTestCase(unittest.TestCase):
+class NodeTestCase(unittest.TestCase):
     """
-    This Case of tests checks the functionality of the implementation of Queue
+    This Case of tests checks the functionality of the implementations of Node.
     """
 
-    def test_add_root(self):   # add
+    def test_create_new_node(self):
         """
-        Create an empty BinarySearchTree and add an element.
-        Test that the element becomes root
+        Test that node is created correctly.
+        """
+        nodes = [70, 31, 93, 94, 14, 23, 73]
+        for element in nodes:
+            node = Node(element)
+            self.assertEqual(node.element, element)
+
+    def test_raise_type_error(self):
+        """
+        Create a Node with no integer attribute
+        Test that creation of Node raises Type error
+        """
+        parameters = ['123', [], (), {}, 2.5, True]
+        for parameter in parameters:
+            self.assertRaises(TypeError, Node, parameter)
+
+    class BinarySearchTreeTestCase(unittest.TestCase):
+        """
+        This Case of tests checks the functionality of the implementation of Queue
+        """
+
+    def test_add_element(self):  # add
+        """
+        Test that add function adds new element to tree.
         """
         tree = BinarySearchTree()
-        tree.add(9)
-        self.assertEqual(tree.get_root(), 9)
-        self.assertEqual(tree.find(9).left_node, None)
-        self.assertEqual(tree.find(9).right_node, None)
+        tree.add(59)
+        self.assertEqual(tree.find(59), True)
 
     def test_remove_node(self):   # remove
         """
@@ -34,23 +54,16 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         tree.remove(5)
         self.assertFalse(tree.find(5))
 
-    def test_find_existing_node(self):  # find
+    def test_find_non_existing_node(self):  # find
         """
-        Find existing node in Tree
-        Test that method returns node
+        Find non existing node in Tree
+        Test that method returns False
         """
-        tree = BinarySearchTree(1)
-        tree.add(5)
-        self.assertEqual(tree.find(5).root, Node(5).root)
-        self.assertEqual(isinstance(tree.find(5), Node), isinstance(Node(5), Node))
-
-    def test_get_root_initial(self):  # get_root
-        """
-        Create a BinarySearchTree with root.
-        Test that root returns correctly.
-        """
-        tree = BinarySearchTree(root=8)
-        self.assertEqual(tree.get_root(), 8)
+        tree = BinarySearchTree(8)
+        tree.add(25)
+        tree.add(35)
+        tree.remove(25)
+        self.assertFalse(tree.find(25))
 
     def test_get_height(self):  # get_height
         """
@@ -60,4 +73,4 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         nodes = [70, 31, 93, 94, 14, 23, 73]
         for element in nodes:
             tree.add(element)
-        self.assertEqual(tree.get_height(), 4)
+        self.assertEqual(tree.get_height(), 3)
