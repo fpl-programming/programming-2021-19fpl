@@ -25,7 +25,7 @@ class TreeUnitTestCase(unittest.TestCase):
         inserting end-to-end test
         """
         tree = Tree()
-        data = [x for x in list(range(100))]
+        data = [i for i in range(100)]
         data.reverse()
         for i in data:
             tree.insert(i)
@@ -108,3 +108,8 @@ class TreeUnitTestCase(unittest.TestCase):
         for i in range(100):
             tree.erase(i)
         self.assertEqual(0, tree.get_size())
+
+    def test_wrong_value_input(self):
+        """
+        incorrect value input test
+        """
