@@ -22,7 +22,7 @@ class Node:
     """
     def __init__(self, element: int):
         if not isinstance(element, int):
-            raise TypeError
+            raise ValueError
         self.element = element
         self.right = None
         self.left = None

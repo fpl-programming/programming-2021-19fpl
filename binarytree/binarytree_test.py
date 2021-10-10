@@ -29,7 +29,7 @@ class NodeTestCase(unittest.TestCase):
         """
         elements = ['123', [], (), {}, 2.5, True]
         for element in elements:
-            self.assertRaises(TypeError, Node, element)
+            self.assertRaises(ValueError, Node, element)
 
     class BinarySearchTreeTestCase(unittest.TestCase):
         """
@@ -50,20 +50,19 @@ class NodeTestCase(unittest.TestCase):
         Test that Tree has no such node
         """
         tree = BinarySearchTree()
-        tree.add(5)
-        tree.remove(5)
-        self.assertFalse(tree.find(5))
+        tree.add(85)
+        tree.remove(85)
+        self.assertFalse(tree.find(85))
 
-    def test_find_non_existing_node(self):  # find
+    def test_find_existing_node(self):  # find
         """
-        Find non existing node in Tree
-        Test that method returns False
+        Find existing node in Tree
+        Test that method returns node
         """
         tree = BinarySearchTree()
-        tree.add(25)
-        tree.add(35)
-        tree.remove(25)
-        self.assertFalse(tree.find(25))
+        tree.add(45)
+        self.assertEqual(tree.find(5).element, Node(5).element)
+        self.assertEqual(isinstance(tree.find(5), Node), isinstance(Node(5), Node))
 
     def test_get_height(self):  # get_height
         """
