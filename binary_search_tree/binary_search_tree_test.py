@@ -1,6 +1,5 @@
-# pylint: skip-file
+# pylint: disable=too-many-public-methods
 """
-Skip due to disable R0904 (about public methods) does not work
 Programming for linguists
 
 Tests for Node, BinarySearchTree classes.

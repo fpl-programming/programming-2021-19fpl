@@ -1,7 +1,5 @@
-# pylint: skip-file
+# pylint: disable=too-few-public-methods
 """
-Skip due to disable R0903 (about public methods) and
- R1710 (does not like return in traverse) does not work
 Programming for linguists
 
 Implementation of the data structure "Binary Search Tree"
@@ -142,6 +140,7 @@ class BinarySearchTree:
         """
         return self.size
 
+    # pylint: disable=inconsistent-return-statements
     def traverse_breadth_tree(self):
         """
         Return the nodes according to breadth
@@ -149,7 +148,7 @@ class BinarySearchTree:
         """
         if self.root is None:
             raise EmptyError('BinarySearchTree is empty')
-        breadth_tree = []
+        breadth_tree = [self.root]
 
         def traverse(node, number):
             nonlocal breadth_tree
@@ -161,7 +160,6 @@ class BinarySearchTree:
                 return breadth_tree
             traverse(breadth_tree[number + 1], number + 1)
 
-        breadth_tree.append(self.root)
         traverse(self.root, 0)
         return breadth_tree
 
