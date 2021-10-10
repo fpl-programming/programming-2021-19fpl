@@ -51,7 +51,7 @@ class NodeTestCase(unittest.TestCase):
             tree.add(15)
             self.assertRaises(ValueError, tree.add, 15)
 
-        def test_add_multiple_elements(self):
+        def test_add_all_elements(self):
             """
             Test that add function adds all elements.
             """
@@ -139,7 +139,6 @@ class NodeTestCase(unittest.TestCase):
 
         def test_get_height_after_remove(self):
             """
-            Create a BinarySearchTree.
             Test that get_height function returns correct max height of the tree after removing element
             """
             tree = BinarySearchTree()
