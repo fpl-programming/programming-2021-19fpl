@@ -6,7 +6,7 @@ Tests for BinarySearchTree class
 
 import unittest
 
-from Binarytree.binarytree import Node, BinarySearchTree, EmptyError, NoNodeError
+from bintree.binarytree import Node, BinarySearchTree, EmptyError, NoNodeError
 
 
 class NodeTestCase(unittest.TestCase):
