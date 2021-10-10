@@ -5,16 +5,16 @@ if __name__ == '__main__':
     elements = [1, 7, 9, 4, 6, 2]
 
     for element in elements:
-        tree.add(element)
+        tree.add(None,element)
     print(tree)
 
-    tree.add(8)
+    tree.add(None, 8)
     print(tree)
 
-    find_element = tree.find(6)
+    find_element = tree.find(None, 6)
     print(find_element)
 
-    tree.remove(6)
+    tree.remove(None,6)
     print(tree)
 
     RESULT = tree.get_height()

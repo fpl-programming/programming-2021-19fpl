@@ -26,7 +26,7 @@ class NodeTestCase(unittest.TestCase):
         when the element's type  is not int
         """
         elements = ['fjf', 0.45, {'a': 'node'}, []]
-        for el in elements:
+        for element in elements:
             self.assertRaises(ValueError, Node, el)
 
     class BinaryTreeTestCase(unittest.TestCase):
@@ -38,7 +38,7 @@ class NodeTestCase(unittest.TestCase):
             Tests if the new element is added to the tree
             """
             tree = BinaryTree
-            tree.add(10)
-            self.assertEqual(tree.find(10), True)
+            tree.add(None,10)
+            self.assertEqual(tree.find(None,10), True)
 
 
