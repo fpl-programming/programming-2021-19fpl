@@ -116,16 +116,16 @@ class BinarySearchTree:
         :param root: current node to search the element in
         :param element: element to remove from the tree
         """
-        if root.left_node and root.left_node.root == element:
-            root.left_node = None
+        if root.left and root.left.root == element:
+            root.left = None
             return
-        if root.right_node and root.right_node.root == element:
-            root.right_node = None
+        if root.right and root.right.root == element:
+            root.right = None
             return
         if element < root.value:
-            self._remove_side_node(root.left_node, element)
+            self._remove_side_node(root.left, element)
         elif element > root.value:
-            self._remove_side_node(root.right_node, element)
+            self._remove_side_node(root.right, element)
 
     def find(self, element):
         """
