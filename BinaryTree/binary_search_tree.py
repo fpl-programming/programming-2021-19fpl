@@ -10,7 +10,7 @@ class BinarySearchTree:
         self.root = root
 
     def is_empty(self):
-        return True if self.root is None else False
+        return self.root is None
 
     def _add_node_recursive(self, element, node):
         if element == node.root:
@@ -27,6 +27,7 @@ class BinarySearchTree:
                 node.right_node = Node(element)
             else:
                 return self._add_node_recursive(element, node.right_node)
+        return
 
     def add(self, element):
         if not isinstance(element, (int, float)):
@@ -60,8 +61,9 @@ class BinarySearchTree:
         node = self._find_element_in_root_recursive(element, self.root)
         if node is None:
             print('Not found')
-        else:
-            return node
+            return
+
+        return node
 
     def _find_element_in_left_right_nodes_recursive(self, element, node):
         if element < node.root:
@@ -71,12 +73,11 @@ class BinarySearchTree:
                 return node
             return self._find_element_in_left_right_nodes_recursive(element, node.left_node)
 
-        elif element > node.root:
-            if node.right_node is None:
-                return
-            if node.right_node.root == element:
-                return node
-            return self._find_element_in_left_right_nodes_recursive(element, node.right_node)
+        if node.right_node is None:
+            return
+        if node.right_node.root == element:
+            return node
+        return self._find_element_in_left_right_nodes_recursive(element, node.right_node)
 
     def remove(self, element):
         if not isinstance(element, (int, float)):
@@ -98,16 +99,16 @@ class BinarySearchTree:
         else:
             node.right_node = None
 
-    def _get_max_height_recursive(self, node):
-        return 1 + max(self._get_max_height_recursive(node.left_node) if node.left_node is not None else 0,
-                       self._get_max_height_recursive(node.right_node) if node.right_node is not None else 0)
+    def _get_height_rec(self, node):
+        return 1 + max(self._get_height_rec(node.left_node) if node.left_node is not None else 0,
+                       self._get_height_rec(node.right_node) if node.right_node is not None else 0)
 
     def get_max_height(self):
         if self.is_empty():
             print('The tree is empty')
             return 0
 
-        return self._get_max_height_recursive(self.root)
+        return self._get_height_rec(self.root)
 
     def _dfs_recursive(self, node):
         if node:

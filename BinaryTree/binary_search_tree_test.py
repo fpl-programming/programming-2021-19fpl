@@ -8,7 +8,7 @@ import io
 import unittest
 import unittest.mock
 
-from BinaryTree.BinarySearchTree import BinarySearchTree, Node
+from BinaryTree.binary_search_tree import BinarySearchTree
 
 
 class TestCase(unittest.TestCase):
@@ -59,7 +59,7 @@ class TestCase(unittest.TestCase):
         tree.add(1)
         tree.add(1)
         self.assertEqual(tree.get_max_height(), 1)
-        self.assertEqual(mock_stdout.getvalue(), f'1 is already in the tree\n')
+        self.assertEqual(mock_stdout.getvalue(), '1 is already in the tree\n')
 
     def test_add_not_number(self):
         """
@@ -92,7 +92,7 @@ class TestCase(unittest.TestCase):
         tree.add(6)
         tree.add(7)
         self.assertIsNone(tree.find(15))
-        self.assertEqual(mock_stdout.getvalue(), f'Not found\n')
+        self.assertEqual(mock_stdout.getvalue(), 'Not found\n')
 
     def test_find_not_number(self):
         """
