@@ -72,7 +72,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
 
     def test_remove_element(self):
         """
-        Test that remove function removes not only element, but also all his descendants from the tree.
+        Test that remove function removes not only element, but also all his descendants.
         """
         tree = BinarySearchTree()
         nodes = [20, 11, 33, 1, 31, 10, 30]

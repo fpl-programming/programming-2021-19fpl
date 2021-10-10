@@ -1,3 +1,6 @@
+"""
+Longest common subsequence implementation starter
+"""
 from tree.binarytree import BinarySearchTree
 
 if __name__ == '__main__':
