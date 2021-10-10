@@ -4,6 +4,9 @@ import unittest
 
 class TreeUnitTestCase(unittest.TestCase):
     def test_insert_increase_sequence(self):
+        """
+        inserting positive test
+        """
         tree = Tree()
         for i in range(100):
             tree.insert(i)
@@ -11,6 +14,9 @@ class TreeUnitTestCase(unittest.TestCase):
         self.assertEqual(tree.height(), 100)
 
     def test_insert_decrease_sequence(self):
+        """
+        inserting end-to-end test
+        """
         tree = Tree()
         data = [x for x in range(100)]
         data.reverse()
@@ -20,12 +26,18 @@ class TreeUnitTestCase(unittest.TestCase):
         self.assertEqual(tree.height(), 100)
 
     def test_insert_negative(self):
+        """
+        inserting negative test
+        """
         tree = Tree()
         for i in range(100):
             tree.insert(i)
         self.assertRaises(IndexError, tree.erase, 1000)
 
     def test_erase(self):
+        """
+        positive erase test
+        """
         tree = Tree()
         tree.insert(100)
         tree.insert(150)
@@ -34,6 +46,9 @@ class TreeUnitTestCase(unittest.TestCase):
         self.assertEqual(tree.width(), 1)
 
     def test_erase_negative(self):
+        """
+        negative erase test
+        """
         tree = Tree()
         for i in range(100):
             tree.insert(i)

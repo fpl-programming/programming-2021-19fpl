@@ -1,3 +1,8 @@
+"""
+Binary tree implementation
+"""
+
+
 class Node:
     """
     Tree's node structure
@@ -114,8 +119,8 @@ class Tree:
             return True
         if node.get_value() > value:
             return self._find(node.get_left(), value)
-        else:
-            return self._find(node.get_right(), value)
+
+        return self._find(node.get_right(), value)
 
     def get_size(self):
         """
@@ -141,5 +146,18 @@ class Tree:
         """
         returns tree's width
         """
-        pass
-
+        list_now_level = []
+        if self.root is not None:
+            list_now_level.append(self.root)
+        list_next_level = []
+        result = 0
+        while len(list_now_level) != 0:
+            result = max(result, len(list_now_level))
+            for node in list_now_level:
+                if not node.get_left() is None:
+                    list_next_level.append(node.get_left())
+                if not node.get_right() is None:
+                    list_next_level.append(node.get_right())
+            list_now_level = list_next_level
+            list_next_level = []
+        return result
