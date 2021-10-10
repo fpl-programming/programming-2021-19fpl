@@ -110,11 +110,11 @@ class BinarySearchTree:
         if node is None:
             node = self.root
         if node.left_element:
-            left_height = self.get_height(node.left)
+            left_height = self.get_height(node.left_element)
         else:
             left_height = 0
         if node.right_element:
-            right_height = self.get_height(node.right)
+            right_height = self.get_height(node.right_element)
         else:
             right_height = 0
         return 1 + max(left_height, right_height)
