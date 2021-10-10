@@ -10,6 +10,8 @@ class Node:
     Node structure
     """
     def __init__(self, data):
+        if not isinstance(data, int):
+            raise ValueError
         self.data = data
         self.left_element = None
         self.right_element = None
@@ -37,11 +39,11 @@ class BinaryTree():
         Add the node to the tree
         """
         if self.root is None:
-            self.root=Node(element)
+            self.root = Node(element)
         else:
             if node is None:
-                node=self.root
-            if element>node.element:
+                node = self.root
+            if element > node.element:
                 if node.right_element is None:
                     node.right_element = Node(element)
                 self.add(node.right_element, element)
