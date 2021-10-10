@@ -32,13 +32,12 @@ class Node:
         """
         To solve the lint problem
         """
-        pass
 
     def second_public_method(self):
         """
         To solve the lint problem
         """
-        pass
+
 
 class BinarySearchTree:
     """
