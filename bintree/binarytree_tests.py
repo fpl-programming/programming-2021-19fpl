@@ -139,7 +139,7 @@ class NodeTestCase(unittest.TestCase):
 
         def test_get_height_after_remove(self):
             """
-            Test that get_height function returns correct max height of the tree after removing element
+            Test that get_height function returns correct max height
             """
             tree = BinarySearchTree()
             nodes = [23, 19, 76, 41, 14]
