@@ -26,7 +26,9 @@ class TreeUnitTestCase(unittest.TestCase):
         inserting decreasing test
         """
         tree = Tree()
-        data = [i for i in range(100)]
+        data = []
+        for x in range(100):
+            data.append(x)
         data.reverse()
         for i in data:
             tree.insert(i)
@@ -68,7 +70,9 @@ class TreeUnitTestCase(unittest.TestCase):
         find ent-to-end test
         """
         tree = Tree()
-        data = [x for x in list(list(range(100)))]
+        data = []
+        for x in range(100):
+            data.append(x)
         for i in range(1, 100):
             tree.insert(i)
         data.reverse()
@@ -118,4 +122,5 @@ class TreeUnitTestCase(unittest.TestCase):
         bad_input = ["None", 1.12345, [], {}, None]
         for val in bad_input:
             self.assertRaises(ValueError, tree.insert, val)
+
 
