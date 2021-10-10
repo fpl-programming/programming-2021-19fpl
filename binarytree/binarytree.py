@@ -18,20 +18,18 @@ class Node:
         """
         Lint requirements
         """
-        pass
 
     def method_2(self):
         """
         Lint requirements
         """
-        pass
 
 
 class BinaryTree(Node):
     """
        Node structure
     """
-    def __init__(self, tree, root):
+    def __init__(self):
         self.root = None
 
     def add(self, node, element):
@@ -94,4 +92,3 @@ class BinaryTree(Node):
         """
         Get  the height of the tree
         """
-        pass
