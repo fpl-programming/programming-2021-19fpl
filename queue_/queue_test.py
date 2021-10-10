@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from queue_.queue_ import Queue_, QueueIsFullError
+from queue_.queue_ import Queue_
 
 
 @unittest.skip
