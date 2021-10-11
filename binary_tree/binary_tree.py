@@ -1,25 +1,38 @@
 """
 Implementation of the data structure "Binary Search Tree"
 """
+
 from typing import Optional, Union
 from dataclasses import dataclass
 
 
 @dataclass
 class SuccessfulStatus:
+    """
+    Custom class for Successful cases
+    """
     message: str
 
     @staticmethod
     def code():
+        """
+        Get code of the status
+        """
         return True
 
 
 @dataclass
 class FailureStatus:
+    """
+    Custom class for Failure cases
+    """
     message: str
 
     @staticmethod
     def code():
+        """
+        Get code of the status
+        """
         return False
 
 
@@ -27,9 +40,6 @@ class Node:
     """
     Node Implementation
     """
-
-    # TODO: implement better status monitoring (not True/False)
-
     def __init__(self, root, left_node=None, right_node=None):
         self.root: Union[int, float] = root
         self.left_node: Optional[Node] = left_node
@@ -98,7 +108,6 @@ class BinarySearchTree:
     """
     Binary Search Tree implementation
     """
-
     def __init__(self, root: Optional[Node] = None):
         self.root = root
 

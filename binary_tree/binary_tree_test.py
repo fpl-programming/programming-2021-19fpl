@@ -180,7 +180,7 @@ class TestCase(unittest.TestCase):
 
         tree.remove(2)  # removal of one of the smallest elements
 
-        for element in (7, 10, 15, 42, 330):  # check for the cascaded removal of all larger elements
+        for element in (7, 10, 15, 42, 330):  # check for the cascaded removal of larger elements
             self.assertFalse(tree.find(element))
 
         self.assertTrue(tree.height, 1)
