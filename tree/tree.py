@@ -9,20 +9,10 @@ class Node:
     Root Data Structure
     """
 
-    def __init__(self, root: int):
+    def __init__(self, root: int):  # pylint: disable=too-few-public-methods
         self.root = root
         self.left = None
         self.right = None
-
-    def insert(self, root, data):
-        if root is None:
-            root = Node(data)
-        else:
-            if data <= root.root:
-                root.left = self.insert(root.left, data)
-            else:
-                root.right = self.insert(root.right, data)
-        return root
 
 
 class BinaryTree:
