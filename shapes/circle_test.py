@@ -3,7 +3,6 @@ Programming for linguists
 
 Tests for Circle class.
 """
-
 import unittest
 from shapes.circle import Circle
 
@@ -12,6 +11,7 @@ class CircleTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementation of Circle
     """
+
     def test_circle_get_uid(self):
         """
         Creates a circle.

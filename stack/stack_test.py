@@ -87,3 +87,27 @@ class StackTestCase(unittest.TestCase):
         """
         stack = Stack()
         self.assertRaises(ValueError, stack.pop)
+
+    def test_iterator(self):
+        """
+        Stack iterator test
+        """
+        stack = Stack()
+        for value in [1, 2, 3, 4, 5]:
+            stack.push(value)
+        self.assertEqual(list(stack), [5, 4, 3, 2, 1])
+
+    def test_iterate(self):
+        """
+        Stack iterator hand test
+        """
+        stack = Stack()
+        for value in [5, 4, 3, 2, 1]:
+            stack.push(value)
+        iterator = iter(stack)
+        self.assertEqual(1, next(iterator))
+        self.assertEqual(2, next(iterator))
+        self.assertEqual(3, next(iterator))
+        self.assertEqual(4, next(iterator))
+        self.assertEqual(5, next(iterator))
+        self.assertRaises(StopIteration, next, iterator)

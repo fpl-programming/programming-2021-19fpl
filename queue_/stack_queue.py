@@ -5,19 +5,21 @@ Implementation of the data structure "Queue"
 """
 
 from typing import Iterable
+from stack.stack import Stack
 
 
 # pylint: disable=invalid-name
-class Queue_:
+class StackQueue:
     """
     Queue Data Structure
     """
 
     def __init__(self, data: Iterable = (), max_size_queue: int = float("inf")):
+        self.first = Stack()
+        self.second = Stack()
         self.max_size_queue = max_size_queue
-        self.data = []
-        for element in list(data):
-            self.put(element)
+        for item in list(data):
+            self.put(item)
 
     def put(self, element):
         """
@@ -26,7 +28,7 @@ class Queue_:
         """
         if self.full():
             raise IndexError
-        self.data.append(element)
+        return self.first.push(element)
 
     def get(self):
         """
@@ -34,15 +36,17 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
-        result = self.data[0]
-        self.data = self.data[1:]
-        return result
+        if self.second.empty():
+            self._shift()
+        element = self.second.top()
+        self.second.pop()
+        return element
 
     def full(self):
         """
         Checks if the queue is full
         """
-        return self.max_size_queue == len(self.data)
+        return self.max_size_queue == self.size()
 
     def empty(self) -> bool:
         """
@@ -50,14 +54,14 @@ class Queue_:
         :return: True if queue_ does not contain any elements.
                  False if the queue_ contains elements
         """
-        return self.data == []
+        return not bool(self.size())
 
     def size(self) -> int:
         """
         Return the number of elements in queue_
         :return: Number of elements in queue_
         """
-        return len(self.data)
+        return self.first.size() + self.second.size()
 
     def top(self):
         """
@@ -66,4 +70,15 @@ class Queue_:
         """
         if self.empty():
             raise IndexError
-        return self.data[0]
+        if self.second.empty():
+            self._shift()
+        return self.second.top()
+
+    def _shift(self):
+        """
+        shifts elements to second stack
+        """
+        while not self.first.empty():
+            element = self.first.top()
+            self.second.push(element)
+            self.first.pop()
