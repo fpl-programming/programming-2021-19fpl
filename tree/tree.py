@@ -4,12 +4,12 @@ Implementation of the data structure "Binary Tree"
 """
 
 
-class Node:
+class Node:  # pylint: disable=too-few-public-methods
     """
     Root Data Structure
     """
 
-    def __init__(self, root: int):  # pylint: disable=too-few-public-methods
+    def __init__(self, root: int):
         self.root = root
         self.left = None
         self.right = None

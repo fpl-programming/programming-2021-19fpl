@@ -1,3 +1,8 @@
+"""
+
+Start for the Binary Tree class.
+"""
+
 from tree.tree import BinaryTree, Node
 
 if __name__ == "__main__":
