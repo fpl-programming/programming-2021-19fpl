@@ -74,10 +74,9 @@ class BinaryTree:
                     return remove_recursive(value_to_remove, current_node.left)
                 if value_to_remove > current_node.value:
                     return remove_recursive(value_to_remove, current_node.right)
-                else:
-                    if current_node is not None and current_node.value == value_to_remove:
-                        current_node.value = None
-                        return value_to_remove
+                if current_node is not None and current_node.value == value_to_remove:
+                    current_node.value = None
+                    return value_to_remove
             return None
 
         if self.root is None:
