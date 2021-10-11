@@ -5,7 +5,7 @@ Binary Tree
 
 """
 
-from binary_search_tree.binary_search_tree import BinarySearchTree
+from binary_tree.binary_tree import BinarySearchTree
 
 if __name__ == '__main__':
     tree = BinarySearchTree()
