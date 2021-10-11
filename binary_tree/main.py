@@ -11,6 +11,7 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
+        self.dfs = []
 
     def get_value(self):
         """
@@ -164,3 +165,6 @@ class Tree:
             list_now_level = list_next_level
             list_next_level = []
         return result
+
+    def get_dfs(self):
+        pass
