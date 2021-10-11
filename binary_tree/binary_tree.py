@@ -87,7 +87,7 @@ class BinarySearchTree:
             node = self.root
         if node.element == element:
             return True
-         if not node.left_element or node.right_element:
+        if not node.left_element or node.right_element:
             return True
         if element < node.element and node.left_element:
             return self.find(element, node.left_element)
