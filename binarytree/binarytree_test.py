@@ -4,8 +4,8 @@ Test for BinaryTree class
 
 import unittest
 
-# from binarytree.binarytree import BinaryTree
-from binarytree import BinaryTree
+from binarytree.binarytree import BinaryTree
+# from binarytree import BinaryTree
 
 
 class BinaryTreeTestCase(unittest.TestCase):

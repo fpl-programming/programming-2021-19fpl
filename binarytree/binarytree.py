@@ -2,8 +2,8 @@
 Implementation of the data structure "Binary Tree"
 """
 
-# from binarytree.node import Node
-from node import Node
+from binarytree.node import Node
+# from node import Node
 
 
 class BinaryTree:
