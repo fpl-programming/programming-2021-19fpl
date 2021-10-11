@@ -18,7 +18,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         Tests that correct root, left and right are returned.
         """
         node = Node(5)
-        self.assertEqual(node.root, 5)
+        self.assertEqual(node.node, 5)
         self.assertEqual(node.right, None)
         self.assertEqual(node.left, None)
 
