@@ -2,7 +2,7 @@
 Implementation of the data structure "Binary Tree"
 """
 
-class Node:
+class Node: # pylint: disable=too-few-public-methods
     """
     Node Data Structure
     """
