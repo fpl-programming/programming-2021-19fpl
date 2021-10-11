@@ -2,7 +2,7 @@
 Demonstration of how Binary Search Tree methods work
 """
 
-from binary_search_tree import BinarySearchTree
+from bainary_search_tree.binary_search_tree import BinarySearchTree
 
 bs_tree = BinarySearchTree(10)
 print(bs_tree.root.value)

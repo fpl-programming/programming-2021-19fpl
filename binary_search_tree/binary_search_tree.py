@@ -4,7 +4,7 @@ Programming for linguists
 Implementation of the data structure "Binary Search Tree"
 """
 
-from node import Node
+from binary_search_tree.node import Node
 
 
 class BinarySearchTree:

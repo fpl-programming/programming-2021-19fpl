@@ -7,7 +7,7 @@ Tests for BinarySearchTree class.
 import unittest
 import random
 
-from binary_search_tree import BinarySearchTree, AlreadyInTree, CannotRemoveRoot
+from binary_search_tree.binary_search_tree import BinarySearchTree, AlreadyInTree, CannotRemoveRoot
 
 
 class BSTreeTestCase(unittest.TestCase):
