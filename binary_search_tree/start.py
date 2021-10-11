@@ -1,8 +1,7 @@
 """
 Demonstration of how Binary Search Tree methods work
 """
-
-from bainary_search_tree.binary_search_tree import BinarySearchTree
+from binary_search_tree.binary_search_tree import BinarySearchTree
 
 bs_tree = BinarySearchTree(10)
 print(bs_tree.root.value)
@@ -12,9 +11,9 @@ print(bs_tree.root.left.value)
 print(bs_tree.root.left.parent.value)  # 10 expected
 bs_tree.add(7)
 print(bs_tree.root.left.left.value)
-print(bs_tree.root.left.left.parent.value)  # 8 expected
 bs_tree.add(9)
 print(bs_tree.root.left.right.value)
+print(bs_tree.root.left.right.parent.value)  # 8 expected
 
 bs_tree.add(12)
 print(bs_tree.root.right.value)
@@ -23,8 +22,8 @@ print(bs_tree.root.right.left.value)
 bs_tree.add(13)
 print(bs_tree.root.right.right.value)
 
-print(bs_tree.find(13))
-print(bs_tree.find(14))
+print(bs_tree.find(13))  # True expected
+print(bs_tree.find(14))  # False expected
 
 # no children
 bs_tree.remove(13)

@@ -36,10 +36,8 @@ class BinarySearchTree:
             current_node.right = Node(element)
             current_node.right.parent = current_node
             return None
-        else:
-            current_node = (current_node.left if element < current_node.value
-                            else current_node.right)
-            return self.add(element, current_node, False)
+        current_node = current_node.left if element < current_node.value else current_node.right
+        return self.add(element, current_node, False)
 
     def remove(self, element: int, current_node: Node = None):
         """
@@ -49,21 +47,22 @@ class BinarySearchTree:
         """
         if isinstance(element, bool):
             element = 1 if element else 0
+        if not self.find(element):
+            raise ValueError
         if element == self.root.value:
             raise CannotRemoveRoot
         current_node = current_node if current_node else self.root
         if element == current_node.value:
-            while current_node.right or current_node.left:
+            while current_node.right or (current_node.left and not current_node.left.left
+                                         and not current_node.left.right):
                 current_node.value = (current_node.right.value if current_node.right
                                       else current_node.left.value)
                 current_node = current_node.right if current_node.right else current_node.left
-            if current_node.value == current_node.parent.left.value:
+            if current_node.parent.left and current_node.value == current_node.parent.left.value:
                 current_node.parent.left = None
-            elif current_node.value == current_node.parent.right.value:
+            elif current_node.parent.right and current_node.value == current_node.parent.right.value:
                 current_node.parent.right = None
             return None
-        if not current_node.right and not current_node.left:
-            raise ValueError
         current_node = current_node.left if element < current_node.value else current_node.right
         return self.remove(element, current_node)
 
