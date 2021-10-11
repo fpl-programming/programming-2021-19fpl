@@ -7,10 +7,10 @@ from binarytree.binarytree import BinaryTree
 
 
 if __name__ == '__main__':
-    root = 5
+    ROOT = 5
     print('\t...creating a binary tree...')
-    binary_tree = BinaryTree(root)
-    print('The binary tree with root value', root, 'is created.\n')
+    binary_tree = BinaryTree(ROOT)
+    print('The binary tree with root value', ROOT, 'is created.\n')
 
     node_values = [2, 7, 6, 3, 4, 1, 10, 8, 9]
     print('\t...filling the binary tree with nodes...')
@@ -48,7 +48,7 @@ if __name__ == '__main__':
         if remove_res:
             print('The node with value', random_val, 'is removed from the binary tree.\n')
         else:
-            print('Uh oh! Cannot remove a node with value', random_val, 'because it is not in the binary tree now.\n')
+            print('Cannot remove a node with value', random_val, 'because it is not in the tree.\n')
 
     if binary_tree.get_height is not None:
         binary_tree.remove(binary_tree.root.value)
