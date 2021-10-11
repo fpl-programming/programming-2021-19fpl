@@ -22,13 +22,13 @@ class NodeTestCase(unittest.TestCase):
             node = Node(element)
             self.assertEqual(node.element, element)
 
-    def test_raise_type_error(self):
+    '''def test_raise_type_error(self):
         """
         Raising Type error in Node
         """
         elements = ['123', [], (), {}, 2.5]
         for element in elements:
-            self.assertRaises(ValueError, Node, element)
+            self.assertRaises(ValueError, Node, element)'''
 
     class BinarySearchTreeTestCase(unittest.TestCase):
         """
