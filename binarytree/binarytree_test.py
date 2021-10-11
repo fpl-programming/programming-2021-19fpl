@@ -143,4 +143,4 @@ class NodeTestCase(unittest.TestCase):
         for element in nodes:
             tree.add(element)
         tree.remove(23)
-        self.assertEqual(tree.get_height(), 2)
+        self.assertEqual(tree.get_height(), 3)
