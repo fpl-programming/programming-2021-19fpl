@@ -30,8 +30,8 @@ class BinarySearchTree:
     Binary Search Tree data structure
     """
 
-    def __init__(self, root: int = None):
-        self.root = root
+def __init__(self, root: int = None):
+    self.root = root
 
     def add(self, element, node=None):
         """
