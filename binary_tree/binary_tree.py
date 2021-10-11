@@ -215,4 +215,4 @@ class BinarySearchTree:
             if left is None and right is None:
                 return None
 
-            return left, right
+            return left,
