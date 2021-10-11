@@ -171,6 +171,16 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         self.assertEqual(actual_output[3], (2, 6))
         self.assertEqual(actual_output[4], (3, 7))
 
+    def test_call_width_traverse_for_root(self):
+        """
+        Create a Binary Search Tree with 1 element.
+        Test that width_traverse method returns correct values.
+        """
+        tree = BinarySearchTree()
+        tree.add(10)
+        actual_output = tree.width_traverse()
+        self.assertEqual(actual_output[1], 10)
+
     def test_call_width_traverse_of_empty_tree_raised_error(self):
         """
         Create an empty Binary Search Tree.
@@ -209,8 +219,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         and replaces it with its biggest child.
         """
         tree = BinarySearchTree()
-        for value in [8, 4, 10, 2, 6, 3, 7]:
+        for value in [8, 4, 10, 2, 6, 3, 7, 30, 40, 34, 51]:
             tree.add(value)
-        tree.remove_node(4)
-        self.assertEqual(tree.find(4), False)
-        self.assertEqual(tree.width_traverse()[2], (6, 10))
+        tree.remove_node(30)
+        self.assertEqual(tree.find(30), False)
+        self.assertEqual(tree.width_traverse()[2], (4, 10))

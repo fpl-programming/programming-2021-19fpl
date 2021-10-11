@@ -30,4 +30,4 @@ if __name__ == '__main__':
         print(f'Level({key}) contains these values: {values}')
 
     RESULT = tree.find(3)
-    assert RESULT is False, 'Deletion completed successfully'
+    assert RESULT is False, 'Deletion was not completed successfully'
