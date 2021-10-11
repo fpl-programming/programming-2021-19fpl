@@ -166,5 +166,19 @@ class Tree:
             list_next_level = []
         return result
 
-    def get_dfs(self):
-        pass
+    def dfs(self, callback):
+        """
+        finding dfs method
+        """
+        self._dfs(self.root, callback)
+
+    def _dfs(self, node, callback):
+       """
+       dfs recursive method
+       """
+        if node is None:
+            return
+        else:
+            self._dfs(node.get_left(), callback)
+            callback(node.get_value())
+            self._dfs(node.get_right(), callback)
