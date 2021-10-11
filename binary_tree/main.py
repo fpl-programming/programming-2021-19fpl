@@ -182,3 +182,4 @@ class Tree:
             self._dfs(node.get_left(), callback)
             callback(node.get_value())
             self._dfs(node.get_right(), callback)
+    
