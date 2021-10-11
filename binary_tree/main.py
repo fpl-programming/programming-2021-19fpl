@@ -178,10 +178,12 @@ class Tree:
         """
         if node is None:
             return
-        else:
-            self._dfs(node.get_left(), callback)
-            callback(node.get_value())
-            self._dfs(node.get_right(), callback)
+        self._dfs(node.get_left(), callback)
+        callback(node.get_value())
+        self._dfs(node.get_right(), callback)
 
     def print_in_order(self):
+        """
+        prints tree elements in correct order
+        """
         self.dfs(lambda x: print(x, end=" "))
