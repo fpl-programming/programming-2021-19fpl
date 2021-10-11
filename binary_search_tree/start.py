@@ -1,4 +1,8 @@
-from binary_search_tree import BinarySearchTree
+"""
+Demonstration of how Binary Search Tree methods work
+"""
+
+from binary_search_tree.binary_search_tree import BinarySearchTree
 
 bs_tree = BinarySearchTree(10)
 print(bs_tree.root.value)
@@ -38,6 +42,9 @@ print(bs_tree.root.right.value)  # 11 expected
 print(bs_tree.root.right.left)  # None expected
 print(bs_tree.root.right.right)  # None expected
 
+# remove root
 bs_tree.remove(10)
 print(bs_tree.root.value)  # 11 expected
 print(bs_tree.root.right)  # None expected
+
+print(bs_tree.get_height())
