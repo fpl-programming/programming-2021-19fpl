@@ -147,6 +147,48 @@ class BinaryTreeTestCase(unittest.TestCase):
             self.assertEqual(binary_tree.remove(node_values[-1]), None)
             node_values.pop()
 
+    def test_get_height_of_binary_trees(self):
+        """
+            (positive testing of get_height function)
+        Create binary trees with different node number and sequence.
+        Test that their height is calculated correctly.
+        """
+        binary_tree_1 = BinaryTree(5)
+        binary_tree_2 = BinaryTree()
+        binary_tree_3 = BinaryTree()
+        node_values_2 = [10, 5, 15, 2, 12, 6, 20, 19]
+        node_values_3 = [14, 7, 12, 11, 10, 6, 9]
+        for val in node_values_2:
+            binary_tree_2.add(val)
+        for val in node_values_3:
+            binary_tree_3.add(val)
+        self.assertEqual(binary_tree_1.get_height(), 0)
+        self.assertEqual(binary_tree_2.get_height(), 3)
+        self.assertEqual(binary_tree_3.get_height(), 5)
+
+    def test_call_get_height_of_empty_tree(self):
+        """
+            (negative testing of get_height function)
+        Create an empty binary tree and a binary tree with non-integer root value.
+        Test that call of get_height method of created binary trees returns None
+        """
+        binary_tree_1 = BinaryTree()
+        binary_tree_2 = BinaryTree('non-integer')
+        self.assertEqual(binary_tree_1.get_height(), None)
+        self.assertEqual(binary_tree_2.get_height(), None)
+
+    def test_get_height_3(self):
+        """
+            (end-to-end testing of get_height function)
+        Create a binary tree with a root.
+        Add nodes from generator to the binary tree.
+        Test that the height of the binary tree is equal to the generator length
+        """
+        binary_tree = BinaryTree(0)
+        for val in range(1, 50):
+            binary_tree.add(val)
+        self.assertEqual(binary_tree.get_height(), len(range(1, 50)))
+
     def test_get_dfs_1(self):
         """
             (positive testing of get_dfs function)
@@ -167,25 +209,3 @@ class BinaryTreeTestCase(unittest.TestCase):
         hiiiii there
         """
         self.assertEqual(True, True)
-
-    def test_get_height_1(self):
-        """
-            (positive testing of get_height function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)
-
-    def test_get_height_2(self):
-        """
-            (negative testing of get_height function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)
-
-    def test_get_height_3(self):
-        """
-            (end-to-end testing of get_height function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)
-

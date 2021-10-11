@@ -80,14 +80,27 @@ class BinaryTree:
         if isinstance(value, int):
             return remove_recursive(value, self.root)
 
-    def get_dfs(self):
-        """
-        Return the DFS of the binary tree
-        """
-        pass
-
-    def get_height(self):
+    def get_height(self, current_node: Node = None, current_height: int = 0):
         """
         Return the height of the binary tree
+        """
+        if self.root is None:
+            return None
+        elif self.root is not None and current_node is None:
+            current_node = self.root
+        if current_node.left is not None:
+            left_height = self.get_height(current_node.left, current_height + 1)
+        else:
+            left_height = current_height
+        if current_node.right is not None:
+            right_height = self.get_height(current_node.right, current_height + 1)
+        else:
+            right_height = current_height
+        current_height = max(left_height, right_height)
+        return current_height
+
+    def get_dfs(self):
+        """
+        Return the DFS traversal of the binary tree
         """
         pass
