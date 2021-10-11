@@ -33,10 +33,10 @@ class BinaryTree:
 
         if not isinstance(value, int):
             raise ValueError('Binary tree contains only integers')
-        if self.root is not None:
-            add_recursive(value, self.root)
-        else:
+        if self.root is None or self.root.value is None:
             self.root = Node(value)
+        else:
+            add_recursive(value, self.root)
 
     def find(self, value: int):
         """
@@ -76,6 +76,8 @@ class BinaryTree:
                     return remove_recursive(value_to_remove, current_node.right)
                 if current_node is not None and current_node.value == value_to_remove:
                     current_node.value = None
+                    current_node.left = None
+                    current_node.right = None
                     return value_to_remove
             return None
 
@@ -128,12 +130,3 @@ class BinaryTree:
                 print(node, end=' ')
         else:
             print('-')
-
-
-binary_tree = BinaryTree()
-# node_values = [14, 7, 12, 11, 10, 6]
-# node_values = [6, 5, 11, 12, 2, 7]
-node_values = [15, 14, 13, 17, 25, 8]
-for val in node_values:
-    binary_tree.add(val)
-binary_tree.get_dfs()

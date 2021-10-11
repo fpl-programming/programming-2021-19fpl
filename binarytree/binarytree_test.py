@@ -5,7 +5,6 @@ Test for BinaryTree class
 import unittest
 
 from binarytree.binarytree import BinaryTree
-# from binarytree import BinaryTree
 
 
 class BinaryTreeTestCase(unittest.TestCase):
@@ -232,15 +231,15 @@ class BinaryTreeTestCase(unittest.TestCase):
         Test that the DFS is traversed correctly on different stages
         """
         binary_tree = BinaryTree()
-        root_node = [15]
-        descendant_roots = [14, 13, 17, 25, 8]
+        root_value = [15]
+        node_values = [14, 13, 17, 25, 8]
         dfs = [15, 14, 13, 8, 17, 25]
 
-        binary_tree.add(root_node[0])
+        binary_tree.add(root_value[0])
         binary_tree.get_dfs()
-        self.assertEqual(binary_tree.dfs_nodes, root_node)
+        self.assertEqual(binary_tree.dfs_nodes, root_value)
 
-        for val in descendant_roots:
+        for val in node_values:
             binary_tree.add(val)
         binary_tree.get_dfs()
         self.assertEqual(binary_tree.dfs_nodes, dfs)
