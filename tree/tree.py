@@ -14,6 +14,16 @@ class Node:
         self.left = None
         self.right = None
 
+    def insert(self, root, data):
+        if root is None:
+            root = Node(data)
+        else:
+            if data <= root.root:
+                root.left = self.insert(root.left, data)
+            else:
+                root.right = self.insert(root.right, data)
+        return root
+
 
 class BinaryTree:
     """
@@ -66,6 +76,8 @@ class BinaryTree:
         if self.root.right:
             return self.root.right.find(node)
 
+        return True
+
     def get_height(self):
         """
         Gets height of Binary Tree
@@ -76,3 +88,5 @@ class BinaryTree:
             return 1 + self.root.left.get_height()
         if self.root.right:
             return 1 + self.root.right.get_height()
+
+        return True

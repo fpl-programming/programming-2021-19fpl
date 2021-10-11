@@ -1,2 +1,3 @@
-from tree.tree import BinaryTree
-tree = BinaryTree()
+from tree.tree import BinaryTree, Node
+root = Node(6)
+tree = BinaryTree(root)
