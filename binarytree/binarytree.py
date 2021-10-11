@@ -63,7 +63,7 @@ class BinaryTree:
         Return the height of the tree
         """
         if self.root.left and self.root.right:
-            return 1 + max(self.root.left.get_height(), self.root.right.get_height())
+            return 1 + max(self.root.left.get_height(), self.root.right.get_heighgitt())
         if self.root.left:
             return 1 + self.root.left.get_height()
         if self.root.right:
