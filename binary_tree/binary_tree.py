@@ -57,8 +57,6 @@ class BinarySearchTree:
         """
         Remove the required node from Binary Search Tree
         """
-        if self.root is None:
-            raise EmptyError
 
         if self.find(element) is True:
             if node is None:
