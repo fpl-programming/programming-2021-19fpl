@@ -119,3 +119,49 @@ class TreeUnitTestCase(unittest.TestCase):
         for val in bad_input:
             self.assertRaises(ValueError, tree.insert, val)
 
+    def test_sort_array(self):
+        """
+        creates unsorted array
+        traverses its elements for dfs
+        gets unsorted array
+        compares two unsorted arrays
+        """
+        tree = Tree()
+        a = [1, 15, 12, 57, -13, 0]
+        b = []
+        for element in a:
+            tree.insert(element)
+        tree.dfs(lambda x: b.append(x))
+        a.sort()
+        self.assertEqual(a, b)
+
+    def test_sum_with_traversal(self):
+        """
+        tests sum with dfs
+        """
+        tree = Tree()
+        a = [1, 3, 5, -1, -5]
+        b = 0
+
+        def sum_elements(elementis):
+            nonlocal b
+            b += elementis
+        for element in a:
+            tree.insert(element)
+        tree.dfs(sum_elements)
+        self.assertEqual(b, 3)
+
+    def test_factorial_with_traversal(self):
+        """
+        tests factorial via dfs
+        """
+        tree = Tree()
+        b = 1
+        for i in range(1, 6):
+            tree.insert(i)
+
+        def multiply(elementus):
+            nonlocal b
+            b *= elementus
+        tree.dfs(multiply)
+        self.assertEqual(b, 120)

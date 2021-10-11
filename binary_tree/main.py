@@ -182,3 +182,6 @@ class Tree:
             self._dfs(node.get_left(), callback)
             callback(node.get_value())
             self._dfs(node.get_right(), callback)
+
+    def print_in_order(self):
+        self.dfs(lambda x: print(x, end=" "))
