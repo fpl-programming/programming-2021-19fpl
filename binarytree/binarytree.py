@@ -19,17 +19,17 @@ class BinaryTree:
         self.root = root
 
     def add(self, root: Node, node: Node):
-         """
-         Add the node ‘node’ to Binary Tree
-         """
-         if root is None:
-             self.root.root = node
-         else:
-             if node.root < root.root:
+        """
+        Add the node ‘node’ to Binary Tree
+        """
+        if root is None:
+            self.root.root = node
+        else:
+            if node.root < root.root:
                  root.left = self.add(root.left, node)
-             elif node.root > root.root:
+            elif node.root > root.root:
                  root.right = self.add(root.right, node)
-             else:
+            else:
                  raise ValueError
 
     def delete(self, root: Node, node: Node):
@@ -43,20 +43,18 @@ class BinaryTree:
                 root.left = self.add(root.left, node)
             elif node.root > root.root:
                 root.right = self.add(root.right, node)
-
         return True
 
     def find(self, node: Node):
-         """
-         Finds a node in Binary Tree
-         """
-         if self.root.root > node.root:
-             if self.root.left:
-                 return self.root.left.find(node)
-         if self.root.right:
-             return self.root.right.find(node)
-
-         return True
+        """
+        Finds a node in Binary Tree
+        """
+        if self.root.root > node.root:
+            if self.root.left:
+                return self.root.left.find(node)
+        if self.root.right:
+            return self.root.right.find(node)
+        return True
 
     def get_height(self):
         """
