@@ -131,7 +131,7 @@ class TreeUnitTestCase(unittest.TestCase):
         four_list = []
         for element in tree_list:
             tree.insert(element)
-        tree.dfs(lambda x: four_list.append(x))
+        tree.dfs(four_list.append)
         tree_list.sort()
         self.assertEqual(tree_list, four_list)
 
