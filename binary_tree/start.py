@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for key, values in level_values.items():
         print(f'Level({key}) contains these values: {values}')
 
-    tree.remove_node(3)
+    tree.remove_node(3
 
     level_values = tree.width_traverse()
     print('')
