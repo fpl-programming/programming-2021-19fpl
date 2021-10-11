@@ -4,8 +4,8 @@ Test for BinaryTree class
 
 import unittest
 
-from binarytree.binarytree import BinaryTree
-# from binarytree import BinaryTree
+# from binarytree.binarytree import BinaryTree
+from binarytree import BinaryTree
 
 
 class BinaryTreeTestCase(unittest.TestCase):
@@ -150,20 +150,22 @@ class BinaryTreeTestCase(unittest.TestCase):
     def test_get_height_of_binary_trees(self):
         """
             (positive testing of get_height function)
-        Create binary trees with different node number and sequence.
-        Test that their height is calculated correctly.
+        Create binary trees with different number and sequence of nodes.
+        Test that their height is calculated correctly
         """
         binary_tree_1 = BinaryTree(5)
+        self.assertEqual(binary_tree_1.get_height(), 0)
+
         binary_tree_2 = BinaryTree()
-        binary_tree_3 = BinaryTree()
         node_values_2 = [10, 5, 15, 2, 12, 6, 20, 19]
-        node_values_3 = [14, 7, 12, 11, 10, 6, 9]
         for val in node_values_2:
             binary_tree_2.add(val)
+        self.assertEqual(binary_tree_2.get_height(), 3)
+
+        binary_tree_3 = BinaryTree()
+        node_values_3 = [14, 7, 12, 11, 10, 6, 9]
         for val in node_values_3:
             binary_tree_3.add(val)
-        self.assertEqual(binary_tree_1.get_height(), 0)
-        self.assertEqual(binary_tree_2.get_height(), 3)
         self.assertEqual(binary_tree_3.get_height(), 5)
 
     def test_call_get_height_of_empty_tree(self):
@@ -177,7 +179,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         self.assertEqual(binary_tree_1.get_height(), None)
         self.assertEqual(binary_tree_2.get_height(), None)
 
-    def test_get_height_3(self):
+    def test_binary_tree_from_generator_and_get_height(self):
         """
             (end-to-end testing of get_height function)
         Create a binary tree with a root.
@@ -189,23 +191,61 @@ class BinaryTreeTestCase(unittest.TestCase):
             binary_tree.add(val)
         self.assertEqual(binary_tree.get_height(), len(range(1, 50)))
 
-    def test_get_dfs_1(self):
+    def test_get_dfs_of_binary_trees(self):
         """
             (positive testing of get_dfs function)
-        hiiiii there
+        Create binary trees with different node values and sequence.
+        Test that their DFS is traversed correctly
         """
-        self.assertEqual(True, True)
+        binary_tree_1 = BinaryTree()
+        node_values_1 = [6, 5, 11, 12, 2, 7]
+        dfs_1 = [6, 5, 2, 11, 7, 12]
+        for val in node_values_1:
+            binary_tree_1.add(val)
+        binary_tree_1.get_dfs()
+        self.assertEqual(binary_tree_1.dfs_nodes, dfs_1)
 
-    def test_get_dfs_2(self):
+        binary_tree_2 = BinaryTree()
+        node_values_2 = [14, 7, 12, 11, 10, 6]
+        dfs_2 = [14, 7, 6, 12, 11, 10]
+        for val in node_values_2:
+            binary_tree_2.add(val)
+        binary_tree_2.get_dfs()
+        self.assertEqual(binary_tree_2.dfs_nodes, dfs_2)
+
+    def test_get_dfs_empty_tree(self):
         """
             (negative testing of get_dfs function)
-        hiiiii there
+        Create an empty binary tree.
+        Test that the DFS traversal cannot be implemented
         """
-        self.assertEqual(True, True)
+        binary_tree = BinaryTree()
+        binary_tree.get_dfs()
+        self.assertFalse(binary_tree.dfs_nodes)
 
     def test_get_dfs_3(self):
         """
             (end-to-end testing of get_dfs function)
-        hiiiii there
+        Create an empty binary tree.
+        Add the root node to the binary tree.
+        Add other nodes to the binary tree.
+        Test that the DFS is traversed correctly on different stages
         """
-        self.assertEqual(True, True)
+        binary_tree = BinaryTree()
+        root_node = [15]
+        descendant_roots = [14, 13, 17, 25, 8]
+        dfs = [15, 14, 13, 8, 17, 25]
+
+        binary_tree.add(root_node[0])
+        binary_tree.get_dfs()
+        self.assertEqual(binary_tree.dfs_nodes, root_node)
+
+        for val in descendant_roots:
+            binary_tree.add(val)
+        binary_tree.get_dfs()
+        self.assertEqual(binary_tree.dfs_nodes, dfs)
+
+        binary_tree.add(30)
+        dfs.append(30)
+        binary_tree.get_dfs()
+        self.assertEqual(binary_tree.dfs_nodes, dfs)

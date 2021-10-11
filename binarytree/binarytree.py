@@ -2,8 +2,8 @@
 Implementation of the data structure "Binary Tree"
 """
 
-from binarytree.node import Node
-# from node import Node
+# from binarytree.node import Node
+from node import Node
 
 
 class BinaryTree:
@@ -14,6 +14,7 @@ class BinaryTree:
         self.root = None
         if isinstance(root, int):
             self.root = Node(root)
+        self.dfs_nodes = []
 
     def add(self, value: int):
         """
@@ -39,35 +40,39 @@ class BinaryTree:
 
     def find(self, value: int):
         """
-        Return the value if the binary tree contains it
+        Find if a value is in the binary tree
+        :param value: the value of the node to be found in the binary tree
+        :return: the value of the sought node if the binary tree contains it
         """
         def find_recursive(value_to_find, current_node):
             if value_to_find == current_node.value:
                 return current_node.value
-            elif value_to_find < current_node.value:
+            if value_to_find < current_node.value:
                 if current_node.left is not None:
                     if value_to_find == current_node.left.value:
                         return current_node.left.value
                     return find_recursive(value_to_find, current_node.left)
-            elif value_to_find > current_node.value:
+            if value_to_find > current_node.value:
                 if current_node.right is not None:
                     if value_to_find == current_node.right.value:
                         return current_node.right.value
                     return find_recursive(value_to_find, current_node.right)
+            return None
 
         if self.root is not None and isinstance(value, int):
             return find_recursive(value, self.root)
 
-    def remove(self, value):
+    def remove(self, value: int):
         """
         Remove the node and its descendants from the binary tree and return the node value
-        :param value: value of the node that has been removed from the binary tree
+        :param value: the value of the node to remove from the binary tree
+        :return: the value of the node if it has been removed from the binary tree
         """
         def remove_recursive(value_to_remove, current_node):
             if current_node is not None and current_node.value is not None:
                 if value_to_remove < current_node.value:
                     return remove_recursive(value_to_remove, current_node.left)
-                elif value_to_remove > current_node.value:
+                if value_to_remove > current_node.value:
                     return remove_recursive(value_to_remove, current_node.right)
                 else:
                     if current_node is not None and current_node.value == value_to_remove:
@@ -82,11 +87,14 @@ class BinaryTree:
 
     def get_height(self, current_node: Node = None, current_height: int = 0):
         """
-        Return the height of the binary tree
+        Calculate the height of the binary tree
+        :param current_node: the node in the current recursive iteration
+        :param current_height: the height calculated in the current iteration
+        :return: the number of levels in the tree
         """
         if self.root is None:
             return None
-        elif self.root is not None and current_node is None:
+        if self.root is not None and current_node is None:
             current_node = self.root
         if current_node.left is not None:
             left_height = self.get_height(current_node.left, current_height + 1)
@@ -101,6 +109,32 @@ class BinaryTree:
 
     def get_dfs(self):
         """
-        Return the DFS traversal of the binary tree
+        Print the sequence of nodes from DFS traversal through the binary tree
         """
-        pass
+        def get_dfs_recursive(node_to_traverse):
+            if node_to_traverse is None:
+                node_to_traverse = self.root
+            else:
+                self.dfs_nodes.append(node_to_traverse.value)
+                if node_to_traverse.left is not None:
+                    get_dfs_recursive(node_to_traverse.left)
+                if node_to_traverse.right is not None:
+                    get_dfs_recursive(node_to_traverse.right)
+
+        if self.root is not None:
+            self.dfs_nodes = []
+            get_dfs_recursive(self.root)
+        if self.dfs_nodes:
+            for node in self.dfs_nodes:
+                print(node, end=' ')
+        else:
+            print('-')
+
+
+binary_tree = BinaryTree()
+# node_values = [14, 7, 12, 11, 10, 6]
+# node_values = [6, 5, 11, 12, 2, 7]
+node_values = [15, 14, 13, 17, 25, 8]
+for val in node_values:
+    binary_tree.add(val)
+binary_tree.get_dfs()
