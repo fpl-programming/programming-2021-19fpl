@@ -43,16 +43,16 @@ class BinaryTree:
         """
         def find_recursive(value_to_find, current_node):
             if value_to_find == current_node.value:
-                return value_to_find
+                return current_node.value
             elif value_to_find < current_node.value:
                 if current_node.left is not None:
                     if value_to_find == current_node.left.value:
-                        return value_to_find
+                        return current_node.left.value
                     return find_recursive(value_to_find, current_node.left)
             elif value_to_find > current_node.value:
                 if current_node.right is not None:
                     if value_to_find == current_node.right.value:
-                        return value_to_find
+                        return current_node.right.value
                     return find_recursive(value_to_find, current_node.right)
 
         if self.root is not None and isinstance(value, int):
@@ -60,21 +60,34 @@ class BinaryTree:
 
     def remove(self, value):
         """
-        Remove the node from the binary tree and return its value
-        :param value: value of the node to be removed from the binary tree
+        Remove the node and its descendants from the binary tree and return the node value
+        :param value: value of the node that has been removed from the binary tree
         """
+        def remove_recursive(value_to_remove, current_node):
+            if current_node is not None and current_node.value is not None:
+                if value_to_remove < current_node.value:
+                    return remove_recursive(value_to_remove, current_node.left)
+                elif value_to_remove > current_node.value:
+                    return remove_recursive(value_to_remove, current_node.right)
+                else:
+                    if current_node is not None and current_node.value == value_to_remove:
+                        current_node.value = None
+                        return value_to_remove
+            return None
+
         if self.root is None:
-            raise IndexError
+            raise IndexError('Cannot remove nodes from empty binary tree')
+        if isinstance(value, int):
+            return remove_recursive(value, self.root)
+
+    def get_dfs(self):
+        """
+        Return the DFS of the binary tree
+        """
         pass
 
     def get_height(self):
         """
         Return the height of the binary tree
-        """
-        pass
-
-    def get_dfs(self):
-        """
-        Return the DFS of the binary tree
         """
         pass

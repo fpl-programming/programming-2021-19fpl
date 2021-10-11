@@ -17,7 +17,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         """
             (positive testing of add function)
         Create a binary tree.
-        Add nodes from list to the binary tree.
+        Add nodes from list of values to the binary tree.
         Test that all the nodes are placed correctly
         """
         binary_tree = BinaryTree(4)
@@ -32,7 +32,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         """
             (negative testing of add function)
         Create a binary tree.
-        Test that call of add method with incorrect inputs raises Value error
+        Test that call of add method with incorrect input values raises Value error
         """
         binary_tree = BinaryTree(4)
         non_integers = [10.44465, 'two', None, {}, ['wow']]
@@ -43,7 +43,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         """
             (end-to-end testing of add function)
         Create an empty binary tree.
-        Add nodes from a generator to the binary tree.
+        Add nodes from a values generator to the binary tree.
         Test that all the nodes are placed correctly
         """
         binary_tree = BinaryTree()
@@ -54,11 +54,11 @@ class BinaryTreeTestCase(unittest.TestCase):
         self.assertEqual(binary_tree.root.right.right.value, 3)
         self.assertEqual(binary_tree.root.right.right.right.value, 4)
 
-    def test_find_1(self):
+    def test_find_existing_nodes_by_value(self):
         """
             (positive testing of find function)
         Create an empty binary tree.
-        Add nodes from list to the binary tree.
+        Add nodes from list of values to the binary tree.
         Test that the nodes of the binary tree can be found by the value
         """
         binary_tree = BinaryTree()
@@ -68,7 +68,7 @@ class BinaryTreeTestCase(unittest.TestCase):
         for val in node_values:
             self.assertEqual(binary_tree.find(val), val)
 
-    def test_find_2(self):
+    def test_call_find_incorrect_values(self):
         """
             (negative testing of find function)
         Create an empty binary tree.
@@ -79,37 +79,91 @@ class BinaryTreeTestCase(unittest.TestCase):
         node_values = [10, 5, 15, 2, 12, 6, 20, 19]
         for val in node_values:
             binary_tree.add(val)
-        wrong_values = [0, 1, 3, 4, 13, 100, 548150]
+        wrong_values = [0, 1, 3, 4, 13, 100, 548150, 10.44465, 'two', None, {}]
         for val in wrong_values:
             self.assertEqual(binary_tree.find(val), None)
-        non_integers = [10.44465, 'two', None, {}, ['wow']]
-        for val in non_integers:
-            self.assertEqual(binary_tree.find(val), None)
 
-    def test_find_3(self):
+    def test_find_odd_numbers_in_even_number_binary_tree(self):
         """
             (end-to-end testing of find function)
-        hiiiii there
+        Create an empty binary tree.
+        Add nodes with even numbers from generator to the binary tree.
+        Test that call of find with odd numbers from generator returns None
         """
-        self.assertEqual(True, True)
+        binary_tree = BinaryTree()
+        for val in range(10, 0, -1):
+            if not val % 2:
+                binary_tree.add(val)
+        for val in range(10, 0, -2):
+            self.assertEqual(binary_tree.find(val), val)
+        for val in range(10, 0, -1):
+            if val % 2:
+                self.assertEqual(binary_tree.find(val), None)
 
-    def test_remove_1(self):
+    def test_remove_existing_nodes_by_value(self):
         """
             (positive testing of remove function)
-        hiiiii there
+        Create a binary tree by adding nodes from list of values.
+        Remove nodes using the values from the list.
+        Test that the nodes of the binary tree are removed correctly
         """
-        self.assertEqual(True, True)
+        binary_tree = BinaryTree()
+        node_values = [10, 5, 15, 2, 12, 6, 20, 19]
+        for val in node_values:
+            binary_tree.add(val)
+        while node_values:
+            self.assertEqual(binary_tree.remove(node_values[-1]), node_values[-1])
+            node_values.pop()
+        self.assertEqual(binary_tree.root.value, None)
 
-    def test_remove_2(self):
+    def test_call_remove_incorrect_values(self):
         """
             (negative testing of remove function)
+        Create an empty binary tree.
+        Add nodes from list of values to the binary tree.
+        Test that call of remove with incorrect values returns None
+        """
+        binary_tree = BinaryTree()
+        node_values = [10, 5, 15, 2, 12, 6, 20, 19]
+        for val in node_values:
+            binary_tree.add(val)
+        wrong_values = [0, 1, 3, 4, 13, 100, 548150, 10.44465, None, 'two', {}]
+        for val in wrong_values:
+            self.assertEqual(binary_tree.remove(val), None)
+
+    def test_call_remove_already_removed_values(self):
+        """
+            (end-to-end testing of remove function)
+        Create an empty binary tree.
+        Add nodes from list of values to the binary tree and remove them.
+        Test that call of remove with values of already removed nodes returns None
+        """
+        binary_tree = BinaryTree()
+        node_values = [10, 5, 15, 2, 12, 6, 20, 19]
+        for val in node_values:
+            binary_tree.add(val)
+        self.assertEqual(binary_tree.remove(node_values[0]), node_values[0])
+        while node_values:
+            self.assertEqual(binary_tree.remove(node_values[-1]), None)
+            node_values.pop()
+
+    def test_get_dfs_1(self):
+        """
+            (positive testing of get_dfs function)
         hiiiii there
         """
         self.assertEqual(True, True)
 
-    def test_remove_3(self):
+    def test_get_dfs_2(self):
         """
-            (end-to-end testing of remove function)
+            (negative testing of get_dfs function)
+        hiiiii there
+        """
+        self.assertEqual(True, True)
+
+    def test_get_dfs_3(self):
+        """
+            (end-to-end testing of get_dfs function)
         hiiiii there
         """
         self.assertEqual(True, True)
@@ -135,23 +189,3 @@ class BinaryTreeTestCase(unittest.TestCase):
         """
         self.assertEqual(True, True)
 
-    def test_get_dfs_1(self):
-        """
-            (positive testing of get_dfs function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)
-
-    def test_get_dfs_2(self):
-        """
-            (negative testing of get_dfs function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)
-
-    def test_get_dfs_3(self):
-        """
-            (end-to-end testing of get_dfs function)
-        hiiiii there
-        """
-        self.assertEqual(True, True)

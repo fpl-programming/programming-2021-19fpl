@@ -5,7 +5,6 @@ Test for Node class
 import unittest
 
 from binarytree.node import Node
-# from node import Node
 
 
 class NodeTestCase(unittest.TestCase):
