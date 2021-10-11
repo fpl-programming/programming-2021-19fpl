@@ -98,34 +98,32 @@ class BinarySearchTree:
         self.root = Node(element)
         return 1
 
-    def remove(self, element: int):
+    def remove(self, element):
         """
-        Remove the required node from the tree
-        :param element: element to remove from the tree
+        Remove the element from the binary tree
         """
-        if self.find(element).root is None:
-            raise ValueError('No node found to remove')
-        if element == self.root.value:
-            self.root = Node(None)
-            return
-        self._remove_side_node(self.root, element)
+        if self.find(element):
+            if element == self.root.value:
+                self.root = None
+            else:
+                self._remove(element, self.root)
+        else:
+            raise ValueError
 
-    def _remove_side_node(self, root: 'Node', element: int):
+    def _remove(self, element, node):
         """
-        Auxiliary recursive function to find the right node for removal
-        :param root: current node to search the element in
-        :param element: element to remove from the tree
+        Recursive method remove
         """
-        if root.left and root.left.root == element:
-            root.left = None
-            return
-        if root.right and root.right.root == element:
-            root.right = None
-            return
-        if element < root.value:
-            self._remove_side_node(root.left, element)
-        elif element > root.value:
-            self._remove_side_node(root.right, element)
+        if element < node.value and node.left:
+            if element == node.left.value:
+                node.left = None
+            else:
+                self._remove(element, node.left)
+        elif element > node.value and node.right:
+            if element == node.right.value:
+                node.right = None
+            else:
+                self._remove(element, node.right)
 
     def find(self, element):
         """
