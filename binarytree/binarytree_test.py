@@ -108,7 +108,7 @@ class NodeTestCase(unittest.TestCase):
         nodes = [70, 31, 93, 94, 14, 23, 73]
         for element in nodes:
             tree.add(element)
-        self.assertEqual(tree.find(14), False)
+        self.assertEqual(tree.find(50), False)
 
     def test_find_element_in_empty_tree(self):
         """
@@ -142,5 +142,5 @@ class NodeTestCase(unittest.TestCase):
         nodes = [70, 31, 93, 94, 14, 23, 73]
         for element in nodes:
             tree.add(element)
-        tree.remove(33)
+        tree.remove(23)
         self.assertEqual(tree.get_height(), 2)
