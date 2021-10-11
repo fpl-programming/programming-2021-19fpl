@@ -27,9 +27,11 @@ class BinarySearchTree:
         if element < current_node.value and not current_node.left:
             current_node.left = Node(element)
             current_node.left.parent = current_node
+            return None
         elif element > current_node.value and not current_node.right:
             current_node.right = Node(element)
             current_node.right.parent = current_node
+            return None
         else:
             current_node = (current_node.left if element < current_node.value
                             else current_node.right)
@@ -51,7 +53,7 @@ class BinarySearchTree:
                 current_node.parent.left = None
             elif current_node.parent and current_node.value == current_node.parent.right.value:
                 current_node.parent.right = None
-            return
+            return None
         if not current_node.right and not current_node.left:
             raise ValueError
         current_node = current_node.left if element < current_node.value else current_node.right
