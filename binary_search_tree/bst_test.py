@@ -2,7 +2,7 @@
 Tests for BinarySearchTree class.
 """
 
-
+# pylint: disable=W0105
 import unittest
 
 from binary_search_tree.bst import BinarySearchTree, Node, NoNodeError, EmptyError
@@ -22,13 +22,6 @@ class NodeTestCase(unittest.TestCase):
             node = Node(element)
             self.assertEqual(node.element, element)
 
-    '''def test_raise_type_error(self):
-        """
-        Raising Type error in Node
-        """
-        elements = ['123', [], (), {}, 2.5]
-        for element in elements:
-            self.assertRaises(ValueError, Node, element)'''
 
     class BinarySearchTreeTestCase(unittest.TestCase):
         """
