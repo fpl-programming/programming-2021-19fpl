@@ -26,11 +26,12 @@ class BinaryTree:
             self.root.root = node
         else:
             if node.root < root.root:
-                 root.left = self.add(root.left, node)
+                root.left = self.add(root.left, node)
             elif node.root > root.root:
-                 root.right = self.add(root.right, node)
+                root.right = self.add(root.right, node)
             else:
-                 raise ValueError
+                raise ValueError
+        return True
 
     def delete(self, root: Node, node: Node):
         """
