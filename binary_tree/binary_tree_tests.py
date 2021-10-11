@@ -5,7 +5,7 @@ Tests for BinarySearchTree and Node classes.
 
 import unittest
 
-from binary_search_tree.binary_search_tree import Node, BinarySearchTree, \
+from binary_tree.binary_tree import Node, BinarySearchTree, \
                     EmptyTreeError, DuplicateError, NonExistentNodeError
 
 
