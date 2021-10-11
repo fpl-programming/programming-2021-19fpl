@@ -118,3 +118,4 @@ class TreeUnitTestCase(unittest.TestCase):
         bad_input = ["None", 1.2345, [], {}, None]
         for val in bad_input:
             self.assertRaises(ValueError, tree.insert, val)
+

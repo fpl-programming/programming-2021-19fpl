@@ -173,13 +173,12 @@ class Tree:
         self._dfs(self.root, callback)
 
     def _dfs(self, node, callback):
-       """
-       dfs recursive method
-       """
+        """
+        dfs recursive method
+        """
         if node is None:
             return
         else:
             self._dfs(node.get_left(), callback)
             callback(node.get_value())
             self._dfs(node.get_right(), callback)
-    
