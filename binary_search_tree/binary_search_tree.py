@@ -60,7 +60,8 @@ class BinarySearchTree:
                 current_node = current_node.right if current_node.right else current_node.left
             if current_node.parent.left and current_node.value == current_node.parent.left.value:
                 current_node.parent.left = None
-            elif current_node.parent.right and current_node.value == current_node.parent.right.value:
+            elif (current_node.parent.right
+                  and current_node.value == current_node.parent.right.value):
                 current_node.parent.right = None
             return None
         current_node = current_node.left if element < current_node.value else current_node.right
