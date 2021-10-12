@@ -112,3 +112,50 @@ class BinaryTreeTestCase(unittest.TestCase):
         """
         tree = BinaryTree(8)
         self.assertRaises(ValueError, tree.delete_node, 10)
+
+    def test_get_height(self):
+        """
+        Tests that the height of the single node tree equals one.
+        """
+        tree = BinaryTree(8)
+        self.assertEqual(tree.get_max_tree_height(), 1)
+
+    def test_get_height_of_empty_tree(self):
+        """
+        Tests that the height of an empty tree equals zero.
+        """
+        tree = BinaryTree()
+        self.assertEqual(tree.get_max_tree_height(), 0)
+
+    def test_get_height_of_deep_tree(self):
+        """
+        Tests that the height of deep tree is calculated properly.
+        """
+        tree = BinaryTree(8)
+        for node in [10, 9, 11, 12]:
+            tree.add_node(node)
+        self.assertEqual(tree.get_max_tree_height(), 4)
+
+    def test_got_through_tree(self):
+        """
+        Tests that the single node of tree is found.
+        """
+        tree = BinaryTree(8)
+        self.assertEqual(tree.go_wide()[0].node, 8)
+
+    def test_go_through_deep_tree(self):
+        """
+        Tests that the single node of tree is found.
+        """
+        tree = BinaryTree(8)
+        for node in [6, 10, 5, 7, 9, 11]:
+            tree.add_node(node)
+        for node, value in zip(tree.go_wide(), [8, 6, 10, 5, 7, 9, 11]):
+            self.assertEqual(node.node, value)
+
+    def test_go_trough_empty_tree(self):
+        """
+        Tests that an error is raised when trying to go through an empty tree.
+        """
+        tree = BinaryTree()
+        self.assertRaises(ValueError, tree.go_wide)

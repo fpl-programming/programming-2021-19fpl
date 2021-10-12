@@ -28,9 +28,6 @@ class BinaryTree:
     def _add_node_recursive(self, node, node_to_add):
         """
         Hidden function for recursive search
-        :param node:
-        :param added_node:
-        :return:
         """
         if node.node:
             if node_to_add < node.node and node.left:
@@ -46,7 +43,6 @@ class BinaryTree:
     def add_node(self, node_to_add):
         """
         Add the new node by means of binary search algorithm
-        :return:
         """
         if not self.root.node:
             self.root= Node(node_to_add)
@@ -55,26 +51,26 @@ class BinaryTree:
     def delete_node(self, node_to_delete, node=None):
         """
         Delete the node by means of binary search algorithm
-        :return:
         """
         current_node = node
         if not current_node:
             current_node = self.root
-        if node_to_delete < current_node.node and current_node.left:
-            self.delete_node(node_to_delete, current_node.left)
-        elif node_to_delete > current_node.node and current_node.right:
-            self.delete_node(node_to_delete, current_node.right)
-        elif (node_to_delete < current_node.node and not current_node.left) or \
-                (node_to_delete > current_node.node and not current_node.right):
-            raise ValueError("There is no such node in the tree")
-        current_node.node = None
-        current_node.right = None
-        current_node.left = None
+        if current_node.node:
+            if node_to_delete < current_node.node and current_node.left:
+                self.delete_node(node_to_delete, current_node.left)
+            elif node_to_delete > current_node.node and current_node.right:
+                self.delete_node(node_to_delete, current_node.right)
+            elif (node_to_delete < current_node.node and not current_node.left) or \
+                    (node_to_delete > current_node.node and not current_node.right):
+                raise ValueError("There is no such node in the tree")
+            else:
+                current_node.node = None
+                current_node.right = None
+                current_node.left = None
 
     def search_node(self, searched_node):
         """
         Search the node with the specified value of the key feature
-        :return:
         """
         current_root = self.root
         while current_root and current_root.node:
@@ -89,7 +85,6 @@ class BinaryTree:
     def get_max_tree_height(self, node=None):
         """
         Get the maximum height of the tree
-        :return:
         """
         h_left = 0
         h_right = 0
@@ -109,3 +104,25 @@ class BinaryTree:
         if h_right <= h_left:
             return h_left
         return h_right
+
+    def go_wide(self):
+        """
+        Go through the tree in width.
+        """
+        if not self.root.node:
+            raise ValueError("The tree is empty. Can't go threw the tree.")
+        if not self.root.right and not self.root.left:
+            return [self.root]
+        nodes_of_level = [self.root]
+        all_nodes = []
+        while nodes_of_level:
+            for node in nodes_of_level:
+                if node.left:
+                    nodes_of_level.append(node.left)
+                if node.right:
+                    nodes_of_level.append(node.right)
+            for node in nodes_of_level:
+                if node.node:
+                    all_nodes.append(node)
+            nodes_of_level = []
+        return all_nodes
