@@ -47,7 +47,7 @@ class BinarySearchTree:
                     node.right_element = Node(element)
                 self.add(node.right_element, element)
             else:
-                if node.left.element is None:
+                if node.left_element is None:
                     node.left_element = Node(element)
                 self.add(node.left_element, element)
 
