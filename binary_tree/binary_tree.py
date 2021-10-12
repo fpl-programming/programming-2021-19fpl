@@ -25,28 +25,28 @@ class Node:
        lint problem
        """
 
-class BinarySearchTree:
+class BinarySearchTree():
     """
     Binary Search Tree data structure
     """
 
-    def __init__(self, root: int = None):
-        self.root = root
+    def __init__(self):
+        self.root = None
 
-    def add(self, element, node=None):
+    def add(self, node, element):
         """
         Add the element to the Binary Search Tree
         """
         if self.root is None:
             self.root = Node(element)
         else:
-            if node is None:
+             if node is None:
                 node = self.root
-            if element > node.element:
-                if node.right_element is None:
-                    node.right_element = Node(element)
-                self.add(node.right_element, element)
-            else:
+             if element > node.element:
+                 if node.right_element is None:
+                      node.right_element = Node(element)
+                 self.add(node.right_element, element)
+             else:
                 if node.left_element is None:
                     node.left_element = Node(element)
                 self.add(node.left_element, element)
