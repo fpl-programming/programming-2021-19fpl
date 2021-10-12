@@ -113,7 +113,6 @@ class BinaryTree:
             raise ValueError("The tree is empty. Can't go threw the tree.")
         if not self.root.right and not self.root.left:
             return [self.root]
-        nodes_of_level = [self.root]
         nodes_of_next_level = [self.root]
         all_nodes = []
         while nodes_of_next_level:

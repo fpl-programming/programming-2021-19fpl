@@ -12,7 +12,7 @@ if __name__ == "__main__":
         tree.add_node(node)
     for node in [6, 10, 5, 7, 9, 11]:
         print("Searching", node, "we've found", tree.search_node(node).node)
-    tree.delete_node(10)
+    #tree.delete_node(10)
     print('\n')
     for node in [8, 6, 10, 5, 7, 9, 11]:
         print("Searching", node, "we've found", tree.search_node(node).node)
