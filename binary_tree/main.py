@@ -23,7 +23,6 @@ class BinaryTree:
     """
 
     def __init__(self, root=None):
-        self.name = str(root)
         self.root = Node(root)
 
     def _add_node_recursive(self, node, node_to_add):
@@ -65,10 +64,12 @@ class BinaryTree:
             self.delete_node(node_to_delete, current_node.left)
         elif node_to_delete > current_node.node and current_node.right:
             self.delete_node(node_to_delete, current_node.right)
-        if node_to_delete < current_node.node:
-            current_node.left = Node(None)
-        elif node_to_delete > current_node.node:
-            current_node.right = Node(None)
+        elif (node_to_delete < current_node.node and not current_node.left) or \
+                (node_to_delete > current_node.node and not current_node.right):
+            raise ValueError("There is no such node in the tree")
+        current_node.node = None
+        current_node.right = None
+        current_node.left = None
 
     def search_node(self, searched_node):
         """
@@ -76,15 +77,14 @@ class BinaryTree:
         :return:
         """
         current_root = self.root
-        while True:
+        while current_root and current_root.node:
             if current_root and searched_node < current_root.node:
                 current_root = current_root.left
             elif current_root and searched_node > current_root.node:
                 current_root = current_root.right
             elif current_root:
                 return Node(current_root.node)
-            else:
-                return Node(None)
+        return Node(None)
 
     def get_max_tree_height(self, node=None):
         """
