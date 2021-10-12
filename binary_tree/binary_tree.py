@@ -40,8 +40,6 @@ class BinarySearchTree:
         if self.root is None:
             self.root = Node(element)
         else:
-            if self.find(element):
-                raise ValueError
             if node is None:
                 node = self.root
             if element > node.element:
