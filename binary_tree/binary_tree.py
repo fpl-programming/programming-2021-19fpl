@@ -7,17 +7,23 @@ Implementation of the data structure Binary Search Tree
 
 class Node:
     """
-    Node Data Structure
+    A class for nodes
     """
 
-    def __init__(self, root: int):
-        if not isinstance(root, int):
-            raise TypeError
+    def __init__(self, value=None):
+       self.value = value
+       self.right = None
+       self.left = None
 
-        self.root = root
-        self.left = None
-        self.right = None
-        self.parent = None
+    def first_method(self):
+      """
+      lint problem
+      """
+
+    def second_method(self):
+       """
+       lint problem
+       """
 
 class BinarySearchTree:
     """
