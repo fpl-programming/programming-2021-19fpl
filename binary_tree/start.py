@@ -8,7 +8,7 @@ from binary_tree.main import BinaryTree
 
 if __name__ == "__main__":
     tree = BinaryTree(8)
-    for node in [6, 10, 5, 7, 9, 11]:
+    for node in [6, 10, 5, 7, 9, 11, 12, 13]:
         tree.add_node(node)
     for node in [6, 10, 5, 7, 9, 11]:
         print("Searching", node, "we've found", tree.search_node(node).node)
