@@ -62,7 +62,7 @@ class BinaryTreeTestCase(unittest.TestCase):
 
     def test_search_node(self):
         """
-        Tests that particular node can be find
+        Tests that particular node can be find.
         """
         tree = BinaryTree(8)
         tree.add_node(9)
@@ -71,21 +71,21 @@ class BinaryTreeTestCase(unittest.TestCase):
 
     def test_search_in_empty_tree(self):
         """
-        Tests that the program can handle a search in empty tree
+        Tests that the program can handle a search in empty tree.
         """
         tree = BinaryTree()
         self.assertEqual(tree.search_node(10).node, None)
 
     def test_search_nonexistent_node(self):
         """
-        Tests that the program can't find a nonexistent node
+        Tests that the program can't find a nonexistent node.
         """
         tree = BinaryTree(8)
         self.assertEqual(tree.search_node(10).node, None)
 
     def test_delete_node(self):
         """
-        Tests that particular node is deleted
+        Tests that particular node is deleted.
         """
         tree = BinaryTree(8)
         tree.add_node(9)
@@ -94,6 +94,9 @@ class BinaryTreeTestCase(unittest.TestCase):
         self.assertEqual(tree.search_node(9).node, None)
 
     def test_delete_node_with_descendants(self):
+        """
+        Tests that descendant nodes are deleted.
+        """
         tree = BinaryTree(8)
         for node in [10, 9, 11]:
             tree.add_node(node)
@@ -104,5 +107,8 @@ class BinaryTreeTestCase(unittest.TestCase):
         self.assertEqual(tree.search_node(11).node, None)
 
     def test_delete_nonexistent_node(self):
+        """
+        Tests that the error is raised when trying to delete a nonexistent node.
+        """
         tree = BinaryTree(8)
         self.assertRaises(ValueError, tree.delete_node, 10)
