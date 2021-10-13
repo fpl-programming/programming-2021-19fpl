@@ -16,6 +16,16 @@ class TreeNode:
         self.left = None
         self.right = None
 
+    def first_method(self):
+        """
+        Fix error
+        """
+
+    def second_method(self):
+        """
+        Fix error
+        """
+
 
 class BinarySearchTree:
     """
