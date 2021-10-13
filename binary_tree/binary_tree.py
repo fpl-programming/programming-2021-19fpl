@@ -27,9 +27,9 @@ class Node:
         """
 
 class BinarySearchTree:
-      """
-      Binary Search Tree data structure
-      """
+    """
+        Binary Search Tree data structure
+        """
 
     def __init__(self, root: int = None):
         self.root = root
