@@ -57,68 +57,68 @@ class Node:
                     else:
                         self.add(element, node.right_node)
 
-                def remove(self, element, node=None):
-                    """
-                    Remove the required node from Binary Tree
-                    """
-                    if self.root is None:
-                        raise EmptyError
+        def remove(self, element, node=None):
+            """
+            Remove the required node from Binary Tree
+            """
+            if self.root is None:
+                raise EmptyError
 
-                    if self.find(element) is True:
-                        if node is None:
-                            node = self.root
-                        if element < node.element and node.left_node:
-                            if node.left_node.element == element:
-                                node.left_node = None
-                            else:
-                                self.remove(element, node.left_node)
-                        if element > node.element and node.right_node:
-                            if node.right_node.element == element:
-                                node.right_node = None
-                            else:
-                                self.remove(element, node.right_node)
-                        else:
-                            raise NoNodeError
-
-                def find(self, element, node=None):
-                     """
-                             Find if this element is in Binary Search Tree
-                             """
-                     if self.root is None:
-                         raise EmptyError
-
-                     if node is None:
-                         node = self.root
-                     if node.element == element:
-                         return True
-                     if not node.left_node or node.right_node:
-                         return False
-                     if element < node.element and node.left_node:
-                         return self.find(element, node.left_node)
-                     if element > node.element and node.right_node:
-                         return self.find(element, node.right_node)
-                     return False
-
-                def get_height(self, root: 'Node' = None, current_max: int = 0):
-                    """
-                            Get a height of Binary Tree
-                            :return: number of levels in the tree
-                            """
-                    if root is None:
-                        raise EmptyError
-
-                    if root.left_node:
-                        left_max = self.get_height(root.left_node, current_max + 1)
+            if self.find(element) is True:
+                if node is None:
+                    node = self.root
+                if element < node.element and node.left_node:
+                    if node.left_node.element == element:
+                        node.left_node = None
                     else:
-                        left_max = current_max
-
-                    if root.right_node:
-                        right_max = self.get_height(root.right_node, current_max + 1)
+                        self.remove(element, node.left_node)
+                if element > node.element and node.right_node:
+                    if node.right_node.element == element:
+                        node.right_node = None
                     else:
-                        right_max = current_max
+                        self.remove(element, node.right_node)
+            else:
+                raise NoNodeError
 
-                    current_max = (max(left_max, right_max))
-                    return current_max
+        def find(self, element, node=None):
+            """
+            Find if this element is in Binary Search Tree
+            """
+            if self.root is None:
+                raise EmptyError
+
+            if node is None:
+                node = self.root
+            if node.element == element:
+                return True
+            if not node.left_node or node.right_node:
+                return False
+            if element < node.element and node.left_node:
+                return self.find(element, node.left_node)
+            if element > node.element and node.right_node:
+                return self.find(element, node.right_node)
+            return False
+
+        def get_height(self, root: 'Node' = None, current_max: int = 0):
+            """
+            Get a height of Binary Tree
+            :return: number of levels in the tree
+            """
+            if root is None:
+               raise EmptyError
+
+            if root.left_node:
+                left_max = self.get_height(root.left_node, current_max + 1)
+            else:
+                left_max = current_max
+
+            if root.right_node:
+                right_max = self.get_height(root.right_node, current_max + 1)
+            else:
+                right_max = current_max
+
+            current_max = (max(left_max, right_max))
+            return current_max
 
 class EmptyError(Exception):
     """
