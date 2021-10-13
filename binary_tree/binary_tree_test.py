@@ -28,9 +28,9 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             self.assertRaises(ValueError, Node, element)
 
     class BinarySearchTreeTestCase(unittest.TestCase):
-          """
-          This Case of tests checks the functionality of the implementations of BinarySearchTree.
-          """
+        """
+               This Case of tests checks the functionality of the implementations of BinarySearchTree.
+               """
 
         def test_tree_creation(self):
             """
