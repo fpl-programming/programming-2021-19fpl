@@ -51,10 +51,11 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         Create a BinarySearchTree.
         Test that find function return True in case when element is found
         """
-        element = 3
         binary_tree = BinarySearchTree()
-        binary_tree.add(element)
-        self.assertEqual(binary_tree.find(element), 3)
+        binary_tree.add(2)
+        binary_tree.add(3)
+        binary_tree.add(4)
+        self.assertTrue(binary_tree.find(13))
 
     def test_remove_element(self):
         """
