@@ -55,7 +55,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         binary_tree.add(2)
         binary_tree.add(3)
         binary_tree.add(4)
-        self.assertTrue(binary_tree.find(13), True)
+        self.assertTrue(binary_tree.find(3))
 
     def test_remove_element(self):
         """
