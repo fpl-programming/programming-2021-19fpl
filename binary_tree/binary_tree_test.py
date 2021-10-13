@@ -5,7 +5,7 @@ Tests for BinarySearchTree class
 
 
 import unittest
-from binary_tree.binary_tree import Node, BinarySearchTree, EmptyError, NoNodeError
+from binary_tree.binary_tree import Node, BinarySearchTree
 
 class BinarySearchTreeTestCase(unittest.TestCase):
     """
