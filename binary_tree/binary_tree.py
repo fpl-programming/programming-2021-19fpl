@@ -75,8 +75,7 @@ class BinarySearchTree:
             return node
         elif value < node.value and node.left is not None:
             return self.find_(value, node.left)
-        elif value > node.value and node.right is not None:
-            return self.find_(value, node.right)
+        return self.find_(value, node.right)
 
     def get_height(self, node=None):
         """
