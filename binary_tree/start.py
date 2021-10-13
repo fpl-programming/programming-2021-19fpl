@@ -10,7 +10,7 @@ if __name__ == '__main__':
     for element in nodes:
         tree.add(element)
     print(tree.get_height())
-    tree.remove(2)
+    tree.remove(67)
     print(tree.get_height())
 
     RESULT = tree.find(15)

@@ -9,7 +9,6 @@ class TreeNode:
     """
     Node Structure
     """
-
     def __init__(self, value: int):
         if not isinstance(value, int):
             raise ValueError
@@ -56,8 +55,6 @@ class BinarySearchTree:
         """
         if self.root is not None:
             return self.find_(value, self.root)
-        else:
-            return None
 
     def find_(self, value, node):
         """
@@ -70,7 +67,7 @@ class BinarySearchTree:
         elif value > node.value and node.right is not None:
             return self.find_(value, node.right)
 
-    def get_height(self, node):
+    def get_height(self, node=None):
         """
         Find the top of the tree
         """
