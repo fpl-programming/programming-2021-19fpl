@@ -73,7 +73,7 @@ class BinarySearchTree:
         """
         if value == node.value:
             return node
-        elif value < node.value and node.left is not None:
+        elif value > node.value and node.right is not None:
             return self.find_(value, node.left)
         return self.find_(value, node.right)
 
