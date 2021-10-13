@@ -15,7 +15,7 @@ class Node:
         self.left = None
         self.right = None
 
-    def insert_left(self, node):
+    def insert_left(self, node: 'Node'):
         """
         Create left child for a node
         :param node: node to turn into left child
@@ -24,7 +24,7 @@ class Node:
             raise ValueError
         self.left = node
 
-    def insert_right(self, node):
+    def insert_right(self, node: 'Node'):
         """
         Create right child for a node
         :param node: node to turn into right child

@@ -3,10 +3,12 @@
 Implementation of the data structure "Binary Search Tree"
 """
 
+from typing import Iterable
+
 from tree.node import Node
 
 
-class Tree:
+class BinarySearchTree:
     """
     Binary Search Tree Data Structure
     """
@@ -97,23 +99,19 @@ class Tree:
         current_max = max(left_max, right_max)
         return current_max
 
-    def depth_first_search(self, value: int, node: Node = None):
+    def depth_first_search(self, node: Node = None, sequence: Iterable = ()):
         """
         Find if a value is present in a tree using dfs algorithm
-        :param value: sought value
+        :param sequence: list of seen nodes
         :param node: current node in a given recursive iteration
         :return: True if value is present, False otherwise
         """
-        if not isinstance(value, int):
-            raise TypeError
         if not node:
             node = self.root
-        if node.value == value:
-            return True
+            sequence = []
+        sequence.append(node.value)
         if node.left:
-            if self.depth_first_search(value, node.left):
-                return True
+            sequence = self.depth_first_search(node.left, sequence)
         if node.right:
-            if self.depth_first_search(value, node.right):
-                return True
-        return False
+            sequence = self.depth_first_search(node.right, sequence)
+        return sequence
