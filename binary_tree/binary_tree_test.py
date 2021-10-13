@@ -16,8 +16,8 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         """
         Test that node is created correctly.
         """
-        node = Node(9)
-        self.assertEqual(node.data, 9)
+        node = Node(8)
+        self.assertEqual(node.data, 8)
 
     def test_create_node_with_not_int_element(self):
         """
