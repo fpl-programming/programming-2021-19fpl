@@ -27,8 +27,8 @@ class NodeTestCase(unittest.TestCase):
         """
         Checks if the type of the node is correct
         """
-        error = ['Hello', 1]
-        for element in error:
+        error_elements = ['Hello', 1.2]
+        for element in error_elements:
             self.assertRaises(ValueError, TreeNode, element)
 
 
@@ -46,19 +46,15 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         binary_tree.add(element)
         self.assertEqual(binary_tree.root.value, 3)
 
-    def test_find(self):
+    def test_find_element(self):
         """
         Create a BinarySearchTree.
         Test that find function return True in case when element is found
         """
-        tree = BinarySearchTree()
-        one = 1
-        two = 2
-        three = 3
-        tree.add(one)
-        tree.add(two)
-        tree.add(three)
-        self.assertEqual(tree.find(three), True)
+        element = 3
+        binary_tree = BinarySearchTree()
+        binary_tree.add(element)
+        self.assertEqual(binary_tree.find(element), 3)
 
     def test_remove_element(self):
         """
