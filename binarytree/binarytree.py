@@ -60,7 +60,7 @@ class BinaryTree:
                     if node_to_find.value == current_node.right.value:
                         return current_node.right
                     return self.find(node_to_find, current_node.right)
-            return None
+        return None
 
     def remove(self, node_to_remove: Node, current_node: Node = None):
         """
@@ -86,7 +86,7 @@ class BinaryTree:
                     current_node.left = None
                     current_node.right = None
                     return node_to_remove
-            return None
+        return None
 
     def get_height(self, current_node: Node = None, current_height: int = 0):
         """

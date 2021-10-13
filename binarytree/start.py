@@ -26,9 +26,9 @@ if __name__ == '__main__':
         print('\t...trying to find if there is a node with value', random_node.value, '...')
         find_res = binary_tree.find(random_node)
         if find_res:
-            print('Success! The binary tree contains a node with value', random_node.value, '.\n')
+            print('Yes, the tree contains a node with value', random_node.value, '.\n')
         else:
-            print('Uh oh! Seems like no nodes with value', random_node.value, ' in the binary tree :( \n')
+            print('No nodes with value', random_node.value, ' in the binary tree :( \n')
 
     print('\t...calculating how high the binary tree is...')
     height = binary_tree.get_height()
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         if remove_res:
             print('The node with value', random_node.value, 'is removed from the binary tree.\n')
         else:
-            print('Cannot remove a node with value', random_node.value, 'because it is not in the tree.\n')
+            print('Cannot remove a node', random_node.value, 'because it is not in the tree.\n')
 
     if binary_tree.get_height is not None:
         binary_tree.remove(binary_tree.root)
