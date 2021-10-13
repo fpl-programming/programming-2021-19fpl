@@ -18,8 +18,10 @@ class NodeTestCase(unittest.TestCase):
         Creates a node and checks
         if it is correct
         """
-        node = TreeNode(22)
-        self.assertEqual(node.value, 22)
+        nodes = [20, 12, 32, 10, 1, 34, 97]
+        for value in nodes:
+            node = TreeNode(value)
+            self.assertEqual(node.value, value)
 
     def test_type_of_node(self):
         """
@@ -34,22 +36,6 @@ class BinarySearchTreeTestCase(unittest.TestCase):
     """
     This Case of tests checks the functionality of the implementations of BinarySearchTree
     """
-
-    def test_tree_creation(self):
-        """
-        Tests if binary tree is correct
-        """
-        tree = BinarySearchTree(0)
-        self.assertEqual(tree.root, 0)
-
-    def test_binary_search_tree_add_element(self):
-        """
-        Create an empty BinarySearchTree and add an element.
-        Test that add function adds new element to tree
-        """
-        tree = BinarySearchTree()
-        tree.add(5)
-        self.assertEqual(tree.find(5), True)
 
     def test_add_element(self):
         """

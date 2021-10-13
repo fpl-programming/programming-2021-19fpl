@@ -10,7 +10,7 @@ class TreeNode:
     Node Structure
     """
 
-    def __init__(self, value):
+    def __init__(self, value: int):
         if not isinstance(value, int):
             raise ValueError
         self.value = value
@@ -65,9 +65,9 @@ class BinarySearchTree:
         """
         if value == node.value:
             return node
-        elif (value < node.value and node.left is not None):
+        elif value < node.value and node.left is not None:
             return self.find_(value, node.left)
-        elif (value > node.value and node.right is not None):
+        elif value > node.value and node.right is not None:
             return self.find_(value, node.right)
 
     def get_height(self, node):
@@ -86,7 +86,7 @@ class BinarySearchTree:
             right_h = 0
         return 1 + max(left_h, right_h)
 
-    def remove(self, element, node):
+    def remove(self, element):
         """
         Remove the element from BinarySearchTree
         """
