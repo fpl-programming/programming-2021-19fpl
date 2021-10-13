@@ -105,7 +105,7 @@ class Node:
             :return: number of levels in the tree
             """
             if root is None:
-               raise EmptyError
+                raise EmptyError
 
             if root.left_node:
                 left_max = self.get_height(root.left_node, current_max + 1)
