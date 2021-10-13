@@ -14,40 +14,42 @@ class Node:
         self.left = None
         self.right = None
 
-    def add(self, element):
+    def add(self, element: int):
         """
         Add element data as node's child
         """
         if self.value == element:
-            return 0
+            return False
 
         if self.value > element:
             if self.left:
                 return self.left.add(element)
+
             self.left = Node(element)
-            return 1
+            return True
 
         if self.right:
             return self.right.add(element)
 
         self.right = Node(element)
-        return 1
+        return True
 
-    def find(self, element):
+    def find(self, element: int):
         """
         Find element in the node.
         """
         if self.value == element:
-            return 1
+            return True
 
         if self.value > element:
             if self.left:
                 return self.left.find(element)
-            return 0
+            return False
 
         if self.right:
             return self.right.find(element)
-        return 0
+
+        return False
 
     def get_height(self):
         """
@@ -62,7 +64,7 @@ class Node:
         if self.right:
             return 1 + self.right.get_height()
 
-        return 1
+        return True
 
     def depth_in_order(self):
         """
@@ -95,22 +97,25 @@ class BinarySearchTree:
 
         if self.root:
             return self.root.add(element)
-        self.root = Node(element)
-        return 1
 
-    def remove(self, element):
+        self.root = Node(element)
+        return True
+
+    def remove(self, element: int):
         """
         Remove the element from the binary tree
         """
         if self.find(element):
             if element == self.root.value:
                 self.root = None
+                return True
             else:
                 self._remove(element, self.root)
+                return True
         else:
-            raise ValueError
+            return False
 
-    def _remove(self, element, node):
+    def _remove(self, element: int, node):
         """
         Recursive method remove
         """
@@ -125,7 +130,7 @@ class BinarySearchTree:
             else:
                 self._remove(element, node.right)
 
-    def find(self, element):
+    def find(self, element: int):
         """
         Return whether there is element in BinarySearchTree or not
         :return: True if there is element in BinarySearchTree
@@ -136,7 +141,8 @@ class BinarySearchTree:
 
         if self.root:
             return self.root.find(element)
-        return 0
+
+        return False
 
     def get_height(self):
         """
@@ -144,6 +150,7 @@ class BinarySearchTree:
         """
         if self.root:
             return self.root.get_height()
+
         return 0
 
     def depth_in_order(self):
