@@ -108,10 +108,11 @@ class BinarySearchTree:
         if self.find(element):
             if element == self.root.value:
                 self.root = None
-                return True
+
             else:
                 self._remove(element, self.root)
-                return True
+
+            return True
         else:
             raise ValueError
 
