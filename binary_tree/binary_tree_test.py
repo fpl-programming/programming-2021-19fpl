@@ -4,7 +4,7 @@ Tests for the Binary search tree class.
 
 import unittest
 
-from binary_tree import BinarySearchTree, Node
+from binary_tree.binary_tree import BinarySearchTree, Node
 
 
 class BinaryTreeTestCase(unittest.TestCase):
