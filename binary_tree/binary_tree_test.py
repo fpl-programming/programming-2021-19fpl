@@ -28,10 +28,10 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         for element in elements:
             self.assertRaises(ValueError, Node, element)
 
-   class BinarySearchTreeTestCase(unittest.TestCase):
-      """
-      This Case of tests checks the functionality of the implementations of BinarySearchTree.
-      """
+    class BinarySearchTreeTestCase(unittest.TestCase):
+       """
+       This Case of tests checks the functionality of the implementations of BinarySearchTree.
+       """
 
        def test_tree_creation(self):
            """
