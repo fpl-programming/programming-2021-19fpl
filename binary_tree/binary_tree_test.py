@@ -74,7 +74,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             """
             Get the height of the  binary tree
             """
-            tree = BinaryTree()
+            tree = BinarySearchTree()
             tree.add(None, 7)
             tree.add(None, 10)
             tree.add(None, 6)
