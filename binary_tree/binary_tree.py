@@ -10,7 +10,6 @@ class TreeNode:
     Node Structure
     """
 
-
     def __init__(self, value):
         if not isinstance(value, int):
             raise ValueError
@@ -38,7 +37,7 @@ class BinarySearchTree:
 
     def add_(self, value, node):
         """
-        Add element to the tree
+        Add element to the tree (recursive method)
         """
         if value < node.value:
             if node.left is not None:
@@ -62,7 +61,7 @@ class BinarySearchTree:
 
     def find_(self, value, node):
         """
-        Find element in the tree
+        Find element in the tree (recursive method)
         """
         if value == node.value:
             return node
@@ -87,7 +86,7 @@ class BinarySearchTree:
             right_h = 0
         return 1 + max(left_h, right_h)
 
-    def remove(self, node, element):
+    def remove(self, element, node):
         """
         Remove the element from BinarySearchTree
         """
@@ -99,17 +98,17 @@ class BinarySearchTree:
         else:
             raise ValueError
 
-        def remove_(self, element, node):
-            """
-            Remove the element from BinarySearchTree
-            """
-            if element < node.value and node.left:
-                if element == node.left.value:
-                    node.left = None
-                else:
-                    self.remove_(element, node.left)
-            elif element > node.value and node.right:
-                if element == node.right.value:
-                    node.right = None
-                else:
-                    self.remove_(element, node.right)
+    def remove_(self, element, node):
+        """
+        Remove the element from BinarySearchTree (recursive method)
+        """
+        if element < node.value and node.left:
+            if element == node.left.value:
+                node.left = None
+            else:
+                self.remove_(element, node.left)
+        elif element > node.value and node.right:
+            if element == node.right.value:
+                node.right = None
+            else:
+                self.remove_(element, node.right)

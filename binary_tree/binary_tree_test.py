@@ -65,9 +65,9 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         Test that find function return True in case when element is found
         """
         tree = BinarySearchTree()
-        one = 6
-        two = 3
-        three = 10
+        one = 1
+        two = 2
+        three = 3
         tree.add(one)
         tree.add(two)
         tree.add(three)
