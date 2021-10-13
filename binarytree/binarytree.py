@@ -9,81 +9,84 @@ class BinaryTree:
     """
     Binary Tree Data structure
     """
-    def __init__(self, root: int = None):
+    def __init__(self, root=None):
         self.root = None
-        if isinstance(root, int):
+        if isinstance(root, Node):
+            self.root = root
+        elif isinstance(root, int):
             self.root = Node(root)
         self.dfs_nodes = []
 
-    def add(self, value: int):
+    def add(self, node_to_add: Node, current_node: Node = None):
         """
-        Add the value to the certain place in the binary tree
-        :param value: value to add to the binary tree
+        Add a node to the certain place in the binary tree
+        :param node_to_add: node to add to the binary tree
+        :param current_node: the node in the current recursive iteration
         """
-        def add_recursive(value_to_add, current_node):
-            if value_to_add < current_node.value:
-                if current_node.left is None:
-                    current_node.add_left(Node(value_to_add))
-                add_recursive(value_to_add, current_node.left)
-            elif value_to_add > current_node.value:
-                if current_node.right is None:
-                    current_node.add_right(Node(value_to_add))
-                add_recursive(value_to_add, current_node.right)
-
-        if not isinstance(value, int):
-            raise ValueError('Binary tree contains only integers')
+        if not isinstance(node_to_add, Node):
+            raise ValueError('Binary tree contains only Node instances')
         if self.root is None or self.root.value is None:
-            self.root = Node(value)
-        else:
-            add_recursive(value, self.root)
+            self.root = node_to_add
+        if not current_node:
+            current_node = self.root
+        if node_to_add.value < current_node.value:
+            if current_node.left is None:
+                current_node.add_left(node_to_add)
+            self.add(node_to_add, current_node.left)
+        elif node_to_add.value > current_node.value:
+            if current_node.right is None:
+                current_node.add_right(node_to_add)
+            self.add(node_to_add, current_node.right)
 
-    def find(self, value: int):
+    def find(self, node_to_find: Node, current_node: Node = None):
         """
-        Find if a value is in the binary tree
-        :param value: the value of the node to be found in the binary tree
-        :return: the value of the sought node if the binary tree contains it
+        Find if a node is in the binary tree
+        :param node_to_find: the node to be found in the binary tree
+        :param current_node: the node in the current recursive iteration
+        :return: the sought node if the binary tree contains it
         """
-        def find_recursive(value_to_find, current_node):
-            if value_to_find == current_node.value:
-                return current_node.value
-            if value_to_find < current_node.value:
+        if self.root is not None and isinstance(node_to_find, Node):
+            if not current_node:
+                current_node = self.root
+            if node_to_find.value == current_node.value:
+                return current_node
+            if node_to_find.value < current_node.value:
                 if current_node.left is not None:
-                    if value_to_find == current_node.left.value:
-                        return current_node.left.value
-                    return find_recursive(value_to_find, current_node.left)
-            if value_to_find > current_node.value:
+                    if node_to_find.value == current_node.left.value:
+                        return current_node.left
+                    return self.find(node_to_find, current_node.left)
+            if node_to_find.value > current_node.value:
                 if current_node.right is not None:
-                    if value_to_find == current_node.right.value:
-                        return current_node.right.value
-                    return find_recursive(value_to_find, current_node.right)
+                    if node_to_find.value == current_node.right.value:
+                        return current_node.right
+                    return self.find(node_to_find, current_node.right)
             return None
 
-        if self.root is not None and isinstance(value, int):
-            return find_recursive(value, self.root)
-
-    def remove(self, value: int):
+    def remove(self, node_to_remove: Node, current_node: Node = None):
         """
         Remove the node and its descendants from the binary tree and return the node value
-        :param value: the value of the node to remove from the binary tree
-        :return: the value of the node if it has been removed from the binary tree
+        :param node_to_remove: the node to remove from the binary tree
+        :param current_node: the node in the current recursive iteration
+        :return: the removed node if it has been removed from the binary tree
         """
-        def remove_recursive(value_to_remove, current_node):
+        if self.root is None:
+            raise IndexError('Cannot remove nodes from empty binary tree')
+        if isinstance(node_to_remove, Node):
+            if not current_node:
+                current_node = self.root
             if current_node is not None and current_node.value is not None:
-                if value_to_remove < current_node.value:
-                    return remove_recursive(value_to_remove, current_node.left)
-                if value_to_remove > current_node.value:
-                    return remove_recursive(value_to_remove, current_node.right)
-                if current_node is not None and current_node.value == value_to_remove:
+                if node_to_remove.value < current_node.value:
+                    if current_node.left is not None:
+                        return self.remove(node_to_remove, current_node.left)
+                if node_to_remove.value > current_node.value:
+                    if current_node.right is not None:
+                        return self.remove(node_to_remove, current_node.right)
+                if current_node is not None and current_node.value == node_to_remove.value:
                     current_node.value = None
                     current_node.left = None
                     current_node.right = None
-                    return value_to_remove
+                    return node_to_remove
             return None
-
-        if self.root is None:
-            raise IndexError('Cannot remove nodes from empty binary tree')
-        if isinstance(value, int):
-            return remove_recursive(value, self.root)
 
     def get_height(self, current_node: Node = None, current_height: int = 0):
         """
