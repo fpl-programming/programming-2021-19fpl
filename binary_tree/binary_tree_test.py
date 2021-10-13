@@ -80,4 +80,3 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             tree.add(None, 6)
             self.assertEqual(tree.get_height(None), 2)
 
-
