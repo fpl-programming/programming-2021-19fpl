@@ -77,4 +77,6 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         """
         Checks if element is removed
         """
-        pass
+        tree = BinarySearchTree()
+        tree.add(2)
+        self.assertEqual(tree.remove(2), None)

@@ -73,7 +73,7 @@ class BinarySearchTree:
 
     def get_height(self, node):
         """
-        Finf the top of the tree
+        Find the top of the tree
         """
         if self.root is None:
             print('Root is empty')
@@ -89,6 +89,27 @@ class BinarySearchTree:
 
     def remove(self, node, element):
         """
-        Remove the node from the tree
+        Remove the element from BinarySearchTree
         """
-        pass
+        if self.find(element):
+            if element == self.root.value:
+                self.root = None
+            else:
+                self.remove_(element, self.root)
+        else:
+            raise ValueError
+
+        def remove_(self, element, node):
+            """
+            Remove the element from BinarySearchTree
+            """
+            if element < node.value and node.left:
+                if element == node.left.value:
+                    node.left = None
+                else:
+                    self.remove_(element, node.left)
+            elif element > node.value and node.right:
+                if element == node.right.value:
+                    node.right = None
+                else:
+                    self.remove_(element, node.right)
