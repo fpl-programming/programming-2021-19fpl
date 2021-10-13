@@ -112,9 +112,10 @@ class BinarySearchTree:
             else:
                 self._remove(element, self.root)
 
-            return True
         else:
             raise ValueError
+
+        return True
 
     def _remove(self, element: int, node):
         """
