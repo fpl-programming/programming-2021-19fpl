@@ -55,6 +55,7 @@ class BinarySearchTree:
         """
         if self.root is not None:
             return self.find_(value, self.root)
+        return None
 
     def find_(self, value, node):
         """
