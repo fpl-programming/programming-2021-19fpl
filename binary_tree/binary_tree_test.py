@@ -6,7 +6,7 @@ Tests for BinarySearchTree class
 
 import unittest
 
-from binary_tree.binary_tree import Node, BinarySearchTree
+from binary_tree.binary_tree import Node, BinarySearchTree, EmptyError, NoNodeError
 
 class BinarySearchTreeTestCase(unittest.TestCase):
     """
@@ -28,10 +28,17 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         for element in elements:
             self.assertRaises(ValueError, Node, element)
 
-    class BinarySearchTreeTestCase(unittest.TestCase):
+class BinarySearchTreeTestCase(unittest.TestCase):
         """
         This Case of tests checks the functionality of the implementations of BinarySearchTree.
         """
+
+        def test_tree_creation(self):
+            """
+            Test if a new tree is created correctly
+            """
+            tree = BinarySearchTree(0)
+            self.assertEqual(tree.root, 0)
 
         def test_add_existing_element(self):
             """
@@ -55,7 +62,7 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             Test that find function return True in case when element is found
             """
             tree = BinarySearchTree()
-            node = 6
+            node = 5
             node_left_element = 3
             node_right_element = 7
             tree.add(node)
@@ -72,3 +79,4 @@ class BinarySearchTreeTestCase(unittest.TestCase):
             for element in nodes:
                 tree.add(element)
             self.assertEqual(tree.get_height(), 4)
+
