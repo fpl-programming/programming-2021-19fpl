@@ -41,9 +41,10 @@ class BinarySearchTreeTestCase(unittest.TestCase):
         """
         Tests if the new element is added to the tree
         """
-        tree = BinarySearchTree()
-        tree.add(4)
-        self.assertEqual(tree.find(4), True)
+        element = 3
+        binary_tree = BinarySearchTree()
+        binary_tree.add(element)
+        self.assertEqual(binary_tree.root.value, 3)
 
     def test_find(self):
         """
