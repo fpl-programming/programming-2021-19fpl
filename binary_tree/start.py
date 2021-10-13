@@ -3,7 +3,7 @@ Programming for linguists
 Start script for BinarySearchTree
 """
 
-from binary_tree.binary_tree import BinaryTree
+from binary_tree.binary_tree import BinarySearchTree
 
 if __name__ == '__main__':
     tree = BinarySearchTree()
